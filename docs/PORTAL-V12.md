@@ -194,3 +194,51 @@ See `AMPLIFY-INTEGRATION.md`.
   - a blog post or report
 
   LinkedIn posts, personalised videos and screen recordings are now nice to have, not required.
+
+## Version 12.4
+
+- **The first-login walkthrough is about the method, without Plato.** Ten short screens:
+  1. Hello
+  2. The old way against the permissionless way
+  3. The formula: the right brands × real value first × a steady rhythm = predictable pipeline
+  4. The four steps and their bots
+  5. to 8. One screen per step
+  9. Signals, conversations, pipeline and won, with the proof
+  10. The demo
+
+  Plato stays bottom right inside the portal.
+
+## Version 12.5
+
+- **Campaign performance is its own section** under Results, with a tile per campaign. Each tile shows the week it is in, people reached, brands engaging, conversations and opportunities. Tap one to see:
+  - from reach to revenue, as a funnel
+  - engagement week by week
+  - email, LinkedIn and LinkedIn ads results, each from Amplify, an uploaded CSV or numbers you enter by hand
+  - the opportunities it made and its highest-intent brands
+
+  A deal counts towards the most recent live campaign that had the brand before the deal opened.
+- **Signals is now Signals & Intent.** One prioritised view across all campaigns:
+  - a grid of organisations, each tile listing the people who engaged and what they did
+  - the top three highlighted as "Lean in here first"
+  - filters by campaign and by heat
+
+  Organisations rise faster when more people engage, on more channels, across more campaigns.
+- **The revenue gap.** Signals & Intent opens with what is still to find against target. It then lists the open deals and warm brands not yet in the pipeline that could close the gap.
+- **Scores are harder to earn and follow real intent.** Levels need roughly two and a half times the points they did. Busywork earns very little. Points come mostly from prospects:
+  - engaging
+  - replying (60)
+  - booking meetings (120)
+  - more people at the same organisation engaging
+  - a brand turning hot (80)
+  - deals opened (150) and won (500)
+
+  When a prospect shows intent, a short "Intent spike" moment appears with who did what.
+- **Twelve-week campaigns by default**, so a year is four quarterly campaigns. The Scope & Lens route uses twelve weeks too.
+- **Guides download as proposal-style documents:** A4 portrait, a title block, an "At a glance" table, numbered sections and steps, and a sign-off.
+- **Fixes:**
+  - **Scrolling no longer jumps on its own.** Smooth scrolling on the page made every redraw animate. The team sync also redrew the whole page every two and a half minutes even when nothing had changed. Now it only redraws when something has changed, and never while you type.
+  - **Manage access no longer fails with a 502.** The server kept its storage connection between requests, and its access token expired. It now opens a fresh one each time and retries once.
+  - The sidebar collapses and expands from the button top left. Your choice is remembered.
+  - "Change who you are targeting" sits with the targeting chips on Who to target, styled as a button.
+  - The campaign bar no longer shows the problem pill.
+  - The Plato page has a clear "Back to the dashboard" button at the top.

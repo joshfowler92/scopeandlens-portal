@@ -103,7 +103,7 @@ kbd{font:600 11.5px var(--sans);border:1px solid var(--rule-2);padding:2px 6px;c
 .undo-btn.show{display:inline-flex}
 .undo-btn svg{width:15px;height:15px}
 .burger{display:none}
-.view{flex:1;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;position:relative}
+.view{flex:1;overflow-y:auto;overflow-x:hidden;scroll-behavior:auto;overflow-anchor:none;position:relative}
 .view-inner{padding:34px 34px 120px;max-width:1380px;margin:0 auto}
 .view-inner>*{animation:rise .6s var(--ease) both}
 .view-inner>*:nth-child(2){animation-delay:.05s}.view-inner>*:nth-child(3){animation-delay:.1s}.view-inner>*:nth-child(4){animation-delay:.15s}.view-inner>*:nth-child(5){animation-delay:.2s}.view-inner>*:nth-child(n+6){animation-delay:.25s}

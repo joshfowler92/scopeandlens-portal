@@ -26,7 +26,7 @@ const ONB_STEP={
     li:['Pick the one problem this campaign solves for them.','Choose a gift. Ideas come from your agency profile, your assets and the news on each brand.','Fill the content bank around it, so every touch has something worth opening.'],
     get:'One great gift, and useful content about their problem rather than your credentials.'},
   reach:{say:'I plan how you reach them: which road, how often, and when to be quiet and let them come to you.',
-    li:['Choose your channels, or take the Scope & Lens route: LinkedIn, email, content, events and LinkedIn ads in the background.','I pace it over eight weeks. Never two emails in a week, and a content post every fortnight.','Scan your LinkedIn profile first, so it is ready for the people you are about to connect with.'],
+    li:['Choose your channels, or take the Scope & Lens route: LinkedIn, email, content, events and LinkedIn ads in the background.','I pace it over twelve weeks, one campaign a quarter. Never two emails in a week, and a content post every fortnight.','Scan your LinkedIn profile first, so it is ready for the people you are about to connect with.'],
     get:'A paced journey that feels like a relationship, not a sequence.'},
   launch:{say:'I line up today’s messages. You check them and send them. Ten minutes a day, until they reply.',
     li:['Nothing goes out until the first three steps are done.','Each morning I set out the steps that are due, every message drafted in your voice for that person and their brand.','You send each one yourself and tick it off. On Premium, Amplify can send them for you once you approve.'],

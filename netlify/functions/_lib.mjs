@@ -46,18 +46,21 @@ export function checkPassword(pw, stored) {
 
 // Storage: Netlify Blobs when deployed, an in-memory map when testing locally.
 const mem = new Map();
-let S = null;
+let MEM = null;
+/* A fresh Blobs handle every time: a handle kept across warm invocations carries an access token
+   that expires, which made every later call fail with a 502 ("Failed to decode token: Token expired"). */
 export async function store() {
-  if (S) return S;
+  if (MEM) return MEM;
   try {
     if (process.env.LOCAL_STORE) throw new Error('local');
     const { getStore } = await import('@netlify/blobs');
-    const s = getStore('portal');
-    S = { get: async (k) => (await s.get(k, { type: 'json' })) || null, set: (k, v) => s.setJSON(k, v), del: (k) => s.delete(k), list: async (p) => (await s.list({ prefix: p })).blobs.map(b => b.key) };
+    const open = () => getStore('portal');
+    const retry = async (fn) => { try { return await fn(open()); } catch (e) { if (/token|expired|401|403/i.test(String(e && e.message))) return fn(open()); throw e; } };
+    return { get: (k) => retry(async (s) => (await s.get(k, { type: 'json' })) || null), set: (k, v) => retry((s) => s.setJSON(k, v)), del: (k) => retry((s) => s.delete(k)), list: (p) => retry(async (s) => (await s.list({ prefix: p })).blobs.map(b => b.key)) };
   } catch {
-    S = { get: async (k) => (mem.has(k) ? JSON.parse(mem.get(k)) : null), set: async (k, v) => { mem.set(k, JSON.stringify(v)); }, del: async (k) => { mem.delete(k); }, list: async (p) => [...mem.keys()].filter(k => k.startsWith(p)) };
+    MEM = { get: async (k) => (mem.has(k) ? JSON.parse(mem.get(k)) : null), set: async (k, v) => { mem.set(k, JSON.stringify(v)); }, del: async (k) => { mem.delete(k); }, list: async (p) => [...mem.keys()].filter(k => k.startsWith(p)) };
   }
-  return S;
+  return MEM;
 }
 export async function getUsers() { return (await (await store()).get('users')) || []; }
 export async function saveUsers(u) { await (await store()).set('users', u); }

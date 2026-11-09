@@ -14,7 +14,7 @@ function demoState(base){
   const last=['Hale','Cole','Ward','Okafor','Brennan','Price','Lindqvist','Shah','Morgan','Reyes','Doyle','Harper','Quinn','Ellis'];
   const roles=['CMO','Marketing Director','Head of Brand','Brand Manager','Head of Growth'];
   const news=[['leadership','A new CMO joined from a big retailer this autumn.'],['results','Half-year results flagged a slowdown in new customers.'],['brand','Teased a refreshed look ahead of the spring.'],['expansion','Opening ten new sites across the North next year.']];
-  const camp={id:uid(),name:'Standing out in financial services',created:isoDaysAgo(40),status:'live',launched:isoDaysAgo(18),awJ:1,targets:[],assets:['sameness','assets'],reach:{ch:['linkedin','email','event','mail'],weeks:8,pace:'steady',ads:true,steps:null},sent:{}};
+  const camp={id:uid(),name:'Standing out in financial services',created:isoDaysAgo(40),status:'live',launched:isoDaysAgo(18),awJ:1,targets:[],assets:['sameness','assets'],reach:{ch:['linkedin','email','event','mail'],weeks:12,pace:'steady',ads:true,steps:null},sent:{}};
   const sigPool=['email_open','email_open','email_click','li_accept','li_engage','content','email_click','li_accept','ad_click','ad_engage'];
   orgs.forEach(([name,sk,size],i)=>{
     const a={id:uid(),name,sk,sector:L_SECTORS[sk].label,size,stage:'find',people:[],signals:[],plays:[],notes:'',nextStep:'',watch:false,created:isoDaysAgo(R(30,60))};
