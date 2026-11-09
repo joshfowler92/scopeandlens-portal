@@ -36,7 +36,7 @@ npx netlify-cli link          # choose the scopeandlens.com site
 npx netlify-cli deploy --prod
 ```
 
-**With Git:** push this folder to a GitHub repo and, in Netlify, link the site to it (Site configuration, Build and deploy). There is no build command. `netlify.toml` already sets the publish folder (`site`) and the functions.
+**With Git (how it is set up now):** this folder is the private GitHub repo `joshfowler92/scopeandlens-portal`, linked to the scopeandlens Netlify project (Project configuration, Developer settings, Continuous deployment). Every push to `main` deploys automatically. There is no build command. `netlify.toml` already sets the publish folder (`site`) and the functions.
 
 ## Settings (Netlify, Site configuration, Environment variables)
 
