@@ -2740,6 +2740,26 @@ body:has(.demo-rib) .main{height:auto!important}
 .evt.own-host{display:flex;flex-direction:column;gap:6px;justify-content:center;padding:16px;border:1.5px dashed var(--rule-2)}
 .bsug{display:flex;gap:12px;align-items:center;padding:14px 16px;margin-bottom:24px;border:1.5px dashed var(--brand);background:var(--brand-soft);font-size:14px}.bsug b{display:block}
 .evc2 .evt{aspect-ratio:auto}.evc2 .evt-body{flex:1}.evc2 .evt-n{margin-top:0}.evc2 .evt.own-host{aspect-ratio:auto}
+/* v12.4 walkthrough */
+.onb-flow{display:flex;align-items:stretch;gap:6px;margin-top:6px;flex-wrap:nowrap}
+.of-s{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:12px 8px;border:1.5px solid var(--rule);background:var(--paper);opacity:.9}
+.of-s.on{border-color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand);opacity:1}
+.of-s small{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-top:4px}.of-s b{font-size:14px;line-height:1.2}.of-s em{font-style:normal;font-size:12.5px;color:var(--brand);font-weight:700}
+.of-end{background:var(--brand-soft);border-color:var(--brand)}.of-ic{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center}.of-ic svg{width:22px;height:22px}
+.of-a{align-self:center;color:var(--mute)}.of-a svg{width:16px;height:16px}
+.onb-step+.onb-flow{margin-top:20px}
+.onb-eq{display:flex;align-items:stretch;gap:8px;margin:4px 0 18px}
+.onb-eq>div{flex:1;display:flex;flex-direction:column;gap:4px;padding:14px;border:1.5px solid var(--rule);background:var(--paper)}
+.onb-eq>div>span{width:36px;height:36px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}.onb-eq>div>span svg{width:18px;height:18px}
+.onb-eq b{font-size:15.5px}.onb-eq small{font-size:13px;color:var(--ink-2);line-height:1.35}
+.onb-eq>i{align-self:center;font-style:normal;font-size:28px;font-weight:800;color:var(--brand)}
+.onb-eq .eq-r{background:var(--brand);border-color:var(--brand)}.onb-eq .eq-r b,.onb-eq .eq-r small{color:#fff}.onb-eq .eq-r>span{background:#fff}
+.onb-ladder{display:flex;align-items:stretch;gap:6px;margin:6px 0 16px}
+.onb-ladder>div{flex:1;display:flex;flex-direction:column;gap:4px;padding:14px;border:1.5px solid var(--rule);background:var(--paper);animation:onbIn .45s var(--ease) both;animation-delay:var(--d)}
+.onb-ladder>div:last-of-type{background:var(--brand-soft);border-color:var(--brand)}
+.onb-ladder span{color:var(--brand)}.onb-ladder span svg{width:22px;height:22px}.onb-ladder b{font-size:15.5px}.onb-ladder small{font-size:13px;color:var(--ink-2);line-height:1.35}
+.onb-ladder>i{align-self:center;color:var(--mute)}.onb-ladder>i svg{width:16px;height:16px}
+@media (max-width:900px){.onb-flow,.onb-eq,.onb-ladder{flex-direction:column}.of-a,.onb-ladder>i{transform:rotate(90deg);align-self:center}.onb-eq>i{align-self:center}.of-s{flex-direction:row;text-align:left;gap:10px}}
 
 </style>
 </head>
@@ -8225,6 +8245,46 @@ TOOLS.push(
 const _toolScore123=toolScore;toolScore=function(t){const P=S.setup.profile;let s=_toolScore123(t);const secs=P.sectors||[];
   if(t.sec)s+=t.sec.some(k=>secs.includes(k))?6:-20;s+=(P.roles||[]).filter(r=>(t.who||[]).includes(r)).length*2;return s};
 const _whyFits123=whyFits;whyFits=function(t){const base=_whyFits123(t);const A=audOf();const secHit=t.sec&&t.sec.some(k=>(S.setup.profile.sectors||[]).includes(k));return (secHit?'Made for '+A.sec+' brands. ':'')+base};
+
+/* ═══════════ v12.4 FIRST-LOGIN WALKTHROUGH ═══════════
+   No Plato here. The walkthrough is about the method: predictable revenue through permissionless value,
+   the four steps, and the four bots that run them. Plato stays bottom right inside the portal. */
+ONB_CH.splice(0,ONB_CH.length,
+ {k:'hello',t:'Welcome to your <span class="serif">Permissionless Portal.</span>'},
+ {k:'old',t:'Most new business is <span class="serif">noise.</span>'},
+ {k:'formula',t:'Predictable revenue, from <span class="serif">permissionless value.</span>'},
+ {k:'process',t:'Four steps. Four <span class="serif">bots.</span>'},
+ {k:'prospects',t:'Step 1. Who to <span class="serif">target.</span>'},
+ {k:'give',t:'Step 2. What to <span class="serif">share.</span>'},
+ {k:'reach',t:'Step 3. How to <span class="serif">reach them.</span>'},
+ {k:'launch',t:'Step 4. <span class="serif">Launch.</span>'},
+ {k:'results',t:'Then it becomes <span class="serif">predictable.</span>'},
+ {k:'demo',t:'See it done <span class="serif">properly.</span>'});
+function onbFlow(cur){return '<div class="onb-flow">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="of-s'+(k===cur?' on':'')+'">'+agentFace(k,cur===k?52:44,{badge:false})+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em></div>'}).join('<i class="of-a">'+ico('arrow')+'</i>')+'<i class="of-a">'+ico('arrow')+'</i><div class="of-s of-end'+(cur==='results'?' on':'')+'"><span class="of-ic">'+ico('pound')+'</span><small>The result</small><b>Predictable pipeline</b><em>Signals to won</em></div></div>'}
+onbDraw=function(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=(S.setup.you||(SESSION&&SESSION.name)||'').split(' ')[0];let body='';
+  if(C.k==='hello')body='<p class="onb-say">'+(n?'Welcome, '+esc(n)+'. ':'Welcome. ')+'This is how agencies build a predictable new business pipeline without cold pitching: find the right brands, give them something genuinely useful first, and keep showing up. The next few screens show you the method, the four steps and the bots that run them. Then you see a portal in full swing, and build yours.</p>'+onbFlow('')+
+    (ONB_REPLAY?'':'<div class="grid2" style="margin-top:18px"><div class="field"><label for="obY">Your first name</label><input class="inp" id="obY" value="'+esc(S.setup.you||(SESSION&&SESSION.name)||'')+'" autocomplete="given-name"></div><div class="field"><label for="obA">Your agency</label><input class="inp" id="obA" value="'+esc(S.setup.agency==='Your agency'?'':S.setup.agency||SESSION&&SESSION.orgName||'')+'" placeholder="e.g. Brightside Studio" autocomplete="organization"></div></div>');
+  if(C.k==='old')body='<div class="onb-vs"><div class="vs-old"><small>The old way</small><div class="vs-msg">Hi, we are an award-winning agency. Have you got fifteen minutes next week for a quick chat about how we can help?</div><ul><li>A cold list, a template and a blast</li><li>All about the agency, nothing for them</li><li>One shot, then silence</li></ul></div>'+
+    '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">Covered the logos on your last five ads and your rivals’. It was harder to tell them apart than I expected. Want the page? No catch.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
+    '<p class="onb-say">98% of B2B buyers are not in market at any one time, and of the 2% who are, 81% already have a preferred agency. Pitching at the moment they need someone is too late. Being remembered before they need anyone is the whole game.</p>';
+  if(C.k==='formula')body='<p class="onb-say">You do not need permission to be useful. Give the right people something valuable, steadily, and the conversations come to you. Do it every week and new business stops being feast or famine.</p>'+
+    '<div class="onb-eq"><div><span>'+ico('target')+'</span><b>The right brands</b><small>A short list with a reason to talk now</small></div><i>×</i><div><span>'+ico('gift')+'</span><b>Real value, first</b><small>Something they would happily pay for, given freely</small></div><i>×</i><div><span>'+ico('loop')+'</span><b>A steady rhythm</b><small>Weeks, not one shot. Never a blast</small></div><i>=</i><div class="eq-r"><span>'+ico('pound')+'</span><b>Predictable pipeline</b><small>Warm conversations, month after month</small></div></div>'+
+    '<div class="onb-pr">'+[['target','Relevant','One problem, a short list of brands, and a reason to talk now.'],['gift','Valuable','Useful whether or not they ever hire you.'],['loop','Persistent','A steady rhythm over weeks. Never a one-off.'],['user','Human','You send it, in your words, from your own accounts.']].map(x=>'<div>'+ico(x[0])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+'</div>';
+  if(C.k==='process')body='<p class="onb-say">Every campaign is built in the same four steps, in order. Each step has a bot that does that one job, then hands the work to the next. Nothing goes out until the first three are done.</p>'+
+    '<div class="onb-gods">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="ogd" style="--d:'+(i*.12)+'s">'+godBust(k,110)+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em><span>'+esc(A.role)+'</span></div>'}).join('<i class="ogd-a">'+ico('arrow')+'</i>')+'</div>'+
+    '<p class="onb-small" style="margin-top:14px">You stay in charge at every step. The bots find, suggest, plan and draft. You choose, edit and send.</p>';
+  if(ONB_STEP[C.k]){const A=AGENTS[C.k];const X=ONB_STEP[C.k];
+    body='<div class="onb-step"><div class="os-bot">'+godBust(C.k,150)+'<b>'+esc(A.n)+'</b><small>'+esc(A.role)+'</small><p class="os-say">“'+esc(X.say)+'”</p></div>'+
+      '<div class="os-r"><div class="os-k">What happens here</div><ol class="os-li">'+X.li.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol><div class="os-get">'+ico('check')+'<span><b>What you get</b>'+esc(X.get)+'</span></div></div></div>'+onbFlow(C.k)}
+  if(C.k==='results')body='<p class="onb-say">Run it every week and it compounds. Every useful thing you give earns attention a pitch never will, so warm conversations arrive steadily instead of all at once. That is what makes the revenue predictable.</p>'+
+    '<div class="onb-ladder">'+[['pulse','Signals','Who is warming up, hottest first, with the reason why'],['chat','Conversations','Replies and meetings, from people who already know you'],['layers','Pipeline','Deals tracked against your target, weighted by stage'],['trophy','Won','New clients, and a pipeline that keeps refilling']].map((x,i)=>'<div style="--d:'+(i*.1)+'s"><span>'+ico(x[0])+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>').join('<i>'+ico('arrow')+'</i>')+'</div>'+
+    '<div class="onb-proof"><div><b>£2.5m</b><span>added to one agency’s pipeline in nine months</span></div><div><b>£55m+</b><span>new business revenue won for agencies</span></div><div><b>100+</b><span>pitches behind the method</span></div></div>';
+  if(C.k==='demo')body='<p class="onb-say">Before you build your own, see a portal in full swing. It is a made-up agency with invented brands and numbers, so you can see exactly how a superuser runs it, day to day.</p><ul class="od-u"><li>Two campaigns: one live, one being built</li><li>Brands scored out of 100, with the people who decide</li><li>Signals, a full pipeline and a daily routine</li></ul>'+onbFlow('')+'<p class="onb-small" style="margin-top:14px">When you are ready, press Build my own. The demo disappears and none of it touches your workspace.</p>';
+  el.innerHTML='<div class="onb-in"><div class="onb-top"><div class="grow"><small>'+esc(PORTAL_NAME)+' · '+(ONB+1)+' of '+ONB_CH.length+'</small><div class="onb-bar"><i style="width:'+((ONB+1)/ONB_CH.length*100)+'%"></i></div></div>'+(ONB_REPLAY||ONB>0?'<button class="btn btn-ghost btn-sm" onclick="onbSkip()">Skip</button>':'')+'</div>'+
+    '<h1 class="onb-t">'+C.t+'</h1><div class="onb-b">'+body+'</div>'+
+    '<div class="onb-nav">'+(ONB?'<button class="btn btn-ghost" onclick="ONB--;onbDraw()">Back</button>':'<span></span>')+
+      (C.k==='demo'?'<div class="row wrap" style="gap:8px">'+(ONB_REPLAY?'':'<button class="btn btn-line" onclick="onbFinish(false)">Skip the demo, set up my agency</button>')+'<button class="btn btn-primary btn-lg" onclick="onbFinish(true)">'+ico('play')+'Show me the demo</button></div>':'<button class="btn btn-primary btn-lg" onclick="onbNext()">'+(ONB?'Next':'Show me how it works')+ico('arrow','a')+'</button>')+'</div></div>';
+  const f=$('#obY');if(f&&!f.value)setTimeout(()=>f.focus(),300)};
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;
