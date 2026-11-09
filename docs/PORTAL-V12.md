@@ -141,3 +141,33 @@ See `AMPLIFY-INTEGRATION.md`.
 - **The crew chat is on Home only**, under How every campaign gets built, and quieter. The step pages are clean.
 - **Plato's button** no longer has a drop shadow.
 - **Faster AI.** Every Claude call now skips long thinking and has a time limit that fits inside Netlify's ten seconds. Reading assets uses a faster model; you can override it with `DIGEST_MODEL`. The LinkedIn search model can be overridden with `LISCAN_MODEL`.
+
+## Version 12.2: UX sweep
+
+- **Home leads with the one next thing.** It depends on where you are:
+  - No agency profile yet: finish your agency profile, or see the demo.
+  - No campaign yet: build your first campaign.
+  - A campaign being built: continue with the right bot.
+  - A campaign live: today's messages.
+
+  For a live campaign, Who to contact today comes straight after, then your campaigns, then the crew. The target ring only shows once there are numbers in it. The empty starter campaign is no longer shown as if it were real, on Home or in Campaigns.
+- **One New campaign button per screen.** It's gone from the campaign bar on the step pages and from the Home hero.
+- **Who to target:**
+  - Find more prospects sits in the header; the "Want more?" box has gone.
+  - The tabs are now Find brands, Your list (with the count) and Why now, because "Brands that fit 12" was really the list count.
+- **What to share is about a third of its old length:**
+  - The three picks come first, then six ideas made from what you have (with Show more), then your library.
+  - The other ideas sit behind "Browse more ideas to give".
+  - The content bank comes next.
+  - "How to open with each brand" folds away.
+- **How to reach:** choose your channels and see the journey first. The LinkedIn scan comes after, before events.
+- **Signals:** the warm brands come first. Where the data comes from has moved underneath.
+- **Team:** the people table shows the top ten, with Show all.
+- **Account menu:** only what is not in the sidebar. Your photo can now be added there; a bug had been hiding it.
+- **Settings:** removed the old "Re-run the setup questions" and the duplicate profile shortcuts. Load demo now opens the separate demo instead of overwriting your data.
+- **Launch:** LinkedIn readiness now follows the profile scan score.
+- **Smaller fixes:**
+  - The sidebar fits a laptop screen without hiding Guides.
+  - The campaign name is no longer cut short.
+  - "Open now" on campaign cards now says "Selected".
+  - Mobile tidy-ups for Home, the campaign bar and the sign-in page.
