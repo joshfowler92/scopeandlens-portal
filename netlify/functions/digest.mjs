@@ -1,6 +1,6 @@
 // Reads an agency's own materials (credentials, case studies, propositions, pitches) and pulls out what makes them distinctive.
 // Uses Claude when ANTHROPIC_API_KEY is set. Only facts present in the documents are returned: nothing is invented.
-import { json, bad, needUser } from './_lib.mjs';
+import { json, bad, needUser, claude, claudeText } from './_lib.mjs';
 const KEYS = ['brand','creative','design','packaging','media','performance','seo','social','influencer','content','video','pr','experiential','sponsorship','web','ux','crm','data','research','effectiveness','martech','ai','b2b','employer','health','purpose','full'];
 const SECTORS = ['retail','fmcg','finance','travel','health','tech','auto','charity','b2b','media'];
 export function prompt(agency, docs) {
@@ -17,6 +17,10 @@ Return only JSON, with this shape:
  "offer":[up to 3 sentences describing a first piece of work they offer, such as a sprint, audit or workshop],
  "proofs":[up to 10 objects {"text": a result with a number, "sector": one of ${JSON.stringify(SECTORS)} or ""}],
  "cases":[up to 6 objects {"title": short case study name, "result": the headline result in one sentence, "sector": one of the sectors or ""}],
+ "clients":[up to 12 client or brand names they say they have worked with],
+ "awards":[up to 6 awards, shortlists or recognition, one short line each],
+ "team":[up to 4 sentences about the people, founders or team],
+ "method":[up to 4 sentences on how they work, their process or approach],
  "services":[up to 3 of ${JSON.stringify(KEYS)}],
  "sectors":[up to 3 of the sectors],
  "voice":"one sentence describing how they write"}
@@ -34,14 +38,10 @@ export default async (req) => {
   if (!docs.length) return bad('Nothing to read');
   let total = 0; const trimmed = docs.map(d => { const t = String(d.text).slice(0, Math.max(0, 60000 - total)); total += t.length; return { name: String(d.name || 'Document').slice(0, 120), cat: String(d.cat || 'other'), text: t }; }).filter(d => d.text);
   try {
-    const r = await fetch(process.env.ANTHROPIC_URL || 'https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5', max_tokens: 2000, messages: [{ role: 'user', content: prompt(String(body.agency || ''), trimmed) }] })
-    });
+    const r = await claude({ model: process.env.DIGEST_MODEL || 'claude-haiku-5-5', max_tokens: 1800, messages: [{ role: 'user', content: prompt(String(body.agency || ''), trimmed) }] }, 9200);
     if (!r.ok) return bad('AI reading failed (' + r.status + ')', 502);
     const j = await r.json();
-    const learned = pick((j.content || []).map(c => c.text || '').join(''));
+    const learned = pick(claudeText(j));
     if (!learned) return bad('Could not read the result', 502);
     return json({ learned });
   } catch (e) { return bad('AI reading failed', 502); }

@@ -4,7 +4,7 @@
 //  2. With ANTHROPIC_API_KEY set and ai true, asks Claude for a growth plan using the portal's own vocabulary
 // Returns { site: { title, text }, plan } where plan is null without AI. The browser builds its own plan from the text either way.
 // Only what the agency has said about itself is used. Nothing is invented.
-import { json, bad, needUser } from './_lib.mjs';
+import { json, bad, needUser, claude, claudeText } from './_lib.mjs';
 const SECTORS = ['retail', 'fmcg', 'finance', 'travel', 'health', 'tech', 'auto', 'charity', 'b2b', 'media'];
 const ROLES = ['cmo', 'brand', 'growth', 'ecom', 'insight', 'comms', 'founder', 'procure'];
 const PROBLEMS = ['standout', 'dated', 'relevant', 'reposition', 'purpose', 'portfolio', 'price', 'customer', 'newaud', 'retain', 'loyalty', 'launch', 'expand', 'working', 'roi', 'media', 'cac', 'convert', 'search', 'b2bpipe', 'slow', 'content', 'stretched', 'data', 'joined', 'story', 'reputation', 'sustain', 'talent'];
@@ -70,11 +70,8 @@ Their website: ${site ? site.text.slice(0, 9000) : '(not available)'}
 Their library:
 ${lib || '(empty)'}`;
     try {
-      const r = await fetch(process.env.ANTHROPIC_URL || 'https://api.anthropic.com/v1/messages', {
-        method: 'POST', headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5', max_tokens: 1600, messages: [{ role: 'user', content: prompt }] })
-      });
-      const j = await r.json(); const t = (j.content || []).map(c => c.text || '').join('');
+      const r = await claude({ max_tokens: 1600, messages: [{ role: 'user', content: prompt }] }, 9000);
+      const j = await r.json(); const t = claudeText(j);
       const m = t.match(/\{[\s\S]*\}/); if (m) plan = JSON.parse(m[0]);
       if (plan) {
         const keep = (a, ok, n) => (Array.isArray(a) ? a : []).filter(x => ok.includes(x)).slice(0, n);

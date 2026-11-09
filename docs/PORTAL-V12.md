@@ -118,3 +118,26 @@ See `AMPLIFY-INTEGRATION.md`.
 - **Guides and how-tos**: eight short guides, each readable in the portal or downloadable as a PDF.
 - **Profile photo**: upload your own. It shows top right, on the team view and in Manage access.
 - Buttons and pills that did nothing (such as "Read in your browser") are gone.
+
+## Version 12.1
+
+- **The first-login walkthrough is back, step by step.** Nine short screens with Plato:
+  1. Hello
+  2. The old way against the permissionless way
+  3. The principles
+  4. Radar's step
+  5. Spark's step
+  6. Ping's step
+  7. Rocket's step
+  8. Results (Signals, Pipeline, alerts and Plato, with the proof)
+  9. The demo
+
+  Each bot step shows what happens there and what you get. Everyone sees it once on their next login, including people who saw the old version.
+- **Your website is read.** Add it in Who you are, or press Read my website in Your assets. The server reads the home page and up to six of your own pages (about, work, clients, services, approach, team, awards), then adds it to What we learned with your uploads: what you do best, proof, cases, clients, awards, team and how you work.
+- **Your edge comes from the agency profile.** What to share shows it read-only, with fallbacks to what was learned from your website and assets, so nothing is asked twice. A sync bug that could blank profile fields has been fixed.
+- **The LinkedIn scan reads the real profile**, then shows exactly what it read and where it came from:
+  - Sources, in order: the public profile page, then Amplify or Apollo if connected, then a web search for that exact profile (needs `ANTHROPIC_API_KEY`), then LinkedIn's Save to PDF or pasted text.
+  - If nothing can be read, it says so and asks for the PDF, instead of scoring a blank.
+- **The crew chat is on Home only**, under How every campaign gets built, and quieter. The step pages are clean.
+- **Plato's button** no longer has a drop shadow.
+- **Faster AI.** Every Claude call now skips long thinking and has a time limit that fits inside Netlify's ten seconds. Reading assets uses a faster model; you can override it with `DIGEST_MODEL`. The LinkedIn search model can be overridden with `LISCAN_MODEL`.

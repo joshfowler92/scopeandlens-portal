@@ -1,7 +1,7 @@
 // Plato: the guide inside the portal. The browser sends the conversation, a compact snapshot of the workspace and
 // the tools it can run. Claude decides what to say and which tools to use; the browser runs them and sends back results.
 // The key never leaves the server. POST /api/plato { messages, context, tools }
-import { json, bad, needUser, limited } from './_lib.mjs';
+import { json, bad, needUser, limited, claude } from './_lib.mjs';
 const SYSTEM = `You are Plato, the guide inside the Permissionless Portal, a new business platform for agencies made by Scope & Lens.
 You can see a snapshot of the user's workspace (below) and you can act on it with the tools provided.
 
@@ -57,10 +57,7 @@ export default async (req) => {
   const messages = cleanMsgs(b.messages); if (!messages.length) return bad('Say something first');
   const ctx = JSON.stringify(b.context || {}).slice(0, 40000);
   try {
-    const r = await fetch(process.env.ANTHROPIC_URL || 'https://api.anthropic.com/v1/messages', {
-      method: 'POST', headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5', max_tokens: 1500, system: SYSTEM + '\n\nThe workspace right now, as JSON:\n' + ctx, tools: toolDefs(b.tools), messages })
-    });
+    const r = await claude({ max_tokens: 1500, system: SYSTEM + '\n\nThe workspace right now, as JSON:\n' + ctx, tools: toolDefs(b.tools), messages }, 9500);
     const j = await r.json(); if (!r.ok) return bad((j.error && j.error.message) || 'Plato could not think just now', 502);
     const content = (j.content || []).map(c => c.type === 'text' ? { type: 'text', text: String(c.text).replace(/—/g, ',') } : c);
     return json({ content, stop_reason: j.stop_reason });

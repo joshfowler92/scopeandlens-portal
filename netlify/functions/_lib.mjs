@@ -125,3 +125,19 @@ export async function limited(key, max, windowSec) {
   const s = await store(); const k = 'rl:' + key + ':' + Math.floor(Date.now() / 1000 / windowSec);
   const n = ((await s.get(k)) || 0) + 1; await s.set(k, n); return n > max;
 }
+// One call to Claude, with a time limit that fits inside a Netlify function (about ten seconds),
+// and without long thinking first, so answers come back quickly. Returns the fetch Response.
+export async function claude(body, ms = 9000, beta = '') {
+  const c = new AbortController(); const t = setTimeout(() => c.abort(), ms);
+  const b = Object.assign({ model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5' }, body);
+  if (b.thinking === undefined) b.thinking = /haiku/i.test(b.model) ? { type: 'disabled' } : { type: 'between_tools' };
+  const go = (x) => fetch(process.env.ANTHROPIC_URL || 'https://api.anthropic.com/v1/messages', { method: 'POST', signal: c.signal,
+    headers: Object.assign({ 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' }, beta ? { 'anthropic-beta': beta } : {}), body: JSON.stringify(x) });
+  try {
+    let r = await go(b);
+    if (r.status === 400) { const e = await r.clone().json().catch(() => ({})); const m = (e.error && e.error.message) || '';
+      if (/thinking/i.test(m)) { const alt = (m.match(/"type":\s*"([a-z_]+)"\s*\}\s*instead/) || [])[1]; if (alt) b.thinking = { type: alt }; else delete b.thinking; r = await go(b); } }
+    return r;
+  } finally { clearTimeout(t); }
+}
+export const claudeText = (j) => (j && j.content || []).filter(c => c.type === 'text').map(c => c.text || '').join('');
