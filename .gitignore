@@ -15,3 +15,4 @@ node_modules/
 *pitch*.xlsx
 *export*.csv
 *export*.xlsx
+portal-src/all.js

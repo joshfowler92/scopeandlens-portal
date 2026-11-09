@@ -1,0 +1,97 @@
+/* ═══════════ INSIGHTS: spotted by Scope & Lens ═══════════ */
+const INS_CATS={opportunity:'Opportunities',pitch:'Pitches and reviews',moves:'People moves',intel:'Market intelligence',playbook:'Playbooks'};
+const INS_COL={opportunity:'#2c56ed',pitch:'#e2533b',moves:'#0b7a6a',intel:'#6e46ff',playbook:'#14151c'};
+const pSrc=n=>{const p=PROSPECTS.find(x=>x.name===n);return p?{src:p.src,pub:p.pub,d:p.nd}:{}};
+const lnk=(t,n)=>{const p=pSrc(n);return t+(p.src?' ['+p.pub+']('+p.src+')':'')};
+function seedInsights(){const by={};PROSPECTS.forEach(p=>{if(p.nt!=='none'){by[p.nt]=(by[p.nt]||0)+1}});const sec={};PROSPECTS.forEach(p=>{if(p.nt!=='none'&&monthsAgo(p.nd)<=3)sec[p.sector]=(sec[p.sector]||0)+1});
+  const topSec=Object.entries(sec).sort((a,b)=>b[1]-a[1]).slice(0,3);const total=PROSPECTS.filter(p=>p.nt!=='none').length;
+  return[
+ {id:'moves-2026',cat:'moves',date:'2026-10-28',pin:1,cover:'New faces',title:'New faces at the top: leadership moves worth a note',
+  summary:'A run of brands have changed who is in charge this year. New leaders tend to review their agencies early, so this is the window.',
+  brands:['Channel 4','Innocent Drinks','Taylors of Harrogate','Schuh','Mountain Warehouse','Pets at Home','Travelodge','Princes','Greggs'],
+  body:'New leaders get roughly a hundred days to set a direction, and they rarely feel loyal to the agencies they inherited. These are the moves from our research this year.\n\n'+
+   ['- '+lnk('Channel 4 appointed Priya Dogra as chief executive, from Sky.','Channel 4'),'- '+lnk('Innocent appointed Sam Grant, former global CMO at SodaStream, as Director of Marketing and Innovation.','Innocent Drinks'),'- '+lnk('Taylors of Harrogate appointed Fiona Fox as managing director, after 17 years under Andy Brown.','Taylors of Harrogate'),
+    '- '+lnk('Schuh appointed Tomas Petersson, formerly of Foot Locker EMEA, as president.','Schuh'),'- '+lnk('Mountain Warehouse made Marcus Ward chief executive from 1 September, with founder Mark Neale stepping up to executive chair.','Mountain Warehouse'),
+    '- '+lnk('Pets at Home made James Bailey, formerly of Waitrose, chief executive in March.','Pets at Home'),'- '+lnk('Travelodge has an interim chief executive, Ray Reidy, while the board searches.','Travelodge'),'- '+lnk('Princes made Giuseppe Mastrolia interim chief executive.','Princes'),
+    '- Greggs hired Zoe Harris from On the Beach as customer and marketing director. [Marketing Week](https://www.marketingweek.com/greggs-appoints-zoe-harris-marketer/)'].join('\n')+
+   '\n\nThe move: send something genuinely useful in their first hundred days, framed as what you would look at if you were in their seat. Not a credentials deck.'},
+ {id:'owners-2026',cat:'opportunity',date:'2026-10-21',cover:'New owners',title:'Changing hands: brands with new owners',
+  summary:'New owners bring new plans, new budgets and often a fresh look at who they work with.',brands:['Huel','Graze','Vitabiotics','BrewDog','ITV','Boots','Pod Point'],
+  body:'A change of ownership is one of the clearest signs that a roster is about to be reviewed. Plans get rewritten, and someone new is asking what marketing returns.\n\n'+
+   ['- '+lnk('Danone agreed to buy Huel in a deal worth about €1bn.','Huel'),'- '+lnk('Katjes International completed its purchase of Graze from Unilever.','Graze'),'- '+lnk('Bain Capital agreed to buy Vitabiotics and the wider VB Group.','Vitabiotics'),
+    '- '+lnk('BrewDog is now owned by Tilray.','BrewDog'),'- '+lnk('Sky agreed to buy ITV’s Media and Entertainment arm, including ITVX.','ITV'),'- '+lnk('Sycamore Partners is reported to be close to selling Boots to the Weston family.','Boots'),'- '+lnk('Pod Point acquired the home charger maker EO Charging.','Pod Point')].join('\n')+
+   '\n\nThe move: show the new owners you understand what they bought, and one thing you would do in the first quarter to prove it was a good buy.'},
+ {id:'pitch-watch',cat:'pitch',date:'2026-10-14',cover:'Pitch watch',title:'Pitch watch: who has been moving agencies',
+  summary:'Recent agency appointments and big campaign moves, and what they tell us about how these brands buy.',brands:['Oxfam GB','Thatchers Cider','Guide Dogs','Rude Health'],
+  body:['- '+lnk('Happy Hour won a three way pitch to create Oxfam’s 2026 Christmas campaign.','Oxfam GB'),'- '+lnk('Thatchers launched its summer campaign with Initials CX, a new agency relationship.','Thatchers Cider'),
+    '- '+lnk('Guide Dogs is repositioning its brand with a new creative platform.','Guide Dogs'),'- '+lnk('Rude Health launched a £1m integrated campaign, its biggest since the Oddlygood takeover.','Rude Health')].join('\n')+
+   '\n\nWhat it tells us: when a brand has just moved, the losing agencies go quiet. That is exactly when a useful, no strings piece of thinking gets read.'},
+ {id:'quarter-intel',cat:'intel',date:'2026-10-07',cover:total+' signals',title:'Where the news is clustering this quarter',
+  summary:'We read the news on '+PROSPECTS.length+' brands. Here is where the signals sit, and what to do with them.',brands:[],
+  body:'Across the '+PROSPECTS.length+' brands in the current edition, '+total+' had a meaningful piece of news this year.\n\n'+
+   Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([k,n])=>'- '+L_TRIGGER_LABELS[k]+': '+n+' brands').join('\n')+
+   '\n\nIn the last three months, the busiest sectors were '+topSec.map(([k,n])=>secLabel(k).toLowerCase()+' ('+n+')').join(', ')+'.\n\nThe move: results and trading updates are the most common signal, but leadership and ownership changes are the ones that open doors. Prioritise those.'},
+ {id:'new-leader',cat:'playbook',date:'2026-09-30',cover:'100 days',title:'Buyer signal: a new marketing leader in their first hundred days',
+  summary:'Why a new CMO is the best reason to get in touch, and exactly what to send.',brands:[],
+  body:'A new marketing leader arrives with a mandate to change something and a short window to show it. The roster is more open now than it will be for years.\n\n- Do not congratulate them and ask for a coffee. Everyone does that.\n- Read what they did in their last role, and what the business has said about why they were hired.\n- Make one useful thing that would help in their first board meeting: a teardown, a benchmark, a ninety day plan.\n- Send it with no ask attached. Follow up a fortnight later with one insight from it.\n\nIn the portal: filter Who to target to leadership and marketing news, add the brands, then pick a tool in What to share that answers the problem they were hired to fix.'},
+ {id:'results',cat:'playbook',date:'2026-09-16',cover:'Results day',title:'What to send when a brand publishes its results',
+  summary:'Results are when the board writes its questions down. Here is how to be useful the same week.',brands:[],
+  body:'Whatever the headline, someone in marketing now owns a number they have to move before the next update.\n\n- Read the statement and find the one line about growth or pressure.\n- Build a short piece around it, using their own figures.\n- Show how what you do moves that exact number.\n- Send it within a fortnight, while the questions are still fresh.\n\nIn the portal: results and trading updates appear in Why now on Who to target. The Share of Search Snapshot and the Effectiveness Baseline both work well here.'}]}
+let INS_REMOTE=null,INS_STATIC=null;
+function localIns(){try{return JSON.parse(localStorage.getItem('sl-insights-local')||'[]')}catch(e){return[]}}
+function getInsights(){const all=(INS_REMOTE||[]).concat(INS_STATIC||[]).concat(localIns());const ids=new Set(all.map(x=>x.id));const seed=seedInsights().filter(x=>!ids.has(x.id));
+  return all.concat(seed).filter(x=>!x.deleted).sort((a,b)=>(b.pin||0)-(a.pin||0)||String(b.date).localeCompare(String(a.date)))}
+async function loadInsights(){try{if(await apiCheck()){const j=await api('insights');INS_REMOTE=j.items||[]}}catch(e){}
+  if(!INS_REMOTE&&location.protocol!=='file:'){try{const r=await fetch('data/insights.json',{cache:'no-store'});if(r.ok){const j=await r.json();INS_STATIC=j.items||j}}catch(e){}}
+  if(VIEW==='insights'||VIEW==='home')go(VIEW,VIEW_ARG,true);refreshNav()}
+function unreadInsights(){let seen='';try{seen=localStorage.getItem('sl-ins-seen')||''}catch(e){}return getInsights().filter(x=>String(x.date)>seen).length}
+function markInsSeen(){try{localStorage.setItem('sl-ins-seen',today())}catch(e){}}
+function insCover(x,size){const col=INS_COL[x.cat]||'#2c56ed';const w=String(x.cover||INS_CATS[x.cat]||'').slice(0,22);
+  return '<div class="icov '+(size||'')+'" style="--c:'+col+'"><span class="ic-c c1"></span><span class="ic-c c2"></span><span class="ic-c c3"></span><b>'+esc(w)+'</b></div>'}
+function mdLite(t){return esc(t).split(/\n\n+/).map(b=>{if(/^- /m.test(b))return '<ul>'+b.split('\n').filter(l=>l.startsWith('- ')).map(l=>'<li>'+inl(l.slice(2))+'</li>').join('')+'</ul>';return '<p>'+inl(b)+'</p>'}).join('')}
+function inl(s){return s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,'<a class="src" href="$2" target="_blank" rel="noopener">$1</a>')}
+let insCat='all';
+VIEWS.insights=(cat)=>{insCat=cat&&(cat==='all'||INS_CATS[cat])?cat:insCat;const A=getInsights();const L=A.filter(x=>insCat==='all'||x.cat===insCat);const top=L[0];const c=curCamp();const mine=new Set(c?campTargets(c).map(a=>norm(a.name)):[]);
+  const forYou=A.filter(x=>(x.brands||[]).some(b=>mine.has(norm(b)))).slice(0,4);const adm=SESSION&&SESSION.role==='admin';setTimeout(markInsSeen,800);
+  return secHead('insights','News, <span class="serif">spotted early.</span>',adm?'<button class="btn btn-primary btn-sm" onclick="openPublish()">'+ico('edit')+'Publish an insight</button>':'',pills([['all','All',A.length]].concat(Object.entries(INS_CATS).map(([k,v])=>[k,v,A.filter(x=>x.cat===k).length||''])),insCat,"go('insights',$)"))+
+  (top?'<div class="igrid"><div><article class="itop" onclick="openInsight(\''+top.id+'\')">'+insCover(top,'lg')+'<div class="itop-b"><span class="ik">'+esc(INS_CATS[top.cat])+(top.pin?' · Top story':'')+'</span><h2>'+esc(top.title)+'</h2><p>'+esc(top.summary)+'</p><small>By Scope &amp; Lens · '+fmtDate(top.date)+'</small>'+brandStrip(top)+'</div></article>'+
+    '<div class="icards">'+L.slice(1).map(x=>'<article class="icard" onclick="openInsight(\''+x.id+'\')">'+insCover(x)+'<div class="icard-b"><span class="ik">'+esc(INS_CATS[x.cat])+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p><small>'+fmtDate(x.date)+'</small></div></article>').join('')+'</div></div>'+
+    '<aside class="irail"><div class="card"><div class="lab">Most recent</div><ol class="ilist">'+A.slice(0,5).map((x,i)=>'<li onclick="openInsight(\''+x.id+'\')"><b>'+(i+1)+'</b><span>'+esc(x.title)+'</span></li>').join('')+'</ol></div>'+
+    '<div class="card"><div class="lab">About your brands</div>'+(forYou.length?forYou.map(x=>'<button class="ifor" onclick="openInsight(\''+x.id+'\')"><span class="ik">'+esc(INS_CATS[x.cat])+'</span><b>'+esc(x.title)+'</b></button>').join(''):'<p class="small muted">When we spot something about a brand on your list, it shows up here.</p>')+'</div>'+
+    '<div class="card"><div class="lab">Spotted something?</div><p class="small">Heard about a pitch, a move or a review? Tell us and we will look into it.</p><a class="btn btn-line btn-sm" style="margin-top:10px" href="mailto:josh@scopeandlens.com?subject=Spotted%20for%20the%20portal">'+ico('send')+'Send a tip</a></div></aside></div>':'<div class="card empty">Nothing here yet.</div>')}
+function brandStrip(x){const b=(x.brands||[]).slice(0,8);return b.length?'<div class="ibrands">'+b.map(n=>logo(n,28)).join('')+(x.brands.length>8?'<em>+'+(x.brands.length-8)+'</em>':'')+'</div>':''}
+function openInsight(id){const x=getInsights().find(i=>i.id===id);if(!x)return;const c=curCamp();const mine=new Set(c?campTargets(c).map(a=>norm(a.name)):[]);const adm=SESSION&&SESSION.role==='admin';
+  modal('<div class="iread">'+insCover(x,'lg')+'<span class="ik">'+esc(INS_CATS[x.cat])+'</span><h2>'+esc(x.title)+'</h2><small class="muted">By Scope &amp; Lens · '+fmtDate(x.date)+'</small><p class="lede" style="margin:14px 0">'+esc(x.summary)+'</p><div class="ibody">'+mdLite(x.body||'')+'</div>'+
+    ((x.brands||[]).length?'<div class="lab" style="margin-top:18px">Brands in this piece</div><div class="ibr">'+x.brands.map(n=>'<div>'+logo(n,32)+'<b>'+esc(n)+'</b>'+(PROSPECTS.some(p=>p.name===n)?(mine.has(norm(n))?'<span class="pill good">On your list</span>':'<button class="btn btn-line btn-xs" onclick="toggleTarget(\''+esc(n).replace(/'/g,"\\'")+'\');openInsight(\''+id+'\')">'+ico('plus')+'Add</button>'):'')+'</div>').join('')+'</div>':'')+
+    (adm?'<div class="modal-foot"><button class="lft btn btn-danger btn-sm" onclick="delInsight(\''+id+'\')">Remove</button><button class="btn btn-line" onclick="openPublish(\''+id+'\')">Edit</button></div>':'')+'</div>',true)}
+
+/* the founder's publishing desk */
+function openPublish(id){const x=id?getInsights().find(i=>i.id===id):{cat:'opportunity',title:'',summary:'',body:'',brands:[],cover:''};
+  modal('<h2>'+(id?'Edit this insight':'Publish an insight')+'</h2><p class="sub">It appears in every agency’s Insights, and on their Home if it mentions a brand on their list.</p>'+
+  '<div class="grid2"><div class="field"><label>Category</label><select class="inp" id="puC">'+Object.entries(INS_CATS).map(([k,v])=>'<option value="'+k+'"'+(x.cat===k?' selected':'')+'>'+v+'</option>').join('')+'</select></div><div class="field"><label>Cover word (optional)</label><input class="inp" id="puW" maxlength="22" value="'+esc(x.cover||'')+'" placeholder="e.g. Pitch watch"></div></div>'+
+  '<div class="field"><label>Headline</label><input class="inp" id="puT" value="'+esc(x.title)+'" placeholder="Short and specific"></div>'+
+  '<div class="field"><label>Summary</label><textarea class="inp" id="puS" rows="2" placeholder="One or two sentences">'+esc(x.summary)+'</textarea></div>'+
+  '<div class="field"><label>The piece</label><textarea class="inp" id="puB" rows="8" placeholder="Paragraphs separated by a blank line. Start a line with - for a bullet. Links like [Source](https://...)">'+esc(x.body||'')+'</textarea></div>'+
+  '<div class="field"><label>Brands mentioned (comma separated)</label><input class="inp" id="puBr" list="puList" value="'+esc((x.brands||[]).join(', '))+'"><datalist id="puList">'+PROSPECTS.map(p=>'<option value="'+esc(p.name)+'">').join('')+'</datalist></div>'+
+  '<label class="row" style="gap:8px;margin-top:4px"><input type="checkbox" id="puP" '+(x.pin?'checked':'')+'> Pin as the top story</label>'+
+  '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="savePublish(\''+(id||'')+'\')">'+(id?'Save':'Publish')+'</button></div>',true)}
+async function savePublish(id){const t=$('#puT').value.trim();if(!t){$('#puT').focus();return}
+  const x={id:id||('ins-'+uid()),cat:$('#puC').value,cover:$('#puW').value.trim(),title:t,summary:$('#puS').value.trim(),body:$('#puB').value,brands:$('#puBr').value.split(',').map(s=>s.trim()).filter(Boolean),pin:$('#puP').checked?1:0,date:id?(getInsights().find(i=>i.id===id)||{}).date||today():today(),by:SESSION&&SESSION.email};
+  let shared=false;try{if(await apiCheck()&&API_INFO.insights){await api('insights',{method:'POST',body:x});shared=true;const j=await api('insights');INS_REMOTE=j.items||[]}}catch(e){toast('Could not publish to everyone: '+esc(e.message))}
+  if(!shared){const L=localIns().filter(i=>i.id!==x.id);L.unshift(x);try{localStorage.setItem('sl-insights-local',JSON.stringify(L))}catch(e){}}
+  closeOverlays();toast(shared?'✓ Published to every agency':'✓ Saved. Download the insights file to share it',shared?null:{l:'Download',f:downloadInsights},6000);go('insights','all')}
+async function delInsight(id){if(await apiCheck()&&API_INFO.insights){try{await api('insights?id='+encodeURIComponent(id),{method:'DELETE'});const j=await api('insights');INS_REMOTE=j.items||[]}catch(e){}}
+  const L=localIns().filter(i=>i.id!==id);if(!getInsights().find(i=>i.id===id&&!L.includes(i)))L.push({id,deleted:1});try{localStorage.setItem('sl-insights-local',JSON.stringify(L))}catch(e){}closeOverlays();go('insights')}
+function downloadInsights(){const items=(INS_STATIC||[]).filter(x=>!localIns().some(l=>l.id===x.id)).concat(localIns());const b=new Blob([JSON.stringify({items},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='insights.json';a.click()}
+
+/* who can sign in */
+VIEWS.admin=()=>{if(!(SESSION&&SESSION.role==='admin'))return '<div class="card empty">This page is for Scope &amp; Lens.</div>';
+  return secHead('admin','Who can <span class="serif">sign in.</span>')+'<div id="adminBody"><div class="card empty"><div class="orb"></div>Checking…</div></div>'}
+VIEWS.admin_after=async()=>{const el=$('#adminBody');if(!el)return;const ok=await apiCheck();
+  if(!ok){el.innerHTML='<div class="card"><h3>You are in test mode</h3><p class="small" style="margin-top:8px">Right now any email and password signs in, and each person’s work is saved in their own browser. Once the portal is deployed with its backend, this page lets you add agencies, set their passwords and remove access.</p><div class="effect" style="margin-top:14px"><b>To switch on real accounts</b><ul><li>Deploy the portal folder to Netlify with its functions (see the README).</li><li>Set AUTH_MODE to secure and add a SESSION_SECRET.</li><li>Come back here to add your first agency.</li></ul></div></div>';return}
+  let users=[];try{users=(await api('users')).users||[]}catch(e){el.innerHTML='<div class="card">Could not load users: '+esc(e.message)+'</div>';return}
+  el.innerHTML='<div class="two" style="grid-template-columns:1fr 360px;align-items:start"><div class="card" style="padding:0">'+(users.length?users.map(u=>'<div class="li" style="padding:12px 18px">'+avOf(u)+'<div class="li-main"><div class="li-t">'+esc(u.name||u.email)+(u.role==='admin'?' <span class="pill">Admin</span>':'')+'</div><div class="li-s">'+esc(u.email)+(u.agency?' · '+esc(u.agency):'')+'</div></div><button class="btn btn-ghost btn-xs" onclick="rmUser(\''+esc(u.email)+'\')">Remove</button></div>').join(''):'<div class="empty">Nobody added yet. Mode: '+esc(API_INFO.mode||'')+'</div>')+'</div>'+
+    '<div class="card"><h3>Add someone</h3><div class="field"><label>Email</label><input class="inp" id="auE"></div><div class="field"><label>Name</label><input class="inp" id="auN"></div><div class="field"><label>Agency</label><input class="inp" id="auA"></div><div class="field"><label>Temporary password</label><input class="inp" id="auP" value="'+uid()+'"></div><button class="btn btn-primary" onclick="addUser()">Add</button><p class="tiny muted" style="margin-top:10px">Send them the portal link, their email and this password.</p></div></div>'}
+async function addUser(){const b={email:$('#auE').value.trim(),name:$('#auN').value.trim(),agency:$('#auA').value.trim(),password:$('#auP').value};if(!b.email||!b.password){toast('Add an email and password');return}
+  try{await api('users',{method:'POST',body:b});toast('✓ Added '+esc(b.email));go('admin')}catch(e){toast('Could not add: '+esc(e.message))}}
+async function rmUser(e){confirmBox('Remove '+esc(e)+'?','They will no longer be able to sign in.','Remove',async()=>{try{await api('users?email='+encodeURIComponent(e),{method:'DELETE'});go('admin')}catch(x){toast('Could not remove')}},true)}

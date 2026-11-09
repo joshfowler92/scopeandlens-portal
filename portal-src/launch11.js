@@ -1,0 +1,50 @@
+/* ═══════════ v11 LAUNCH: only what is due, in order, and only once you have actually done it ═══════════
+   Each person's journey runs one touch at a time. A touch unlocks in its week. "I have sent it" only lights up
+   once you have copied or opened the message, and things you cannot send from here ask you to confirm. */
+const ARMED={};
+function stepDate(c,w){const d=new Date((c.launched||today())+'T12:00:00');d.setDate(d.getDate()+(w-1)*7);return d}
+function fmtDay(d){return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})}
+function isDone(c,pid,s){const k=pid+':'+s.id;return !!((c.sent&&c.sent[k])||(c.skipped&&c.skipped[k]))}
+nextFor=function(c,pid,steps){let x;return steps.find(s=>{if(isDone(c,pid,s))return false;if(s.warm){x=x||ptLookup(c,pid);if(!x||!warmReady(x.a,x.p))return false}return true})};
+function dueNow(c,pid,steps){const s=nextFor(c,pid,steps);return s&&campLive(c)&&s.w<=campWeek(c)?s:null}
+function stepState(c,pid,s,steps){if(c.sent&&c.sent[pid+':'+s.id])return 'done';if(c.skipped&&c.skipped[pid+':'+s.id])return 'skip';const n=nextFor(c,pid,steps);if(n&&n.id===s.id&&campLive(c)&&s.w<=campWeek(c))return 'due';if(s.warm){const x=ptLookup(c,pid);if(x&&!warmReady(x.a,x.p))return 'warm'}return 'later'}
+const ACT_VERB={linkedin:'sent it',email:'sent it',workshop:'sent it',phone:'had the call',event:'done it',mail:'posted it',social:'posted it'};
+missionControl=function(c,ppl){const steps=c.reach.steps.slice().sort((x,y)=>x.w-y.w);if(!steps.length)return '<div class="card empty" style="margin-top:18px">Plan the journey first. <button class="link" onclick="go(\'reach\')">How to reach them</button></div>';
+  if(!ppl.length)return '<div class="card empty" style="margin-top:18px">'+art('radar','sm')+'<b>Add the people first</b><p>Every message personalises itself to the person and their brand.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">Ask Radar to find the people</button></div>';
+  const live=campLive(c);const team=(c.members||[]).length>1;const mineOnly=team&&!MC_ALL;const mine=ppl.filter(x=>!mineOnly||ownerOf(c,x.a)===ME());
+  const due=mine.map(x=>({x,s:dueNow(c,x.p.id,steps)})).filter(q=>q.s);const soon=mine.map(x=>({x,s:nextFor(c,x.p.id,steps)})).filter(q=>q.s&&!due.some(d=>d.x.p.id===q.x.p.id)).sort((a,b)=>a.s.w-b.s.w);
+  if(!ptPerson||!ppl.some(x=>x.p.id===ptPerson)){ptPerson=((due[0]||soon[0]||{x:ppl[0]}).x).p.id;ptStep=null}
+  const cur=ppl.find(x=>x.p.id===ptPerson);const nxt=nextFor(c,ptPerson,steps);if(!ptStep||!steps.some(s=>s.id===ptStep))ptStep=(nxt||steps[steps.length-1]).id;
+  const s=steps.find(x=>x.id===ptStep);const ch=REACH_CH.find(x=>x.k===s.ch)||REACH_CH[0];const state=stepState(c,ptPerson,s,steps);const key=ptPerson+':'+s.id;
+  const dr=c.drafts&&c.drafts[key];const gen=composeMsg(s,cur.a,cur.p,c);const msg=dr&&!gen.nonote?{subject:dr.s||gen.subject,body:dr.b,task:gen.task}:gen;const L=STEP_LIB[s.lib]||{};const first=cur.p.name.split(' ')[0];
+  const nextDue=soon[0]&&stepDate(c,soon[0].s.w);
+  const qrow=(q,later)=>{const chx=REACH_CH.find(k=>k.k===q.s.ch)||REACH_CH[0];return '<button class="mcq'+(q.x.p.id===ptPerson?' on':'')+(later?' later':'')+'" onclick="ptPerson=\''+q.x.p.id+'\';ptStep=\''+q.s.id+'\';go(\'launch\',null,true)">'+logo(q.x.a,34)+'<span class="grow"><b>'+esc(q.x.p.name)+'</b><small>'+(later?fmtDay(stepDate(c,q.s.w))+' · ':'')+esc(q.s.t)+(team&&ownerOf(c,q.x.a)!==ME()?' · '+esc(nameOf(ownerOf(c,q.x.a)).split(' ')[0]):'')+'</small></span><i>'+ico(chx.ic)+'</i></button>'};
+  const banner={due:'',done:'<div class="mc-st done">'+ico('check')+'Done '+rel(c.sent[key])+'.</div>',skip:'<div class="mc-st">Skipped for '+esc(first)+'.</div>',
+    warm:'<div class="warnbar">'+ico('lock')+'<span class="grow"><b>Warm only.</b> This unlocks once '+esc(first)+' has engaged with you'+(cur.p.phone?'.':' and you have their number.')+'</span>'+(cur.p.phone?'':'<button class="btn btn-line btn-xs" onclick="openPersonForm(\''+cur.a.id+'\',\''+cur.p.id+'\')">Add their number</button>')+'</div>',
+    later:'<div class="mc-st later">'+ico('clock')+'<span>'+(live?(nxt&&nxt.id!==s.id&&nxt.w<=s.w?'Comes after <b>'+esc(nxt.t.toLowerCase())+'</b>. ':'')+'Unlocks '+fmtDay(stepDate(c,s.w))+', in week '+s.w+'. Read it and tweak it now if you like.':'Launch the campaign and this unlocks in week '+s.w+'.')+'</span></div>'}[state];
+  const armed=!!ARMED[key];const canAct=state==='due';const isChan=['linkedin','email','workshop'].includes(s.ch);
+  return '<div class="mc" data-tour="playbook"><aside class="mc-q card"><div class="card-h"><h3>Due today</h3><span class="pill'+(due.length?' warn':'')+'">'+due.length+'</span></div>'+(team?'<div class="mc-who">'+seg([['me','Mine'],['all','Everyone’s']],MC_ALL?'all':'me',"MC_ALL=$==='all';go('launch',null,true)")+'</div>':'')+
+    (due.length?'<div class="mc-l">'+due.slice(0,14).map(q=>qrow(q)).join('')+'</div>':'<div class="mc-clear">'+(live?'<b>🎉 All done for now.</b><small>'+(nextDue?'Next touch is due '+fmtDay(nextDue)+'.':'Every journey is complete.')+'</small>':'<b>Nothing is due yet.</b><small>Launch the campaign and week one appears here.</small>')+'</div>')+
+    (soon.length?'<div class="lab" style="margin:14px 0 6px">Coming up</div><div class="mc-l">'+soon.slice(0,5).map(q=>qrow(q,1)).join('')+'</div>':'')+
+    '<div class="mc-wk"><div class="lab">'+esc(first)+'’s journey</div><div class="mc-steps">'+steps.map(x=>{const st=stepState(c,ptPerson,x,steps);const chx=REACH_CH.find(k=>k.k===x.ch)||REACH_CH[0];return '<button class="mst '+st+(x.id===ptStep?' on':'')+'" onclick="ptStep=\''+x.id+'\';go(\'launch\',null,true)" data-tip="Week '+x.w+': '+esc(x.t)+({done:' · done',due:' · due now',later:'',warm:' · warm only',skip:' · skipped'}[st])+'">'+(st==='done'?'✓':st==='warm'?ico('lock'):ico(chx.ic))+'</button>'}).join('')+'</div></div></aside>'+
+  '<div class="mc-main card"><div class="mc-h">'+logo(cur.a,48)+'<div class="grow" style="min-width:0"><div class="lab" style="margin:0">Week '+s.w+' · '+ch.l+'</div><h3 class="h-m" style="margin-top:4px">'+esc(s.t)+'</h3><div class="small muted">For '+esc(cur.p.name)+(cur.p.role?', '+esc(cur.p.role):'')+' at '+esc(cur.a.name)+'</div></div>'+(state==='due'?'<span class="pill warn">Due now</span>':'')+'</div>'+
+    banner+(L.why&&state!=='done'?'<p class="pb-why">'+ico('bulb')+esc(L.why)+'</p>':'')+
+    (s.ch==='email'&&!msg.task?(bankOf(c).heroUrl?'<div class="trk">'+ico('link')+'<span class="grow">'+esc(first)+'’s trackable link: <code>'+esc(trackUrl(c,cur.a,cur.p,s))+'</code></span><button class="btn btn-ghost btn-xs" onclick="copyText(this.parentElement.querySelector(\'code\').textContent,this)">'+ico('copy')+'Copy</button></div>':'<div class="trk dim">'+ico('link')+'<span class="grow">Add the link to your hero piece and every email gets its own trackable link.</span><button class="btn btn-ghost btn-xs" onclick="go(\'give\',\'bank\')">Add the link</button></div>'):'')+
+    (s.ch==='mail'&&state!=='done'?'<details class="pb-mail"><summary>'+ico('sparkle')+'Need an idea for what to send?</summary>'+mailIdeas(c,6)+'</details>':'')+
+    composerHTML({s,msg})+
+    (canAct?'<div class="pb-act">'+(msg.task||msg.nonote?'':'<button class="btn btn-line btn-sm" onclick="copyMsg(this);armStep()">'+ico('copy')+'Copy</button>')+
+      (isChan?'<button class="btn btn-line btn-sm" onclick="openChannel(\''+(s.ch==='workshop'?'email':s.ch)+'\');armStep()">'+ico(s.ch==='linkedin'?'linkedin':'mail')+(msg.nonote?'Open their LinkedIn':'Open '+(s.ch==='linkedin'?'LinkedIn':'email'))+'</button>':'')+
+      (s.ch==='phone'&&cur.p.phone?'<a class="btn btn-line btn-sm" href="tel:'+esc(cur.p.phone.replace(/\s/g,''))+'" onclick="armStep()">'+ico('phone')+'Call '+esc(first)+'</a>':'')+
+      (msg.task&&s.ch==='linkedin'?'<a class="btn btn-line btn-sm" target="_blank" rel="noopener" href="'+esc(cur.p.li||liPeople(cur.a.name,cur.p.name))+'" onclick="armStep()">'+ico('linkedin')+'Open their profile</a>':'')+
+      '<button class="btn btn-ghost btn-sm" onclick="skipStep()">Skip this one</button>'+
+      (isChan||(msg.task&&s.ch==='linkedin')||(s.ch==='phone'&&cur.p.phone)?'<button class="btn btn-primary" id="mcSent" onclick="markStepSent()"'+(armed?'':' disabled')+'>'+ico('check')+'I’ve '+ACT_VERB[s.ch]+'</button>':'<button class="btn btn-primary" onclick="confirmStep()">'+ico('check')+'I’ve '+ACT_VERB[s.ch]+'</button>')+'</div>'+
+      (!armed&&(isChan||msg.task)?'<p class="tiny muted" style="margin-top:8px;text-align:right">'+(msg.nonote?'Open their LinkedIn first, then come back and tick it off.':'Copy or open it first, then tick it off once it has gone.')+'</p>':''):'')+
+  '</div></div>'};
+function armStep(){ARMED[ptPerson+':'+ptStep]=1;const b=$('#mcSent');if(b){b.disabled=false;b.classList.add('pop')}}
+function confirmStep(){const x=curPT();const s=curCamp().reach.steps.find(z=>z.id===ptStep);if(!x||!s)return;confirmBox(esc(s.t)+' for '+esc(x.p.name)+'?','Only tick it off once it has actually happened. Signals counts on it.','Yes, it’s done',()=>{ARMED[ptPerson+':'+ptStep]=1;markStepSent()})}
+function skipStep(){const c=curCamp();const s=c.reach.steps.find(z=>z.id===ptStep);const x=curPT();if(!s||!x)return;act('Skipped '+s.t.toLowerCase()+' for '+x.p.name,()=>{c.skipped=c.skipped||{};c.skipped[ptPerson+':'+s.id]=today()},{refresh:false,quiet:true});mcAdvance(c)}
+function mcAdvance(c){const steps=c.reach.steps.slice().sort((p,q)=>p.w-q.w);const up=campTargets(c).flatMap(a=>a.people.map(p=>({p,s:dueNow(c,p.id,steps)}))).filter(q=>q.s);ptPerson=up.length?up[0].p.id:ptPerson;ptStep=up.length?up[0].s.id:null;refreshNav();go('launch',null,true)}
+const _markStepSent=markStepSent;
+markStepSent=function(force){const c=curCamp();const steps=c.reach.steps.slice().sort((p,q)=>p.w-q.w);const s=c.reach.steps.find(x=>x.id===ptStep);const d=dueNow(c,ptPerson,steps);
+  if(!s||!d||d.id!==s.id){toast('That one is not due yet');return}if(!ARMED[ptPerson+':'+s.id]&&!force){toast('Copy or open it first, then tick it off once it has gone');return}
+  delete ARMED[ptPerson+':'+s.id];_markStepSent(force);mcAdvance(c)};

@@ -1,0 +1,30 @@
+/* ═══════════ v12 PIPELINE: a revenue tracker, not a box of numbers ═══════════
+   Won against target, what is weighted in the pipeline, what is still to find, month by month and stage by stage.
+   Two validated series colours: won (blue) and weighted pipeline (warm), with a neutral for the gap. */
+VIEWS.pipeline=()=>secHead('pipeline','Interest into <span class="serif">pipeline.</span>','<button class="btn btn-line btn-sm" onclick="downloadSnapshotPDF()">'+ico('download')+'Performance snapshot</button>')+pipelineBody()+handoff('pipeline','Start your next campaign','newCampaign()','Take what is working into the next round. Your agency profile carries over, so it takes minutes.');
+function wonByMonth(){const fy=fyStart();const out=[];for(let i=0;i<12;i++){const d=new Date(fy.getFullYear(),fy.getMonth()+i,1);out.push({k:d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'),l:d.toLocaleDateString('en-GB',{month:'short'}),v:0,future:d>new Date()})}
+  S.opps.filter(o=>o.lane==='won'&&o.closed).forEach(o=>{const m=out.find(x=>x.k===o.closed.slice(0,7));if(m)m.v+=+o.value||0});return out}
+function trackerHTML(){const p=pipe();const T=p.target||0;const won=p.wonVal,wt=p.weighted;const gap=Math.max(0,T-won-wt);const pct=T?Math.round(won/T*100):0;const reach=T?Math.min(100,Math.round((won+wt)/T*100)):0;
+  /* the gauge: won, then weighted pipeline after it, out of the target */
+  const R=74,C=2*Math.PI*R,f=v=>T?Math.min(1,v/T):0;const a1=f(won)*C,a2=Math.min(C-a1,f(wt)*C);
+  const gauge='<svg viewBox="0 0 180 180" class="ptg-g" role="img" aria-label="Won '+money(won,true)+' of a '+money(T,true)+' target, plus '+money(wt,true)+' weighted pipeline"><circle cx="90" cy="90" r="'+R+'" class="ptg-t"/>'+
+    (a2>2?'<circle cx="90" cy="90" r="'+R+'" class="ptg-p" stroke-dasharray="'+Math.max(0,a2-3).toFixed(1)+' '+C.toFixed(1)+'" stroke-dashoffset="'+(-a1-1.5).toFixed(1)+'" transform="rotate(-90 90 90)"><title>Weighted pipeline '+money(wt,true)+'</title></circle>':'')+
+    '<circle cx="90" cy="90" r="'+R+'" class="ptg-w" stroke-dasharray="'+Math.max(0,a1-1.5).toFixed(1)+' '+C.toFixed(1)+'" transform="rotate(-90 90 90)"><title>Won '+money(won,true)+'</title></circle></svg>'+
+    '<div class="ptg-c"><b>'+money(won,true)+'</b><small>won of '+money(T,true)+'</small><em>'+pct+'%</em></div>';
+  const seg=(cls,v,l)=>v>0&&T?'<span class="ptb-'+cls+'" style="flex:'+v+'" data-tip="'+esc(l+': '+money(v,true))+'"></span>':'';
+  const months=wonByMonth();const mx=Math.max(1,...months.map(m=>m.v));
+  const lanes=LANES.filter(l=>['lead','opportunity','brief','pitch'].includes(l.k)).map(l=>{const os=S.opps.filter(o=>o.lane===l.k);return{l,n:os.length,v:sum(os,o=>+o.value||0)}});const lmx=Math.max(1,...lanes.map(x=>x.v));
+  return '<div class="ptk" data-tour="pipe-kpis"><div class="ptk-hero"><div class="ptg">'+gauge+'</div><div class="ptk-k">'+
+      '<div class="ptkk"><i class="psw won"></i><span>Won this year</span><b>'+money(won,true)+'</b><small>'+p.won.length+' deal'+(p.won.length===1?'':'s')+'</small></div>'+
+      '<div class="ptkk"><i class="psw pipe"></i><span>Weighted pipeline</span><b>'+money(wt,true)+'</b><small>'+money(p.val,true)+' across '+p.active.length+' live deal'+(p.active.length===1?'':'s')+'</small></div>'+
+      '<div class="ptkk"><i class="psw gap"></i><span>Still to find</span><b>'+money(gap,true)+'</b><small>'+(T?(reach>=100?'Covered, if the pipeline converts':reach+'% covered so far'):'Set a target in Settings')+'</small></div></div></div>'+
+    (T?'<div class="ptk-bar"><div class="ptb-h"><b>The road to '+money(T,true)+'</b><span class="muted small">Won, then what the pipeline should bring in, then the gap</span></div><div class="ptb">'+seg('won',won,'Won')+seg('pipe',Math.min(wt,Math.max(0,T-won)),'Weighted pipeline')+seg('gap',gap,'Still to find')+'</div>'+
+      '<div class="ptb-l"><span><i class="psw won"></i>Won '+money(won,true)+'</span><span><i class="psw pipe"></i>Pipeline '+money(wt,true)+'</span><span><i class="psw gap"></i>Gap '+money(gap,true)+'</span></div></div>':'')+
+    '<div class="ptk-two"><div class="ptk-m"><div class="ptb-h"><b>Won, month by month</b><span class="muted small">This financial year</span></div><div class="pmbars">'+months.map(m=>'<div class="pmb'+(m.future?' fut':'')+'" data-tip="'+esc(m.l+': '+money(m.v,true))+'"><span style="height:'+(m.v?Math.max(4,Math.round(m.v/mx*100)):0)+'%"></span><small>'+m.l+'</small></div>').join('')+'</div></div>'+
+    '<div class="ptk-f"><div class="ptb-h"><b>Where the pipeline sits</b><span class="muted small">Value at each stage, and how likely it is to land</span></div>'+lanes.map(x=>'<div class="pfs" data-tip="'+esc(x.l.l+': '+money(x.v,true)+', '+x.n+' deal'+(x.n===1?'':'s'))+'"><span class="pfs-l">'+esc(x.l.l)+'</span><span class="pfs-b"><i style="width:'+Math.round(x.v/lmx*100)+'%"></i></span><span class="pfs-v">'+money(x.v,true)+'<small>'+x.l.w+'% likely</small></span></div>').join('')+'</div></div></div>'}
+pipelineBody=function(){return '<div class="row wrap" style="justify-content:flex-end;margin:-6px 0 14px;gap:8px"><button class="btn btn-line btn-sm" onclick="openImport(null,\'deals\')" data-tip="A CSV of deals from your CRM">'+ico('upload')+'Import deals</button><button class="btn btn-primary btn-sm" onclick="openOppForm()">'+ico('plus')+'Add a deal</button></div>'+
+  trackerHTML()+
+  '<div class="kanban" id="kanban" data-tour="kanban">'+LANES.map(l=>{const os=S.opps.filter(o=>o.lane===l.k).sort((a,b)=>(+b.value||0)-(+a.value||0));
+    return '<div class="lane"><div class="lane-h"><b>'+l.l+'</b><span class="pill">'+os.length+'</span></div><div class="lane-v">'+money(sum(os,o=>+o.value||0),true)+(l.w&&l.k!=='won'?' · '+l.w+'% likely':'')+'</div>'+
+    '<div class="lane-body" data-lane="'+l.k+'">'+os.map(oppCard).join('')+'<button class="add" onclick="openOppForm(null,\''+l.k+'\')">+ Add a deal here</button></div></div>'}).join('')+'</div>'+
+  '<p class="tiny muted" style="margin-top:6px">Drag a card to another column to move it. Click a card to edit it. Every move can be undone.</p>'};
