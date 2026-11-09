@@ -171,3 +171,26 @@ See `AMPLIFY-INTEGRATION.md`.
   - The campaign name is no longer cut short.
   - "Open now" on campaign cards now says "Selected".
   - Mobile tidy-ups for Home, the campaign bar and the sign-in page.
+
+## Version 12.3
+
+- **What we learned: choose or write your own.** Every section has a "Write your own" button:
+  - What you do best, why you, your first offer
+  - Proof points, case studies, clients
+  - Awards, the team, how you work
+
+  What you write is ticked and used straight away, and it survives a fresh read of your files.
+- **Who you want lives in the agency profile.** It's a new fourth area: what you do best, sectors, client size, where, the people you sell to and the problems you solve. Your team size from Who you are sets your agency size, so nobody is asked twice. It's set once and used by every campaign. Radar no longer asks; "Change who you want" opens the agency profile.
+- **Events pinpointed to your sectors:**
+  - 61 events between November 2026 and October 2027, tagged by sector, with dates checked on organisers' sites.
+  - For your sectors: events for those sectors, plus the big events every sector attends. All events shows the full list.
+  - **Add an event**, with name, dates, venue, link and sectors.
+  - **Add to my plan** puts a LinkedIn nudge in the week before and a "meet them there" touchpoint in the event's week. Events stay in the plan when you change channels.
+- **What to share starts with the content bank (Step 1).** Upload or link your own pieces, and Spark reads the words. Step 2 then suggests gifts made from that content, tailored to your sectors, the campaign's problem and your chosen roles.
+- **New sector-specific gifts.** There are 18 new gift ideas written for particular sectors (retail, FMCG, finance, travel, health, tech, automotive, charity, B2B and media). The ranking now weighs your sectors and the people you sell to.
+- **A realistic minimum to launch.** You need:
+  - a hero piece
+  - a case study
+  - a blog post or report
+
+  LinkedIn posts, personalised videos and screen recordings are now nice to have, not required.
