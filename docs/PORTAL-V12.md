@@ -2,17 +2,18 @@
 
 The growth portal is now the **Permissionless Portal**. If an agency adds its logo, the top left reads as theirs: their logo tile, their name, and "Permissionless Portal" underneath.
 
-## Plato and the gods
+## Plato and the crew
 
 - **Plato is the guide.** He sits bottom right on every page. He can see the whole portal (campaigns, brands, people, signals, pipeline, the agency profile) and answers anything about it: what to do today, who is warming up, which brand to lean into, what a campaign should look like.
 - **Plato does things, not just says them.** Ask "find decision makers at Taylors of Harrogate and add them to Standing out in food" and he does it. He can also make campaigns, find and add brands, set the problem, choose the gift, set channels or use the recommended route, move deals, log signals, explain a score, set the digest and go to any page. Anything that sends or launches asks first, and every change can be undone from the toast.
 - With `ANTHROPIC_API_KEY` set, Plato is Claude with those tools. Without it, he still follows a set of built-in commands and answers from the portal's own data.
-- **The four steps are Greek gods**, drawn in Plato's look, each with their own voice:
-  - **Who to target** is Artemis (the hunt)
-  - **What to share** is Athena (wisdom)
-  - **How to reach** is Hermes (the messenger)
-  - **Launch** is Apollo (the sun rising every day)
-- The god pictures are 3D renders made in the same colour treatment as Plato. They are placeholders: real statue photographs can be swapped in later.
+- **The four steps are run by a crew of bots**, each with one job and a dry, slightly cheeky personality:
+  - **Radar** finds who to target. Deadpan, allergic to guesswork, deals in scores out of 100.
+  - **Spark** makes what to share. Full of ideas, has to be stopped from suggesting ten gifts.
+  - **Ping** plans how to reach them. Obsessed with pacing: never two emails in a week.
+  - **Rocket** launches it. Small burns every day, ten minutes at a time.
+- **They talk to each other.** Under each bot's message is a short exchange between the crew about where your campaign is, and each one hands the work on to the next in its own words.
+- The bots are drawn in code, so they stay sharp at any size, blink, scan and pulse. Plato keeps his statue portrait.
 
 ## First login
 
@@ -20,7 +21,7 @@ The growth portal is now the **Permissionless Portal**. If an agency adds its lo
   1. Hello, with your name and agency
   2. The old way against the permissionless way
   3. The four principles: relevant, valuable, persistent, human
-  4. Who, what, how, launch, and the god for each
+  4. Who, what, how, launch, the bot for each, and the crew talking
   5. Why it works, with Scope & Lens's real numbers
   6. The demo
 - **The demo** is a full superuser workspace with invented data, clearly labelled. It never touches your own workspace and nothing in it saves. A guided tour takes you through it. **Build my own** removes it and starts you clean.
@@ -39,7 +40,7 @@ The growth portal is now the **Permissionless Portal**. If an agency adds its lo
 - The logo is uploaded in **Settings, Brand** only.
 - **Settings, Brand** also takes exact hex codes for every brand colour, with a live preview.
 
-## Who to target (Artemis)
+## Who to target (Radar)
 
 - **Change your prospecting preferences** replaces "Your answers".
 - **Find prospects now** searches through Amplify when it is connected, and otherwise uses the portal's own research. The UK scan is now a dot map with a radar sweep, and it never quotes a brand count.
@@ -62,12 +63,12 @@ The growth portal is now the **Permissionless Portal**. If an agency adds its lo
 - Decision maker roles are plain text, so they no longer look like buttons.
 - "Where the brands and news come from" has been removed.
 
-## What to share (Athena)
+## What to share (Spark)
 
 - Fixed the "undefined" page. Each campaign now gets a wide spread of ideas: from your point of view, your proof, your tasters, your case studies and the news on its brands, as well as the standard library. Each idea is set out as problem, your edge, then the gift.
 - New campaigns no longer ask which problem they are about. That is chosen here.
 
-## How to reach (Hermes)
+## How to reach (Ping)
 
 - No channels are switched on until you choose them, or press **Use the Scope & Lens route**. That route now includes content and LinkedIn Ads.
 - If content is on, a post appears every two weeks from week 1 in the plan.
@@ -80,7 +81,7 @@ The growth portal is now the **Permissionless Portal**. If an agency adds its lo
   The profile is read through Amplify, or Apollo, or whatever you paste. LinkedIn does not let other sites read profiles directly.
 - **Events** are picture tiles with the date and an "In N days" badge, soonest first. The pictures are each event's own share image, fetched by the server. The list covers November 2026 to June 2027 (dates checked November 2026).
 
-## Launch (Apollo)
+## Launch (Rocket)
 
 When Amplify is connected and the agency is Premium:
 - Launch hands the whole campaign over in one call: people, steps, words, pace and approval mode.

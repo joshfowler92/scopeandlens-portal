@@ -10,7 +10,7 @@ This folder is the whole of scopeandlens.com (version 23, unchanged apart from t
 | `netlify/edge-functions/gate.js` | Checks the session before anything under `/portal/app` is served | Runs on Netlify |
 | `netlify/functions/` | Sign in, access requests, teams, live news, AI reading, Amplify | Runs on Netlify |
 | `docs/AMPLIFY-INTEGRATION.md` | The spec for connecting the outreach partner | Not published |
-| `docs/PORTAL-V12.md` | What is new in version 12 (Plato, the gods, alerts and digest, pipeline tracker) | Not published |
+| `docs/PORTAL-V12.md` | What is new in version 12 (Plato and the crew, alerts and digest, pipeline tracker) | Not published |
 | `docs/PORTAL-V10.md`, `docs/PORTAL-V11.md` | Earlier release notes | Not published |
 
 ## How access works
