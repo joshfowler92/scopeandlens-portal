@@ -1,0 +1,8 @@
+/audit/*
+  X-Robots-Tag: noindex
+/audit-links.html
+  X-Robots-Tag: noindex
+
+/portal/*
+  X-Robots-Tag: noindex
+  Cache-Control: no-store

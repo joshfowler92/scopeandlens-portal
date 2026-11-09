@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#2c56ed">
+<title>Audit link builder | Scope &amp; Lens</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:#2c56ed;color:#f0ede8;font-family:'DM Sans',system-ui,sans-serif;display:grid;place-items:center;padding:24px}
+.box{width:min(640px,100%);background:#f7f5f1;color:#080808;border:2px solid #080808;box-shadow:12px 12px 0 #080808;padding:clamp(22px,4vw,36px);display:grid;gap:16px}
+.wm{font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:#2c56ed}
+h1{font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-.04em;line-height:1}
+h1 em{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:#2c56ed}
+p{color:#3a3833;font-size:15.5px;line-height:1.5}
+label{display:grid;gap:6px;font-size:14px;font-weight:700}
+input{font:500 18px 'DM Sans',sans-serif;padding:14px;border:2px solid #080808;background:#f0ede8;width:100%;border-radius:0}
+input:focus{outline:3px solid #5eead4}
+.out{border:2px dashed #080808;background:#bff3e8;padding:14px;font-size:15px;font-weight:700;word-break:break-all;min-height:52px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+button,a.b{font:700 15px 'DM Sans',sans-serif;padding:14px 20px;border:2px solid #080808;background:#2c56ed;color:#f0ede8;cursor:pointer;text-decoration:none}
+a.b{background:#f0ede8;color:#2c56ed}
+small{font-size:13px;color:#6b6760}
+</style></head><body>
+<div class="box">
+  <span class="wm">Scope &amp; Lens</span>
+  <h1>Make a <em>personal</em> audit link</h1>
+  <p>Type the agency's name exactly as you want it to appear. The page headline, the badge and the form all use it.</p>
+  <label for="n">Agency name<input id="n" placeholder="Northgate &amp; Co" autocomplete="off"></label>
+  <label for="c">Campaign tag <small>(optional, comes through with their request)</small><input id="c" placeholder="october-founders" autocomplete="off"></label>
+  <div class="out" id="o">Your link appears here</div>
+  <div class="row"><button type="button" id="cp">Copy link</button><a class="b" id="pv" href="free-audit.html" target="_blank" rel="noopener">Preview it</a></div>
+  <small id="msg">This page is just for you. It isn't linked anywhere and search engines are asked to skip it.</small>
+</div>
+<script>
+(function(){
+  var n = document.getElementById('n'), c = document.getElementById('c'), o = document.getElementById('o'), pv = document.getElementById('pv'), msg = document.getElementById('msg');
+  function slug(s){ return s.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+  function unslug(s){ return s.split('-').filter(Boolean).map(function(w){ if (w === 'and') return '&'; if (/^[a-z]{1,3}$/.test(w) && !/[aeiou]/.test(w)) return w.toUpperCase(); return w.charAt(0).toUpperCase() + w.slice(1); }).join(' '); }
+  function build(){
+    var name = n.value.trim().replace(/\s+/g, ' '), s = slug(name);
+    if (!s){ o.textContent = 'Your link appears here'; pv.href = 'free-audit.html'; return ''; }
+    var qs = [];
+    if (unslug(s) !== name) qs.push('agency=' + encodeURIComponent(name));
+    if (c.value.trim()) qs.push('c=' + encodeURIComponent(slug(c.value)));
+    var url = 'https://www.scopeandlens.com/audit/' + s + (qs.length ? '?' + qs.join('&') : '');
+    o.textContent = url; pv.href = 'free-audit.html' + '?agency=' + encodeURIComponent(name);
+    return url;
+  }
+  n.addEventListener('input', build); c.addEventListener('input', build);
+  document.getElementById('cp').addEventListener('click', function(){
+    var u = build(); if (!u) return;
+    (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ msg.textContent = 'Copied. Paste it into your message.'; }).catch(function(){ msg.textContent = 'Select the link above and copy it.'; });
+  });
+})();
+</script>
+<div class="ck" id="slCk" role="dialog" aria-live="polite" aria-label="Cookies and privacy" hidden>
+  <svg class="ck-i" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4a20 20 0 1020 20 7 7 0 01-8-7 7 7 0 01-7-8 6 6 0 01-5-5z"/><circle cx="17" cy="20" r="2.6"/><circle cx="28" cy="30" r="2.6"/><circle cx="16" cy="32" r="2"/><circle cx="33" cy="22" r="1.6"/></svg>
+  <div class="ck-b"><strong>No tracking here.</strong><span>We don't use advertising or analytics cookies, just the essentials that make the site work.</span></div>
+  <div class="ck-a"><button type="button" class="ck-ok" id="slCkOk">Got it</button><a class="ck-l" href="privacy.html">Privacy policy</a></div>
+</div>
+<style>
+.ck{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9500;width:min(440px,calc(100vw - 32px));display:grid;grid-template-columns:44px 1fr;gap:12px 14px;align-items:start;padding:18px;background:#f0ede8;color:#080808;border:2px solid #080808;box-shadow:8px 8px 0 #080808;font-family:'DM Sans',system-ui,sans-serif;transform:translateY(calc(100% + 40px));opacity:0;transition:transform .5s cubic-bezier(.2,.9,.25,1.15),opacity .3s}
+.ck[hidden]{display:none}
+.ck.on{transform:none;opacity:1}
+.ck-i{width:44px;height:44px;fill:#5eead4;stroke:#080808;stroke-width:2.5;stroke-linejoin:round}
+.ck-i circle{fill:#080808;stroke:none}
+.ck.on .ck-i{animation:ckw 1.6s ease-in-out .5s 2}
+@keyframes ckw{0%,100%{transform:none}30%{transform:rotate(-14deg)}60%{transform:rotate(10deg)}}
+.ck-b{display:grid;gap:4px;font-size:15px;line-height:1.45}
+.ck-b strong{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.ck-a{grid-column:1 / -1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ck-ok{font:700 15px 'DM Sans',system-ui,sans-serif;background:#2c56ed;color:#f0ede8;border:2px solid #2c56ed;padding:12px 22px;min-height:46px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.ck-ok:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #080808}
+.ck-l{color:#2c56ed;font-weight:700;font-size:15px;padding:12px 2px}
+@media (max-width:640px){.ck{left:12px;right:12px;width:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));box-shadow:6px 6px 0 #080808}}
+</style>
+<script>
+(function(){
+  var ck = document.getElementById('slCk'); if (!ck) return;
+  var KEY = 'sl_cookie_notice', seen = false;
+  try { seen = localStorage.getItem(KEY) === '1'; } catch(e){}
+  function show(){ ck.hidden = false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ ck.classList.add('on'); }); }); }
+  function hide(){ ck.classList.remove('on'); setTimeout(function(){ ck.hidden = true; }, 450); try { localStorage.setItem(KEY, '1'); } catch(e){} }
+  document.getElementById('slCkOk').addEventListener('click', hide);
+  document.addEventListener('click', function(e){ var a = e.target.closest('[data-ck-open]'); if (a){ e.preventDefault(); show(); } });
+  if (!seen) setTimeout(show, document.getElementById('slLoader') ? 3200 : 1200);
+})();
+</script>
+</body></html>

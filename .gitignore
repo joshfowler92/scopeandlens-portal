@@ -1,0 +1,17 @@
+# Secrets: set these in Netlify, never in the repo
+.env
+.env.*
+*.pem
+*.key
+
+# Local tooling
+node_modules/
+.netlify/
+.DS_Store
+
+# Licensed pitch intelligence exports and test data never go in the repo.
+# Upload them in Manage access, where they are stored on the server.
+*pitch*.csv
+*pitch*.xlsx
+*export*.csv
+*export*.xlsx

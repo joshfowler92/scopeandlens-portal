@@ -1,0 +1,16 @@
+# Scope & Lens website, plus the gated Permissionless Portal at /portal
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/portal/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+    X-Robots-Tag = "noindex"
