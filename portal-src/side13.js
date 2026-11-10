@@ -23,7 +23,7 @@ navHTML=function(){const st=sysStats();const c=curCamp();const gate=!profReady()
     sdGroup('help','Help',sideItem('guides','Guides')+'<button class="sd-i" onclick="startWalk(true)" data-tip="Replay the walkthrough">'+ico('play')+'<span class="sd-t"><b>Replay the walkthrough</b></span></button><button class="sd-i" onclick="startTour()" data-tip="Show me around this portal">'+ico('eye')+'<span class="sd-t"><b>Show me around this portal</b></span></button>')};
 /* a sliding marker behind the page you are on */
 let SDM=null;
-function sdMarker(){const nav=$('#nav');if(!nav)return;let m=nav.querySelector('.sd-mark');const fresh=!m;if(fresh){m=document.createElement('i');m.className='sd-mark';nav.prepend(m)}
+function sdMarker(){const nav=$('#nav');if(!nav)return;let m=nav.querySelector('.sd-slide');const fresh=!m;if(fresh){m=document.createElement('i');m.className='sd-slide';nav.prepend(m)}
   const on=nav.querySelector('.sd-i.on,.sd-a.on');if(!on||on.offsetParent===null||on.closest('.sdg:not(.open)')){m.style.opacity=0;return}
   const r=on.getBoundingClientRect(),n=nav.getBoundingClientRect();const y=r.top-n.top+nav.scrollTop,h=r.height,x=r.left-n.left,w=r.width;
   if(fresh&&SDM){m.style.transition='none';m.style.transform='translate('+SDM.x+'px,'+SDM.y+'px)';m.style.height=SDM.h+'px';m.style.width=SDM.w+'px';m.offsetWidth;m.style.transition=''}
