@@ -45,7 +45,7 @@ GUIDES.splice(0,GUIDES.length,
    ['The sidebar','home',['Areas fold away: press an area’s name to open or close it. Press the panel button, top left, to collapse the sidebar to icons. Hover an icon to see its name.','Your campaign shows Building now, Live now with the week, Paused or Finished.']]],
   tip:'Lost? Show me around this portal takes two minutes.'},
  {k:'method',g:'home',t:'Permissionless prospecting: the principles',s:'Why giving value before you ask works, and the habits that make it work for you.',m:4,
-  sec:[['Why it works','home',['98% of B2B buyers are not in market at any one time, and 81% of those who are already have a preferred agency. Pitching when they need someone is too late.','Being remembered before they need anyone is the whole game.']],
+  sec:[['Why it works','home',['95% of B2B buyers are not in market at any one time, and 81% of those who are already have a preferred agency. Pitching when they need someone is too late.','Being remembered before they need anyone is the whole game.']],
    ['The habits','home',['Relevant: one problem, a short list of brands, a reason to talk now.','Valuable: something useful they would happily pay for, given freely.','Persistent: a steady rhythm over twelve weeks, never a blast.','Human: you send it, in your own words, from your own accounts.']]],
   tip:'Show up with value before anyone asks for it.'});
 /* the reader in the portal shows the screenshots too */

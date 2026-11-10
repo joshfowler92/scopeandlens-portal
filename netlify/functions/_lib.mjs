@@ -84,12 +84,28 @@ export async function needAdmin(req) { const u = await needUser(req); return u &
 
 // Email, through Resend when RESEND_API_KEY is set. Without it, nothing is sent and the portal shows links to copy instead.
 export async function sendMail({ to, subject, text, html }) {
-  if (!process.env.RESEND_API_KEY || !to) return { sent: false };
-  try {
+  if (!process.env.RESEND_API_KEY) return { sent: false, why: 'Email is not set up yet: add RESEND_API_KEY in Netlify.' };
+  if (!to) return { sent: false, why: 'There is no email address to send to.' };
+  const send = async (from) => {
     const r = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: process.env.MAIL_FROM || 'Scope & Lens <portal@scopeandlens.com>', to: Array.isArray(to) ? to : [to], subject, text, html: html || mailHtml(text) }) });
-    return { sent: r.ok };
-  } catch { return { sent: false }; }
+      body: JSON.stringify({ from, to: Array.isArray(to) ? to : [to], subject, text, html: html || mailHtml(text) }) });
+    let body = {}; try { body = await r.json(); } catch {}
+    return { ok: r.ok, status: r.status, msg: String(body.message || body.error || body.name || '') };
+  };
+  try {
+    const from = process.env.MAIL_FROM || 'Scope & Lens <portal@scopeandlens.com>';
+    let r = await send(from);
+    /* until the sending domain is verified in Resend, it refuses that address: send from Resend's own address instead */
+    if (!r.ok && (r.status === 403 || /verif|domain|testing emails/i.test(r.msg))) {
+      console.error('Resend refused ' + from + ': ' + r.status + ' ' + r.msg + '. Retrying from onboarding@resend.dev.');
+      const r2 = await send('Scope & Lens <onboarding@resend.dev>');
+      if (r2.ok) return { sent: true, fallback: true };
+      console.error('Resend fallback failed: ' + r2.status + ' ' + r2.msg);
+      return { sent: false, why: 'Resend would not send it: ' + (r.msg || r2.msg || 'status ' + r.status) + '. Verify scopeandlens.com in Resend (Domains), then try again.' };
+    }
+    if (!r.ok) { console.error('Resend error: ' + r.status + ' ' + r.msg); return { sent: false, why: 'Resend would not send it: ' + (r.msg || 'status ' + r.status) }; }
+    return { sent: true };
+  } catch (e) { console.error('Resend unreachable: ' + (e && e.message)); return { sent: false, why: 'Could not reach the email service. Try again in a minute.' }; }
 }
 export function mailHtml(text) {
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

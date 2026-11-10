@@ -400,3 +400,27 @@ On a phone, or any window narrower than 900px:
   - a frosted top bar, and safe areas respected
   - the brand colour in the status bar
 - **Add to home screen** opens it like an app (web app manifest).
+
+## Version 13.2
+
+### Plato reminds you
+
+Plato keeps track of what is still to do and reminds you about it:
+- campaign tasks that are due this week or overdue
+- campaigns that have no results uploaded yet
+- campaign steps that are not finished, and content banks that are incomplete
+- an agency profile that is incomplete
+- replies that have not been answered
+- deals that have not moved for more than 14 days
+
+He nudges about the most important item once per item per day, never during the walkthrough, a tour or the demo, and the reminder also goes to the bell. Ask him "What is still to do?" and he lists everything, most important first, with a button for each item.
+
+### Tasks wait for their week
+
+A campaign task can only be ticked off once it is due: in its scheduled week or later, and after the step before it for that person. Ticking off a future task did nothing, so it is now blocked with a note saying when it unlocks.
+
+### Other fixes
+
+- **Tours:** the demo tour opened at step 3 because its first steps pointed at parts of Home that v13 replaced. Every step of both tours now points at what is really there, on desktop and on a phone.
+- **95%:** the guiding stat is now 95% of B2B buyers not in market everywhere in the portal (it said 98% in places).
+- **Digest email:** the reason Resend gives for refusing an email is now logged and shown. If the scopeandlens.com sender is not verified, it retries from Resend's test sender, which only reaches the Resend account owner. Verify scopeandlens.com in Resend → Domains so the digest reaches everyone.

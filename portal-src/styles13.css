@@ -285,3 +285,4 @@ body.sd-mini .sd-brand{justify-content:center;flex:0 0 auto}
 .sd-brand .sd-mark svg{height:30px}
 .sd-brand .sd-logo{width:auto;min-width:40px;max-width:120px;flex:0 0 auto;padding:5px 7px}.sd-brand .sd-logo img{max-height:28px;width:auto}
 body.sd-mini .sd-brand .sd-logo{max-width:48px}
+.pl-rem{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:10px}.pl-rem li .btn{margin-top:6px}
