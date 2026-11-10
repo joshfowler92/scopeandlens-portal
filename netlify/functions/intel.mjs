@@ -5,7 +5,7 @@
 //   POST { on }       admin: switch the whole layer on or off for everyone
 //   DELETE            admin: remove the data
 // Each agency is given access in Manage access (org.intel). Admins always see it.
-import { json, bad, needUser, store, getOrgs } from './_lib.mjs';
+import { json, bad, needUser, store, getOrgs , isFounder } from './_lib.mjs';
 const FIELDS = ['id', 'prob', 'cover', 'country', 'adv', 'parent', 'brands', 'cat', 'holding', 'group', 'network', 'agency', 'last', 'pcover', 'move', 'assign', 'media', 'consult', 's26', 'off26', 'dig26', 'dshare', 's25'];
 const tidy = (r) => { const o = {}; FIELDS.forEach(k => { const v = r[k]; if (v == null || v === '') return; o[k] = typeof v === 'number' ? v : String(v).slice(0, 300); }); return o; };
 export default async (req) => {
@@ -14,11 +14,11 @@ export default async (req) => {
   if (req.method === 'GET') {
     const meta = (await s.get('intel:meta')) || null;
     const org = (await getOrgs()).find(o => o.id === u.orgId);
-    const access = u.role === 'admin' || !!(org && org.intel);
+    const access = isFounder(u) || !!(org && org.intel);
     if (!cfg.on || !access || !meta) return json({ enabled: false, available: !!meta, on: !!cfg.on, access, count: meta ? meta.count : 0 });
     return json({ enabled: true, rows: (await s.get('intel:rows')) || [], at: meta.at, count: meta.count, on: true });
   }
-  if (u.role !== 'admin') return bad('Admins only', 401);
+  if (!isFounder(u)) return bad('Only Scope & Lens can manage this', 401);
   if (req.method === 'POST') {
     const b = await req.json().catch(() => null); if (!b) return bad('Bad request');
     if ('on' in b) { await s.set('intel:config', { on: !!b.on, at: new Date().toISOString() }); return json({ ok: true, on: !!b.on }); }

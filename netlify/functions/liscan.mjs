@@ -7,7 +7,7 @@
 //   3. With ANTHROPIC_API_KEY, a web search for that exact profile, which returns what LinkedIn shows publicly.
 //   4. Whatever the person pasted in, or read from LinkedIn's own Save to PDF. This is the most complete.
 // Nothing is invented: every field comes from one of these, and the source is shown to the person.
-import { json, bad, needUser, limited, claude, claudeText } from './_lib.mjs';
+import { json, bad, needUser, limited, claude, claudeText, getOrgs, isFounder } from './_lib.mjs';
 const S = (v, n = 400) => String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, n);
 const dec = (s) => String(s || '').replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 function slugOf(url) { return (String(url).match(/linkedin\.com\/in\/([^/?#]+)/i) || [])[1] || ''; }
@@ -84,7 +84,7 @@ export default async (req) => {
       const c = new AbortController(); const stop = setTimeout(() => c.abort(), 3500);
       const searching = searched(url); /* runs alongside, in case the page is closed to us */
       profile = await publicPage(url, c.signal); clearTimeout(stop); if (profile) source = 'your public LinkedIn profile';
-      if (!profile) { profile = await amplifyProfile(url); if (profile) source = 'Amplify'; }
+      if (!profile && (isFounder(u) || ((await getOrgs()).find(o => o.id === u.orgId) || {}).premium)) { profile = await amplifyProfile(url); if (profile) source = 'Amplify'; }
       if (!profile) { profile = await apolloProfile(url); if (profile) source = 'public professional data'; }
       if (!profile) { profile = await searching; if (profile) source = 'what LinkedIn shows publicly'; }
     }

@@ -3,7 +3,7 @@
    2. Your website is read like any other asset, and feeds What we learned.
    3. Your edge in What to share comes straight from the agency profile, so nothing is asked twice.
    4. The LinkedIn scan reads the real profile, shows exactly what it read, and never scores a blank page.
-   5. The crew only chats on Home. */
+   5. Your team only chats on Home. */
 
 IC.globe='<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>';
 IC.info='<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>';
@@ -79,7 +79,7 @@ function edgeOf(){const O=S.setup.offer,I=agInfo(),d=libState().learned||{};cons
 const _thinkCard121=thinkCard;thinkCard=function(c){const E=edgeOf();return _thinkCard121(c).replace(/<div class="cx-n dim"><span class="cx-ic">(<svg[\s\S]*?<\/svg>)<\/span><small>Your edge<\/small><b>[^<]*<\/b>(<button[^>]*>Add it<\/button>)?<\/div>/,'<div class="cx-n'+(E.why||E.best?'':' dim')+'"><span class="cx-ic">$1</span><small>Your edge</small><b>'+esc(E.why||E.best||'From your agency profile')+'</b></div>')};
 const _valueView121=valueView;valueView=function(c){const h=_valueView121(c);const E=edgeOf();const i=h.indexOf('<aside class="card sticky offer12"');if(i<0)return h;const j=h.indexOf('</aside>',i);
   const rows=[['star','What you do best',E.best],['bolt','Why you, not them',E.why],['check','Proof',E.proof],['bulb','Your first offer',E.first],['people','Clients',E.clients],['trophy','Recognition',E.awards],['flag','What you believe',E.pov]].filter(x=>x[2]);
-  return h.slice(0,i)+'<aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">Pulled from your agency profile and your assets. Spark uses it in every gift and every message.</p>'+
+  return h.slice(0,i)+'<aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">Pulled from your agency profile and your assets. Muse uses it in every gift and every message.</p>'+
     rows.map(x=>'<div class="ofl"><span>'+ico(x[0])+'</span><div><small>'+x[1]+'</small><p>'+esc(x[2])+'</p></div></div>').join('')+'<button class="link tiny" style="margin-top:6px" onclick="go(\'agency\',\'value\')">Change it in your agency profile</button></aside>'+h.slice(j+8)};
 
 /* ── 4. the LinkedIn scan: read the real profile, show what was read, then score it ── */
@@ -119,7 +119,7 @@ const _liScanCard121=liScanCard;liScanCard=function(c){const L=S.liScan;
   if(L&&L.score&&L.profile){const P=L.profile;h=h.replace('<div class="lisc-s">','<div class="li-read"><div class="lab">What we read'+(L.src?' <span class="muted">· from '+esc(L.src)+'</span>':'')+'</div><b>'+esc(P.name||'')+'</b>'+(P.headline?'<p>'+esc(P.headline)+'</p>':'')+(P.location?'<small>'+esc(P.location)+'</small>':'')+(P.about?'<p class="small muted">'+esc(P.about.slice(0,220))+(P.about.length>220?'…':'')+'</p>':'')+'<button class="link tiny" onclick="S.liScan.score=0;S.liScan.blocked=false;go(VIEW,VIEW_ARG,true);setTimeout(()=>{const d=$(\'.lisc-more\');if(d)d.open=true},80)">Not right? Upload your LinkedIn PDF for an exact read</button></div><div class="lisc-s">')}
   return h};
 
-/* ── 5. the crew chats on Home, quietly ── */
+/* ── 5. your team chats on Home, quietly ── */
 function crewHome(c){if(!c||isBlankCamp(c))return '';const k=OUT_K.find(x=>campStepState(c,x)!==2)||'launch';const L=crewChat(k).slice(0,3);if(!L.length)return '';
   return '<div class="crew home-crew" aria-label="The crew, talking about '+esc(c.name)+'"><span class="hc-k">Overheard on '+esc(c.name)+'</span>'+L.map((x,i)=>'<div class="crw" style="--d:'+(.3+i*.5)+'s">'+agentFace(x[0],20,{badge:false})+'<span><b>'+esc(AGENTS[x[0]].n)+'</b>'+esc(x[1])+'</span></div>').join('')+'</div>'}
 const _crewRelay121=crewRelay;crewRelay=function(c){const h=_crewRelay121(c);return h.replace(/<\/section>$/,crewHome(c)+'</section>')};

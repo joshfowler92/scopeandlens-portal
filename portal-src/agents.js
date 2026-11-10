@@ -7,7 +7,7 @@ const AGENTS={
   give:{n:'Maker',role:'Makes what to share',col:'#f76707',eyes:'happy',ic:'gift',me:'I dream up something genuinely useful to give before you ask for anything.'},
   reach:{n:'Guide',role:'Plans how to reach them',col:'#2f9e44',eyes:'wink',ic:'send',me:'I map the journey touch by touch, the way you would get to know someone in person.'},
   launch:{n:'Pilot',role:'Launches it with you',col:'#14102e',eyes:'visor',ic:'rocket',me:'I line up every message in your voice. Nothing leaves without your say-so.'},
-  signals:{n:'Radar',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
+  signals:{n:'Scout',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
   pipeline:{n:'Tally',role:'Counts the revenue',col:'#c98a12',eyes:'calm',ic:'pound',me:'I turn conversations into numbers you can plan a year around.'},
   team:{n:'Huddle',role:'Keeps the team in step',col:'#7048e8',eyes:'round',ic:'people',me:'I keep everyone on the same page: who is talking to who, and where it is up to.'},
   insights:{n:'Scoop',role:'Brings you the news',col:'#212529',eyes:'round',ic:'bulb',me:'I bring you what Josh has spotted, before everyone else hears about it.'}

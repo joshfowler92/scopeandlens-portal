@@ -1,6 +1,6 @@
 // Sign in, sign out, requesting access, invitations and password resets. Only people Josh approves get in.
 import crypto from 'node:crypto';
-import { json, bad, sign, MODE, secretReady, isAdminEmail, checkPassword, hashPassword, getUsers, saveUsers, getOrgs, saveOrgs, publicUser, needUser, needAdmin,
+import { json, bad, sign, MODE, secretReady, isAdminEmail, isFounder, checkPassword, hashPassword, getUsers, saveUsers, getOrgs, saveOrgs, publicUser, needUser, needAdmin,
   sessionCookie, clearCookie, sendMail, siteUrl, nice, uid, validEmail, founderEmail, note, store } from './_lib.mjs';
 
 const tok = () => crypto.randomBytes(24).toString('base64url');
@@ -28,7 +28,7 @@ export default async (req) => {
   if (path === '/api/me') {
     const u = await needUser(req); if (!u) return bad('Not signed in', 401);
     const orgs = await getOrgs(); const o = orgs.find(x => x.id === u.orgId);
-    return json({ user: { ...u, orgName: o ? o.name : u.orgName || '', premium: !!(o && o.premium), paid: !!(o && o.paid), intel: !!(o && o.intel) } });
+    return json({ user: { ...u, orgName: o ? o.name : u.orgName || '', premium: !!(o && o.premium), paid: !!(o && o.paid), intel: !!(o && o.intel), founder: isFounder(u) } });
   }
   if (path === '/api/logout') return json({ ok: true }, 200, { 'Set-Cookie': clearCookie() });
 
@@ -93,7 +93,7 @@ export default async (req) => {
     const o = b.orgId ? (await getOrgs()).find(x => x.id === b.orgId) || await ensureOrg(r.agency) : await ensureOrg(b.orgName || r.agency);
     const users = await getUsers(); let u = users.find(x => x.email === r.email);
     if (!u) { u = { email: r.email, added: now }; users.push(u); }
-    Object.assign(u, { name: r.name, role: ['lead', 'member', 'admin'].includes(b.role) ? b.role : 'member', orgId: o.id, orgName: o.name, status: u.hash ? 'active' : 'invited', invite: { token: tok(), exp: new Date(Date.now() + 7 * 864e5).toISOString() } });
+    Object.assign(u, { name: r.name, role: (b.role === 'admin' && isAdminEmail(r.email)) ? 'admin' : (['lead', 'member'].includes(b.role) ? b.role : 'member'), orgId: o.id, orgName: o.name, status: u.hash ? 'active' : 'invited', invite: { token: tok(), exp: new Date(Date.now() + 7 * 864e5).toISOString() } });
     await saveUsers(users); r.status = 'approved'; r.done = now; r.orgId = o.id; await saveRequests(R);
     if (r.from) await note(r.from, { kind: 'team', title: r.name + ' now has access', body: 'They can join your campaigns once they sign in.' });
     return json({ ok: true, ...(await invite(u, admin.name)) });
@@ -102,18 +102,18 @@ export default async (req) => {
     const users = await getUsers();
     if (req.method === 'GET') { const st = await store(); const list = await Promise.all(users.map(async x => ({ ...publicUser(x), photo: ((await st.get('photo:' + x.email)) || {}).img || '' }))); return json({ users: list, orgs: await getOrgs() }); }
     const b = await body(req);
-    if (req.method === 'POST' && b.action === 'org') { const orgs = await getOrgs(); const o = orgs.find(x => x.id === b.orgId); if (!o) return bad('No such organisation', 404); if ('premium' in b) o.premium = !!b.premium; if ('paid' in b) o.paid = !!b.paid; if ('intel' in b) o.intel = !!b.intel; if (b.name) o.name = String(b.name).slice(0, 80); await saveOrgs(orgs); return json({ ok: true, org: o }); }
+    if (req.method === 'POST' && b.action === 'org') { if (!isFounder(admin) && ('premium' in b || 'paid' in b || 'intel' in b)) return bad('Only Scope & Lens can switch on paid features', 403); const orgs = await getOrgs(); const o = orgs.find(x => x.id === b.orgId); if (!o) return bad('No such organisation', 404); if ('premium' in b) o.premium = !!b.premium; if ('paid' in b) o.paid = !!b.paid; if ('intel' in b) o.intel = !!b.intel; if (b.name) o.name = String(b.name).slice(0, 80); await saveOrgs(orgs); return json({ ok: true, org: o }); }
     const u = users.find(x => x.email === String(b.email || '').toLowerCase());
     if (req.method === 'POST' && b.action === 'add') {
       const email = String(b.email || '').trim().toLowerCase(); if (!validEmail(email)) return bad('That email does not look right');
       const o = b.orgId ? (await getOrgs()).find(x => x.id === b.orgId) : await ensureOrg(b.orgName || 'Agency'); if (!o) return bad('No such organisation');
       let x = u; if (!x) { x = { email, added: now }; users.push(x); }
-      Object.assign(x, { name: b.name || x.name || nice(email), role: ['lead', 'member', 'admin'].includes(b.role) ? b.role : 'member', orgId: o.id, orgName: o.name, status: x.hash ? 'active' : 'invited', invite: { token: tok(), exp: new Date(Date.now() + 7 * 864e5).toISOString() } });
+      Object.assign(x, { name: b.name || x.name || nice(email), role: (b.role === 'admin' && isAdminEmail(email)) ? 'admin' : (['lead', 'member'].includes(b.role) ? b.role : 'member'), orgId: o.id, orgName: o.name, status: x.hash ? 'active' : 'invited', invite: { token: tok(), exp: new Date(Date.now() + 7 * 864e5).toISOString() } });
       await saveUsers(users); return json({ ok: true, ...(await invite(x, admin.name)) });
     }
     if (!u) return bad('No such person', 404);
     if (req.method === 'POST' && b.action === 'resend') { u.invite = { token: tok(), exp: new Date(Date.now() + 7 * 864e5).toISOString() }; await saveUsers(users); return json({ ok: true, ...(await invite(u, admin.name)) }); }
-    if (req.method === 'POST' && b.action === 'role') { u.role = ['lead', 'member', 'admin'].includes(b.role) ? b.role : u.role; await saveUsers(users); return json({ ok: true }); }
+    if (req.method === 'POST' && b.action === 'role') { if (b.role === 'admin' && !isAdminEmail(u.email)) return bad('Admin is only for Scope & Lens accounts', 403); u.role = ['lead', 'member', 'admin'].includes(b.role) ? b.role : u.role; await saveUsers(users); return json({ ok: true }); }
     if (req.method === 'DELETE' || b.action === 'remove') { u.status = 'removed'; delete u.hash; delete u.invite; await saveUsers(users); return json({ ok: true }); }
   }
   return bad('Not found', 404);

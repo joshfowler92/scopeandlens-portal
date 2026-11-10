@@ -5,7 +5,7 @@
 //   POST /api/amplify { action, payload }     companies | people | profile (open) · enrich | send | campaign | pause | resume | approve | status | events (Premium)
 //   POST /api/amplify-hook                    events from the partner, signed with AMPLIFY_WEBHOOK_SECRET
 import crypto from 'node:crypto';
-import { json, bad, needUser, getOrgs, store, getUsers } from './_lib.mjs';
+import { json, bad, needUser, getOrgs, store, getUsers , isFounder } from './_lib.mjs';
 const OPEN = ['companies', 'people', 'profile'];
 const PREMIUM = ['enrich', 'send', 'campaign', 'pause', 'resume', 'approve', 'status', 'events'];
 export default async (req) => {
@@ -14,12 +14,12 @@ export default async (req) => {
   const u = await needUser(req); if (!u) return bad('Sign in first', 401);
   const o = (await getOrgs()).find(x => x.id === u.orgId) || {};
   const connected = !!(process.env.AMPLIFY_API_URL && process.env.AMPLIFY_API_KEY);
-  const enabled = connected && (!!o.premium || u.role === 'admin');
+  const enabled = connected && (!!o.premium || isFounder(u));
   if (req.method === 'GET') return json({ connected, enabled, premium: !!o.premium });
   if (!connected) return bad('Amplify is not connected yet', 501);
   let b; try { b = await req.json(); } catch { return bad('Send JSON'); }
   if (![...OPEN, ...PREMIUM].includes(b.action)) return bad('Unknown action');
-  if (PREMIUM.includes(b.action) && !enabled) return bad('This is part of Premium. Ask Scope & Lens to switch it on.', 402);
+  if (!enabled) return bad('This is part of Premium. Ask Scope & Lens to switch it on.', 402);
   /* events can also arrive by webhook: if the partner has pushed any, hand them over first */
   if (b.action === 'events') { const s = await store(); const k = 'ampev:' + (u.orgId || u.email); const L = (await s.get(k)) || [];
     if (L.length) { const mine = L.filter(e => !e.user || e.user === u.email); await s.set(k, L.filter(e => e.user && e.user !== u.email)); return json({ events: mine }); } }

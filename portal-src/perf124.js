@@ -138,7 +138,16 @@ function orgTile(r,i,top){const a=r.a,s=r.s;const n=nextAction(a,s);const anon=r
     '<div class="itl-bar" data-tip="Intent score '+Math.round(r.rank)+'"><i style="width:'+Math.min(100,Math.round(r.rank))+'%"></i></div>'+
     (anon?'<p class="tiny muted" style="margin:10px 0 0">Engagement from the organisation, no named people yet (ads or anonymous opens).</p>':'<ul class="itl-p">'+r.ppl.slice(0,top?5:3).map(personRow).join('')+(r.ppl.length>(top?5:3)?'<li class="more" onclick="openAccount(\''+a.id+'\')">+'+(r.ppl.length-(top?5:3))+' more</li>':'')+'</ul>')+
     '<div class="itl-f">'+(r.camps.length?'<span class="itl-c">'+r.camps.slice(0,2).map(c=>'<em>'+esc(c.name)+'</em>').join('')+(r.camps.length>2?'<em>+'+(r.camps.length-2)+'</em>':'')+'</span>':'<span></span>')+
-      (r.opp?'<span class="pill good">In pipeline · '+money(r.opp.value,true)+'</span>':'<button class="btn btn-primary btn-xs" onclick="'+n.f+'">'+ico(n.ic)+esc(n.l)+'</button>')+'</div></div>'}
+      '<span class="itl-btns">'+(r.opp?'<button class="pill good" onclick="go(\'pipeline\')">In pipeline · '+money(r.opp.value,true)+'</button>':'<button class="btn btn-primary btn-xs" onclick="addToPipe(\''+a.id+'\')">'+ico('plus')+'Add to pipeline</button>')+'<button class="btn btn-line btn-xs askp" onclick="askPlatoOrg(\''+a.id+'\')">'+platoFace(18)+'Ask Plato</button></span></div></div>'}
+/* add an organisation straight to the pipeline as a lead, with what it did as the source */
+function addToPipe(aid){const a=accountById(aid);if(!a)return;const r=intentRows().find(x=>x.a.id===aid);const camp=SGC&&SGC!=='all'?SGC:(r&&r.camps[0]&&r.camps[0].id)||'';
+  act('Added '+a.name+' to your pipeline',()=>{S.opps.push({id:uid(),created:today(),updated:today(),name:a.name,accountId:a.id,value:+S.setup.avgDeal||0,lane:'lead',weight:null,source:'Signals & Intent'+(r?': '+intentWhy(r):''),next:'',campaign:camp});a.stage='opp'},{ic:'📈'});
+  award('deal',a.name);go('signals',null,true)}
+/* ask Plato what to do next with this organisation, with its engagement as the context */
+function askPlatoOrg(aid){const a=accountById(aid);if(!a)return;const r=intentRows().find(x=>x.a.id===aid);const camp=SGC&&SGC!=='all'&&S.campaigns.find(c=>c.id===SGC);
+  const who=r?r.ppl.slice(0,4).map(p=>p.name+(p.role?' ('+p.role+')':'')+': '+Object.keys(p.acts).map(t=>SIGNALS[t].l.toLowerCase()).join(', ')).join('; '):'';
+  const q='What should I do next with '+a.name+(camp?' in '+camp.name:'')+'? '+(r?'They are '+((HEAT.find(h=>h.n===r.s.heat)||{l:'engaging'}).l).toLowerCase()+' ('+intentWhy(r)+').':'')+(who?' Who engaged: '+who+'.':'')+' Give me the next two or three steps and draft the first message.';
+  openDot();setTimeout(()=>platoAsk(q),250)}
 function gapCard(rows){const p=pipe();const T=p.target;const won=p.wonVal,wt=p.weighted;const gap=Math.max(0,T-won-wt);const avg=+S.setup.avgDeal||0;
   if(!T)return '<div class="card gapc nog"><div><b>See what closes your revenue gap</b><p class="muted">Set your yearly new business target and typical deal size, and this shows which deals and warm brands can get you there.</p></div><button class="btn btn-line btn-sm" onclick="go(\'settings\')">'+ico('target')+'Set my target</button></div>';
   const open=p.active.map(o=>({o,w:(+o.value||0)*laneW(o)/100})).sort((x,y)=>(+y.o.value||0)-(+x.o.value||0));
@@ -153,14 +162,14 @@ function gapCard(rows){const p=pipe();const T=p.target;const won=p.wonVal,wt=p.w
 VIEWS.signals=()=>{const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=!!(S.uploads.outreach||S.uploads.linkedin||S.uploads.ads||S.launch.connected||all.some(s=>INBOUND(s.type)));
   const head=secHead('signals','Signals and <span class="serif">intent.</span>',hasData?'<button class="btn btn-ghost btn-sm" onclick="copySignals()">'+ico('copy')+'Copy a summary</button><button class="btn btn-line btn-sm" onclick="go(\'perf\')">'+ico('chart')+'Campaign performance</button>':'');
   if(!hasData)return head+'<div class="card nodata"><div class="orb"></div><h2 class="h-l">No data, <span class="serif">no intent.</span></h2><p class="lede">Intent comes from what people do with your outreach: accepts, opens, clicks and replies. Give the portal that data and this page ranks every organisation and person by how warm they are, across all your campaigns.</p><div class="row wrap" style="justify-content:center;gap:10px;margin-top:18px"><button class="btn btn-primary" onclick="openImport(null,\'outreach\')">'+ico('upload')+'Upload a CSV</button><button class="btn btn-line" onclick="go(\'launch\');setTimeout(()=>setMode(\'amplify\'),200)">'+ico('bolt')+'Switch on Amplify</button></div></div>'+sourcesStrip();
-  const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(r=>r.s.heat>=3).slice(0,3);const rest=R.filter(r=>!top.includes(r));
+  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(r=>r.s.heat>=3).slice(0,3);const rest=R.filter(r=>!top.includes(r));
   const d30=s=>daysAgo(s.date)<=30;
   const k=[['pulse','Organisations engaging',rows.length],['people','People engaging',sum(rows,r=>r.ppl.length)],['chat','Replies, 30 days',all.filter(s=>['reply','li_reply'].includes(s.type)&&d30(s)).length],['calendar','Meetings, 30 days',all.filter(s=>s.type==='meeting'&&d30(s)).length],['flame','Hot right now',rows.filter(r=>r.s.heat>=4).length]];
-  const C=realCamps().filter(c=>S.accounts.some(a=>campSigs(c,a).some(s=>INBOUND(s.type))));
+  
   return head+'<div class="kstrip" data-tour="kstrip">'+k.map(x=>'<div class="ks"><span class="gi">'+ico(x[0])+'</span><b class="num" data-count="'+x[2]+'">0</b><span>'+x[1]+'</span></div>').join('')+'</div>'+
     gapCard(rows)+
-    '<div class="tabsbar" style="margin-top:20px">'+(C.length>1?'<div class="chips">'+[['all','All campaigns']].concat(C.map(c=>[c.id,c.name])).map(([id,l])=>'<button class="chip'+(SGC===id?' on':'')+'" onclick="SGC=\''+id+'\';go(\'signals\',null,true)">'+esc(l)+'</button>').join('')+'</div>':'<span></span>')+
-      '<div class="chips">'+[[0,'Everyone'],[4,'🔥 Hot'],[3,'🟠 Warm and up'],[2,'👀 Aware and up']].map(([b,l])=>'<button class="chip'+(SGB===b?' on':'')+'" onclick="SGB='+b+';go(\'signals\',null,true)">'+l+'</button>').join('')+'</div></div>'+
+    sgCampPicker()+
+    '<div class="tabsbar" style="margin-top:14px"><span></span><div class="chips">'+[[0,'Everyone'],[4,'🔥 Hot'],[3,'🟠 Warm and up'],[2,'👀 Aware and up']].map(([b,l])=>'<button class="chip'+(SGB===b?' on':'')+'" onclick="SGB='+b+';go(\'signals\',null,true)">'+l+'</button>').join('')+'</div></div>'+
     (!R.length?'<div class="card empty" style="margin-top:14px"><div class="orb"></div>Nobody in this band yet.</div>':
       (top.length?'<div class="itl-lean"><div class="lab">'+ico('flame')+'Highest intent. Lean in here first.</div><div class="itg top3">'+top.map((r,i)=>orgTile(r,i,true)).join('')+'</div></div>':'')+
       (rest.length?'<div class="lab" style="margin:20px 0 10px">'+(top.length?'Everyone else engaging, warmest first':'Everyone engaging, warmest first')+'</div><div class="itg" data-tour="sgrid">'+rest.map((r,i)=>orgTile(r,i+top.length,false)).join('')+'</div>':''))+
@@ -240,3 +249,20 @@ async function guidePDF(k){const G=GUIDES.find(x=>x.k===k);if(!G)return;toast('M
   const blob=makePDFp(pages.map(cv=>cv.toDataURL('image/jpeg',.92)),pxW,pxH);const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(G.t.replace(/[^a-z0-9]+/gi,'-').replace(/-+$/,'').toLowerCase())+'.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000);toast('Your guide is downloading')}
 /* the Plato page opens at the top, so the way back is always visible */
 const _dotAfter125=VIEWS.dot_after;VIEWS.dot_after=function(){if(_dotAfter125)_dotAfter125.apply(this,arguments);const v=$('#view');setTimeout(()=>{const i=$('#plFullIn');if(i)i.focus({preventScroll:true});if(v)v.scrollTop=0},260)};
+
+/* Signals & Intent is campaign-led: pick a campaign, then see who is showing intent in it */
+function sgDefault(){if(SGC&&SGC!=='all'&&S.campaigns.some(c=>c.id===SGC))return;if(SGC==='all'&&SGC_PICKED)return;const C=realCamps();
+  const best=C.map(c=>({c,n:S.accounts.filter(a=>campSigs(c,a).some(s=>INBOUND(s.type))).length})).sort((x,y)=>(campLive(y.c)-campLive(x.c))||(y.n-x.n))[0];SGC=best&&best.n?best.c.id:'all'}
+let SGC_PICKED=false;
+function sgPick(id){SGC=id;SGC_PICKED=true;go('signals',null,true)}
+function sgCampPicker(){const C=realCamps();if(!C.length)return '';
+  const tile=(id,name,sub,stat,on)=>'<button class="sgc'+(on?' on':'')+'" onclick="sgPick(\''+id+'\')" aria-pressed="'+on+'"><b>'+esc(name)+'</b><small>'+sub+'</small><span>'+stat+'</span></button>';
+  const allN=S.accounts.filter(a=>(a.signals||[]).some(s=>INBOUND(s.type))).length;
+  const cur=SGC!=='all'&&S.campaigns.find(c=>c.id===SGC);
+  const src=cur?(()=>{const am=isPremium()&&S.launch.connected;const up=(cur.blocks||[]).filter(b=>b.file||b.manual);return '<div class="sgc-src"><span>'+ico(am?'bolt':'upload')+(am?'<b>Linked to Amplify.</b> Outreach for this campaign flows in by itself.':up.length?'<b>'+up.length+' upload'+(up.length===1?'':'s')+'</b> for this campaign.':'<b>No data for this campaign yet.</b> Upload its export, or link it to Amplify.')+'</span>'+
+    '<button class="btn btn-line btn-xs" onclick="openImport(\''+cur.id+'\',\'outreach\')">'+ico('upload')+'Upload for this campaign</button>'+
+    (isPremium()?'<button class="btn btn-ghost btn-xs" onclick="S.cur=\''+cur.id+'\';save();go(\'launch\');setTimeout(()=>setMode(\'amplify\'),200)">'+ico('bolt')+'Amplify</button>':'<button class="btn btn-ghost btn-xs" onclick="premiumLocked(\'amplify\')">'+ico('lock')+'Amplify (Premium)</button>')+
+    '<button class="btn btn-ghost btn-xs" onclick="go(\'perf\',\''+cur.id+'\')">'+ico('chart')+'Campaign results</button></div>'})():'';
+  return '<div class="sgc-wrap"><div class="lab">Choose a campaign</div><div class="sgc-row">'+C.map(c=>{const st=campStatus(c);const n=S.accounts.filter(a=>campSigs(c,a).some(s=>INBOUND(s.type)));const hot=n.filter(a=>scoreAccount(Object.assign({},a,{signals:campSigs(c,a)})).heat>=4).length;
+      return tile(c.id,c.name,'<i class="dot '+st[1]+'"></i>'+st[0]+(campWk(c).n?' · week '+campWk(c).n:''),n.length+' engaging'+(hot?' · <em>'+hot+' hot</em>':''),SGC===c.id)}).join('')+
+    tile('all','All campaigns','Everything together',allN+' engaging',SGC==='all')+'</div>'+src+'</div>'}

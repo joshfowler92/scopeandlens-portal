@@ -1,6 +1,6 @@
 /* ═══════════ v12.3 ═══════════
    1. What we learned: tick what we found, or write your own.
-   2. Who you want lives in the agency profile, set once. Radar never asks again.
+   2. Who you want lives in the agency profile, set once. Scout never asks again.
    3. Events pinpointed to your sectors, your own events, and one tap to put an event into the plan.
    4. What to share starts with the content bank. Ideas are built from your content, your sectors, problems and roles.
    5. Launching needs a hero piece, a case study and a blog post or report. Posts, videos and recordings are a bonus. */
@@ -29,7 +29,7 @@ const _digestLibrary123=digestLibrary;digestLibrary=async function(silent){const
 
 /* ── 2. who you want, in the agency profile ── */
 ONB_STEP.prospects.li[0]='Who you want lives in your agency profile: sectors, client size, where, the people you sell to and the problems you solve. Set it once.';
-AG12.splice(2,0,['want','Who you want','target','Sectors, client size, where, the people you sell to and the problems you solve. Radar uses it to find brands.']);
+AG12.splice(2,0,['want','Who you want','target','Sectors, client size, where, the people you sell to and the problems you solve. Scout uses it to find brands.']);
 const SIZE_MAP={'1 to 10':'xs','11 to 25':'sm','26 to 50':'md','51 to 100':'md','101 to 250':'lg','More than 250':'lg'};
 function wantProf(){const P=S.setup.profile;if(!P.discs||!P.discs.length)P.discs=P.discipline?[P.discipline]:[];if(!P.problems)P.problems=P.problem?[P.problem]:[];if(!P.sectors)P.sectors=[];if(!P.roles)P.roles=[];if(!P.region)P.region='any';if(!P.csize)P.csize='';
   const sz=SIZE_MAP[agInfo().size];if(sz)P.asize=sz;else if(!P.asize)P.asize='';return P}
@@ -40,7 +40,7 @@ function wantForm(){const P=wantProf();
   const q=(n,ic,t,inner,wide)=>'<div class="qcard'+(wide?' wide':'')+'"><div class="qh"><span class="gi">'+ico(ic)+'<i>'+n+'</i></span><b>'+t+'</b></div>'+inner+'</div>';
   const ch=(key,opts,max)=>'<div class="chips">'+opts.map(([k,l])=>{const on=max?(P[key]||[]).includes(k):P[key]===k;return '<button class="chip'+(on?' on':'')+'" onclick="wantPick(\''+key+'\',\''+k+'\','+(max||0)+')">'+(max?'<span class="ck">'+(on?'✓':'')+'</span>':'')+esc(l)+'</button>'}).join('')+'</div>';
   const probs='<div class="pgroups">'+Object.entries(L_PROB_GROUPS).map(([g,gl])=>'<div class="pgrp"><small>'+esc(gl)+'</small><div class="chips">'+Object.entries(L_PROBLEMS).filter(([k,v])=>v.g===g).map(([k,v])=>{const o=P.problems.includes(k);return '<button class="chip'+(o?' on':'')+'" onclick="wantPick(\'problems\',\''+k+'\',5)"><span class="ck">'+(o?(P.problems.indexOf(k)+1):'')+'</span>'+esc(v.label)+'</button>'}).join('')+'</div></div>').join('')+'</div>';
-  return '<p class="small muted" style="margin:0 0 12px">Set this once. Radar uses it to find brands for every campaign, and the score on each brand is built from it. Change it here any time.</p><div class="qgrid">'+
+  return '<p class="small muted" style="margin:0 0 12px">Set this once. Scout uses it to find brands for every campaign, and the score on each brand is built from it. Change it here any time.</p><div class="qgrid">'+
     q(1,'star','What do you do best? Up to three',ch('discs',Object.entries(DISC).map(([k,v])=>[k,v.l]),3),true)+
     q(2,'layers','Which sectors? Up to three, favourite first',ch('sectors',Object.entries(L_SECTORS).map(([k,v])=>[k,v.label]),3),true)+
     q(3,'grid','What size of client?',ch('csize',[['S','Challengers and scale ups'],['M','Established mid-size'],['L','Household names'],['auto','You decide']]))+
@@ -52,7 +52,7 @@ function wantPick(k,v,max){const P=wantProf();if(max){const a=P[k]||[];P[k]=a.in
 const _vAgency123=VIEWS.agency;VIEWS.agency=function(tab){let h=_vAgency123(tab);h=h.replace('Finish these three before your first campaign.','Finish these four before your first campaign.');
   const on=(h.match(/class="agt[^"]*\bon\b[^"]*"[^>]*onclick="go\('agency','([a-z]+)'\)"/)||[])[1];
   if(on==='want')h=h.replace('<div class="agsave">',wantForm()+'<div class="agsave">');return h};
-/* Radar never asks: preferences live in the agency profile */
+/* Scout never asks: preferences live in the agency profile */
 editProfile=function(){go('agency','want')};
 const _vProspects123=VIEWS.prospects;VIEWS.prospects=function(tab){PF=null;if(!profDone()&&!DEMO_MODE)return secHead('prospects','Who to <span class="serif">target.</span>')+'<div class="gate12">'+agentFace('prospects',56,{badge:false})+'<div class="grow"><div class="sh-k">One thing first</div><h2>Tell me who you <span class="serif">want.</span></h2><p>Your sectors, client size, the people you sell to and the problems you solve live in your agency profile. Set them once and I will use them for every campaign.</p><button class="btn btn-primary" onclick="go(\'agency\',\'want\')">Set who you want'+ico('arrow','a')+'</button></div></div>';
   return _vProspects123(tab).replace('Change your prospecting preferences','Change who you want')};
@@ -112,7 +112,7 @@ const _bankSlots123=bankSlots;bankSlots=function(c){return _bankSlots123(c).map(
 bankAdd=(function(orig){return function(k,how){if(how==='maker')return orig(k,how);
   modal('<h2>Add to the content bank</h2><p class="sub">Something you have already made. Upload it, or add a title and a link.</p>'+
     '<div class="field"><label for="bkS">What kind</label><select class="inp" id="bkS">'+BANK_SLOTS.map(s=>'<option value="'+s.k+'"'+(s.k===k?' selected':'')+'>'+s.l+'</option>').join('')+'</select></div>'+
-    '<label class="dz c" style="margin-bottom:12px"><input type="file" hidden accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="bankFile(this.files[0])"><span class="dz-ic">'+ico('upload')+'</span><b>Upload the file</b><small id="bkFst">PDF, Word, PowerPoint or text. The words are read so Spark can suggest gifts from it. The file itself is not kept.</small></label>'+
+    '<label class="dz c" style="margin-bottom:12px"><input type="file" hidden accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="bankFile(this.files[0])"><span class="dz-ic">'+ico('upload')+'</span><b>Upload the file</b><small id="bkFst">PDF, Word, PowerPoint or text. The words are read so Muse can suggest gifts from it. The file itself is not kept.</small></label>'+
     '<div class="field"><label for="bkT">Title</label><input class="inp" id="bkT" placeholder="e.g. Our state of FMCG branding report"></div><div class="field"><label for="bkU">Link <span class="muted">· optional</span></label><input class="inp" id="bkU" placeholder="https://"></div>'+
     '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="bankSaveOwn()">Add it as ready</button></div>');setTimeout(()=>$('#bkT')&&$('#bkT').focus(),60)}})(bankAdd);
 let BK_TEXT='';
@@ -121,7 +121,7 @@ bankSaveOwn=function(){const t=$('#bkT').value.trim();if(!t){$('#bkT').focus();r
   act('Added to the content bank',()=>{bankOf(c).items.push({id:uid(),slot:k,t,url:$('#bkU').value.trim(),status:'ready',src:'own',at:today(),text:text||undefined})},{refresh:false,ic:'📚'});closeOverlays();go('give',null,true)};
 const _bankCard123=bankCard;bankCard=function(c){let h=_bankCard123(c);const ok=bankReady(c);
   h=h.replace('<div class="lab" style="margin:0">The engine of the campaign</div><h2 class="h-m">Your content bank</h2>','<div class="lab" style="margin:0">Step 1</div><h2 class="h-m">Your content bank</h2>');
-  h=h.replace('<b>Outreach needs this ready before launch.</b>','<b>To launch you need a hero piece, a case study and a blog post or report.</b> LinkedIn posts, videos and screen recordings are a bonus. Upload what you have first: Spark builds your gift ideas from it.');
+  h=h.replace('<b>Outreach needs this ready before launch.</b>','<b>To launch you need a hero piece, a case study and a blog post or report.</b> LinkedIn posts, videos and screen recordings are a bonus. Upload what you have first: Muse builds your gift ideas from it.');
   h=h.replace(/<button class="btn btn-primary btn-xs" onclick="document\.querySelector\(\\?'\[data-tour=assets\]\\?'\)\.scrollIntoView\(\{behavior:\\?'smooth\\?'\}\)">Choose what to give<\/button>/,'<button class="btn btn-primary btn-xs" onclick="bankAdd(\'hero\')">'+ico('upload')+'Upload your own</button><button class="btn btn-ghost btn-xs" onclick="document.querySelector(\'[data-tour=assets]\').scrollIntoView({behavior:\'smooth\'})">Or pick a gift below</button>');
   h=h.replace("<button class=\"btn btn-ghost btn-xs\" onclick=\"bankAdd('case')\">"+ico('plus')+"Add a link</button>","<button class=\"btn btn-ghost btn-xs\" onclick=\"bankAdd('case')\">"+ico('upload')+"Upload or link</button>");
   h=h.replace(/(<div class="bk-a"><button class="btn btn-line btn-xs" onclick="bankAdd\('(?:lipost|blog|video|screen)','maker'\)">)/g,'$1');

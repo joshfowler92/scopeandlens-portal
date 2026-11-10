@@ -242,3 +242,130 @@ See `AMPLIFY-INTEGRATION.md`.
   - "Change who you are targeting" sits with the targeting chips on Who to target, styled as a button.
   - The campaign bar no longer shows the problem pill.
   - The Plato page has a clear "Back to the dashboard" button at the top.
+
+## Version 13
+
+### Paid features are locked to Scope & Lens
+
+- Only Scope & Lens accounts can switch Amplify (Premium) or Pitch intelligence on for an agency in Manage access. The server refuses anyone else, including an agency user with the admin role.
+- The admin role can only be given to Scope & Lens addresses.
+- Every Amplify action now needs Premium:
+  - finding companies and people
+  - reading a LinkedIn profile through Amplify
+  - sending
+- Pitch intelligence data never reaches the browser unless it is switched on for that agency.
+- Without Premium, Amplify buttons show a lock and an "Ask Scope & Lens" note.
+
+### Home
+
+- **Plato's brief** at the top: what is live, who is engaging, and the one thing to do today.
+- **Your numbers:**
+  - brands engaging
+  - replies and meetings, with the change on the previous 30 days and an eight-week sparkline
+  - open opportunities
+  - pipeline
+  - won
+- **Today's priorities** replaces Who to contact today. It is a ranked list across every campaign, connection and conversation:
+  - getting ready to launch
+  - launching
+  - today's messages
+  - replies to answer
+  - hot brands to add to the pipeline
+  - deals that need a next step
+  - results to bring in
+  - the LinkedIn scan
+
+  Tick items off as you do them. Plato opens with the same priorities.
+- **Showing intent, Your insights and Your campaigns,** each with an Ask Plato button that asks about that block.
+
+### Your team
+
+- The bots are now **Scout, Muse, Relay and Pilot**. They are simpler: a flat colour, a white face and one symbol each.
+- Home calls them Your team.
+- The walkthrough screens for each bot are shorter: one line from the bot, three steps and what you get.
+
+### Sidebar
+
+- Areas you can fold away: Your campaign, Results and Help.
+- A sliding marker behind the page you are on.
+- Tactile buttons.
+- A live pulse when a campaign is running.
+- The campaign label says Building now, Live now with the week, Paused or Finished.
+- Your Insights sits under Campaigns.
+- Tooltips float above the page, so they are never cut off when the sidebar is collapsed.
+
+### Signals & Intent
+
+- **Campaign-led:** choose a campaign under the revenue gap, then see that campaign's organisations ranked by intent. Each campaign has its own upload, Amplify link and results.
+- Each organisation has **Add to pipeline**, which adds it as a lead straight away, and **Ask Plato**, which asks for next steps based on exactly how they engaged.
+
+### Launch
+
+- **Two ways to send, side by side,** each with three plain steps:
+  - send it yourself (included)
+  - Amplify sends it while you direct it (Premium)
+- With Amplify there are three lanes:
+  - **To approve**
+  - **Outbox:** approved messages fly here, show as Queued, then Sent through LinkedIn or email
+  - **Drafts:** swiped-left messages wait here to be rewritten, sent back for approval, or redrafted with Plato
+- A connection request with no note says so, instead of showing an empty box.
+
+### What to share
+
+When you add a piece with a file or link, Muse reads it on the server and says:
+- what it is
+- why your prospects would value it
+- who would value it most
+
+It drafts a blurb to share it with, and you can edit all of it. Your content shows under the content bank, as Muse understood it.
+
+### Who to target
+
+- The second tab is now **Find decision makers**.
+- **Find more prospects** asks Scout for more real UK organisations that match Who you want. Each website is checked before it is added. They arrive without news, because nothing is invented.
+
+### Logos everywhere
+
+Any organisation without a known website is looked up once on the server. The site is opened to confirm it is theirs, and the answer is shared and cached, so every tile gets its real logo. Invented demo brands keep their initials.
+
+### Plato chat
+
+- **Chat** replaces Plato in the top bar.
+- The full view lives at `#plato`, and `#dot` still works.
+- **New chat** and **Your chats** let you start fresh or carry on.
+- Only the latest six messages show until you ask for more.
+
+### Your Insights
+
+- Personalised to the agency.
+- Ranked by your sectors, the brands on your campaigns and what you do.
+- New sections:
+  - about the brands on your campaigns
+  - in your sectors (real, sourced stories)
+  - grow an agency like yours
+- **Tune your insights** chooses topics and sectors.
+
+### Team
+
+**Where everyone is** replaces the dot map. One row per teammate:
+- the campaign week
+- a bar of their people by stage: not started, in sequence, engaged, hot
+- exactly who they are speaking to
+
+There is a plain-English legend.
+
+### Guides
+
+- Rewritten for how the portal works now, with a new guide, **Finding your way around**. It covers Replay the walkthrough, Show me around this portal (renamed from "this page") and the sidebar.
+- Every section has a screenshot from the demo agency. The PDFs use the outreach plan's style.
+
+### Fixes
+
+- Leaving the demo takes you back to your own workspace if you have made progress, instead of starting the agency profile again.
+- Nothing syncs while the demo is open.
+
+### New server functions
+
+- `/api/domain`: finds and checks websites for logos
+- `/api/discover`: finds more prospects
+- `/api/piece`: reads content pieces

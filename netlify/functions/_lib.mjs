@@ -77,6 +77,9 @@ export async function needUser(req) {
   if (!u || u.status === 'removed') return null;
   return { email: u.email, name: u.name, role: u.role, orgId: u.orgId, orgName: u.orgName || '' };
 }
+/* Only Scope & Lens itself (the founder and @scopeandlens.com addresses) can switch paid features on. */
+export const isFounder = (u) => !!u && isAdminEmail(u.email);
+export async function needFounder(req) { const u = await needUser(req); return u && isFounder(u) ? u : null; }
 export async function needAdmin(req) { const u = await needUser(req); return u && u.role === 'admin' ? u : null; }
 
 // Email, through Resend when RESEND_API_KEY is set. Without it, nothing is sent and the portal shows links to copy instead.

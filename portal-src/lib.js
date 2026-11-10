@@ -130,7 +130,7 @@ const L_DISCIPLINES = {
               'Find the detail that would make a journalist lean forward.',
               'Draft the pitch and name the three journalists who would run it.'],
       line: 'We went looking through your reports and job ads and found something nobody seems to have written about. Drafted the story and the three people who would run it.' },
-    { name: 'The Risk Radar',
+    { name: 'The Risk Scout',
       what: 'Map the three reputational pressures building in {SECTOR} that {TARGET} will probably have to answer for within a year.',
       why: 'It makes you useful before the crisis rather than after it, which is the only time a {ROLE} really remembers who helped.',
       steps: ['Track regulation, campaign groups, journalist beats and competitor incidents.',
