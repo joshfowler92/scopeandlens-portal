@@ -2998,6 +2998,108 @@ body:has(.demo-rib) .main{height:auto!important}
 .gshot{display:block;width:100%;border:1.5px solid var(--line);border-radius:10px;margin:10px 0;box-shadow:4px 4px 0 var(--line)}
 .gnum{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-size:12px;margin-right:8px}
 .sw-nonote{display:flex;gap:12px;align-items:flex-start;padding:16px;border:1.5px dashed var(--rule-2);border-radius:12px;background:var(--bg);font-size:13.5px;line-height:1.5;flex:1}.sw-nonote svg{width:22px;height:22px;color:var(--brand);flex-shrink:0}.sw-nonote b{display:block;font-size:15px}
+/* ═══ v13.1: high intent, every channel ═══ */
+.itl-lh{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}.itl-lh .lab{margin:0}
+.itl-ch{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.itl-ch span{font-size:11px;font-weight:700;padding:3px 7px;border-radius:999px;background:var(--bg);color:var(--faint);border:1px solid var(--rule);white-space:nowrap}
+.itl-ch span.on{background:color-mix(in srgb,var(--hc) 14%,var(--paper));color:var(--ink);border-color:color-mix(in srgb,var(--hc) 45%,var(--rule))}.itl-ch em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--mute);margin-left:auto}
+/* ═══ v13.1: the mobile app ═══ */
+.tabbar,.msheet,.rsw,.sstrip{display:none}
+@media (max-width:900px){
+  :root{--tabh:68px;--safeb:env(safe-area-inset-bottom,0px)}
+  body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
+  #app{grid-template-columns:minmax(0,1fr)!important}
+  .side,.sd-ham,#sdTog,.sd-tog,#plato,.vmode,.mfoot,.sd-x{display:none!important}
+  .topb{position:sticky;top:0;z-index:30;height:auto;min-height:56px;padding:calc(env(safe-area-inset-top,0px) + 6px) 14px 6px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid color-mix(in srgb,var(--rule) 70%,transparent)}
+  .tb-crumb{font-size:16px;font-weight:800;letter-spacing:-.01em;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.tb-crumb .cr-s,.tb-crumb .cr-c{display:none}
+  .topb .icon-btn,.topb .avatar{width:40px;height:40px}
+  .view{padding:14px 14px calc(var(--tabh) + var(--safeb) + 28px)!important;scroll-padding-bottom:calc(var(--tabh) + 40px)}
+  .view-inner{animation:appIn .32s var(--ease) both}@keyframes appIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* the tab bar */
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;position:fixed;left:10px;right:10px;bottom:calc(8px + var(--safeb));z-index:95;height:var(--tabh);padding:0 6px;border-radius:22px;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.8) blur(20px);-webkit-backdrop-filter:saturate(1.8) blur(20px);border:1px solid color-mix(in srgb,var(--line) 18%,transparent);box-shadow:0 10px 30px -10px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.6) inset;transition:transform .35s var(--spring)}
+  .tb-i{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:100%;color:var(--mute);border-radius:16px;transition:color .2s,transform .12s var(--spring)}
+  .tb-i svg{width:23px;height:23px;transition:transform .3s var(--spring)}.tb-i small{font-size:10.5px;font-weight:700;letter-spacing:.01em}
+  .tb-i:active{transform:scale(.9)}.tb-i.on{color:var(--brand)}.tb-i.on svg{transform:translateY(-1px) scale(1.08)}
+  .tb-i.on::before{content:'';position:absolute;top:6px;width:36px;height:30px;border-radius:12px;background:var(--brand-soft);z-index:-1;animation:tbOn .35s var(--spring)}
+  @keyframes tbOn{from{transform:scale(.4);opacity:0}}
+  .tb-b{position:absolute;top:6px;left:calc(50% + 6px);min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#e0443a;color:#fff;font-size:10px;font-weight:800;font-style:normal;display:grid;place-items:center;box-shadow:0 0 0 2px var(--paper)}
+  .tb-pl{display:flex;flex-direction:column;align-items:center;gap:3px;transform:translateY(-14px);transition:transform .15s var(--spring)}
+  .tb-pl:active{transform:translateY(-12px) scale(.94)}
+  .tb-plr{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--brand);box-shadow:0 8px 20px -6px color-mix(in srgb,var(--brand) 80%,transparent),0 0 0 4px var(--paper);position:relative}
+  .tb-plr::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--brand);opacity:0;animation:plRing 3.2s var(--ease) infinite}
+  @keyframes plRing{0%{transform:scale(.9);opacity:.6}70%,100%{transform:scale(1.3);opacity:0}}
+  .tb-plr .ag,.tb-plr img{border:2px solid #fff;border-radius:50%}
+  .tb-pl small{font-size:10.5px;font-weight:800;color:var(--brand)}
+  .tb-pl.on .tb-plr{background:var(--ink)}
+  /* bottom sheets */
+  .msheet{display:flex;flex-direction:column;position:fixed;left:0;right:0;bottom:0;z-index:120;max-height:88dvh;background:var(--bg);border-radius:24px 24px 0 0;box-shadow:0 -12px 40px -12px rgba(0,0,0,.45);transform:translateY(105%);transition:transform .42s var(--spring);padding-bottom:var(--safeb)}
+  .msheet.on{transform:none}
+  .ms-grab{display:grid;place-items:center;padding:10px 0 4px;touch-action:none}.ms-grab i{width:40px;height:5px;border-radius:3px;background:var(--rule-2)}
+  .ms-b{overflow-y:auto;padding:6px 18px 22px;overscroll-behavior:contain}
+  .ms-h{margin:4px 0 14px}.ms-h small{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}.ms-h h2{font-size:26px;letter-spacing:-.03em;margin:2px 0 6px;line-height:1.1}
+  .ms-st{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--mute)}.ms-st.live{color:var(--good,#0c8a63)}
+  .ms-steps{display:flex;flex-direction:column;gap:8px}
+  .ms-step{display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:var(--paper);border:1.5px solid var(--rule-2);text-align:left;transition:transform .12s var(--spring)}
+  .ms-step:active{transform:scale(.98)}.ms-step.on{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)}
+  .ms-step small{display:block;font-size:11.5px;font-weight:700;color:var(--mute)}.ms-step b{display:block;font-size:16.5px;letter-spacing:-.01em}.ms-step em{display:block;font-style:normal;font-size:12.5px;color:var(--mute);margin-top:1px}
+  .ms-ck{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--mute)}.ms-ck svg{width:15px;height:15px}.ms-step.dn .ms-ck{background:var(--good,#12b886);color:#fff}
+  .ms-lab{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:18px 0 8px}
+  .ms-camps{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory}.ms-camp{flex:0 0 72%;scroll-snap-align:start;text-align:left;padding:12px;border-radius:14px;border:1.5px solid var(--rule-2);background:var(--paper)}.ms-camp.on{border-color:var(--brand);background:var(--brand-soft)}
+  .ms-camp b{display:block;font-size:14px}.ms-camp small{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mute);margin-top:2px}.ms-camp .dot{width:8px;height:8px;border-radius:50%;background:var(--faint)}.ms-camp .dot.good{background:var(--good,#12b886)}
+  .ms-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}.ms-row .btn{justify-content:center}
+  .ms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .ms-t{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 12px;border-radius:16px;background:var(--paper);border:1.5px solid var(--rule-2);text-align:left;min-height:96px;transition:transform .12s var(--spring)}
+  .ms-t:active{transform:scale(.96)}.ms-t.on{border-color:var(--brand)}
+  .ms-t span{width:36px;height:36px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}.ms-t span svg{width:19px;height:19px}.ms-t b{font-size:13.5px;line-height:1.2}
+  .ms-list{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1.5px solid var(--rule-2);background:var(--paper)}
+  .ms-list button{display:flex;align-items:center;gap:12px;padding:14px;font-weight:700;font-size:15px;text-align:left;border-bottom:1px solid var(--rule)}.ms-list button:last-child{border-bottom:0}.ms-list span{flex:1}.ms-list svg{width:18px;height:18px;color:var(--mute)}
+  /* results switcher and step strip */
+  .rsw{display:flex;position:sticky;top:0;z-index:20;margin:-4px 0 16px;padding:4px;border-radius:14px;background:color-mix(in srgb,var(--paper) 92%,transparent);border:1.5px solid var(--rule-2);backdrop-filter:blur(12px)}
+  .rsw button{flex:1;padding:10px 6px;border-radius:10px;font-weight:800;font-size:13.5px;color:var(--mute);transition:all .2s var(--spring)}.rsw button.on{background:var(--brand);color:var(--on-brand);box-shadow:0 4px 12px -6px var(--brand)}
+  .sstrip{display:flex;align-items:center;margin:-4px 0 14px;padding:8px;border-radius:16px;background:var(--paper);border:1.5px solid var(--rule-2);overflow-x:auto}
+  .sstrip button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 2px;border-radius:10px;min-width:62px;opacity:.6;transition:opacity .2s}.sstrip button.on{opacity:1;background:var(--brand-soft)}.sstrip button.dn{opacity:.9}
+  .sstrip small{font-size:11px;font-weight:800}.sstrip>i{flex:0 0 10px;height:2px;background:var(--rule-2)}
+  /* Plato full screen, above the tab bar */
+  .pl-panel{left:0!important;right:0!important;top:0!important;bottom:0!important;width:auto!important;height:auto!important;max-height:none!important;border-radius:0!important;border:0!important;padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(var(--tabh) + var(--safeb) + 14px);transform:translateY(30px)}
+  .pl-panel.on{transform:none}
+  .pl-panel .pl-h{padding:12px 14px}.pl-panel .pl-in,.pl-panel form{margin:0 10px}
+  .pl-panel textarea,.pl-panel input{font-size:16px!important}
+  body.pl-on .view{overflow:hidden}
+  /* pop-ups are sheets; drawers are full screen */
+  .modal{border-radius:22px 22px 0 0!important;padding-bottom:calc(22px + var(--safeb))!important;max-height:90dvh}
+  .drawer{width:100vw!important;border-left:0!important;padding-top:env(safe-area-inset-top,0px)}
+  /* thumb-sized, app-feel content */
+  .btn{min-height:44px}.btn-xs{min-height:36px;padding-inline:12px}.btn-sm{min-height:40px}
+  input.inp,select.inp,textarea.inp,.inp{font-size:16px}
+  .card{border-radius:18px}.h13,.pft,.k13-t,.itl,.sgc,.ht,.ln13,.nwc,.plc,.pcc,.tbr{border-radius:18px}
+  .h13{box-shadow:none;border-width:1px;padding:20px 18px;margin-bottom:16px}.h13 h1{font-size:32px}.h13-r{display:none}
+  .h13 .row.wrap{display:grid;grid-template-columns:1fr auto;gap:8px!important}.h13 .row.wrap .btn{width:100%;justify-content:center}
+  .k13-g,.kstrip{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-14px;padding:2px 14px 8px;scrollbar-width:none}.k13-g::-webkit-scrollbar,.kstrip::-webkit-scrollbar{display:none}
+  .k13-t,.kstrip .ks{flex:0 0 42%;scroll-snap-align:start}
+  .chips,.sgc-row{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;margin-inline:-14px;padding-inline:14px}.chips::-webkit-scrollbar{display:none}.chip{flex-shrink:0}
+  .sgc{flex:0 0 74%;scroll-snap-align:start}.sgc-row{scroll-snap-type:x mandatory}
+  .pfg,.itg,.itg.top3,.nwg,.plg,.pcs-g{grid-template-columns:1fr!important}
+  .sh,.sec-h{flex-direction:column;align-items:flex-start!important;gap:10px}.sh-a{width:100%;flex-wrap:wrap}
+  .sh-t{font-size:34px!important}
+  .tabsbar{flex-direction:column;align-items:stretch;gap:8px}
+  table{display:block;overflow-x:auto;white-space:nowrap}
+  .hp-i{flex-wrap:wrap;padding:14px 4px}.hp-a{width:100%;padding-left:70px}.hp-a .btn{flex:1}
+  .itl-btns{width:100%}.itl-btns .btn{flex:1;justify-content:center}.itl-f{flex-direction:column;align-items:stretch}
+  .ln13s{gap:12px}.swipe{height:min(470px,62dvh)}
+  #toasts{bottom:calc(var(--tabh) + var(--safeb) + 22px)!important}
+  .ipop{left:10px!important;right:10px;width:auto!important;bottom:calc(var(--tabh) + var(--safeb) + 22px)!important}
+  .demo-rib{font-size:12.5px;padding:8px 14px}
+  .gapc{padding:16px}.gc-h{gap:14px}
+}
+@media (max-width:900px) and (prefers-reduced-motion:reduce){.tb-plr::after,.view-inner{animation:none}}
+@media (max-width:900px){
+  .pfoot2{display:none!important}
+  .listbar{bottom:-6px!important;margin-inline:-4px;border-radius:18px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35);backdrop-filter:blur(14px)}
+  .view-inner>.ch{display:none}.ss-n{display:block!important}
+  .ms-row .btn{padding-inline:10px;font-size:14px;white-space:nowrap}
+  .pl-panel .pl-f,.pl-panel .pl-form{position:relative;z-index:2;background:var(--paper)}
+}
+.ss-n{display:none;width:100%;font-size:12px;font-weight:800;color:var(--mute);padding:0 4px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media (max-width:900px){.sstrip{flex-wrap:wrap}.sstrip button{flex:1 1 0}}
+@media (max-width:900px){.sstrip button.ss-n{flex:0 0 100%;opacity:1;align-items:flex-start;text-align:left;padding:2px 6px 8px;min-width:0;background:none}.sstrip button:not(.ss-n){min-width:0}.sstrip>i{flex:0 0 6px}}
 
 </style>
 </head>
@@ -8651,7 +8753,8 @@ function intentRows(){const camp=SGC!=='all'&&S.campaigns.find(c=>c.id===SGC);
     const camps=[...new Set(ins.map(g=>g.campaign).filter(Boolean))].map(id=>S.campaigns.find(c=>c.id===id)).filter(Boolean);
     const talk=ins.some(g=>TALK.includes(g.type));const opp=S.opps.find(o=>o.accountId===a.id&&o.lane!=='lost');
     const rank=s.score*(1+Math.min(.5,.12*Math.max(0,ppl.length-1)))+(talk?15:0);
-    return{a,s,ppl,camps,talk,opp,rank,last:ins.map(g=>g.date).sort().pop()}}).filter(Boolean).sort((x,y)=>y.rank-x.rank)}
+    const ch=intentChannels(ins);const touches=sum(ins,g=>g.qty||1);
+    return{a,s,ppl,camps,talk,opp,rank,ch,touches,last:ins.map(g=>g.date).sort().pop()}}).filter(Boolean).sort((x,y)=>y.rank-x.rank)}
 function intentWhy(r){const t=new Set(r.ppl.flatMap(p=>Object.keys(p.acts)));const bits=[];
   if(t.has('meeting'))bits.push('a meeting booked');else if(t.has('reply')||t.has('li_reply'))bits.push('replied');
   if(r.ppl.length>1)bits.push(r.ppl.length+' people engaging');if(r.s.fams.length>1)bits.push('on '+r.s.fams.length+' channels');if(r.camps.length>1)bits.push('across '+r.camps.length+' campaigns');
@@ -8661,6 +8764,7 @@ function personRow(p){return '<li><span class="ip-av">'+esc(initials(p.name))+'<
 function orgTile(r,i,top){const a=r.a,s=r.s;const n=nextAction(a,s);const anon=r.ppl.length===0;
   return '<div class="itl'+(top?' top':'')+(s.heat>=4?' hot':'')+'" data-org="'+a.id+'" style="--hc:'+s.colour+';animation-delay:'+Math.min(i,14)*30+'ms">'+
     '<div class="itl-h"><span class="rank" style="background:'+s.colour+'">'+(i+1)+'</span>'+logo(a,38)+'<div class="grow" style="min-width:0"><b class="nm" onclick="openAccount(\''+a.id+'\')">'+esc(a.name)+'</b><small>'+esc(intentWhy(r))+'</small></div>'+heatDots(s.heat,true)+'</div>'+
+    '<div class="itl-ch">'+INTENT_CH.map(c=>'<span class="'+(r.ch.has(c[0])?'on':'')+'" data-tip="'+esc(r.ch.has(c[0])?c[2]:'No '+c[1].toLowerCase()+' engagement yet')+'">'+c[3]+c[1]+'</span>').join('')+'<em>'+r.touches+' touchpoint'+(r.touches===1?'':'s')+'</em></div>'+
     '<div class="itl-bar" data-tip="Intent score '+Math.round(r.rank)+'"><i style="width:'+Math.min(100,Math.round(r.rank))+'%"></i></div>'+
     (anon?'<p class="tiny muted" style="margin:10px 0 0">Engagement from the organisation, no named people yet (ads or anonymous opens).</p>':'<ul class="itl-p">'+r.ppl.slice(0,top?5:3).map(personRow).join('')+(r.ppl.length>(top?5:3)?'<li class="more" onclick="openAccount(\''+a.id+'\')">+'+(r.ppl.length-(top?5:3))+' more</li>':'')+'</ul>')+
     '<div class="itl-f">'+(r.camps.length?'<span class="itl-c">'+r.camps.slice(0,2).map(c=>'<em>'+esc(c.name)+'</em>').join('')+(r.camps.length>2?'<em>+'+(r.camps.length-2)+'</em>':'')+'</span>':'<span></span>')+
@@ -8688,7 +8792,7 @@ function gapCard(rows){const p=pipe();const T=p.target;const won=p.wonVal,wt=p.w
 VIEWS.signals=()=>{const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=!!(S.uploads.outreach||S.uploads.linkedin||S.uploads.ads||S.launch.connected||all.some(s=>INBOUND(s.type)));
   const head=secHead('signals','Signals and <span class="serif">intent.</span>',hasData?'<button class="btn btn-ghost btn-sm" onclick="copySignals()">'+ico('copy')+'Copy a summary</button><button class="btn btn-line btn-sm" onclick="go(\'perf\')">'+ico('chart')+'Campaign performance</button>':'');
   if(!hasData)return head+'<div class="card nodata"><div class="orb"></div><h2 class="h-l">No data, <span class="serif">no intent.</span></h2><p class="lede">Intent comes from what people do with your outreach: accepts, opens, clicks and replies. Give the portal that data and this page ranks every organisation and person by how warm they are, across all your campaigns.</p><div class="row wrap" style="justify-content:center;gap:10px;margin-top:18px"><button class="btn btn-primary" onclick="openImport(null,\'outreach\')">'+ico('upload')+'Upload a CSV</button><button class="btn btn-line" onclick="go(\'launch\');setTimeout(()=>setMode(\'amplify\'),200)">'+ico('bolt')+'Switch on Amplify</button></div></div>'+sourcesStrip();
-  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(r=>r.s.heat>=3).slice(0,3);const rest=R.filter(r=>!top.includes(r));
+  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(highIntent);const rest=R.filter(r=>!top.includes(r));
   const d30=s=>daysAgo(s.date)<=30;
   const k=[['pulse','Organisations engaging',rows.length],['people','People engaging',sum(rows,r=>r.ppl.length)],['chat','Replies, 30 days',all.filter(s=>['reply','li_reply'].includes(s.type)&&d30(s)).length],['calendar','Meetings, 30 days',all.filter(s=>s.type==='meeting'&&d30(s)).length],['flame','Hot right now',rows.filter(r=>r.s.heat>=4).length]];
   
@@ -8697,7 +8801,7 @@ VIEWS.signals=()=>{const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=
     sgCampPicker()+
     '<div class="tabsbar" style="margin-top:14px"><span></span><div class="chips">'+[[0,'Everyone'],[4,'🔥 Hot'],[3,'🟠 Warm and up'],[2,'👀 Aware and up']].map(([b,l])=>'<button class="chip'+(SGB===b?' on':'')+'" onclick="SGB='+b+';go(\'signals\',null,true)">'+l+'</button>').join('')+'</div></div>'+
     (!R.length?'<div class="card empty" style="margin-top:14px"><div class="orb"></div>Nobody in this band yet.</div>':
-      (top.length?'<div class="itl-lean"><div class="lab">'+ico('flame')+'Highest intent. Lean in here first.</div><div class="itg top3">'+top.map((r,i)=>orgTile(r,i,true)).join('')+'</div></div>':'')+
+      (top.length?'<div class="itl-lean"><div class="itl-lh"><div class="lab">'+ico('flame')+top.length+' organisation'+(top.length===1?' is':'s are')+' showing high intent. Lean in here first.</div><span class="tiny muted">High intent means a conversation, a hot score, or engagement across two or more channels with several touchpoints.</span></div><div class="itg top3">'+top.map((r,i)=>orgTile(r,i,true)).join('')+'</div></div>':'')+
       (rest.length?'<div class="lab" style="margin:20px 0 10px">'+(top.length?'Everyone else engaging, warmest first':'Everyone engaging, warmest first')+'</div><div class="itg" data-tour="sgrid">'+rest.map((r,i)=>orgTile(r,i+top.length,false)).join('')+'</div>':''))+
     '<p class="tiny muted" style="margin-top:14px;max-width:80ch">Ranked by intent: a meeting counts for far more than an open, older signals fade over a month, and organisations rise faster when more people engage, on more channels, across more campaigns.</p>'+
     sourcesStrip()+handoff('signals','Open the pipeline',null,'When a warm brand agrees to talk, add it as a deal and track it to a win.')};
@@ -8793,6 +8897,12 @@ function sgCampPicker(){const C=realCamps();if(!C.length)return '';
       return tile(c.id,c.name,'<i class="dot '+st[1]+'"></i>'+st[0]+(campWk(c).n?' · week '+campWk(c).n:''),n.length+' engaging'+(hot?' · <em>'+hot+' hot</em>':''),SGC===c.id)}).join('')+
     tile('all','All campaigns','Everything together',allN+' engaging',SGC==='all')+'</div>'+src+'</div>'}
 
+/* intent across channels: outreach, ads, events, content and conversations */
+const INTENT_CH=[['out','Outreach','Engaging with your emails or LinkedIn','✉️ '],['ads','Ads','Clicking or engaging with your ads','📣 '],['events','Events','Came to an event or webinar','🎪 '],['content','Content','Downloaded content or used a tool','🎁 '],['talk','Talking','Replied, called or met you','💬 ']];
+function intentChannels(sigs){const c=new Set();sigs.forEach(g=>{const f=(SIGNALS[g.type]||{}).fam;if(f==='email'||f==='linkedin')c.add('out');if(f==='ads'&&g.type!=='ad_view')c.add('ads');if(f==='events')c.add('events');if(f==='content')c.add('content');if(TALK.includes(g.type)||g.type==='li_reply')c.add('talk')});return c}
+/* high intent: talking to you, a hot score, or several touchpoints across two or more channels (events count double) */
+function highIntent(r){const n=r.ch.size+(r.ch.has('events')?1:0);return r.s.heat>=4||r.ch.has('talk')||(n>=2&&r.touches>=3)||(r.ppl.length>=3&&r.touches>=4)}
+
 /* ═══════════ v13: YOUR TEAM ═══════════
    The four bots are now "your team": Scout, Muse, Relay and Pilot. Simpler to look at: a flat colour,
    a white face, two eyes and one symbol that says what each one does. */
@@ -8886,7 +8996,7 @@ function priorities(){const P=[];const add=(id,grp,ic,t,s,btn,q,w)=>P.push({id,g
     else{const d=dueCount(c);if(d)add('due:'+c.id,'run','send','Send today’s '+d+' message'+(d===1?'':'s')+' for '+nm,'About '+Math.max(5,d*2)+' minutes. Approve or redraft each one.',['Open Launch',"S.cur='"+c.id+"';save();go('launch')"],'Help me get through today’s messages for '+nm,88);
       const has=(c.blocks||[]).some(b=>b.file||b.manual)||(isPremium()&&S.launch.connected);if(!has)add('data:'+c.id,'connect','upload','Bring in results for '+nm,'Upload its outreach export, or link it to Amplify, so intent shows up.',['Upload',"openImport('"+c.id+"','outreach')"],'How do I get results into the portal for '+nm+'?',55)}});
   unanswered().slice(0,3).forEach(x=>add('reply:'+x.a.id,'talk','chat','Reply to '+(x.s.person?x.s.person.split(' ')[0]+' at ':'')+x.a.name,'They replied '+rel(x.s.date)+'. A quick answer keeps it warm.',['Open',"openAccount('"+x.a.id+"')"],'Draft a reply to '+(x.s.person||'them')+' at '+x.a.name+' and suggest a next step',92));
-  try{intentRows().filter(r=>r.s.heat>=4&&!r.opp).slice(0,2).forEach(r=>add('hot:'+r.a.id,'talk','flame',r.a.name+' is hot','They '+intentWhy(r)+'. Lean in now.',['Add to pipeline',"addToPipe('"+r.a.id+"')"],'What should I do next with '+r.a.name+'? '+intentWhy(r),84))}catch(e){}
+  try{intentRows().filter(r=>highIntent(r)&&!r.opp).slice(0,3).forEach(r=>add('hot:'+r.a.id,'talk','flame',r.a.name+' is hot','They '+intentWhy(r)+'. Lean in now.',['Add to pipeline',"addToPipe('"+r.a.id+"')"],'What should I do next with '+r.a.name+'? '+intentWhy(r),84))}catch(e){}
   S.opps.filter(o=>!['won','lost'].includes(o.lane)&&(!o.next||daysAgo(o.updated||o.created)>14)).slice(0,2).forEach(o=>add('opp:'+o.id,'talk','pound',(o.next?'Move ':'Set a next step for ')+o.name,(LANES.find(l=>l.k===o.lane)||{l:''}).l+' · '+money(o.value,true)+(o.next?' · not updated for '+daysAgo(o.updated||o.created)+' days':''),['Update',"openOppForm('"+o.id+"')"],'What is the best next step to move the '+o.name+' deal forward?',65));
   if(C.length&&!(S.liScan&&S.liScan.score))add('li','connect','linkedin','Scan your LinkedIn profile','Prospects look you up before they accept. Make the profile ready for them.',['Scan it',"go('reach')"],'How can I make my LinkedIn profile better for the people I am targeting?',50);
   if(C.some(campLive)&&!isPremium())add('amp','connect','bolt','Let Amplify send for you','Premium: messages go out from your accounts, at the right pace, with your approval.',['Find out more',"premiumLocked('amplify')"],'What would Amplify do for my campaigns?',20);
@@ -9216,6 +9326,59 @@ guidePDF=async function(k){const G=GUIDES.find(x=>x.k===k);if(!G)return;toast('�
   const pages=[cover].concat(G.sec.map((_,i)=>page(i)));const jpgs=[];const fake={name:G.t};
   for(let i=0;i<pages.length;i++){const cv=document.createElement('canvas');cv.width=Math.round(PW*PS);cv.height=Math.round(PH*PS);const x=cv.getContext('2d');x.scale(PS,PS);const D=pdfDraw(x,C,IM);D.R(0,0,PW,PH,C.bg);pages[i](D);if(i)D.footer(fake,i+1,pages.length);jpgs.push(cv.toDataURL('image/jpeg',.9))}
   const blob=makePDF(jpgs);const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=G.t.replace(/[^a-z0-9]+/gi,'-').replace(/-+$/,'').toLowerCase()+'.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000);toast('📄 Your guide is downloading')};
+
+/* ═══════════ v13.1: THE PORTAL AS A MOBILE APP ═══════════
+   On a phone (or a narrow window) the sidebar becomes a bottom tab bar: Home, Campaign, Plato in the middle,
+   Results and More. Campaign and More open as bottom sheets you can drag down to close. Results pages share a
+   switcher at the top. Plato opens full screen. Everything is sized for thumbs and respects the phone's safe areas. */
+const MQ=matchMedia('(max-width:900px)');
+const isApp=()=>MQ.matches;
+const TABS=[['home','Home','home'],['camp','Campaign','layers'],['plato','Plato',''],['res','Results','pulse'],['more','More','grid']];
+const TAB_OF={home:'home',prospects:'camp',give:'camp',reach:'camp',launch:'camp',camps:'camp',signals:'res',perf:'res',pipeline:'res',insights:'more',guides:'more',team:'more',agency:'more',settings:'more',admin:'more',dot:'plato'};
+function buzz(){try{navigator.vibrate&&navigator.vibrate(6)}catch(e){}}
+function tabbarHTML(){const st=sysStats();const cur=TAB_OF[VIEW]||'more';const badge=(st.signals&&st.signals.badge)||'';
+  return TABS.map(([k,l,ic])=>k==='plato'?'<button class="tb-pl'+(cur==='plato'||(typeof platoOpen!=='undefined'&&platoOpen)?' on':'')+'" onclick="tabGo(\'plato\')" aria-label="Ask Plato"><span class="tb-plr">'+platoFace(46)+'</span><small>Ask Plato</small></button>':
+    '<button class="tb-i'+(cur===k?' on':'')+'" onclick="tabGo(\''+k+'\')" aria-label="'+l+'"'+(cur===k?' aria-current="page"':'')+'>'+ico(ic)+(k==='res'&&badge?'<i class="tb-b">'+badge+'</i>':'')+'<small>'+l+'</small></button>').join('')}
+function mountTabbar(){let t=$('#tabbar');if(!t){t=document.createElement('nav');t.id='tabbar';t.className='tabbar';t.setAttribute('aria-label','Main');document.body.appendChild(t)}t.innerHTML=tabbarHTML()}
+function tabGo(k){buzz();closeSheet();if(k==='home')go('home');else if(k==='res')go(['signals','perf','pipeline'].includes(VIEW)?VIEW:'signals');else if(k==='plato'){if(platoOpen)closeDot();else openDot();mountTabbar()}else if(k==='camp')campSheet();else if(k==='more')moreSheet()}
+/* bottom sheets: a grabber, slide up, drag down (or tap outside) to close */
+function sheet(html,cls){closeOverlays(true);closeDot();let s=$('#msheet');if(!s){s=document.createElement('div');s.id='msheet';s.className='msheet';s.setAttribute('role','dialog');s.setAttribute('aria-modal','true');document.body.appendChild(s)}
+  s.className='msheet '+(cls||'');s.innerHTML='<div class="ms-grab" aria-hidden="true"><i></i></div><div class="ms-b">'+html+'</div>';$('#scrim').classList.add('on');requestAnimationFrame(()=>s.classList.add('on'));
+  let y0=null,dy=0;const g=s.querySelector('.ms-grab');const b=s.querySelector('.ms-b');
+  const start=e=>{if(e.target.closest('.ms-b')&&b.scrollTop>0)return;y0=e.touches[0].clientY;dy=0;s.style.transition='none'};
+  const move=e=>{if(y0==null)return;dy=Math.max(0,e.touches[0].clientY-y0);if(dy>0){s.style.transform='translateY('+dy+'px)';e.cancelable&&e.preventDefault()}};
+  const end=()=>{if(y0==null)return;s.style.transition='';s.style.transform='';if(dy>90)closeSheet();y0=null};
+  [g,b].forEach(el=>{el.addEventListener('touchstart',start,{passive:true});el.addEventListener('touchmove',move,{passive:false});el.addEventListener('touchend',end)})}
+function closeSheet(){const s=$('#msheet');if(s&&s.classList.contains('on')){s.classList.remove('on');if(!$('#modal.on')&&!$('#drawer.on'))$('#scrim').classList.remove('on')}}
+const _closeOverlays131=closeOverlays;closeOverlays=function(k){closeSheet();return _closeOverlays131(k)};
+/* the Campaign sheet: the campaign you are on, its four steps, and a way to switch or start another */
+function campSheet(){const c=curCamp();const real=c&&!(isBlankCamp(c)&&!c.touched);const L=campStateLabel(c);const C=S.campaigns.filter(x=>!(isBlankCamp(x)&&!x.touched));
+  sheet('<div class="ms-h"><small>'+esc(L[0])+'</small><h2>'+(real?esc(c.name):'No campaign yet')+'</h2><span class="ms-st '+L[2]+'">'+(L[2]==='live'?'<i class="sd-live"></i>':'')+esc(L[1])+'</span></div>'+
+    '<div class="ms-steps">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);const s=campStepState(c,k);const lock=!profReady()&&!DEMO_MODE;
+      return '<button class="ms-step'+(s===2?' dn':'')+(VIEW===k?' on':'')+'" onclick="'+(lock?"go('agency')":"go('"+k+"')")+';closeSheet()">'+agentFace(k,44,{badge:false})+'<span class="grow"><small>Step '+(i+1)+' · '+esc(A.n)+'</small><b>'+esc(m.l)+'</b><em>'+esc(lock?'After your agency profile':campStepSub(c,k))+'</em></span><span class="ms-ck">'+(lock?ico('lock'):s===2?ico('check'):ico('arrow'))+'</span></button>'}).join('')+'</div>'+
+    (C.length>1?'<div class="ms-lab">Your campaigns</div><div class="ms-camps">'+C.map(x=>{const st=campStatus(x);return '<button class="ms-camp'+(x.id===S.cur?' on':'')+'" onclick="S.cur=\''+x.id+'\';save();refreshNav();campSheet()"><b>'+esc(x.name)+'</b><small><i class="dot '+st[1]+'"></i>'+st[0]+'</small></button>'}).join('')+'</div>':'')+
+    '<div class="ms-row"><button class="btn btn-primary" onclick="closeSheet();newCampaignFlow()">'+ico('plus')+'New campaign</button><button class="btn btn-line" onclick="closeSheet();go(\'camps\')">'+ico('layers')+'All campaigns</button></div>')}
+/* the More sheet: everything else, as big tiles */
+function moreSheet(){const adm=SESSION&&SESSION.role==='admin';const T=[['insights','bulb','Your Insights'],['perf','chart','Campaign performance'],['pipeline','pound','Pipeline'],['team','people','Team'],['agency','star','Agency profile'],['guides','guide','Guides']].concat(adm?[['admin','lock','Manage access']]:[]).concat([['settings','settings','Settings']]);
+  sheet('<div class="ms-h"><small>Menu</small><h2>Everything else</h2></div><div class="ms-grid">'+T.map(([k,ic,l])=>'<button class="ms-t'+(VIEW===k?' on':'')+'" onclick="closeSheet();go(\''+k+'\')"><span>'+ico(ic)+'</span><b>'+l+'</b></button>').join('')+'</div>'+
+    '<div class="ms-lab">Help</div><div class="ms-list"><button onclick="closeSheet();startWalk(true)">'+ico('play')+'<span>Replay the walkthrough</span>'+ico('arrow','a')+'</button><button onclick="closeSheet();startTour()">'+ico('eye')+'<span>Show me around this portal</span>'+ico('arrow','a')+'</button><button onclick="toggleMode();moreSheet()">'+ico('moon')+'<span>Light or dark</span>'+ico('arrow','a')+'</button></div>')}
+/* results pages share a switcher at the top */
+function resSwitch(){if(!isApp())return '';const R=[['signals','Intent'],['perf','Performance'],['pipeline','Pipeline']];return '<div class="rsw" role="tablist">'+R.map(([k,l])=>'<button role="tab" aria-selected="'+(VIEW===k)+'" class="'+(VIEW===k?'on':'')+'" onclick="buzz();go(\''+k+'\')">'+l+'</button>').join('')+'</div>'}
+['signals','perf','pipeline'].forEach(k=>{const v=VIEWS[k];VIEWS[k]=function(){return resSwitch()+v.apply(this,arguments)}});
+/* the four steps get a compact progress strip at the top on a phone */
+function stepStrip(){if(!isApp())return '';const c=curCamp();const real=c&&!(isBlankCamp(c)&&!c.touched);return '<div class="sstrip">'+(real?'<button class="ss-n" onclick="campSheet()">'+esc(c.name)+' · switch</button>':'')+OUT_K.map((k,i)=>{const s=campStepState(c,k);return '<button class="'+(VIEW===k?'on ':'')+(s===2?'dn':'')+'" onclick="buzz();go(\''+k+'\')">'+agentFace(k,26,{badge:false})+'<small>'+(i+1)+'. '+esc(MODULES.find(x=>x.k===k).l.replace('Who to target','Who').replace('What to share','What').replace('How to reach','How'))+'</small></button>'}).join('<i></i>')+'</div>'}
+OUT_K.forEach(k=>{const v=VIEWS[k];VIEWS[k]=function(){return stepStrip()+v.apply(this,arguments)}});
+/* keep the tab bar in step with the page, Plato and the demo */
+const _go131=go;go=function(){const r=_go131.apply(this,arguments);if(isApp())mountTabbar();return r};
+const _openDot131=openDot;openDot=function(){closeSheet();_openDot131.apply(this,arguments);document.body.classList.add('pl-on');if(isApp())mountTabbar()};
+const _closeDot131=closeDot;closeDot=function(){_closeDot131.apply(this,arguments);document.body.classList.remove('pl-on');if(isApp()&&$('#tabbar'))mountTabbar()};
+const _renderShell131=renderShell;renderShell=function(){_renderShell131.apply(this,arguments);if(isApp())mountTabbar()};
+const _refreshNav131=refreshNav;refreshNav=function(){_refreshNav131.apply(this,arguments);if(isApp()&&$('#tabbar'))mountTabbar()};
+MQ.addEventListener&&MQ.addEventListener('change',()=>{if(isApp())mountTabbar();else{const t=$('#tabbar');if(t)t.remove();closeSheet()}if(typeof VIEW!=='undefined'&&S)go(VIEW,VIEW_ARG,true)});
+/* the phone's own chrome: brand colour in the status bar, edge to edge, and add to home screen */
+(function(){const set=(n,c,attr)=>{let m=document.querySelector('meta['+(attr||'name')+'="'+n+'"]');if(!m){m=document.createElement('meta');m.setAttribute(attr||'name',n);document.head.appendChild(m)}m.setAttribute('content',c)};
+  set('viewport','width=device-width, initial-scale=1, viewport-fit=cover');set('theme-color','#F0EEE9');set('apple-mobile-web-app-capable','yes');set('mobile-web-app-capable','yes');set('apple-mobile-web-app-status-bar-style','default');set('apple-mobile-web-app-title','Portal');
+  if(!document.querySelector('link[rel="manifest"]')&&location.protocol!=='file:'){const l=document.createElement('link');l.rel='manifest';l.href='manifest.webmanifest';document.head.appendChild(l)}})();
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;

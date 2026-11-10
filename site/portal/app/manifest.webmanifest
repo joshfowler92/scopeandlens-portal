@@ -1,0 +1,14 @@
+{
+  "name": "Permissionless Portal",
+  "short_name": "Portal",
+  "description": "Predictable new business, from permissionless value. By Scope & Lens.",
+  "start_url": "/portal/app/#home",
+  "scope": "/portal/app/",
+  "display": "standalone",
+  "background_color": "#F0EEE9",
+  "theme_color": "#F0EEE9",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "128x128", "type": "image/png", "purpose": "any" }
+  ]
+}

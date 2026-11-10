@@ -369,3 +369,34 @@ There is a plain-English legend.
 - `/api/domain`: finds and checks websites for logos
 - `/api/discover`: finds more prospects
 - `/api/piece`: reads content pieces
+
+## Version 13.1
+
+### Every high-intent organisation, not just three
+
+Signals & Intent now shows every organisation showing high intent under "Lean in here first", with the count. High intent means any of:
+- a conversation (a reply, call, meeting or referral)
+- a hot score
+- several touchpoints across two or more channels (outreach, ads, events, content), with events counting double
+- three or more people engaging
+
+Each tile shows which channels the organisation is engaging through, and how many touchpoints. Home's priorities use the same rule.
+
+### The portal as a mobile app
+
+On a phone, or any window narrower than 900px:
+- **A floating tab bar** at the bottom: Home, Campaign, Plato (a raised button in the middle), Results (with a badge for warm brands) and More.
+- **Campaign** opens a bottom sheet with the campaign's four steps and their status, your other campaigns, New campaign and All campaigns.
+- **More** opens a bottom sheet of tiles for everything else, plus the walkthrough, the tour and light or dark.
+- Sheets slide up and can be dragged down to close.
+- **Results pages** share a switcher at the top: Intent, Performance, Pipeline.
+- **The four steps** share a strip at the top, with the campaign name.
+- **Plato opens full screen** above the tab bar.
+- Pop-ups become bottom sheets, and drawers go full screen.
+- **Made for phones:**
+  - thumb-sized buttons and 16px inputs, so phones don't zoom
+  - swipeable number and campaign rows
+  - single-column cards
+  - a frosted top bar, and safe areas respected
+  - the brand colour in the status bar
+- **Add to home screen** opens it like an app (web app manifest).

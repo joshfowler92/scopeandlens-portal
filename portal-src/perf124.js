@@ -125,7 +125,8 @@ function intentRows(){const camp=SGC!=='all'&&S.campaigns.find(c=>c.id===SGC);
     const camps=[...new Set(ins.map(g=>g.campaign).filter(Boolean))].map(id=>S.campaigns.find(c=>c.id===id)).filter(Boolean);
     const talk=ins.some(g=>TALK.includes(g.type));const opp=S.opps.find(o=>o.accountId===a.id&&o.lane!=='lost');
     const rank=s.score*(1+Math.min(.5,.12*Math.max(0,ppl.length-1)))+(talk?15:0);
-    return{a,s,ppl,camps,talk,opp,rank,last:ins.map(g=>g.date).sort().pop()}}).filter(Boolean).sort((x,y)=>y.rank-x.rank)}
+    const ch=intentChannels(ins);const touches=sum(ins,g=>g.qty||1);
+    return{a,s,ppl,camps,talk,opp,rank,ch,touches,last:ins.map(g=>g.date).sort().pop()}}).filter(Boolean).sort((x,y)=>y.rank-x.rank)}
 function intentWhy(r){const t=new Set(r.ppl.flatMap(p=>Object.keys(p.acts)));const bits=[];
   if(t.has('meeting'))bits.push('a meeting booked');else if(t.has('reply')||t.has('li_reply'))bits.push('replied');
   if(r.ppl.length>1)bits.push(r.ppl.length+' people engaging');if(r.s.fams.length>1)bits.push('on '+r.s.fams.length+' channels');if(r.camps.length>1)bits.push('across '+r.camps.length+' campaigns');
@@ -135,6 +136,7 @@ function personRow(p){return '<li><span class="ip-av">'+esc(initials(p.name))+'<
 function orgTile(r,i,top){const a=r.a,s=r.s;const n=nextAction(a,s);const anon=r.ppl.length===0;
   return '<div class="itl'+(top?' top':'')+(s.heat>=4?' hot':'')+'" data-org="'+a.id+'" style="--hc:'+s.colour+';animation-delay:'+Math.min(i,14)*30+'ms">'+
     '<div class="itl-h"><span class="rank" style="background:'+s.colour+'">'+(i+1)+'</span>'+logo(a,38)+'<div class="grow" style="min-width:0"><b class="nm" onclick="openAccount(\''+a.id+'\')">'+esc(a.name)+'</b><small>'+esc(intentWhy(r))+'</small></div>'+heatDots(s.heat,true)+'</div>'+
+    '<div class="itl-ch">'+INTENT_CH.map(c=>'<span class="'+(r.ch.has(c[0])?'on':'')+'" data-tip="'+esc(r.ch.has(c[0])?c[2]:'No '+c[1].toLowerCase()+' engagement yet')+'">'+c[3]+c[1]+'</span>').join('')+'<em>'+r.touches+' touchpoint'+(r.touches===1?'':'s')+'</em></div>'+
     '<div class="itl-bar" data-tip="Intent score '+Math.round(r.rank)+'"><i style="width:'+Math.min(100,Math.round(r.rank))+'%"></i></div>'+
     (anon?'<p class="tiny muted" style="margin:10px 0 0">Engagement from the organisation, no named people yet (ads or anonymous opens).</p>':'<ul class="itl-p">'+r.ppl.slice(0,top?5:3).map(personRow).join('')+(r.ppl.length>(top?5:3)?'<li class="more" onclick="openAccount(\''+a.id+'\')">+'+(r.ppl.length-(top?5:3))+' more</li>':'')+'</ul>')+
     '<div class="itl-f">'+(r.camps.length?'<span class="itl-c">'+r.camps.slice(0,2).map(c=>'<em>'+esc(c.name)+'</em>').join('')+(r.camps.length>2?'<em>+'+(r.camps.length-2)+'</em>':'')+'</span>':'<span></span>')+
@@ -162,7 +164,7 @@ function gapCard(rows){const p=pipe();const T=p.target;const won=p.wonVal,wt=p.w
 VIEWS.signals=()=>{const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=!!(S.uploads.outreach||S.uploads.linkedin||S.uploads.ads||S.launch.connected||all.some(s=>INBOUND(s.type)));
   const head=secHead('signals','Signals and <span class="serif">intent.</span>',hasData?'<button class="btn btn-ghost btn-sm" onclick="copySignals()">'+ico('copy')+'Copy a summary</button><button class="btn btn-line btn-sm" onclick="go(\'perf\')">'+ico('chart')+'Campaign performance</button>':'');
   if(!hasData)return head+'<div class="card nodata"><div class="orb"></div><h2 class="h-l">No data, <span class="serif">no intent.</span></h2><p class="lede">Intent comes from what people do with your outreach: accepts, opens, clicks and replies. Give the portal that data and this page ranks every organisation and person by how warm they are, across all your campaigns.</p><div class="row wrap" style="justify-content:center;gap:10px;margin-top:18px"><button class="btn btn-primary" onclick="openImport(null,\'outreach\')">'+ico('upload')+'Upload a CSV</button><button class="btn btn-line" onclick="go(\'launch\');setTimeout(()=>setMode(\'amplify\'),200)">'+ico('bolt')+'Switch on Amplify</button></div></div>'+sourcesStrip();
-  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(r=>r.s.heat>=3).slice(0,3);const rest=R.filter(r=>!top.includes(r));
+  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const top=R.filter(highIntent);const rest=R.filter(r=>!top.includes(r));
   const d30=s=>daysAgo(s.date)<=30;
   const k=[['pulse','Organisations engaging',rows.length],['people','People engaging',sum(rows,r=>r.ppl.length)],['chat','Replies, 30 days',all.filter(s=>['reply','li_reply'].includes(s.type)&&d30(s)).length],['calendar','Meetings, 30 days',all.filter(s=>s.type==='meeting'&&d30(s)).length],['flame','Hot right now',rows.filter(r=>r.s.heat>=4).length]];
   
@@ -171,7 +173,7 @@ VIEWS.signals=()=>{const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=
     sgCampPicker()+
     '<div class="tabsbar" style="margin-top:14px"><span></span><div class="chips">'+[[0,'Everyone'],[4,'🔥 Hot'],[3,'🟠 Warm and up'],[2,'👀 Aware and up']].map(([b,l])=>'<button class="chip'+(SGB===b?' on':'')+'" onclick="SGB='+b+';go(\'signals\',null,true)">'+l+'</button>').join('')+'</div></div>'+
     (!R.length?'<div class="card empty" style="margin-top:14px"><div class="orb"></div>Nobody in this band yet.</div>':
-      (top.length?'<div class="itl-lean"><div class="lab">'+ico('flame')+'Highest intent. Lean in here first.</div><div class="itg top3">'+top.map((r,i)=>orgTile(r,i,true)).join('')+'</div></div>':'')+
+      (top.length?'<div class="itl-lean"><div class="itl-lh"><div class="lab">'+ico('flame')+top.length+' organisation'+(top.length===1?' is':'s are')+' showing high intent. Lean in here first.</div><span class="tiny muted">High intent means a conversation, a hot score, or engagement across two or more channels with several touchpoints.</span></div><div class="itg top3">'+top.map((r,i)=>orgTile(r,i,true)).join('')+'</div></div>':'')+
       (rest.length?'<div class="lab" style="margin:20px 0 10px">'+(top.length?'Everyone else engaging, warmest first':'Everyone engaging, warmest first')+'</div><div class="itg" data-tour="sgrid">'+rest.map((r,i)=>orgTile(r,i+top.length,false)).join('')+'</div>':''))+
     '<p class="tiny muted" style="margin-top:14px;max-width:80ch">Ranked by intent: a meeting counts for far more than an open, older signals fade over a month, and organisations rise faster when more people engage, on more channels, across more campaigns.</p>'+
     sourcesStrip()+handoff('signals','Open the pipeline',null,'When a warm brand agrees to talk, add it as a deal and track it to a win.')};
@@ -266,3 +268,9 @@ function sgCampPicker(){const C=realCamps();if(!C.length)return '';
   return '<div class="sgc-wrap"><div class="lab">Choose a campaign</div><div class="sgc-row">'+C.map(c=>{const st=campStatus(c);const n=S.accounts.filter(a=>campSigs(c,a).some(s=>INBOUND(s.type)));const hot=n.filter(a=>scoreAccount(Object.assign({},a,{signals:campSigs(c,a)})).heat>=4).length;
       return tile(c.id,c.name,'<i class="dot '+st[1]+'"></i>'+st[0]+(campWk(c).n?' · week '+campWk(c).n:''),n.length+' engaging'+(hot?' · <em>'+hot+' hot</em>':''),SGC===c.id)}).join('')+
     tile('all','All campaigns','Everything together',allN+' engaging',SGC==='all')+'</div>'+src+'</div>'}
+
+/* intent across channels: outreach, ads, events, content and conversations */
+const INTENT_CH=[['out','Outreach','Engaging with your emails or LinkedIn','✉️ '],['ads','Ads','Clicking or engaging with your ads','📣 '],['events','Events','Came to an event or webinar','🎪 '],['content','Content','Downloaded content or used a tool','🎁 '],['talk','Talking','Replied, called or met you','💬 ']];
+function intentChannels(sigs){const c=new Set();sigs.forEach(g=>{const f=(SIGNALS[g.type]||{}).fam;if(f==='email'||f==='linkedin')c.add('out');if(f==='ads'&&g.type!=='ad_view')c.add('ads');if(f==='events')c.add('events');if(f==='content')c.add('content');if(TALK.includes(g.type)||g.type==='li_reply')c.add('talk')});return c}
+/* high intent: talking to you, a hot score, or several touchpoints across two or more channels (events count double) */
+function highIntent(r){const n=r.ch.size+(r.ch.has('events')?1:0);return r.s.heat>=4||r.ch.has('talk')||(n>=2&&r.touches>=3)||(r.ppl.length>=3&&r.touches>=4)}
