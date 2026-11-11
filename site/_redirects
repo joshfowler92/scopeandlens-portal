@@ -1,2 +1,4 @@
 /audit/*  /free-audit.html  200
 /audit  /free-audit.html  200
+/healthcheck  /pitch-win-score.html  301
+/healthcheck/  /pitch-win-score.html  301

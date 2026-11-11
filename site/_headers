@@ -6,3 +6,22 @@
 /portal/*
   X-Robots-Tag: noindex
   Cache-Control: no-store
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+
+/assets/*
+  Cache-Control: public, max-age=86400
+/media/*
+  Cache-Control: public, max-age=86400
+/guides/*
+  Cache-Control: public, max-age=86400
+
+/guides/winning-new-business-in-the-age-of-slop.pdf
+  Link: <https://scopeandlens.com/guides/winning-new-business-in-the-age-of-slop.pdf>; rel="canonical"
+/guides/the-permissionless-prospecting-playbook.pdf
+  Link: <https://scopeandlens.com/guides/the-permissionless-prospecting-playbook.pdf>; rel="canonical"
+/guides/why-your-credentials-deck-is-losing-you-pitches.pdf
+  Link: <https://scopeandlens.com/guides/why-your-credentials-deck-is-losing-you-pitches.pdf>; rel="canonical"
