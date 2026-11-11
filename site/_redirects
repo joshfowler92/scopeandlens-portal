@@ -1,4 +1,6 @@
 /audit/*  /free-audit.html  200
 /audit  /free-audit.html  200
-/healthcheck  /pitch-win-score.html  301
-/healthcheck/  /pitch-win-score.html  301
+/healthcheck  /permissionless-healthcheck.html  301
+/healthcheck/  /permissionless-healthcheck.html  301
+/pitch-win-score.html  /permissionless-healthcheck.html  301
+/pitch-win-score  /permissionless-healthcheck.html  301
