@@ -1998,6 +1998,22 @@ section.cr{isolation:isolate;overflow:clip}
     });
   }
   wire({form:'way-form', ok:'waySuccess', bad:'wayFail', btn:'waySubmitBtn', reply:'wayReplyTo'});
+
+  /* deep links (used by /links): ?way=peers | audit | demo opens that form; ?src= tags where the lead came from */
+  (function(){
+    var p; try { p = new URLSearchParams(location.search); } catch(e){ return; }
+    var w = p.get('way'), src = (p.get('src') || '').replace(/[^\w &-]/g, '').slice(0, 40);
+    if (src) Array.prototype.forEach.call(document.querySelectorAll('input[name="_source"]'), function(i){ i.value = i.value + ' (via ' + src + ')'; });
+    function land(id){   /* put the top of the form just under the sticky nav, so its heading shows on phones */
+      var el = document.getElementById(id), nav = document.getElementById('nav'), off = (nav ? nav.getBoundingClientRect().height : 70) + 16;
+      window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - off, behavior: calm ? 'auto' : 'smooth'});
+    }
+    if (w === 'peers' || w === 'audit') setTimeout(function(){ openWay(w); land('way-form-wrap'); }, 350);
+    else if (w === 'demo') setTimeout(function(){
+      land('dashboard-demo-form');
+      setTimeout(function(){ document.getElementById('demoName').focus({preventScroll:true}); }, 600);
+    }, 350);
+  })();
   wire({form:'demo-form', ok:'demoSuccess', bad:'demoFail', btn:'demoSubmitBtn', reply:'demoReplyTo'});
 
   /* Netlify enquiry form */
