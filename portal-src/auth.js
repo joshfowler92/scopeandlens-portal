@@ -11,7 +11,7 @@ function playLoader(cb){let L=$('#slLoader');if(L)L.remove();L=document.createEl
   L.querySelector('.ldr-skip').onclick=()=>finish(true);
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;requestAnimationFrame(()=>L.classList.add('go'));setTimeout(()=>finish(false),reduce?700:2500)}
 
-/* talking to the backend, when the portal is deployed with it */
+/* talking to the backend, when Plato is deployed with it */
 async function apiCheck(){if(API_OK!==null)return API_OK;if(location.protocol==='file:'){API_OK=false;return false}
   try{const r=await fetch('/api/health',{cache:'no-store'});const j=r.ok?await r.json():null;API_OK=!!(j&&j.ok);API_INFO=j||{}}catch(e){API_OK=false}return API_OK}
 async function api(path,opts){opts=opts||{};const h={'Content-Type':'application/json'};if(SESSION&&SESSION.token)h.Authorization='Bearer '+SESSION.token;
@@ -23,7 +23,7 @@ function nameFromEmail(e){const n=String(e||'').split('@')[0].split(/[._-]/)[0];
 
 /* the sign in screen */
 function showLogin(msg){const el=document.createElement('div');el.id='login';el.className='login';
-  el.innerHTML='<div class="lg-l">'+BLOBS+'<div class="lg-mark">'+SL_MARK('#f0ede8',2.4)+'</div><div><div class="lg-k">Scope &amp; Lens</div><h1>Your permissionless <span class="serif">portal.</span></h1><p>Find the brands worth your time, give them something useful first, and see who leans in. All in one place.</p></div>'+
+  el.innerHTML='<div class="lg-l">'+BLOBS+'<div class="lg-mark">'+SL_MARK('#f0ede8',2.4)+'</div><div><div class="lg-k">Scope &amp; Lens</div><h1>Meet <span class="serif">Plato.</span></h1><p>Find the brands worth your time, give them something useful first, and see who leans in. All in one place.</p></div>'+
     '<ul class="lg-sys">'+SYS().map(m=>'<li><span>'+(m.k==='launch'?'🚀':m.n)+'</span><b>'+m.l+'</b>'+esc(m.q)+'</li>').join('')+'</ul></div>'+
     '<form class="lg-r" onsubmit="event.preventDefault();doLogin()"><div class="lg-box"><h2>Sign in</h2><p class="muted">Welcome back. Use the details Scope &amp; Lens sent you.</p>'+
       '<div class="field"><label for="liE">Email</label><input class="inp" id="liE" type="email" autocomplete="username" placeholder="you@youragency.com" required></div>'+

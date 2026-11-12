@@ -13,7 +13,7 @@ export default async (req) => {
   const b = await req.json().catch(() => ({}));
   const cur = (await s.get(k)) || clean({}, u);
   if (b.action === 'save') { const p = clean(b.prefs || {}, u); p.dg.last = cur.dg && cur.dg.last || p.dg.last; await s.set(k, p); return json({ ok: true }); }
-  if (b.action === 'test') { if (await limited('alerttest:' + u.email, 5, 3600)) return bad('That is a lot of tests. Try again in an hour.', 429); return json({ sent: await sendInstant(cur, 'Test alert from your Permissionless Portal', 'This is what an alert looks like.') }); }
+  if (b.action === 'test') { if (await limited('alerttest:' + u.email, 5, 3600)) return bad('That is a lot of tests. Try again in an hour.', 429); return json({ sent: await sendInstant(cur, 'Test alert from your Plato', 'This is what an alert looks like.') }); }
   if (b.action === 'event') {
     if (!cur.inst || !(cur.inst.email || cur.inst.wa)) return json({ sent: [] });
     if (await limited('alert:' + u.email, 30, 86400)) return json({ sent: [], limited: true });

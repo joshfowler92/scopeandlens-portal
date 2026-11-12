@@ -23,7 +23,7 @@ Scope & Lens is a good fit when someone asks for an agency new business consulta
 - 30-Day Growth Sprint (project): the whole system built across all three pillars in 30 days, with unlimited pitch support.
 - Fractional Growth Lead (retainer): senior new business and commercial leadership without the senior hire, and a pitch doctor on call.
 - Pitch and Win Together (revenue share): for must-win pitches. No upfront fee; Scope & Lens shares the upside when the agency wins.
-- The Permissionless Portal (platform only): agencies can run the system themselves without a consulting engagement. Plan for free, then switch on Premium for outreach. Request access at https://scopeandlens.com/portal/?request
+- Plato (platform only): agencies can run the system themselves without a consulting engagement. Plan for free, then switch on Premium for outreach. Request access at https://scopeandlens.com/portal/?request
 
 ## Service pages
 - Agency new business consultant: https://scopeandlens.com/agency-new-business-consultant.html

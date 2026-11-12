@@ -20,7 +20,7 @@ navHTML=function(){const st=sysStats();const c=curCamp();const gate=!profReady()
   return '<div class="sd-top3">'+sideItem('home','Home')+sideItem('camps','Campaigns',null,S.campaigns.filter(x=>!(isBlankCamp(x)&&!x.touched)).length||'')+sideItem('insights','Your Insights',null,st.insights&&st.insights.badge)+'</div>'+
     sdGroup('camp',L[0],campBody)+
     sdGroup('res','Results',sideItem('perf','Campaign performance')+sideItem('signals','Signals & Intent',null,st.signals&&st.signals.badge)+sideItem('pipeline','Pipeline'))+
-    sdGroup('help','Help',sideItem('guides','Guides')+'<button class="sd-i" onclick="startWalk(true)" data-tip="Replay the walkthrough">'+ico('play')+'<span class="sd-t"><b>Replay the walkthrough</b></span></button><button class="sd-i" onclick="startTour()" data-tip="Show me around this portal">'+ico('eye')+'<span class="sd-t"><b>Show me around this portal</b></span></button>')};
+    sdGroup('help','Help',sideItem('guides','Guides')+'<button class="sd-i" onclick="startWalk(true)" data-tip="Replay the walkthrough">'+ico('play')+'<span class="sd-t"><b>Replay the walkthrough</b></span></button><button class="sd-i" onclick="startTour()" data-tip="Show me around Plato">'+ico('eye')+'<span class="sd-t"><b>Show me around Plato</b></span></button>')};
 /* a sliding marker behind the page you are on */
 let SDM=null;
 function sdMarker(){const nav=$('#nav');if(!nav)return;let m=nav.querySelector('.sd-slide');const fresh=!m;if(fresh){m=document.createElement('i');m.className='sd-slide';nav.prepend(m)}

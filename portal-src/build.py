@@ -12,7 +12,7 @@ html=f'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#2c56ed">
 <meta name="robots" content="noindex">
-<title>Permissionless Portal · Scope &amp; Lens</title>
+<title>Plato · Scope &amp; Lens</title>
 <link rel="icon" href="{fav}">
 <style id="fontcss">
 {fonts}</style>
@@ -35,5 +35,5 @@ html=f'''<!DOCTYPE html>
 </body>
 </html>'''
 pathlib.Path('growth-dashboard.html').write_text(html)
-pathlib.Path('/tmp/claude-0/-home-claude/d8b0f12d-185b-5b9c-a658-65b96848cb8e/scratchpad/all12.js').write_text(js)
+pathlib.Path('all.js').write_text(js)
 print(len(html)//1024,'KB')

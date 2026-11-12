@@ -1,4 +1,4 @@
-# Scope & Lens website, plus the gated Permissionless Portal at /portal
+# Scope & Lens website, plus the gated Plato at /portal
 [build]
   publish = "site"
   functions = "netlify/functions"

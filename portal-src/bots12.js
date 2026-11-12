@@ -3,7 +3,7 @@
    Scout finds who to target, Muse makes what to share, Relay plans how to reach them, Pilot launches it.
    They hand the work to each other, and talk to each other while they do it. The bots are drawn in SVG, so they are sharp at any size
    and can blink, scan and talk. */
-Object.assign(AGENTS.home,{n:'Plato',role:'Your guide',col:'#2c56ed',img:'plato',me:'I can see the whole portal. Ask me anything, or ask me to do it for you.'});
+Object.assign(AGENTS.home,{n:'Plato',role:'Your guide',col:'#2c56ed',img:'plato',me:'I can see everything in Plato. Ask me anything, or ask me to do it for you.'});
 Object.assign(AGENTS.prospects,{n:'Scout',role:'Finds who to target',col:'#0b9f8a',img:'',bot:'radar',eyes:'scan',motto:'Fewer, better, sooner.',
   me:'I find the few brands worth your time and the people who actually decide. I do not do maybe. I do a score out of 100.'});
 Object.assign(AGENTS.give,{n:'Muse',role:'Makes what to share',col:'#e8890c',img:'',bot:'spark',eyes:'spark',motto:'Useful first. Clever second.',

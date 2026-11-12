@@ -24,7 +24,7 @@ function navHTML(){const st=sysStats();const c=curCamp();const live=S.campaigns.
 function sideFoot(){const adm=SESSION&&SESSION.role==='admin';return '<div class="sd-foot">'+sideItem('agency','Agency profile')+(adm?sideItem('admin','Manage access'):'')+'<button class="sd-i" onclick="go(\'settings\')" data-tip="Settings">'+ico('settings')+'<span class="sd-t"><b>Settings</b></span></button></div>'}
 function renderShell(){const unread=S.notifications.filter(n=>!n.read).length;const u=SESSION||{};
   $('#app').innerHTML=
-  '<aside class="side" id="side" aria-label="Sections"><div class="sd-top"><button class="sd-brand" onclick="go(\'home\')" aria-label="Home"><span class="sd-mark">'+SL_MARK('currentColor',3)+'</span><span class="sd-word">'+(S.brand.logo?'<img src="'+S.brand.logo+'" alt="'+esc(S.setup.agency||'')+'">':'<b>'+esc(S.setup.agency||'Your agency')+'</b>')+'<small>Growth portal</small></span></button><button class="icon-btn sd-x" onclick="sideToggle(false)" aria-label="Close menu">'+ico('x')+'</button></div>'+
+  '<aside class="side" id="side" aria-label="Sections"><div class="sd-top"><button class="sd-brand" onclick="go(\'home\')" aria-label="Home"><span class="sd-mark">'+SL_MARK('currentColor',3)+'</span><span class="sd-word">'+(S.brand.logo?'<img src="'+S.brand.logo+'" alt="'+esc(S.setup.agency||'')+'">':'<b>'+esc(S.setup.agency||'Your agency')+'</b>')+'<small>Plato</small></span></button><button class="icon-btn sd-x" onclick="sideToggle(false)" aria-label="Close menu">'+ico('x')+'</button></div>'+
     '<button class="sd-new" onclick="newCampaignFlow()" data-tour="newcamp">'+ico('plus')+'<span>New campaign</span></button>'+
     '<nav class="sd-nav" id="nav">'+navHTML()+'</nav>'+sideFoot()+'</aside>'+
   '<div class="mainw"><header class="topb"><button class="icon-btn sd-ham" onclick="sideToggle(true)" aria-label="Open menu">'+ico('menu')+'</button><div class="tb-crumb" id="crumb"></div>'+
@@ -35,7 +35,7 @@ function renderShell(){const unread=S.notifications.filter(n=>!n.read).length;co
       '<button class="avatar" id="avBtn" onclick="toggleUserMenu(event)" aria-label="Your account">'+esc(initials(S.setup.you||u.name||S.setup.agency||'You'))+'</button></div></header>'+
   (S.setup.demo?'<div class="demo-rib">You are looking at the demo. Every brand, name and number here is invented. <button onclick="leaveDemo()">Start my own workspace</button></div>':'')+
   '<main class="main"><section class="view" id="view"></section>'+
-    '<footer class="pfoot2"><span class="mk">'+SL_MARK('currentColor',3)+'</span><span>Permissionless Portal by <b>Scope &amp; Lens</b></span><a href="mailto:josh@scopeandlens.com">Get in touch</a></footer></main></div>'+
+    '<footer class="pfoot2"><span class="mk">'+SL_MARK('currentColor',3)+'</span><span>Plato by <b>Scope &amp; Lens</b></span><a href="mailto:josh@scopeandlens.com">Get in touch</a></footer></main></div>'+
   '<div class="side-scrim" onclick="sideToggle(false)"></div><div class="umenu" id="umenu"></div>';
   bindNav();renderUndo()}
 function sideToggle(on){document.body.classList.toggle('side-open',!!on)}

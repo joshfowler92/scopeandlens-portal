@@ -1,7 +1,7 @@
 /* ═══════════ THE PUBLISHING DESK (admin only) ═══════════
    A proper editor for Josh: headings, bold, lists, quotes and links. He chooses the image, or no image.
    Nothing is ever picked for him. Publishing is instant on screen and reaches every user: live if they are
-   online, waiting for them next time they open the portal if they are not. */
+   online, waiting for them next time they open Plato if they are not. */
 const isAdmin=()=>!!(SESSION&&SESSION.role==='admin');
 /* only these tags survive, on the way in and on the way out */
 const SAFE_TAGS={P:1,H2:1,H3:1,B:1,STRONG:1,I:1,EM:1,U:1,UL:1,OL:1,LI:1,BLOCKQUOTE:1,A:1,BR:1};
@@ -52,7 +52,7 @@ savePublish=async function(id){const t=$('#puT').value.trim();if(!t){$('#puT').f
   const live=!!((await apiCheck())&&API_INFO&&API_INFO.insights&&!(SESSION&&SESSION.preview));
   if(live){INS_REMOTE=[x].concat((INS_REMOTE||[]).filter(i=>i.id!==x.id))}else{const L=localIns().filter(i=>i.id!==x.id);L.unshift(x);try{localStorage.setItem('sl-insights-local',JSON.stringify(L))}catch(e){toast('That image is too big to keep in this browser. Try a smaller one.');return}}
   closeOverlays();insSeen(x.id);go('insights','all');
-  if(!live){toast('✓ Published here. On the live portal it reaches every user at once.',{l:'Download',f:downloadInsights},6000);return}
+  if(!live){toast('✓ Published here. Once Plato is live, it reaches every user at once.',{l:'Download',f:downloadInsights},6000);return}
   toast('📣 Published. Every user is being told now.');
   try{const j=await api('insights',{method:'POST',body:x});if(j&&j.item){INS_REMOTE=[j.item].concat(INS_REMOTE.filter(i=>i.id!==x.id));if(VIEW==='insights')go('insights',null,true)}if(j&&j.told!=null)toast('📣 '+j.told+' user'+(j.told===1?'':'s')+' told about “'+esc(t)+'”')}
   catch(e){toast('⚠️ Not saved to the server yet: '+esc(e.message),{l:'Try again',f:()=>{api('insights',{method:'POST',body:x}).then(()=>toast('✓ Saved')).catch(er=>toast('Still failing: '+esc(er.message)))}},9000)}};

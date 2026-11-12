@@ -1,6 +1,6 @@
-# Permissionless Portal, version 12
+# Plato, version 12
 
-The growth portal is now the **Permissionless Portal**. If an agency adds its logo, the top left reads as theirs: their logo tile, their name, and "Permissionless Portal" underneath.
+The growth portal is now the **Plato**. If an agency adds its logo, the top left reads as theirs: their logo tile, their name, and "Plato" underneath.
 
 ## Plato and the crew
 

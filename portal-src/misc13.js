@@ -20,7 +20,7 @@ async function domFetch(){const names=[...DOM_Q].slice(0,30);DOM_Q=new Set([...D
     if(got)save()}catch(e){}if(DOM_Q.size)DOM_T=setTimeout(domFetch,600)}
 
 /* ── 3. More prospects, from the agency's own preferences ── */
-async function findMorePros(){if(!isLive()){toast('Finding more prospects works on the live portal');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Scout is searching';}
+async function findMorePros(){if(!isLive()){toast('Finding more prospects works once Plato is live');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Scout is searching';}
   try{const j=await api('discover',{method:'POST',body:{sectors:P.sectors||[],size:P.csize||P.size||[],region:P.region||'any',problems:(P.problems||[]).map(k=>(L_PROBLEMS[k]||{label:k}).label),exclude:PROSPECTS.map(p=>p.name).concat(S.accounts.map(a=>a.name))}});
     const add=(j.companies||[]).filter(co=>!PROSPECTS.some(p=>norm(p.name)===norm(co.name)));
     add.forEach(co=>{PROSPECTS.push({name:co.name,sector:co.sector,sub:co.sub,city:co.city,region:co.region,size:co.size,nt:'none',nd:'',news:'',src:'',pub:'',all:[],domain:co.domain,found:today()});DOMAINS[co.name]=co.domain});
@@ -47,7 +47,7 @@ const _renderShell13=renderShell;renderShell=function(){_renderShell13.apply(thi
 
 /* ── 6. The hero piece: read properly, explained, and a blurb you can edit ── */
 function pieceLocal(it){const t=String(it.text||'').replace(/\s+/g,' ').trim();const sents=t.split(/(?<=[.!?])\s+/).filter(s=>s.length>40).slice(0,3);
-  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. On the live portal Muse reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
+  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. Once Plato is live, Muse reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
 async function pieceRead(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;pieceModal(it,null);
   let r=null;const P=S.setup.profile||{};
   if(isLive()){try{r=await api('piece',{method:'POST',body:{title:it.t,url:it.url||'',text:(it.text||'').slice(0,16000),kind:(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'hero piece'}).l,agency:S.setup.agency,sectors:(P.sectors||[]).map(k=>(L_SECTORS[k]||{label:k}).label),roles:(P.roles||[]).map(k=>(L_ROLES[k]||{label:k}).label),problem:PROB().short}})}catch(e){r=null}}

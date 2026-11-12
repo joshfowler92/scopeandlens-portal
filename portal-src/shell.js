@@ -71,7 +71,7 @@ function renderShell(){
   const unread=S.notifications.filter(n=>!n.read).length;const u=SESSION||{};
   $('#app').innerHTML=
   '<header class="tnav"><div class="tn-in">'+
-    '<button class="tn-brand" onclick="go(\'home\')" aria-label="Home"><span class="tn-mark">'+SL_MARK('currentColor',3)+'</span><span class="tn-word">'+(S.brand.logo?'<img src="'+S.brand.logo+'" alt="">':'<b>'+esc(S.setup.agency||'Your agency')+'</b>')+'<small>Growth portal</small></span></button>'+
+    '<button class="tn-brand" onclick="go(\'home\')" aria-label="Home"><span class="tn-mark">'+SL_MARK('currentColor',3)+'</span><span class="tn-word">'+(S.brand.logo?'<img src="'+S.brand.logo+'" alt="">':'<b>'+esc(S.setup.agency||'Your agency')+'</b>')+'<small>Plato</small></span></button>'+
     '<nav class="tn-links" id="nav" aria-label="Sections">'+navHTML()+'</nav>'+
     '<div class="tn-r"><div class="vmode" id="vmode" role="tablist" aria-label="View">'+vmodeHTML()+'</div>'+
       '<button class="icon-btn tip-b" onclick="openCmdk()" data-tip="Search">'+ico('search')+'</button>'+
@@ -81,7 +81,7 @@ function renderShell(){
     '</div></div></header>'+
   (S.setup.demo?'<div class="demo-rib">You are looking at the demo. Every brand, name and number here is invented. <button onclick="leaveDemo()">Start my own workspace</button></div>':'')+
   '<main class="main"><section class="view" id="view"></section>'+
-    '<footer class="pfoot2"><span class="mk">'+SL_MARK('currentColor',3)+'</span><span>Permissionless Portal by <b>Scope &amp; Lens</b></span><a href="mailto:josh@scopeandlens.com">Get in touch</a></footer></main>'+
+    '<footer class="pfoot2"><span class="mk">'+SL_MARK('currentColor',3)+'</span><span>Plato by <b>Scope &amp; Lens</b></span><a href="mailto:josh@scopeandlens.com">Get in touch</a></footer></main>'+
   '<div class="umenu" id="umenu"></div>';
   bindNav();renderUndo();
 }

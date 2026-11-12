@@ -1,8 +1,8 @@
-/* ═══════════ v12 SHELL: the Permissionless Portal, your logo, your colours ═══════════
-   The agency's logo replaces the Scope & Lens mark top left, and the name reads "<Agency> Permissionless Portal".
+/* ═══════════ v12 SHELL: Plato, your logo, your colours ═══════════
+   The agency's logo replaces the Scope & Lens mark top left, and the name reads "<Agency> · Plato".
    Team sits under the line with the agency profile and settings. Revenue is now Pipeline. */
-const PORTAL_NAME='Permissionless Portal';
-function portalName(){const a=(S&&S.setup&&S.setup.agency||'').trim();return (a&&a!=='Your agency'?a+' ':'')+PORTAL_NAME}
+const PORTAL_NAME='Plato';
+function portalName(){const a=(S&&S.setup&&S.setup.agency||'').trim();return (a&&a!=='Your agency'?a+' · ':'')+PORTAL_NAME}
 SIDE_IC.guides='book';SIDE_IC.plato='chat';
 Object.assign(IC,{book:'<path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19"/><path d="M9 7h6M9 10.5h4"/>'});
 function brandMark(){return S.brand.logo?'<span class="sd-logo"><img src="'+S.brand.logo+'" alt=""></span>':'<span class="sd-mark">'+SL_MARK('currentColor',3)+'</span>'}
@@ -27,7 +27,7 @@ renderShell=function(){const unread=S.notifications.filter(n=>!n.read).length;
       '<button class="icon-btn tip-b hide-m" onclick="toggleMode()" data-tip="Light or dark">'+ico('moon')+'</button>'+
       '<button class="icon-btn tip-b tip-l" id="bellBtn" onclick="toggleBell()" data-tip="Alerts">'+ico('bell')+(unread?'<span class="badge-dot">'+unread+'</span>':'')+'</button>'+
       '<button class="avatar'+(myPhoto()?' ph':'')+'" id="avBtn" onclick="toggleUserMenu(event)" aria-label="Your account">'+avatarHTML()+'</button></div></header>'+
-  (DEMO_MODE?'<div class="demo-rib">'+platoFace(22)+'<span>This is a demo agency with invented data, so you can see how a superuser runs the portal.</span><button onclick="endDemo()">Build my own</button></div>':(S.setup.demo?'<div class="demo-rib">You are looking at the demo. Every brand, name and number here is invented. <button onclick="leaveDemo()">Start my own workspace</button></div>':''))+
+  (DEMO_MODE?'<div class="demo-rib">'+platoFace(22)+'<span>This is a demo agency with invented data, so you can see how a superuser runs Plato.</span><button onclick="endDemo()">Build my own</button></div>':(S.setup.demo?'<div class="demo-rib">You are looking at the demo. Every brand, name and number here is invented. <button onclick="leaveDemo()">Start my own workspace</button></div>':''))+
   '<main class="main"><section class="view" id="view"></section>'+
     '<footer class="pfoot2"><span class="mk">'+SL_MARK('currentColor',3)+'</span><span>'+PORTAL_NAME+' by <b>Scope &amp; Lens</b></span><a href="mailto:josh@scopeandlens.com">Get in touch</a></footer></main></div>'+
   '<div class="side-scrim" onclick="sideToggle(false)"></div><div class="umenu" id="umenu"></div>';

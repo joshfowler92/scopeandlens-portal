@@ -1,4 +1,4 @@
-// Keeps the Permissionless Portal private. Nothing under /portal/app is served unless the visitor has a valid, signed session.
+// Keeps Plato private. Nothing under /portal/app is served unless the visitor has a valid, signed session.
 // Everyone else is sent to the sign in page, where they can sign in or ask Josh for access.
 const enc = new TextEncoder();
 const b64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');

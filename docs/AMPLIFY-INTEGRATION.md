@@ -1,6 +1,6 @@
 # Amplify: integration guide for the outreach partner
 
-Amplify is the premium layer of the Scope & Lens Permissionless Portal. Inside the portal it is presented as a Scope & Lens product. Your platform does the work behind it: finding organisations, finding and enriching decision makers, sending approved messages and reporting what happened.
+Amplify is the premium layer of Plato, by Scope & Lens. Inside the portal it is presented as a Scope & Lens product. Your platform does the work behind it: finding organisations, finding and enriching decision makers, sending approved messages and reporting what happened.
 
 The portal never calls your platform from the browser. Every call goes through one server function (`netlify/functions/amplify.mjs`), so your keys stay private.
 

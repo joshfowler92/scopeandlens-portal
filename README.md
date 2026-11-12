@@ -1,12 +1,12 @@
-# scopeandlens.com, with the Permissionless Portal
+# scopeandlens.com, with Plato
 
-This folder is the whole of scopeandlens.com (version 23, unchanged apart from the new client login links) plus the gated Permissionless Portal at `/portal`.
+This folder is the whole of scopeandlens.com (version 23, unchanged apart from the new client login links) plus the gated Plato at `/portal`.
 
 | Path | What it is | Who can see it |
 | --- | --- | --- |
 | `site/` | The public website, plus the portal pages | Everyone, except `/portal/app` |
 | `site/portal/index.html` | Sign in, request access, set or reset a password | Everyone |
-| `site/portal/app/` | The Permissionless Portal itself | Only signed-in people Josh has approved |
+| `site/portal/app/` | Plato itself | Only signed-in people Josh has approved |
 | `netlify/edge-functions/gate.js` | Checks the session before anything under `/portal/app` is served | Runs on Netlify |
 | `netlify/functions/` | Sign in, access requests, teams, live news, AI reading, Amplify | Runs on Netlify |
 | `docs/AMPLIFY-INTEGRATION.md` | The spec for connecting the outreach partner | Not published |

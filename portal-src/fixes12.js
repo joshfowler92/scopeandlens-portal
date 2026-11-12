@@ -38,7 +38,7 @@ const _onbDraw121=onbDraw;onbDraw=function(){_onbDraw121();const C=ONB_CH[ONB];c
       '<div class="os-rail">'+OUT_K.map((k,i)=>'<span class="'+(k===C.k?'on':OUT_K.indexOf(C.k)>i?'dn':'')+'">'+agentFace(k,26,{badge:false})+'<i>'+esc(MODULES.find(m=>m.k===k).ls||AGENTS[k].n)+'</i></span>').join('<em></em>')+'</div></div></div>'}
   if(C.k==='results')b.innerHTML='<p class="onb-say">Every useful thing you give earns attention a pitch never will. By the time they need an agency, you are already the obvious one to call. Here is how you see it happening.</p>'+
     '<div class="onb-pr onb-res">'+[['pulse','Signals','Who is warming up, hottest first, with the reason why.'],['pound','Pipeline','Conversations become deals, tracked against your target.'],['bell','Alerts and digest','The moments that matter, by email, and a regular summary.']].map(x=>'<div>'+ico(x[0])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+
-    '<div class="onb-plato">'+platoFace(44)+'<b>And me, bottom right</b><span>Ask me anything about your portal, or ask me to do it for you.</span></div></div>'+
+    '<div class="onb-plato">'+platoFace(44)+'<b>And me, bottom right</b><span>Ask me anything about Plato, or ask me to do it for you.</span></div></div>'+
     '<div class="onb-proof"><div><b>£2.5m</b><span>added to one agency’s pipeline in nine months</span></div><div><b>£55m+</b><span>new business revenue won for agencies</span></div><div><b>100+</b><span>pitches behind the method</span></div></div>'};
 const _onbFinish121=onbFinish;onbFinish=function(demo){if(!ONB_REPLAY){S.onb12=1;save()}return _onbFinish121(demo)};
 

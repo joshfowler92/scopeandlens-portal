@@ -1,4 +1,4 @@
-/* ═══════════ v12 GUIDES: how to use the portal well, to read here or download as a PDF ═══════════ */
+/* ═══════════ v12 GUIDES: how to use Plato well, to read here or download as a PDF ═══════════ */
 const GUIDES=[
  {k:'start',g:'home',t:'Your first campaign, start to finish',s:'The whole permissionless process in one sitting: profile, preferences, brands, people, a gift, a journey and a launch.',m:12,
   sec:[['Before you build',['Open Agency profile and complete the three tiles: Who you are, Why you and Your assets. Each tile turns dark blue when it is done.','Upload at least one asset: a credentials deck, a case study or a pitch. Paste text if you have no files to hand.','Press Save agency profile. Show me brands that fit appears once everything is complete.']],
@@ -28,7 +28,7 @@ const GUIDES=[
   sec:[['Signals',['Signals ranks brands by heat, from the accepts, opens, clicks, replies and meetings that come in.','A warm call unlocks only when someone has engaged and you have their number.']],
    ['Pipeline',['Add a deal when a real conversation starts. Drag it across the stages as it moves.','The tracker shows what you have won against your target, what the pipeline should bring in, and the gap still to find.','Set your target and typical deal size in Settings.']]],
   tip:'Move every real conversation into Pipeline on the day it starts.'},
- {k:'plato',g:'home',t:'Plato: ask anything, or ask him to do it',s:'Plato can see the whole portal. Ask questions, get advice, or tell him what to do.',m:3,
+ {k:'plato',g:'home',t:'Plato: ask anything, or ask him to do it',s:'Plato can see everything in your workspace. Ask questions, get advice, or tell him what to do.',m:3,
   sec:[['Ask',['Who is warming up this week?','What should I do today?','Which brands are the best fit for this campaign, and why?','Suggest an outreach plan for retail brands.']],
    ['Tell him',['Find decision makers at a brand and add them to a campaign.','Start a new campaign called Standing out in travel.','Use the Scope & Lens route for this campaign.','Take me to the pipeline.']],
    ['Good to know',['Plato asks before anything that cannot be undone.','Every change he makes can be undone from the toast that appears.','Switch to Plato view at the top of the page to do everything by talking.']]],
@@ -38,7 +38,7 @@ const GUIDES=[
    ['The habits',['Relevant: one problem, a short list of brands, a reason to talk now.','Valuable: something useful they would happily pay for, given freely.','Persistent: a steady rhythm over weeks, never a blast.','Human: you send it, in your own words, from your own accounts.']]],
   tip:'Show up with value before anyone asks for it.'}];
 SIDE_IC.guides='book';
-VIEWS.guides=()=>secHead('guides','Guides and <span class="serif">how-tos.</span>')+'<p class="sh-p" style="margin:-8px 0 20px">Short guides to using the portal well. Read them here, or download a PDF to keep or share with your team.</p>'+
+VIEWS.guides=()=>secHead('guides','Guides and <span class="serif">how-tos.</span>')+'<p class="sh-p" style="margin:-8px 0 20px">Short guides to using Plato well. Read them here, or download a PDF to keep or share with your team.</p>'+
   '<div class="gdg">'+GUIDES.map(G=>'<article class="gdc">'+agentFace(G.g,52,{badge:false})+'<div class="grow"><small>'+G.m+' minute read</small><h3>'+esc(G.t)+'</h3><p>'+esc(G.s)+'</p><div class="row" style="gap:8px;margin-top:12px"><button class="btn btn-line btn-sm" onclick="openGuide(\''+G.k+'\')">'+ico('doc')+'Read it</button><button class="btn btn-ghost btn-sm" onclick="guidePDF(\''+G.k+'\')">'+ico('download')+'Download PDF</button></div></div></article>').join('')+'</div>';
 function openGuide(k){const G=GUIDES.find(x=>x.k===k);let n=0;drawer('<div class="drawer-h"><div class="row between top"><div class="row" style="gap:12px">'+agentFace(G.g,44,{badge:false})+'<div><small class="muted">'+G.m+' minute read</small><h2 class="h-m" style="margin-top:4px">'+esc(G.t)+'</h2></div></div><button class="icon-btn" onclick="closeOverlays()" aria-label="Close">'+ico('x')+'</button></div></div>'+
   '<div class="drawer-b"><p class="lede">'+esc(G.s)+'</p>'+G.sec.map(s=>'<div class="lab" style="margin-top:18px">'+esc(s[0])+'</div><ol class="steps" start="'+(n+1)+'">'+s[1].map(t=>(n++,'<li><span>'+esc(t)+'</span></li>')).join('')+'</ol>').join('')+'<div class="gtip">'+platoFace(28)+'<span>'+esc(G.tip)+'</span></div>'+

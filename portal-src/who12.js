@@ -69,7 +69,7 @@ findNow=async function(){if(!profDone()){toast('Set your prospecting preferences
     '<div class="fd-feed"><div class="fd-fh" id="fdWhere">Starting the scan</div><div class="fd-list" id="fdList"></div></div></div><div class="fd-res" id="fdRes"></div></div>';
   document.body.appendChild(o);requestAnimationFrame(()=>o.classList.add('on'));const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   FR12={o,top:[],shown:0,done:false,timers:[]};const chosen=new Set(campTargets(c).map(a=>norm(a.name)));
-  /* Amplify first, when it is connected. Otherwise the portal's own researched edition. */
+  /* Amplify first, when it is connected. Otherwise Plato's own researched edition. */
   let src='edition';let R=[];
   if(ampLiveSearch()){$('#fdStat').textContent='Searching through Amplify';try{const j=await ampCompanies(P,[...chosen]);if(j&&j.length){R=j;src='amplify'}}catch(e){}}
   if(!R.length)R=PROSPECTS.map(fitP).filter(Boolean).sort((a,b)=>b.s-a.s).filter(x=>!chosen.has(norm(x.p.name))).slice(0,24);
@@ -106,7 +106,7 @@ newsView=function(c){const tg=campTargets(c);
   items.sort((x,y)=>fresh(y)-fresh(x)||(NEWS_RANK[x.n.type]??9)-(NEWS_RANK[y.n.type]??9));const quiet=tg.filter(a=>!items.some(x=>x.a===a));
   const checked=S.live.newsTs?rel(S.live.newsTs.slice(0,10)):'';
   return '<div class="filters"><span class="small muted">News on the '+tg.length+' brand'+(tg.length===1?'':'s')+' on your list, newest first.'+(checked?' Checked '+checked+'.':'')+'</span>'+(API_INFO.news?'<button class="btn btn-line btn-sm" onclick="checkNews()">'+ico('loop')+'Check again</button>':'')+'</div>'+
-    (items.length?'<div class="nfeed">'+items.slice(0,60).map(x=>nItem(x.a,x.n,!!x.live,true)).join('')+'</div>':'<div class="card empty">No stories on your brands yet.'+(API_INFO.news?'':' Live news switches on once the portal is deployed.')+'</div>')+
+    (items.length?'<div class="nfeed">'+items.slice(0,60).map(x=>nItem(x.a,x.n,!!x.live,true)).join('')+'</div>':'<div class="card empty">No stories on your brands yet.'+(API_INFO.news?'':' Live news switches on once Plato is deployed.')+'</div>')+
     (quiet.length?'<div class="lab" style="margin-top:22px">Quiet right now · '+quiet.length+'</div><div class="quietg">'+quiet.map(a=>'<div class="qb">'+logo(a,36)+'<b>'+esc(a.name)+'</b>'+liveLinks(a.name)+'</div>').join('')+'</div>':'')};
 /* when you open Why now, the brands on your list are checked for fresh news, at most every six hours */
 const _prospAfter12b=VIEWS.prospects_after;VIEWS.prospects_after=(t)=>{_prospAfter12b&&_prospAfter12b(t);if(t==='news'&&API_INFO.news&&campTargets(curCamp()).length){const last=S.live.newsTs?Date.parse(S.live.newsTs):0;if(Date.now()-last>6*36e5){S.live.newsTs=new Date().toISOString();save();checkNews&&checkNews(true)}}};

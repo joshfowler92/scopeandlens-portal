@@ -16,8 +16,8 @@ async function ensureOrg(name, id) {
 }
 async function invite(user, by) {
   const link = siteUrl() + '/portal/?invite=' + user.invite.token;
-  const m = await sendMail({ to: user.email, subject: 'Your Scope & Lens Permissionless Portal login',
-    text: `Hi ${user.name || nice(user.email)},\n\n${by ? by + ' has' : 'Scope & Lens has'} given you access to the Permissionless Portal${user.orgName ? ' for ' + user.orgName : ''}.\n\nSet your password here (the link works for seven days):\n${link}\n\nThen sign in any time at ${siteUrl()}/portal\n\nJosh` });
+  const m = await sendMail({ to: user.email, subject: 'Your Scope & Lens Plato login',
+    text: `Hi ${user.name || nice(user.email)},\n\n${by ? by + ' has' : 'Scope & Lens has'} given you access to Plato${user.orgName ? ' for ' + user.orgName : ''}.\n\nSet your password here (the link works for seven days):\n${link}\n\nThen sign in any time at ${siteUrl()}/portal\n\nJosh` });
   return { link, emailed: m.sent };
 }
 
@@ -60,7 +60,7 @@ export default async (req) => {
     if (!R.some(r => r.email === email && r.status === 'pending')) R.unshift({ id: uid(), name, email, agency, orgId: by ? by.orgId : '', role: String(b.role || '').slice(0, 80), team: String(b.team || '').slice(0, 40), message: String(b.message || '').slice(0, 600), from: by ? by.email : '', ts: now, status: 'pending' });
     await saveRequests(R);
     await note(founderEmail(), { kind: 'request', title: 'Access request: ' + name, body: agency + (by ? ' · added by ' + by.name : '') });
-    await sendMail({ to: founderEmail(), subject: 'Portal access request: ' + name + ', ' + agency, text: `${name} (${email}) at ${agency} has asked for access to the Permissionless Portal.${by ? '\n\nRequested by their teammate ' + by.name + ' (' + by.email + ').' : ''}${b.role ? '\n\nRole: ' + b.role : ''}${b.message ? '\n\nWhy: ' + b.message : ''}\n\nApprove or decline it here: ${siteUrl()}/portal/app/#admin` });
+    await sendMail({ to: founderEmail(), subject: 'Portal access request: ' + name + ', ' + agency, text: `${name} (${email}) at ${agency} has asked for access to Plato.${by ? '\n\nRequested by their teammate ' + by.name + ' (' + by.email + ').' : ''}${b.role ? '\n\nRole: ' + b.role : ''}${b.message ? '\n\nWhy: ' + b.message : ''}\n\nApprove or decline it here: ${siteUrl()}/portal/app/#admin` });
     return json({ ok: true });
   }
 
@@ -79,7 +79,7 @@ export default async (req) => {
     const b = await body(req); const email = String(b.email || '').trim().toLowerCase();
     const users = await getUsers(); const u = users.find(x => x.email === email && x.status !== 'removed');
     if (u) { u.reset = { token: tok(), exp: new Date(Date.now() + 2 * 864e5).toISOString() }; await saveUsers(users);
-      await sendMail({ to: email, subject: 'Reset your Permissionless Portal password', text: `Hi ${u.name || nice(email)},\n\nSet a new password here (the link works for two days):\n${siteUrl()}/portal/?invite=${u.reset.token}\n\nIf you did not ask for this, ignore this email.` }); }
+      await sendMail({ to: email, subject: 'Reset your Plato password', text: `Hi ${u.name || nice(email)},\n\nSet a new password here (the link works for two days):\n${siteUrl()}/portal/?invite=${u.reset.token}\n\nIf you did not ask for this, ignore this email.` }); }
     return json({ ok: true, emailConfigured: !!process.env.RESEND_API_KEY });
   }
 

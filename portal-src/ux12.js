@@ -30,7 +30,7 @@ const _campHead122=campHead;campHead=function(c,k){return _campHead122(c,k).repl
 
 /* ── the account menu: only what is not already in the sidebar ── */
 const _toggleUserMenu122=toggleUserMenu;toggleUserMenu=function(e){_toggleUserMenu122(e);const m=$('#umenu');if(!m||!m.classList.contains('on'))return;
-  $$('#umenu > button').forEach(b=>{const t=b.textContent.trim();if(['Agency profile','Settings','Manage access'].includes(t))b.remove();if(t==='How it works')b.lastChild.textContent='Replay the walkthrough';if(t==='Show me around')b.lastChild.textContent='Show me around this portal'})};
+  $$('#umenu > button').forEach(b=>{const t=b.textContent.trim();if(['Agency profile','Settings','Manage access'].includes(t))b.remove();if(t==='How it works')b.lastChild.textContent='Replay the walkthrough';if(t==='Show me around')b.lastChild.textContent='Show me around Plato'})};
 
 /* ── Who to target: Find more lives in the header, the score key stays, nothing else above the brands ── */
 const _findHero122=findHero;findHero=function(scanned){return scanned?scoreKey():_findHero122(scanned)};

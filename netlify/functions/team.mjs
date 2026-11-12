@@ -64,7 +64,7 @@ export default async (req) => {
     for (const e of added) {
       const mine = Object.entries(c.assign || {}).filter(([, v]) => v === e).length;
       await note(e, { kind: 'campaign', campaignId: c.id, title: u.name + ' added you to ' + c.name, body: mine ? 'You are reaching out to ' + mine + ' brand' + (mine === 1 ? '' : 's') + '.' : 'Open it to see the plan and who is reaching out to who.' });
-      await sendMail({ to: e, subject: u.name + ' added you to a campaign: ' + c.name, text: `Hi ${nice(e)},\n\n${u.name} has added you to "${c.name}" in the Permissionless Portal.${mine ? '\n\nYou are reaching out to ' + mine + ' brand' + (mine === 1 ? '' : 's') + '.' : ''}\n\nSee the plan here: ${siteUrl()}/portal/app/#launch` });
+      await sendMail({ to: e, subject: u.name + ' added you to a campaign: ' + c.name, text: `Hi ${nice(e)},\n\n${u.name} has added you to "${c.name}" in Plato.${mine ? '\n\nYou are reaching out to ' + mine + ' brand' + (mine === 1 ? '' : 's') + '.' : ''}\n\nSee the plan here: ${siteUrl()}/portal/app/#launch` });
     }
     return json({ ok: true, campaign: saved, notified: added });
   }

@@ -59,7 +59,7 @@ async function digestLibrary(silent){const L=libState();if(!L.items.some(x=>x.te
   let d=null;if(await apiCheck()&&API_INFO.ai){try{const j=await api('digest',{method:'POST',body:{agency:S.setup.agency,docs:L.items.filter(x=>x.text).map(x=>({name:x.name,cat:x.cat,text:x.text.slice(0,15000)}))}});
     if(j&&j.learned){const a=j.learned;d={uvp:a.uvp||[],different:a.different||[],offer:a.offer||[],proofs:(a.proofs||[]).map(p=>typeof p==='string'?{text:p,sector:sectorOf(p)}:p),cases:a.cases||[],services:(a.services||[]).filter(k=>DISC[k]),sectors:(a.sectors||[]).filter(k=>L_SECTORS[k]),voice:a.voice||'',by:'ai',ts:new Date().toISOString()};d.pick={uvp:0,diff:0,offer:0,proofs:d.proofs.slice(0,4).map((x,i)=>i)}}}catch(e){}}
   if(!d)d=localDigest();L.learned=d;save();if(!silent)toast('📚 Read '+L.items.length+' file'+(L.items.length===1?'':'s'));return d}
-/* what the rest of the portal uses */
+/* what the rest of Plato uses */
 function libProofs(){const d=libState().learned;if(!d)return[];const pk=d.pick&&d.pick.proofs||[];return d.proofs.filter((x,i)=>pk.includes(i))}
 function proofFor(a){const P=libProofs();if(!P.length)return (S.setup.offer.proof||'').replace(/\.$/,'');const sk=a&&a.sk;return (P.find(x=>x.sector&&x.sector===sk)||P[0]).text.replace(/\.$/,'')}
 function caseFor(a){const d=libState().learned;if(!d||!d.cases.length)return null;const sk=a&&a.sk;return d.cases.find(x=>x.sector===sk)||d.cases[0]}
@@ -84,7 +84,7 @@ VIEWS.library=()=>{const L=libState();const d=L.learned;const O=S.setup.offer;
   '<div class="libg"><div>'+dropZone('dzLib')+'<div class="row" style="gap:8px;margin-top:10px"><button class="btn btn-line btn-sm" onclick="addLibText()">'+ico('edit')+'Paste something in</button>'+(L.items.length?'<button class="btn btn-ghost btn-sm" onclick="digestLibrary().then(()=>go(\'library\',null,true))">'+ico('loop')+'Read it again</button>':'')+'</div>'+
     (L.items.length?'<div class="libl">'+L.items.map(x=>'<div class="lit"><span class="lit-e">'+LIB_CATS[x.cat][0]+'</span><div class="grow" style="min-width:0"><b>'+esc(x.name)+'</b><small>'+(x.words?x.words.toLocaleString('en-GB')+' words':'Not readable')+' · added '+fmtDate(x.added)+'</small>'+(x.note?'<small class="warn-t">'+esc(x.note)+'</small>':'')+'</div><select class="inp sel-s" onchange="setLibCat(\''+x.id+'\',this.value)">'+Object.entries(LIB_CATS).map(([k,v])=>'<option value="'+k+'"'+(k===x.cat?' selected':'')+'>'+v[1]+'</option>').join('')+'</select><button class="mini" onclick="rmLib(\''+x.id+'\')" data-tip="Remove">'+ico('trash')+'</button></div>').join('')+'</div>':
     '<div class="card empty" style="margin-top:14px">'+art('deck','sm')+'<b>Nothing here yet</b><p>The more you add, the more your messages sound like you.</p></div>')+'</div>'+
-  '<div class="card learned">'+(d?'<div class="card-h"><h3>What we learned</h3><span class="pill'+(d.by==='ai'?' good':'')+'">'+(d.by==='ai'?'Read with AI':'Read by the portal')+'</span></div>'+
+  '<div class="card learned">'+(d?'<div class="card-h"><h3>What we learned</h3><span class="pill'+(d.by==='ai'?' good':'')+'">'+(d.by==='ai'?'Read with AI':'Read by Plato')+'</span></div>'+
     '<div class="lab">What you do best</div>'+opt('uvp',d.uvp,d.pick&&d.pick.uvp)+
     '<div class="lab">Why you, not them</div>'+opt('diff',d.different,d.pick&&d.pick.diff)+
     '<div class="lab">What you would offer</div>'+opt('offer',d.offer,d.pick&&d.pick.offer)+

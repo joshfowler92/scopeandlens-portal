@@ -1,4 +1,4 @@
-# Permissionless Portal source
+# Plato source
 
 The portal is one HTML page, built from these files.
 

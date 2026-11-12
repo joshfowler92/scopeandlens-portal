@@ -1,4 +1,4 @@
-// Shared helpers for the Scope & Lens Permissionless Portal.
+// Shared helpers for Plato, by Scope & Lens.
 import crypto from 'node:crypto';
 
 // 'secure' is the default: only people Josh has approved can sign in. 'open' is for local testing only.
@@ -110,7 +110,7 @@ export async function sendMail({ to, subject, text, html }) {
 export function mailHtml(text) {
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const body = esc(text).replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" style="color:#2c56ed">$1</a>').split('\n\n').map(p => '<p style="margin:0 0 14px">' + p.replace(/\n/g, '<br>') + '</p>').join('');
-  return `<div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#080808;max-width:560px;padding:24px"><div style="font-weight:800;font-size:18px;color:#2c56ed;margin-bottom:18px">Scope &amp; Lens</div>${body}<p style="color:#55524d;font-size:13px;margin-top:24px">Permissionless Portal by Scope &amp; Lens</p></div>`;
+  return `<div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#080808;max-width:560px;padding:24px"><div style="font-weight:800;font-size:18px;color:#2c56ed;margin-bottom:18px">Scope &amp; Lens</div>${body}<p style="color:#55524d;font-size:13px;margin-top:24px">Plato by Scope &amp; Lens</p></div>`;
 }
 export const founderEmail = () => (process.env.ADMIN_EMAIL || 'josh@scopeandlens.com').toLowerCase();
 export async function note(email, n) {

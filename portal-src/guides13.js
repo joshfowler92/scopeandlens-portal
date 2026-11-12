@@ -1,5 +1,5 @@
 /* ═══════════ v13: GUIDES ═══════════
-   Rewritten for how the portal works now, with a screenshot for every section (taken from the demo agency,
+   Rewritten for how Plato works now, with a screenshot for every section (taken from the demo agency,
    so every name and number in them is invented). The PDFs use the same kit as the outreach plan and the
    performance snapshot: landscape, a brand-colour cover, cards with a hard shadow, numbered page heads. */
 const SHOT_V='13';
@@ -34,23 +34,23 @@ GUIDES.splice(0,GUIDES.length,
    ['Signals & Intent','signals',['Choose a campaign, then see every organisation engaging with it, ranked by intent, with the people who engaged and what they did.','The top three are highlighted: lean in there first. Your revenue gap sits above, with the deals and warm brands that could close it.','On each organisation, press Add to pipeline, or Ask Plato for the next steps based on exactly how they engaged.']],
    ['Pipeline','pipeline',['Add a deal when a real conversation starts, and move it through the stages.','The tracker shows won against target, the weighted pipeline, and the gap still to find.']]],
   tip:'Move every real conversation into Pipeline on the day it starts.'},
- {k:'plato',g:'home',t:'Plato: ask anything, or ask him to do it',s:'Plato can see the whole portal. Ask questions, get advice, or tell him what to do.',m:4,
+ {k:'plato',g:'home',t:'Plato: ask anything, or ask him to do it',s:'Plato can see everything in your workspace. Ask questions, get advice, or tell him what to do.',m:4,
   sec:[['Where to find him','plato',['Press Plato, bottom right, on any page. Or press Chat at the top to talk to him full screen.','Look for the small Ask Plato buttons on Home, Signals & Intent and Your Insights. They ask about that exact thing.']],
    ['Ask, or tell him','plato',['Ask: what should I do today? Who is warming up? What should I say to Taylors?','Tell: find decision makers at a brand and add them to a campaign. Use the Scope & Lens route. Take me to the pipeline.','Plato asks before anything that cannot be undone, and every change can be undone from the toast.']],
    ['Your chats','plato',['Press New chat to start fresh. Your earlier chats are kept under Your chats, so you can carry on where you left off.','Only the latest messages show. Press Show earlier messages to see the rest.']]],
   tip:'If you are not sure where something is, ask Plato.'},
- {k:'help',g:'home',t:'Finding your way around',s:'The walkthrough, the tour of the portal, the sidebar and the guides.',m:3,
+ {k:'help',g:'home',t:'Finding your way around',s:'The walkthrough, the tour of Plato, the sidebar and the guides.',m:3,
   sec:[['Replay the walkthrough','help',['The walkthrough is the short set of screens you saw on your first login: the method, the four steps and your team.','Replay it any time from Help in the sidebar, or from the menu under your initials, top right.']],
-   ['Show me around this portal','help',['A guided tour that points out each part of the portal in turn: the sidebar, Home, your campaigns and Plato.','Start it from Help in the sidebar, or the menu under your initials. Press Esc to stop at any point.']],
+   ['Show me around Plato','help',['A guided tour that points out each part of Plato in turn: the sidebar, Home, your campaigns and Plato.','Start it from Help in the sidebar, or the menu under your initials. Press Esc to stop at any point.']],
    ['The sidebar','home',['Areas fold away: press an area’s name to open or close it. Press the panel button, top left, to collapse the sidebar to icons. Hover an icon to see its name.','Your campaign shows Building now, Live now with the week, Paused or Finished.']]],
-  tip:'Lost? Show me around this portal takes two minutes.'},
+  tip:'Lost? Show me around Plato takes two minutes.'},
  {k:'method',g:'home',t:'Permissionless prospecting: the principles',s:'Why giving value before you ask works, and the habits that make it work for you.',m:4,
   sec:[['Why it works','home',['95% of B2B buyers are not in market at any one time, and 81% of those who are already have a preferred agency. Pitching when they need someone is too late.','Being remembered before they need anyone is the whole game.']],
    ['The habits','home',['Relevant: one problem, a short list of brands, a reason to talk now.','Valuable: something useful they would happily pay for, given freely.','Persistent: a steady rhythm over twelve weeks, never a blast.','Human: you send it, in your own words, from your own accounts.']]],
   tip:'Show up with value before anyone asks for it.'});
-/* the reader in the portal shows the screenshots too */
+/* the reader in Plato shows the screenshots too */
 openGuide=function(k){const G=GUIDES.find(x=>x.k===k);if(!G)return;drawer('<div class="drawer-h"><div class="row between top"><div class="row" style="gap:12px">'+agentFace(G.g,44,{badge:false})+'<div><small class="muted">'+G.m+' minute read</small><h2 class="h-m" style="margin-top:4px">'+esc(G.t)+'</h2></div></div><button class="icon-btn" onclick="closeOverlays()" aria-label="Close">'+ico('x')+'</button></div></div>'+
-  '<div class="drawer-b"><p class="lede">'+esc(G.s)+'</p>'+G.sec.map((s,i)=>'<div class="gsec"><div class="lab" style="margin-top:18px"><b class="gnum">'+(i+1)+'</b>'+esc(s[0])+'</div><img class="gshot" src="guides/'+s[1]+'.jpg?v='+SHOT_V+'" alt="'+esc(s[0])+' in the portal" loading="lazy" onerror="this.remove()"><ol class="steps">'+s[2].map(t=>'<li><span>'+esc(t)+'</span></li>').join('')+'</ol></div>').join('')+'<div class="gtip">'+platoFace(28)+'<span>'+esc(G.tip)+'</span></div>'+
+  '<div class="drawer-b"><p class="lede">'+esc(G.s)+'</p>'+G.sec.map((s,i)=>'<div class="gsec"><div class="lab" style="margin-top:18px"><b class="gnum">'+(i+1)+'</b>'+esc(s[0])+'</div><img class="gshot" src="guides/'+s[1]+'.jpg?v='+SHOT_V+'" alt="'+esc(s[0])+' in Plato" loading="lazy" onerror="this.remove()"><ol class="steps">'+s[2].map(t=>'<li><span>'+esc(t)+'</span></li>').join('')+'</ol></div>').join('')+'<div class="gtip">'+platoFace(28)+'<span>'+esc(G.tip)+'</span></div>'+
   '<button class="btn btn-primary" style="margin-top:18px" onclick="guidePDF(\''+k+'\')">'+ico('download')+'Download as PDF</button><p class="tiny muted" style="margin-top:10px">Screenshots show the demo agency. Every name and number in them is invented.</p></div>')};
 function shotImg(k){return new Promise(res=>{if(location.protocol==='file:'){res(null);return}const i=new Image();i.onload=()=>res(i);i.onerror=()=>res(null);i.src='guides/'+k+'.jpg?v='+SHOT_V})}
 /* the PDF, in the outreach plan's style */
@@ -71,7 +71,7 @@ guidePDF=async function(k){const G=GUIDES.find(x=>x.k===k);if(!G)return;toast('�
     const ty=392+G.sec.length*62+18;D.card(600,ty,530,92,C.soft);if(botI)x.drawImage(botI,618,ty+18,56,56);D.T(AGENTS[G.g]?AGENTS[G.g].n:'Plato',690,ty+38,{s:13,w:700,c:C.brand});D.wrap('“'+G.tip+'”',690,ty+62,420,22,{s:17,w:700,c:C.ink},2)};
   const page=(si)=>(D)=>{const s=G.sec[si];const x=D.x;D.head(si+1,'Section '+(si+1)+' of '+G.sec.length,s[0],null);
     const L=44,LW=470;let y=200;s[2].forEach((t,i)=>{D.font({s:15});const lines=Math.ceil(D.W(t,{s:15})/(LW-70))+1;const h=Math.max(64,lines*21+26);D.card(L,y,LW,h);D.circ(L+30,y+30,14,C.brand);D.T(i+1,L+30,y+35,{s:13,w:800,al:'center',c:C.on});D.wrap(t,L+56,y+30,LW-74,21,{s:15,c:C.ink2});y+=h+16});
-    const im=shots[s[1]];const SX=560,SY=176,SW=PW-SX-44,SH=Math.round(SW*900/1440);D.card(SX,SY,SW,SH+36,C.paper);D.R(SX,SY,SW,30,C.ink);[0,1,2].forEach(j=>D.circ(SX+16+j*14,SY+15,4,['#ff5f57','#febc2e','#28c840'][j]));D.T('Permissionless Portal',SX+SW/2,SY+20,{s:11,w:600,c:'#ffffff',al:'center'});
+    const im=shots[s[1]];const SX=560,SY=176,SW=PW-SX-44,SH=Math.round(SW*900/1440);D.card(SX,SY,SW,SH+36,C.paper);D.R(SX,SY,SW,30,C.ink);[0,1,2].forEach(j=>D.circ(SX+16+j*14,SY+15,4,['#ff5f57','#febc2e','#28c840'][j]));D.T('Plato',SX+SW/2,SY+20,{s:11,w:600,c:'#ffffff',al:'center'});
     if(im){x.drawImage(im,SX+1,SY+31,SW-2,SH+4)}else{D.R(SX+1,SY+31,SW-2,SH+4,C.soft);D.T('Screenshot',SX+SW/2,SY+SH/2+30,{s:14,c:C.mute,al:'center'})}
     D.T('From the demo agency. Every name and number is invented.',SX,SY+SH+60,{s:11.5,c:C.mute})};
   const pages=[cover].concat(G.sec.map((_,i)=>page(i)));const jpgs=[];const fake={name:G.t};
