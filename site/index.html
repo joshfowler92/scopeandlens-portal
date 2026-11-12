@@ -995,7 +995,7 @@ html.sl-loading{overflow:hidden}
 .gw-ax{display:flex;justify-content:space-between;margin-top:6px;padding-top:5px;border-top:2px solid var(--ink);font-size:12.5px;font-weight:800}
 
 /* ---------- 11+ years: a career timeline ---------- */
-.xv-tl{margin-bottom:14px}
+.xv-tl{margin-bottom:14px;padding-top:calc(2.3em + 8px)}
 .tl-role{display:block;min-height:2.3em;font-size:13px;font-weight:800;line-height:1.15;color:var(--blue);transition:opacity .25s}
 .tl-role.fade{opacity:0}
 .tl-track{position:relative;height:14px;margin:8px 7px 0}
@@ -1346,7 +1346,7 @@ section.cr{isolation:isolate;overflow:clip}
       <article class="xc xc-blue rv"><div class="xv xv-grow" aria-hidden="true"><div class="gw-bars"><i style="--h:3%"></i><i style="--h:8%"></i><i style="--h:15%"></i><i style="--h:24%"></i><i style="--h:35%"></i><i style="--h:48%"></i><i style="--h:63%"></i><i style="--h:80%"></i><i style="--h:100%"></i></div><div class="gw-ax"><span>£0</span><span>Month 9</span></div></div><b data-count="2.5" data-dec="1" data-prefix="£" data-suffix="m">£2.5m</b><span>Pipeline for one agency, from zero, in 9 months</span></article>
       <article class="xc xc-mint rv"><div class="xv xv-x" aria-hidden="true"><i style="--h:25%"><em>Before</em></i><i style="--h:100%"><em>After</em></i></div><b data-count="300" data-suffix="%">300%</b><span>Increase in new business for one agency</span></article>
       <article class="xc xc-lav rv"><div class="xv xv-dots" id="xpDots" aria-hidden="true"></div><b data-count="100" data-suffix="+">100+</b><span>Pitches delivered and supported</span></article>
-      <article class="xc xc-paper rv"><div class="xv xv-tl" id="xpTl" aria-hidden="true"><span class="tl-role" id="tlRole">Lead Digital Analyst</span><div class="tl-track"><i class="tl-fill"></i><b style="--p:0%"></b><b style="--p:25%"></b><b style="--p:50%"></b><b style="--p:75%"></b><b style="--p:100%"></b></div><div class="tl-yr"><span>2015</span><span>2025</span></div></div><b data-count="11" data-suffix="+">11+</b><span>Years in agency new business and growth</span></article>
+      <article class="xc xc-paper rv"><div class="xv xv-tl" id="xpTl" aria-hidden="true"><div class="tl-track"><i class="tl-fill"></i><b style="--p:0%"></b><b style="--p:25%"></b><b style="--p:50%"></b><b style="--p:75%"></b><b style="--p:100%"></b></div><div class="tl-yr"><span>2015</span><span>2026</span></div></div><b data-count="11" data-suffix="+">11+</b><span>Years in agency new business and growth</span></article>
     </div>
   </div>
 </section>
@@ -1746,15 +1746,14 @@ section.cr{isolation:isolate;overflow:clip}
     /* career timeline */
     var tl = document.getElementById('xpTl');
     if (tl){
-      var roles = ['Lead Digital Analyst','Head of Sales & Growth','New Business Director','Senior Growth Consultant','Founder, Scope & Lens'];
-      var tdots = tl.querySelectorAll('.tl-track b'), tfill = tl.querySelector('.tl-fill'), trole = document.getElementById('tlRole'), tk = -1;
+      var roles = [0,1,2,3,4];
+      var tdots = tl.querySelectorAll('.tl-track b'), tfill = tl.querySelector('.tl-fill'), tk = -1;
       function tstep(){
         tk = (tk + 1) % (roles.length + 1);
         if (tk === roles.length){ setTimeout(tstep, 1400); return; }
         if (tk === 0) tdots.forEach(function(d){ d.classList.remove('on','cur'); });
         tfill.style.setProperty('--fw', (tk * 25) + '%');
         tdots.forEach(function(d, i){ d.classList.toggle('on', i <= tk); d.classList.toggle('cur', i === tk); });
-        trole.classList.add('fade'); setTimeout(function(){ trole.textContent = roles[tk]; trole.classList.remove('fade'); }, 250);
         setTimeout(tstep, tk === roles.length - 1 ? 3000 : 1500);
       }
       onView(tl, function(){ tstep(); });
