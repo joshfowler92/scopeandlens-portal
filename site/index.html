@@ -1953,17 +1953,23 @@ section.cr{isolation:isolate;overflow:clip}
       if (en.isIntersecting){ if (v.preload === 'none'){ v.preload = 'auto'; v.load(); } tryPlay(v); } else v.pause(); }); }, {threshold:.3});
     vids.forEach(function(v){ vo.observe(v); });
   } else vids.forEach(function(v){ v.preload = 'auto'; tryPlay(v); });
+  function hideTap(v){ var b = v.parentNode.querySelector('.tap'); if (b) b.hidden = true; }
   function tryPlay(v){
     var r; try { r = v.play(); } catch(e){ return needTap(v); }
-    if (r && r.then) r.then(function(){ var b = v.parentNode.querySelector('.tap'); if (b) b.hidden = true; }, function(){ needTap(v); });
+    if (r && r.then) r.then(function(){ hideTap(v); }, function(err){
+      /* a scroll-past cancels the pending play(); that is not "autoplay blocked", so no button */
+      if (!v.paused || (err && err.name === 'AbortError')) return;
+      needTap(v);
+    });
   }
   function needTap(v){
     var box = v.parentNode, b = box.querySelector('.tap');
     if (!b){ b = document.createElement('button'); b.type = 'button'; b.className = 'tap'; b.innerHTML = '<span aria-hidden="true">▶</span> Play'; b.setAttribute('aria-label','Play video');
-      b.addEventListener('click', function(){ v.muted = true; var r = v.play(); b.hidden = true; if (r && r.catch) r.catch(function(){ b.hidden = false; }); });
+      b.addEventListener('click', function(){ v.muted = true; var r = v.play(); b.hidden = true; if (r && r.catch) r.catch(function(){ if (v.paused) b.hidden = false; }); });
       box.appendChild(b); }
-    b.hidden = false;
+    if (v.paused) b.hidden = false;
   }
+  vids.forEach(function(v){ v.addEventListener('playing', function(){ hideTap(v); }); });
   document.getElementById('fsBtn').addEventListener('click', function(){ var v = document.getElementById('dashVid'), f = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen; if (f){ try { var r = f.call(v); if (r && r.catch) r.catch(function(){}); } catch(e){} } });
 
   /* audit / peers switch */
