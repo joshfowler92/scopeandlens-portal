@@ -10,7 +10,7 @@
 .dk-camp em{font:800 12px var(--sans);font-style:normal;color:var(--brand);flex:none}
 .dk-camp:hover b{color:var(--brand)}
 .dk-top .ctb{flex:none}
-/* launch: the hero carries the title; Pilot speaks in the crew now, not twice */
+/* launch: the hero carries the title; Otis speaks in the crew now, not twice */
 .lhero .lh-ag{display:none}
 .lhero+.deck{margin-top:16px}
 
