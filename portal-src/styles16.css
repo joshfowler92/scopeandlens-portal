@@ -1,0 +1,65 @@
+/* ═══════════ v16: the journey as a flow, and a livelier crew ═══════════ */
+
+/* Flow / Timeline switch */
+.seq-card .card-h{align-items:center}
+.jm-t{margin-left:auto;margin-right:8px}
+.jm-t{display:inline-flex;border:1.5px solid var(--rule-2);border-radius:99px;padding:3px;gap:2px;background:var(--paper)}
+.jm-t button{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:99px;font:700 13px var(--sans);color:var(--mute)}
+.jm-t button.on{background:var(--ink);color:var(--bg)}
+.jm-t button.on svg{stroke:var(--bg)}
+.jm-t .ind{display:none}
+@media (max-width:900px){.seq-card .card-h .jm-t{order:3;width:100%;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr}.jm-t button{justify-content:center}}
+.jm-t button svg{width:14px;height:14px}
+.seq-card:not(.jm-flow) .jflow{display:none}
+.seq-card.jm-flow .seq-wrap,.seq-card.jm-flow .legend,.seq-card.jm-flow .seq-sum .muted{display:none}
+
+/* the flow */
+.jflow{display:flex;flex-direction:column;align-items:center;padding:18px 4px 8px}
+.jfn{position:relative;z-index:2;width:min(100%,380px);display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;
+  background:var(--paper);border:1.5px solid var(--rule-2);border-radius:14px;padding:11px 13px;box-shadow:0 1px 0 var(--rule),0 6px 16px -10px rgba(0,0,0,.25);
+  opacity:.5;transform:scale(.98);transition:opacity .45s,transform .45s var(--spring),border-color .25s,box-shadow .25s}
+.jfn.jlit{opacity:1;transform:none}
+button.jfn[onclick]:hover{border-color:var(--fc);box-shadow:0 0 0 3px color-mix(in srgb,var(--fc) 18%,transparent),0 8px 20px -10px rgba(0,0,0,.3);transform:translateY(-2px)}
+.jfn-ic{width:36px;height:36px;border-radius:10px;background:var(--fc);display:grid;place-items:center}
+.jfn-ic svg{width:18px;height:18px;stroke:#fff}
+.jfn-t b{display:block;font-size:14px;line-height:1.25;letter-spacing:-.01em}
+.jfn-t small{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.jfn-w{display:flex}
+.jfn.start{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.jfn.start small{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.jfn.goal{background:var(--accent,#5eead4);border-color:var(--ink);color:#080808}
+.jfn.goal small{color:#2a2826}
+.jfw{position:relative;display:block;width:2px;height:34px;background:var(--rule-2);flex:none}
+.jfw.sh{height:16px}
+.jfw::after{content:'';position:absolute;left:-4px;top:0;width:10px;height:10px;border-radius:50%;background:var(--brand);opacity:0}
+.jfw.jgo::after{animation:fwDrop .8s var(--ease) forwards}
+@keyframes fwDrop{0%{top:-4px;opacity:1}100%{top:calc(100% - 6px);opacity:0}}
+.jfw em{position:absolute;left:14px;top:50%;transform:translateY(-50%);white-space:nowrap;font:700 11px var(--sans);font-style:normal;color:var(--mute);background:var(--bg);border:1px solid var(--rule-2);border-radius:99px;padding:2px 9px}
+.jfs{position:relative;z-index:2;opacity:.35;transition:opacity .45s}
+.jfs.jlit{opacity:1}
+.jfs-q{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--brand) 16%,var(--paper));border:1.5px solid var(--brand);border-radius:99px;padding:7px 16px 7px 8px;font:800 13.5px var(--sans)}
+.jfs-q svg{width:22px;height:22px;padding:4px;border-radius:50%;background:var(--ink);stroke:var(--bg)}
+.jfb{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,560px);margin-top:16px}
+.jfb::before{content:'';position:absolute;left:25%;right:25%;top:0;height:2px;background:var(--rule-2)}
+.jfb::after{content:'';position:absolute;left:50%;top:-16px;width:2px;height:16px;margin-left:-1px;background:var(--rule-2)}
+.jfb>div{display:flex;flex-direction:column;align-items:center;min-width:0}
+.jfb .jfn{width:100%;grid-template-columns:30px minmax(0,1fr);padding:9px 10px;gap:9px}
+.jfb .jfn-ic{width:30px;height:30px;border-radius:8px}
+.jfb .jfn-ic svg{width:15px;height:15px}
+.jfb .jfn-t b{font-size:13px}
+.jfb .jfn-t small{font-size:11px}
+.jfb-t{position:relative;z-index:2;margin-top:-10px;font:800 10.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1.5px solid var(--ink);background:var(--paper)}
+.jfb-t.y{background:#c9f5e9;color:#0b5c50}
+.jfb-t.n{background:#ffe1d4;color:#8a3412}
+.jfm{display:block;position:relative;width:min(100%,560px);height:22px;flex:none}
+.jfm::before{content:'';position:absolute;left:25%;right:25%;bottom:0;border-left:2px solid var(--rule-2);border-right:2px solid var(--rule-2);border-bottom:2px solid var(--rule-2);top:0}
+@media (max-width:520px){.jfn{grid-template-columns:32px minmax(0,1fr);padding:10px 11px}.jfn .jfn-w{display:none}.jfn-ic{width:32px;height:32px}.jfb{gap:8px}.jfw em{font-size:10.5px}}
+
+/* the crew: a glance around now and then on the larger faces */
+.ag .pupils{transform-box:fill-box;transform-origin:center}
+.dk-b.now .ag .pupils,.gbust .pupils,.emb .pupils,.jfn-w .pupils{animation:agLook 9s infinite}
+@keyframes agLook{0%,30%,100%{transform:translate(0,0)}35%,48%{transform:translate(2.5px,0)}53%,66%{transform:translate(-2.5px,-1px)}71%{transform:translate(0,0)}}
+.emb{display:inline-flex;margin:0 auto 10px;animation:embF 4s ease-in-out infinite}
+@keyframes embF{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.empty .emb{display:flex;justify-content:center}
+@media (prefers-reduced-motion:reduce){.jfn,.jfs{opacity:1;transform:none}.emb,.ag .pupils{animation:none !important}}
