@@ -27,7 +27,7 @@ Only include organisations you are confident exist and are UK based. Prefer a mi
 Answer with JSON only: an array of objects with name, domain (official website, like example.co.uk), sector (one of ${Object.keys(SECTORS).join(', ')}), sub (what they do, under 6 words), city (UK HQ city), region (one of ${Object.keys(REGION).filter(k => k !== 'any').join(', ')}), size (L, M or S).`;
   let list = [];
   try { const j = await claude({ model: process.env.DIGEST_MODEL || 'claude-haiku-5-5', max_tokens: 1400, messages: [{ role: 'user', content: ask }] }, 8500);
-    const t = claudeText(await j.json()); const m = t.match(/\[[\s\S]*\]/); if (m) list = JSON.parse(m[0]); } catch { return bad('Scout could not search just now. Try again in a moment.', 502); }
+    const t = claudeText(await j.json()); const m = t.match(/\[[\s\S]*\]/); if (m) list = JSON.parse(m[0]); } catch { return bad('Nora could not search just now. Try again in a moment.', 502); }
   const seen = new Set(ex.map(n => n.toLowerCase()));
   list = list.filter(c => c && c.name && c.domain && !seen.has(String(c.name).toLowerCase())).slice(0, 14);
   const ok = await Promise.all(list.map(c => alive(String(c.domain).replace(/^https?:\/\//, '').replace(/\/.*$/, ''))));

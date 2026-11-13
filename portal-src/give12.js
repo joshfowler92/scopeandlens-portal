@@ -51,6 +51,6 @@ VIEWS.give=()=>{const c=campPrep();campTab='value';return secHead('give','Give b
 
 /* the problem picker starts empty: you choose it for this campaign */
 probPicker=function(c){const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||'';
-  return '<div class="card probp'+(cur?'':' pneed')+'"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">'+(cur?'Muse builds the gift and every message around it.':'Pick one. Muse builds the gift and every message around it.')+'</p></div><div class="chips" style="margin-top:10px">'+
+  return '<div class="card probp'+(cur?'':' pneed')+'"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">'+(cur?'Gus builds the gift and every message around it.':'Pick one. Gus builds the gift and every message around it.')+'</p></div><div class="chips" style="margin-top:10px">'+
     mine.concat(cur&&!mine.includes(cur)?[cur]:[]).map(k=>'<button class="chip'+(k===cur?' on':'')+'" onclick="setCampProb(\''+k+'\')">'+(k===cur?'<span class="ck">✓</span>':'')+esc(L_PROBLEMS[k].label)+'</button>').join('')+
     '<select class="inp sel-s" onchange="if(this.value)setCampProb(this.value)" aria-label="Another problem"><option value="">Another problem…</option>'+Object.entries(L_PROBLEMS).filter(([k])=>!mine.includes(k)).map(([k,v])=>'<option value="'+k+'">'+esc(v.label)+'</option>').join('')+'</select></div></div>'};

@@ -3540,6 +3540,50 @@ button.jfn[onclick]:hover{border-color:var(--fc);box-shadow:0 0 0 3px color-mix(
 .empty .emb{display:flex;justify-content:center}
 @media (prefers-reduced-motion:reduce){.jfn,.jfs{opacity:1;transform:none}.emb,.ag .pupils{animation:none !important}}
 
+/* ═══════════ v17: the crew, as people ═══════════ */
+.botsvg.c17 .eyes{transform-origin:60px 61px;transform-box:view-box}
+.ag.bt{overflow:hidden;border-radius:50%}
+/* "Meet the crew" button on the deck */
+.dk-meet{display:inline-flex;align-items:center;gap:6px;margin:0 0 8px;padding:6px 12px;border-radius:99px;border:1.5px solid var(--rule-2);background:var(--paper);font:700 12.5px var(--sans);color:var(--ink);transition:border-color .2s,transform .2s}
+.dk-meet svg{width:14px;height:14px}
+.dk-meet:hover{border-color:var(--brand);transform:translateY(-1px)}
+/* the profile card */
+.cm{padding:4px 2px 2px}
+.cm-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.cm-tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 8px;border-radius:14px;border:1.5px solid transparent;opacity:.55;transition:opacity .2s,border-color .2s,transform .2s}
+.cm-tab small{font:700 12px var(--sans)}
+.cm-tab.on{opacity:1;border-color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,transparent)}
+.cm-tab:hover{opacity:1;transform:translateY(-2px)}
+.cm-card{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:center;background:color-mix(in srgb,var(--ac) 9%,var(--paper));border:1.5px solid color-mix(in srgb,var(--ac) 40%,transparent);border-radius:22px;padding:20px}
+.cm-art{width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid #15151c;box-shadow:6px 6px 0 #15151c;animation:cmIn .55s var(--spring,cubic-bezier(.34,1.56,.64,1)) both}
+.cm-art .botsvg{width:100%;height:100%;display:block}
+.cm-art .pupils{transform-box:fill-box;transform-origin:center;animation:agLook 7s infinite}
+@keyframes cmIn{from{transform:scale(.7) rotate(-6deg);opacity:0}to{transform:none;opacity:1}}
+.cm-step{display:inline-block;font:800 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,transparent);padding:3px 9px;border-radius:99px}
+.cm-txt h2{font:400 48px/1 var(--serif,'DM Serif Display',serif);font-style:italic;margin:8px 0 2px;letter-spacing:-.01em}
+.cm-role{font-weight:700;margin:0 0 10px;color:var(--mute)}
+.cm-bio{font-size:16px;line-height:1.5;margin:0 0 10px}
+.cm-motto{font:italic 400 18px var(--serif,'DM Serif Display',serif);margin:0;color:var(--ac)}
+.cm-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.cm-facts div{border:1.5px solid var(--rule-2);border-radius:14px;padding:10px 12px;background:var(--paper)}
+.cm-facts small{display:block;font:800 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:3px}
+.cm-facts b{font-size:14px;line-height:1.3}
+.cm-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
+.cm-foot .btn svg{width:16px;height:16px;margin-left:4px}
+@media (max-width:640px){
+  .cm-tabs{gap:2px}.cm-tab{padding:4px}
+  .cm-card{grid-template-columns:1fr;justify-items:center;text-align:center;padding:18px 14px;gap:12px}
+  .cm-art{width:150px;height:150px;box-shadow:4px 4px 0 #15151c}
+  .cm-txt h2{font-size:40px}
+  .cm-facts{grid-template-columns:1fr}
+  .cm-foot{flex-direction:column-reverse}.cm-foot .btn{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.cm-art,.cm-art .pupils{animation:none}}
+.dk-top .dk-meet{margin:0 0 0 10px;flex:none}
+@media (max-width:900px){.dk-top .dk-meet{margin-left:auto;padding:5px 10px;font-size:12px}}
+.dk-meet .dm-s{display:none}
+@media (max-width:900px){.dk-meet .dm-l{display:none}.dk-meet .dm-s{display:inline}}
+.dk-top .dk-meet .dm-l,.dk-top .dk-meet .dm-s{background:none;padding:0;margin:0;border:0;font:inherit;color:inherit;min-width:0;width:auto;flex:none}
+
 </style>
 </head>
 <body>
@@ -3684,7 +3728,7 @@ const L_DISCIPLINES = {
               'Find the detail that would make a journalist lean forward.',
               'Draft the pitch and name the three journalists who would run it.'],
       line: 'We went looking through your reports and job ads and found something nobody seems to have written about. Drafted the story and the three people who would run it.' },
-    { name: 'The Risk Scout',
+    { name: 'The Risk Nora',
       what: 'Map the three reputational pressures building in {SECTOR} that {TARGET} will probably have to answer for within a year.',
       why: 'It makes you useful before the crisis rather than after it, which is the only time a {ROLE} really remembers who helped.',
       steps: ['Track regulation, campaign groups, journalist beats and competitor incidents.',
@@ -5390,7 +5434,7 @@ function dmCard(a){const have=new Set(a.people.map(p=>norm(p.name)));const sugg=
   return '<div class="dm"><div class="dm-h">'+logo(a,44)+'<div class="grow"><b>'+esc(a.name)+'</b><small>'+esc(a.sub||a.sector||'')+'</small></div><span class="pill'+(a.people.length?' good':'')+'">'+a.people.length+' on your list</span></div>'+
     (a.people.length?'<div class="dm-l">'+a.people.map(p=>pRow(a,p,true)).join('')+'</div>':'')+
     (sugg.length?'<div class="dm-s"><div class="lab">'+(L?'Found for you':'Named in public sources')+'</div>'+sugg.map(p=>pRow(a,p,false)).join('')+'</div>':'')+
-    '<div class="dm-f"><button class="btn btn-line btn-sm" onclick="findDM('+q+')" id="dmb-'+a.id+'">'+(ampOn()?'⚡ ':ico('search'))+(L?'Ask Scout to look again':'Ask Scout to find them')+'</button><button class="btn btn-ghost btn-sm" onclick="openPersonForm('+q+')">'+ico('plus')+'Add someone you know</button></div></div>'}
+    '<div class="dm-f"><button class="btn btn-line btn-sm" onclick="findDM('+q+')" id="dmb-'+a.id+'">'+(ampOn()?'⚡ ':ico('search'))+(L?'Ask Nora to look again':'Ask Nora to find them')+'</button><button class="btn btn-ghost btn-sm" onclick="openPersonForm('+q+')">'+ico('plus')+'Add someone you know</button></div></div>'}
 function pRow(a,p,mine){const q="'"+a.id+"'";const li=p.li||p.linkedin;
   return '<div class="prow2"><span class="av'+(mine?' fill':'')+'">'+esc(initials(p.name))+'</span><div class="grow" style="min-width:0"><b>'+esc(p.name)+'</b><small>'+esc(p.role||p.title||'Role not set')+'</small>'+(p.src?'<a class="src" href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.pub||'Source')+ico('external')+'</a>':p.from==='live'?'<span class="src">People data</span>':'')+'</div>'+
     (li?'<a class="mini" href="'+esc(li)+'" target="_blank" rel="noopener" data-tip="LinkedIn profile">'+ico('linkedin')+'</a>':'')+
@@ -5579,7 +5623,7 @@ function journeyView(c){const R=c.reach;const tg=campTargets(c);const ppl=sum(tg
     '<div class="seq-wrap">'+(seqSVG(c)||'<div class="empty"><div class="orb"></div>Pick at least one channel above.</div>')+'</div>'+
     '<div class="legend" style="margin-top:6px"><span><i class="lg-dot"></i>A message or touch</span><span><i class="lg-dot o"></i>A light action, like engaging with their posts</span><span><i class="lg-dot t"></i>Where each person is</span></div></div>'+
   (R.ch.includes('event')?'<div style="margin-top:16px">'+eventsCard(c)+'</div>':'')+(R.ch.includes('mail')?'<div style="margin-top:16px">'+mailCard(c)+'</div>':'')+
-  '<div class="row wrap" style="margin-top:14px;gap:8px"><button class="btn btn-line btn-sm" onclick="downloadPlanPDF()">'+ico('download')+'Download the plan as a PDF</button><button class="btn btn-ghost btn-sm" onclick="regenSteps()">'+ico('loop')+'Ask Relay to replan it</button><button class="btn btn-ghost btn-sm" onclick="exportPlan()" data-tip="For your CRM or outreach tool">'+ico('file')+'CSV</button></div>'+
+  '<div class="row wrap" style="margin-top:14px;gap:8px"><button class="btn btn-line btn-sm" onclick="downloadPlanPDF()">'+ico('download')+'Download the plan as a PDF</button><button class="btn btn-ghost btn-sm" onclick="regenSteps()">'+ico('loop')+'Ask Priya to replan it</button><button class="btn btn-ghost btn-sm" onclick="exportPlan()" data-tip="For your CRM or outreach tool">'+ico('file')+'CSV</button></div>'+
   '<div class="listbar"><div class="grow row wrap" style="gap:16px"><span class="kv"><b>'+tg.length+'</b> brands</span><span class="kv"><b>'+ppl+'</b> people</span><span class="kv"><b>'+ppl*touches+'</b> touches in total</span></div><button class="btn btn-primary btn-rocket" onclick="confirmJourney()">🚀 Next: launch it'+ico('arrow','a')+'</button></div>'}
 function isRecMix(R){return REC_CH.every(k=>R.ch.includes(k))}
 function confirmJourney(){const c=curCamp();if(c.status==='draft'){c.status='planned';save()}if(!c.awJ){c.awJ=1;award('journey')}go('launch')}
@@ -5613,12 +5657,12 @@ function markStepSent(force){const c=curCamp();const s=c.reach.steps.find(x=>x.i
   act('Done: '+s.t+' for '+x.p.name,()=>{c.sent=c.sent||{};c.sent[x.p.id+':'+s.id]=today();S.activity.unshift({id:uid(),type,date:today(),accountId:x.a.id,person:x.p.name,note:s.t,qty:1,campaign:c.id});if(s.ch==='email'||s.ch==='mail')addSignal(x.a,'value_sent',{person:x.p.name,campaign:c.id});autoStage(x.a);if(c.status!=='live'){c.status='live';c.launched=c.launched||today()}},{refresh:false,ic:'📨',ms:2600,quiet:true});award('touch',s.t);
   const steps=c.reach.steps.slice().sort((p,q)=>p.w-q.w);const up=campTargets(c).flatMap(a=>a.people.map(p=>({p,s:nextFor(c,p.id,steps)}))).filter(q=>q.s).sort((p,q)=>p.s.w-q.s.w);if(up.length){ptPerson=up[0].p.id;ptStep=up[0].s.id}refreshNav();go('launch',null,true)}
 function amplifyView(c){const q=S.launch.queue;const L=S.launch;
-  return '<div style="margin-top:18px">'+ampHero()+'</div>'+(L.connected?'<div class="row wrap" style="gap:8px;margin-top:12px"><button class="btn btn-line btn-sm" onclick="go(\'prospects\',\'people\')">'+ico('user')+'Ask Scout to find the people</button><button class="btn btn-ghost btn-sm" onclick="ampEvents().then(n=>{toast(n?\'📈 \'+n+\' new signals\':\'Nothing new yet\');go(\'launch\',null,true)})">'+ico('loop')+'Pull in the latest replies</button></div>':'<p class="small muted" style="margin-top:12px">This is a preview. Approve messages below to see how it works. Nothing is sent until Amplify is switched on for your agency.</p>')+
+  return '<div style="margin-top:18px">'+ampHero()+'</div>'+(L.connected?'<div class="row wrap" style="gap:8px;margin-top:12px"><button class="btn btn-line btn-sm" onclick="go(\'prospects\',\'people\')">'+ico('user')+'Ask Nora to find the people</button><button class="btn btn-ghost btn-sm" onclick="ampEvents().then(n=>{toast(n?\'📈 \'+n+\' new signals\':\'Nothing new yet\');go(\'launch\',null,true)})">'+ico('loop')+'Pull in the latest replies</button></div>':'<p class="small muted" style="margin-top:12px">This is a preview. Approve messages below to see how it works. Nothing is sent until Amplify is switched on for your agency.</p>')+
   '<div class="two" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start;margin-top:18px"><div><div class="row between wrap" style="margin-bottom:12px;gap:10px"><span class="small muted">Swipe right to approve, left to skip</span><span class="row" style="gap:14px"><span class="kv"><b>'+q.length+'</b> to go</span><span class="kv"><b>'+L.stats.approved+'</b> approved</span></span></div>'+swipeStack(q)+'</div>'+
   '<div class="card"><div class="card-h"><h3>Approved</h3><span class="muted">'+L.done.length+'</span></div>'+(L.done.length?'<div class="list">'+L.done.slice().reverse().slice(0,20).map(x=>'<div class="li">'+logo(accountById(x.acc)||{name:'?'},30)+'<div class="li-main"><div class="li-t">'+esc(x.person)+'</div><div class="li-s">'+esc(x.step)+'</div></div><span class="pill'+(x.status==='sent'?' good':'')+'">'+(x.status==='sent'?'Sent':L.connected?'Queued':'Preview')+'</span></div>').join('')+'</div>':'<div class="empty">Approve a message and it lands here.</div>')+'</div></div>'}
 function swipeStack(q){if(!q.length){const c=curCamp();const ppl=c?sum(campTargets(c),a=>a.people.length):0;
     return '<div class="swipe-empty card"><div class="orb"></div><b>'+(S.launch.done.length?'All caught up':'Nothing to approve yet')+'</b><p class="small muted" style="margin:6px 0 16px">'+(ppl?'Bring in the first message for each of the '+ppl+' people in '+esc(c.name)+'.':'Add decision makers to your brands first.')+'</p>'+
-      (ppl?'<button class="btn btn-primary" onclick="sendToLaunch()">'+ico('bolt')+'Ask Pilot to draft them</button>':'<button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">'+ico('user')+'Ask Scout to find the people</button>')+'</div>'}
+      (ppl?'<button class="btn btn-primary" onclick="sendToLaunch()">'+ico('bolt')+'Ask Otis to draft them</button>':'<button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">'+ico('user')+'Ask Nora to find the people</button>')+'</div>'}
   const it=q[0];const a=accountById(it.acc)||{name:''};const opt=it.opt||0;const ch=it.ch==='email'?'mail':'linkedin';
   return '<div class="swipe" data-tour="swipe">'+(q[2]?'<div class="sw-card back2"></div>':'')+(q[1]?'<div class="sw-card back1"></div>':'')+
     '<div class="sw-card top" id="swTop"><span class="sw-stamp yes">Approve</span><span class="sw-stamp no">Skip</span>'+
@@ -5813,7 +5857,7 @@ VIEWS.launch=()=>{const c=curCamp();if(!c.reach.steps)c.reach.steps=genSteps(c);
   const tg=campTargets(c);const ppl=[];tg.forEach(a=>a.people.forEach(p=>ppl.push({a,p})));const steps=c.reach.steps.filter(s=>!s.task);const total=ppl.length*steps.length;const done=Object.keys(c.sent||{}).length+S.launch.done.filter(x=>x.camp===c.id).length;
   const days=c.launched?Math.max(0,daysAgo(c.launched)):0;const replies=sum(tg,a=>a.signals.filter(g=>['reply','li_reply','meeting'].includes(g.type)).length);const pct=total?Math.min(1,done/total):0;
   return procRail('launch')+
-  '<section class="lhero'+(live?' live':'')+'" data-tour="lhero"><div class="lh-stars"></div><div class="lh-copy"><div class="lh-ag">'+agentFace('launch',46,{badge:false})+'<span><b>Pilot</b> '+esc(agentSays('launch'))+'</span></div><div class="lh-k">Outreach · ready for launch</div><h1>'+(live?esc(c.name)+' is <span class="serif">live.</span>':'This is where the <span class="serif">magic happens.</span>')+'</h1>'+
+  '<section class="lhero'+(live?' live':'')+'" data-tour="lhero"><div class="lh-stars"></div><div class="lh-copy"><div class="lh-ag">'+agentFace('launch',46,{badge:false})+'<span><b>Otis</b> '+esc(agentSays('launch'))+'</span></div><div class="lh-k">Outreach · ready for launch</div><h1>'+(live?esc(c.name)+' is <span class="serif">live.</span>':'This is where the <span class="serif">magic happens.</span>')+'</h1>'+
     '<p>'+(live?'Every message is written. Work through what is up next, a few a day, and watch Signals light up.':'Everything you have set up comes together here. Every message for every person, written in your voice and ready to go.')+'</p>'+
     (live?'<div class="lh-stats"><div><b data-count="'+done+'">0</b><small>sent</small></div><div><b data-count="'+Math.max(0,total-done)+'">0</b><small>to go</small></div><div><b data-count="'+replies+'">0</b><small>replies</small></div><div><b data-count="'+days+'">0</b><small>day'+(days===1?'':'s')+' live</small></div></div><div class="lh-prog"><i style="width:'+Math.round(pct*100)+'%"></i></div>':
      '<div class="pflight">'+pf.map(x=>'<button class="pf'+(x.ok?' ok':'')+'" onclick="'+x.f+'"><span>'+(x.ok?'✅':x.e)+'</span>'+esc(x.t)+(x.ok?'':'<em>Sort it'+ico('arrow')+'</em>')+'</button>').join('')+'</div>'+
@@ -5836,7 +5880,7 @@ function launchNow(){const c=curCamp();const pf=preflight(c);const miss=pf.filte
 /* mission control: who is up next, and the message for them */
 function nextFor(c,pid,steps){return steps.find(s=>!(c.sent&&c.sent[pid+':'+s.id]))}
 function missionControl(c,ppl){const steps=c.reach.steps.slice().sort((x,y)=>x.w-y.w);if(!steps.length)return '<div class="card empty" style="margin-top:18px">Plan the journey first. <button class="link" onclick="go(\'reach\')">How to reach them</button></div>';
-  if(!ppl.length)return '<div class="card empty" style="margin-top:18px">'+art('radar','sm')+'<b>Add the people first</b><p>Every message personalises itself to the person and their brand.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">Ask Scout to find the people</button></div>';
+  if(!ppl.length)return '<div class="card empty" style="margin-top:18px">'+art('radar','sm')+'<b>Add the people first</b><p>Every message personalises itself to the person and their brand.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">Ask Nora to find the people</button></div>';
   const team=(c.members||[]).length>1;const mineOnly=team&&!MC_ALL;const up=ppl.filter(x=>!mineOnly||ownerOf(c,x.a)===ME()).map(x=>({x,s:nextFor(c,x.p.id,steps)})).filter(q=>q.s).sort((a,b)=>a.s.w-b.s.w);
   if(!ptPerson||!ppl.some(x=>x.p.id===ptPerson)){ptPerson=(up[0]||{x:ppl[0]}).x.p.id;ptStep=null}
   const cur=ppl.find(x=>x.p.id===ptPerson);if(!ptStep||!steps.some(s=>s.id===ptStep))ptStep=(nextFor(c,ptPerson,steps)||steps[0]).id;const s=steps.find(x=>x.id===ptStep);const ch=REACH_CH.find(x=>x.k===s.ch)||REACH_CH[0];
@@ -6815,11 +6859,11 @@ function snapNext(D){const C=D.C;D.head('3','Where to go next','Your next five m
 const AGENTS={
   home:{n:'Dot',role:'Your growth lead',col:'#2c56ed',eyes:'dot',ic:'home',me:'I read your world, plan the week and keep the whole team pointing the same way.'},
   agency:{n:'Echo',role:'Knows your agency',col:'#ae3ec9',eyes:'soft',ic:'star',me:'I learn who you are and how you sound, so every message is unmistakably you.'},
-  prospects:{n:'Scout',role:'Finds who to target',col:'#0b9f8a',eyes:'scan',ic:'target',me:'I scour the UK for brands with a real reason to hear from you, right now.'},
+  prospects:{n:'Nora',role:'Finds who to target',col:'#0b9f8a',eyes:'scan',ic:'target',me:'I scour the UK for brands with a real reason to hear from you, right now.'},
   give:{n:'Maker',role:'Makes what to share',col:'#f76707',eyes:'happy',ic:'gift',me:'I dream up something genuinely useful to give before you ask for anything.'},
   reach:{n:'Guide',role:'Plans how to reach them',col:'#2f9e44',eyes:'wink',ic:'send',me:'I map the journey touch by touch, the way you would get to know someone in person.'},
-  launch:{n:'Pilot',role:'Launches it with you',col:'#14102e',eyes:'visor',ic:'rocket',me:'I line up every message in your voice. Nothing leaves without your say-so.'},
-  signals:{n:'Scout',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
+  launch:{n:'Otis',role:'Launches it with you',col:'#14102e',eyes:'visor',ic:'rocket',me:'I line up every message in your voice. Nothing leaves without your say-so.'},
+  signals:{n:'Nora',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
   pipeline:{n:'Tally',role:'Counts the revenue',col:'#c98a12',eyes:'calm',ic:'pound',me:'I turn conversations into numbers you can plan a year around.'},
   team:{n:'Huddle',role:'Keeps the team in step',col:'#7048e8',eyes:'round',ic:'people',me:'I keep everyone on the same page: who is talking to who, and where it is up to.'},
   insights:{n:'Scoop',role:'Brings you the news',col:'#212529',eyes:'round',ic:'bulb',me:'I bring you what Josh has spotted, before everyone else hears about it.'}
@@ -6893,7 +6937,7 @@ function cap1(t){t=String(t||'');return t.charAt(0).toUpperCase()+t.slice(1)}
 function liPct(){const L=liState();const C=liChecks();return Math.round(C.filter(x=>L.c[x.k]).length/C.length*100)}
 function liTick(k){const L=liState();act(L.c[k]?'Unticked a profile check':'Profile check done',()=>{L.c[k]=L.c[k]?0:today()},{refresh:false,quiet:true,ic:'✅'});if(liPct()===100){award('liready');confetti(80);toast('✨ Profile ready. No note needed on your connection requests now.')}if($('.modal .lic'))liModal(true);else go(VIEW,VIEW_ARG,true)}
 function liList(){const L=liState();return '<div class="lic">'+liChecks().map(x=>'<div class="lic-i'+(L.c[x.k]?' ok':'')+'"><button class="lic-b" onclick="liTick(\''+x.k+'\')" aria-pressed="'+(L.c[x.k]?'true':'false')+'" aria-label="Done: '+esc(x.t)+'">'+(L.c[x.k]?ico('check'):'')+'</button><div class="grow"><b>'+esc(x.t)+'</b><p>'+esc(x.why)+'</p>'+
-  '<div class="lic-s"><span>'+esc(x.sug)+'</span>'+(x.bank?'<button class="btn btn-ghost btn-xs" onclick="closeOverlays();go(\'give\',\'bank\')">Open the content bank</button>':'<button class="btn btn-ghost btn-xs" onclick="copyText(this.previousElementSibling.textContent,this)">'+ico('copy')+'Copy Relay’s line</button>')+'</div></div></div>').join('')+'</div>'}
+  '<div class="lic-s"><span>'+esc(x.sug)+'</span>'+(x.bank?'<button class="btn btn-ghost btn-xs" onclick="closeOverlays();go(\'give\',\'bank\')">Open the content bank</button>':'<button class="btn btn-ghost btn-xs" onclick="copyText(this.previousElementSibling.textContent,this)">'+ico('copy')+'Copy Priya’s line</button>')+'</div></div></div>').join('')+'</div>'}
 function liReadyCard(c){if(!c.reach.ch.includes('linkedin'))return '';const p=liPct();const A=liAud();
   if(p===100)return '<div class="lir done">'+agentFace('reach',34,{badge:false})+'<span class="grow"><b>Your LinkedIn profile is ready for '+esc(A.secs)+' brands.</b> No note needed on your connection requests.</span><button class="btn btn-ghost btn-xs" onclick="liModal()">Check it again</button></div>';
   return '<div class="card lir" id="lir"><div class="lir-h">'+agentFace('reach',48,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">Before you connect with anyone</div><h3>Get your LinkedIn profile ready for '+esc(A.secs)+' brands</h3><p class="small">They will look you up before they accept. Dial your profile in for exactly who you are going after, and you will not need a note on your connection requests at all.</p></div>'+ring(p,62)+'</div>'+liList()+'</div>'}
@@ -6921,7 +6965,7 @@ function bankSlots(c){const I=bankItems(c);const tool=heroIsTool(c);return BANK_
 function bankPct(c){const S2=bankSlots(c);const want=S2.filter(s=>s.core);return Math.round(sum(want,s=>Math.min(s.need,s.ready))/Math.max(1,sum(want,s=>s.need))*100)}
 function bankReady(c){return bankSlots(c).filter(s=>s.core).every(s=>s.ok)}
 function bankGaps(c){return bankSlots(c).filter(s=>s.core&&!s.ok)}
-/* Muse drafts from what you have told us. Placeholders in [brackets] are where your own knowledge goes. Nothing is invented. */
+/* Gus drafts from what you have told us. Placeholders in [brackets] are where your own knowledge goes. Nothing is invented. */
 function makerDraft(k,c){const A=liAud();const g=toolById(c.assets[0]);const asset=g?g.n.replace(/^The /,'the '):'[your hero piece]';const proof=(S.setup.offer.proof||'').replace(/\.$/,'');const n=bankOf(c).items.filter(x=>x.slot===k).length;
   const D={
   lipost:[
@@ -6939,7 +6983,7 @@ function makerDraft(k,c){const A=liAud();const g=toolById(c.assets[0]);const ass
 function bankAdd(k,how){const c=curCamp();const B=bankOf(c);
   if(how==='maker'){const d=makerDraft(k,c);if(!d)return;const want=k==='lipost'?Math.max(1,3-B.items.filter(x=>x.slot==='lipost').length):1;const made=[];
     for(let i=0;i<want;i++){const x=makerDraft(k,c);if(i&&x.t===made[made.length-1].t)break;const it={id:uid(),slot:k,t:x.t,body:x.body,status:'draft',src:'maker',at:today()};B.items.push(it);made.push(it)}
-    save();award('bank');toast('✍️ Muse drafted '+(made.length>1?made.length+' '+BANK_SLOTS.find(s=>s.k===k).l.toLowerCase():'one')+'. Give it a read and make it yours.');go('give','bank',true);return}
+    save();award('bank');toast('✍️ Gus drafted '+(made.length>1?made.length+' '+BANK_SLOTS.find(s=>s.k===k).l.toLowerCase():'one')+'. Give it a read and make it yours.');go('give','bank',true);return}
   modal('<h2>Add to the content bank</h2><p class="sub">Something you have already made, or are about to. A title and a link is plenty.</p>'+
     '<div class="field"><label>What kind</label><select class="inp" id="bkS">'+BANK_SLOTS.filter(s=>s.k!=='hero').map(s=>'<option value="'+s.k+'"'+(s.k===k?' selected':'')+'>'+s.l+'</option>').join('')+'</select></div>'+
     '<div class="field"><label>Title</label><input class="inp" id="bkT" placeholder="e.g. Our Greggs case study"></div><div class="field"><label>Link (optional)</label><input class="inp" id="bkU" placeholder="https://"></div>'+
@@ -6948,7 +6992,7 @@ function bankSaveOwn(){const t=$('#bkT').value.trim();if(!t){$('#bkT').focus();r
 function bankOpen(id){const c=curCamp();const it=bankItems(c).find(x=>x.id===id);if(!it)return;const own=bankOf(c).items.includes(it);
   if(it.slot==='hero'){act(bankOf(c).hero?'Hero piece back to in progress':'Hero piece is made',()=>{bankOf(c).hero=bankOf(c).hero?0:today()},{refresh:false,ic:'🎁'});go('give','bank',true);return}
   if(!own){go('library');return}
-  modal('<div class="row" style="gap:12px;align-items:center">'+agentFace('give',44,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">'+esc(BANK_SLOTS.find(s=>s.k===it.slot).l)+(it.src==='maker'?' · drafted by Muse':'')+'</div><input class="inp bk-ti" id="bkT2" value="'+esc(it.t)+'"></div></div>'+
+  modal('<div class="row" style="gap:12px;align-items:center">'+agentFace('give',44,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">'+esc(BANK_SLOTS.find(s=>s.k===it.slot).l)+(it.src==='maker'?' · drafted by Gus':'')+'</div><input class="inp bk-ti" id="bkT2" value="'+esc(it.t)+'"></div></div>'+
     (it.body!=null?'<textarea class="inp" id="bkB2" rows="12" style="margin-top:12px">'+esc(it.body)+'</textarea><p class="tiny muted">Anything in [brackets] is where your own knowledge goes. Fill those in before you call it ready.</p>':'')+
     '<div class="field"><label>Link (optional)</label><input class="inp" id="bkU2" value="'+esc(it.url||'')+'" placeholder="Where it lives once it is published"></div>'+
     '<div class="modal-foot"><button class="lft btn btn-danger btn-sm" onclick="bankDel(\''+id+'\')">Remove</button>'+(it.body!=null?'<button class="btn btn-ghost" onclick="copyText($(\'#bkB2\').value,this)">'+ico('copy')+'Copy</button>':'')+'<button class="btn btn-line" onclick="bankSave(\''+id+'\',\'draft\')">Save as a draft</button><button class="btn btn-primary" onclick="bankSave(\''+id+'\',\'ready\')">'+ico('check')+'It is ready</button></div>',true)}
@@ -6961,8 +7005,8 @@ function bankCard(c){const sl=bankSlots(c);const p=bankPct(c);const ok=bankReady
   '<div class="bank-g">'+sl.map(s=>'<div class="bk'+(s.ok?' ok':'')+(s.core?'':' opt')+'"><div class="bk-h"><span class="bk-ic">'+ico(s.ic)+'</span><div class="grow"><b>'+s.l+'</b><small>'+(s.core?(s.ok?'✓ '+s.ready+' ready':s.ready+' of '+s.need+' ready'):'Nice to have')+'</small></div></div><p class="tiny muted">'+esc(s.d)+'</p>'+
     (s.items.length?'<div class="bk-l">'+s.items.map(it=>'<button class="bki '+it.status+'" onclick="bankOpen(\''+it.id+'\')"><i>'+(it.status==='ready'?ico('check'):'✎')+'</i><span>'+esc(it.t)+'<small>'+esc(it.note||(it.status==='ready'?'Ready':'Draft · needs your eye'))+'</small></span></button>').join('')+'</div>':'')+
     (s.k==='hero'&&s.items.length?heroUrlField(c):'')+'<div class="bk-a">'+(s.k==='hero'?(s.items.length?'':'<button class="btn btn-primary btn-xs" onclick="document.querySelector(\'[data-tour=assets]\').scrollIntoView({behavior:\'smooth\'})">Choose what to give</button>'):s.k==='case'?'<button class="btn btn-line btn-xs" onclick="go(\'library\')">'+ico('upload')+'From your library</button><button class="btn btn-ghost btn-xs" onclick="bankAdd(\'case\')">'+ico('plus')+'Add a link</button>':
-      '<button class="btn btn-line btn-xs" onclick="bankAdd(\''+s.k+'\',\'maker\')">'+ico('sparkle')+'Ask Muse to draft '+(s.k==='lipost'?'posts':s.k==='blog'?'an outline':'a script')+'</button><button class="btn btn-ghost btn-xs" onclick="bankAdd(\''+s.k+'\')">'+ico('plus')+'Add your own</button>')+'</div></div>').join('')+'</div>'+
-  '<p class="tiny muted" style="margin-top:12px">Muse drafts, you decide. Every draft has [brackets] where your own knowledge goes, and nothing is marked ready until you have filled them in.</p></section>'}
+      '<button class="btn btn-line btn-xs" onclick="bankAdd(\''+s.k+'\',\'maker\')">'+ico('sparkle')+'Ask Gus to draft '+(s.k==='lipost'?'posts':s.k==='blog'?'an outline':'a script')+'</button><button class="btn btn-ghost btn-xs" onclick="bankAdd(\''+s.k+'\')">'+ico('plus')+'Add your own</button>')+'</div></div>').join('')+'</div>'+
+  '<p class="tiny muted" style="margin-top:12px">Gus drafts, you decide. Every draft has [brackets] where your own knowledge goes, and nothing is marked ready until you have filled them in.</p></section>'}
 /* a LinkedIn post from the bank, when the journey says "share the thinking publicly" */
 function bankPost(c,seed){const L=bankItems(c).filter(x=>x.slot==='lipost'&&x.body);return L.length?L[seed%L.length]:null}
 
@@ -6993,7 +7037,7 @@ function eventsCard(c){const tg=campTargets(c).slice(0,4);const A=liAud();const 
    tg.map(a=>'<a class="evt srch" target="_blank" rel="noopener" href="'+eventSearch('"'+a.name+'" marketing speaker '+yr)+'">'+logo(a,40)+'<b class="evt-n">Where '+esc(a.name)+' people are speaking</b><small class="evt-v">'+ico('search')+'Search talks and panels</small></a>').join('')+
    '<a class="evt srch" target="_blank" rel="noopener" href="'+eventSearch(A.sec+' marketing conference UK '+yr)+'"><span class="evt-ic">'+ico('search')+'</span><b class="evt-n">More '+esc(A.sec)+' events</b><small class="evt-v">Search conferences, awards and breakfasts</small></a>'+
    '<div class="evt own"><span class="evt-ic">'+ico('people')+'</span><b class="evt-n">Host your own</b><small class="evt-v">Breakfast for eight '+esc(A.sec)+' marketers, one topic: '+esc(A.prob)+'.</small></div></div><p class="tiny muted" style="margin-top:10px">Event dates checked November 2026. Confirm with the organiser before you book.</p></div>'}
-function mailCard(c){return '<div class="card evc"><div class="row" style="gap:12px;align-items:flex-start">'+agentFace('give',40,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">Real world, without the meeting</div><h3>Direct mail, done with imagination</h3><p class="small">It lands on a desk, not in an inbox. A few starting points from Muse:</p></div></div>'+mailIdeas(c,4)+'</div>'}
+function mailCard(c){return '<div class="card evc"><div class="row" style="gap:12px;align-items:flex-start">'+agentFace('give',40,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">Real world, without the meeting</div><h3>Direct mail, done with imagination</h3><p class="small">It lands on a desk, not in an inbox. A few starting points from Gus:</p></div></div>'+mailIdeas(c,4)+'</div>'}
 /* a trackable link for every person: hosted links log the click and feed Signals */
 function trackUrl(c,a,p,s){const B=bankOf(c);const base=(B.heroUrl||'').trim();if(!base)return '';const code=(hsh(ME()+c.id+(p&&p.id)+(s&&s.id))>>>0).toString(36)+(hsh(c.id+(p&&p.id))%1296).toString(36);
   if(typeof isLive==='function'&&isLive()){LINKQ[code]={url:base,brand:a.name,person:p&&p.name||'',camp:c.id};linkSoon();return location.origin+'/l/'+code}
@@ -7007,7 +7051,7 @@ function setHeroUrl(v){const c=curCamp();act('Saved the link to your hero piece'
 /* ── 4. Warm-only phone, and the queues that respect it ── */
 function ptLookup(c,pid){for(const a of campTargets(c)){const p=a.people.find(q=>q.id===pid);if(p)return{a,p}}return null}
 nextFor=function(c,pid,steps){let x;return steps.find(s=>{if(c.sent&&c.sent[pid+':'+s.id])return false;if(s.warm){x=x||ptLookup(c,pid);if(!x||!warmReady(x.a,x.p))return false}return true})};
-function bankStrip(c){const ok=bankReady(c);const g=bankGaps(c);return '<div class="lir bks'+(ok?' done':'')+'">'+agentFace('give',34,{badge:false})+'<span class="grow"><b>'+(ok?'Content bank ready.':'Content bank '+bankPct(c)+'% ready.')+'</b> '+(ok?'Plenty to trickle through over '+c.reach.weeks+' weeks.':'Still to sort: '+g.map(s=>s.l.toLowerCase()).join(', ')+'. Without it, the journey runs dry by week three.')+'</span><button class="btn btn-'+(ok?'ghost':'line')+' btn-xs" onclick="go(\'give\',\'bank\')">'+(ok?'Open it':'Ask Muse to help')+'</button></div>'}
+function bankStrip(c){const ok=bankReady(c);const g=bankGaps(c);return '<div class="lir bks'+(ok?' done':'')+'">'+agentFace('give',34,{badge:false})+'<span class="grow"><b>'+(ok?'Content bank ready.':'Content bank '+bankPct(c)+'% ready.')+'</b> '+(ok?'Plenty to trickle through over '+c.reach.weeks+' weeks.':'Still to sort: '+g.map(s=>s.l.toLowerCase()).join(', ')+'. Without it, the journey runs dry by week three.')+'</span><button class="btn btn-'+(ok?'ghost':'line')+' btn-xs" onclick="go(\'give\',\'bank\')">'+(ok?'Open it':'Ask Gus to help')+'</button></div>'}
 setInterval(()=>{if(S&&document.visibilityState==='visible')pullClicks()},300000);
 const _adminAfter=VIEWS.admin_after;VIEWS.admin_after=async()=>{await _adminAfter();const el=$('#adminBody');if(el&&!$('#intelAdm')){el.insertAdjacentHTML('beforeend',intelAdminCard());intelAdminLoad()}};
 
@@ -7153,7 +7197,7 @@ VIEWS.plan=()=>{const st=plState();const p=st.p;
     card('target','Who to go after',p.sectors.map(k=>secLabel(k)).join(', '),'<p>'+esc(L_CLIENT_SIZES[p.size]||'')+'. The people to talk to: '+esc(roles.join('; '))+'.</p><p class="tiny muted">The problem you lead with: '+esc(p.problems.map(k=>P[k]?P[k].short:k).join(', and '))+'.</p>','Change who we go after')+
     card('bolt','Your right to reach out',p.triggers.length+' moments that make it timely','<ul class="pl-t">'+p.triggers.map(x=>'<li><span>'+(L_TRIGGER_IC[x.k]||'•')+'</span><div><b>'+esc(L_TRIGGER_LABELS[x.k]||x.k)+'</b><small>'+esc(x.why)+'</small></div></li>').join('')+'</ul>')+
     card('send','The channels',p.channels.length+' channels, paced over weeks','<div class="chips">'+REACH_CH.filter(x=>p.channels.includes(x.k)).map(x=>'<span class="chip on">'+ico(x.ic)+x.l+(x.k==='phone'?' <small>warm only</small>':'')+'</span>').join('')+'</div><p class="tiny muted" style="margin-top:10px">LinkedIn with no note, email with something useful, events to meet in person, and a free workshop as the end point. Phone only once they are warm.</p>','Change the channels')+
-    card('gift','What you lead with','Three value-led angles','<ul class="pl-a">'+p.angles.map(a=>'<li><b>'+esc(a.t)+'</b><small>'+esc(a.d)+'</small></li>').join('')+'</ul>'+(t?'<div class="pl-gift">'+ico('gift')+'<span>Muse’s first pick to give: <b>'+esc(t.n)+'</b></span></div>':''),'Change the angle')+
+    card('gift','What you lead with','Three value-led angles','<ul class="pl-a">'+p.angles.map(a=>'<li><b>'+esc(a.t)+'</b><small>'+esc(a.d)+'</small></li>').join('')+'</ul>'+(t?'<div class="pl-gift">'+ico('gift')+'<span>Gus’s first pick to give: <b>'+esc(t.n)+'</b></span></div>':''),'Change the angle')+
   '</div>'+
   '<div class="card plchat"><div class="plc-h"><span class="plc-ic">'+ico('chat')+'</span><div class="grow"><div class="lab" style="margin:0">Refine it by talking</div><h3>Tell Plato what to change</h3></div></div><div class="pl-msgs" id="plMsgs">'+st.chat.slice(-8).map(m=>'<div class="msg '+(m.who==='dot'?'bot':'me')+'">'+(m.who==='dot'?agentFace('home',26,{badge:false}):'')+'<span>'+esc(m.t)+'</span></div>').join('')+'</div>'+
     '<div class="chips" style="margin:10px 0">'+['Bigger brands','Challenger brands','Add travel','Drop finance','Talk to founders','No phone calls','Lead with proof'].map(s=>'<button class="chip" onclick="plSay(\''+s+'\')">'+s+'</button>').join('')+'</div>'+
@@ -7189,7 +7233,7 @@ function plApply(){const st=plState();const p=st.p;if(!p)return;const c=curCamp(
   act(st.agreed?'Updated your plan':'Plan agreed. Let us go.',()=>{const P=S.setup.profile;P.sectors=p.sectors.slice();P.csize=p.size;P.roles=p.roles.slice();P.problems=p.problems.slice();P.problem=p.problems[0];if(!(P.discs&&P.discs.length))P.discs=p.discs.slice();if(!P.asize)P.asize='sm';
     c.reach.ch=p.channels.slice();c.reach.steps=genSteps(c);if(!c.assets.length){const t=toolsFor()[0];if(t)c.assets=[t.id]}st.agreed=today()},{refresh:false,ic:'🗺️'});
   award('plan');confetti(120);
-  modal('<div class="row" style="gap:12px;align-items:center">'+agentFace('home',48,{badge:false})+'<span class="ho-line"><i></i><i></i></span>'+agentFace('prospects',48,{badge:false})+'</div><h2 style="margin-top:14px">Over to Scout</h2><p class="sub">Your profile, your first campaign and what to give are all set from the plan. Scout will now find '+esc(p.sectors.map(k=>secLabel(k).toLowerCase()).join(' and '))+' brands with a reason to hear from you. Everything is free to build. You only pay when you launch.</p><div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays();go(\'home\')">Later</button><button class="btn btn-primary" onclick="closeOverlays();go(\'prospects\');setTimeout(()=>typeof findNow===\'function\'&&findNow(),500)">'+ico('target')+'Ask Scout to find prospects now</button></div>')}
+  modal('<div class="row" style="gap:12px;align-items:center">'+agentFace('home',48,{badge:false})+'<span class="ho-line"><i></i><i></i></span>'+agentFace('prospects',48,{badge:false})+'</div><h2 style="margin-top:14px">Over to Nora</h2><p class="sub">Your profile, your first campaign and what to give are all set from the plan. Nora will now find '+esc(p.sectors.map(k=>secLabel(k).toLowerCase()).join(' and '))+' brands with a reason to hear from you. Everything is free to build. You only pay when you launch.</p><div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays();go(\'home\')">Later</button><button class="btn btn-primary" onclick="closeOverlays();go(\'prospects\');setTimeout(()=>typeof findNow===\'function\'&&findNow(),500)">'+ico('target')+'Ask Nora to find prospects now</button></div>')}
 /* the nudge on Home */
 function planCard(){const st=plState();if(st.agreed)return '';return '<div class="plnudge">'+agentFace('home',58,{badge:false,cls:'big'})+'<div class="grow"><div class="lab" style="margin:0">Before you lift a finger</div><h3>'+(st.p?'Your growth plan is ready to look at':'Let me read your world and propose a plan')+'</h3><p class="small">'+(st.p?'Who to go after, the moments that give you the right to reach out, the channels and the angles. Tweak it by talking to me.':'I read your website, your profile and your library, then come back with who to go after, when, where and with what. Takes about ten seconds.')+'</p></div><button class="btn btn-primary" onclick="go(\'plan\')">'+(st.p?'See the plan':'Ask Plato for a plan')+ico('arrow','a')+'</button></div>'}
 
@@ -7283,8 +7327,8 @@ async function intelSwitch(on){try{await api('intel',{method:'POST',body:{on}});
 async function intelRemove(){confirmBox('Remove the data?','Every agency loses '+INTEL_NAME+' straight away.','Remove',async()=>{try{await api('intel',{method:'DELETE'});intelAdminLoad();intelLoad()}catch(e){toast('Could not remove it')}},true)}
 async function orgFlag(orgId,k,on){try{await api('users',{method:'POST',body:{action:'org',orgId,[k]:on}});toast({paid:on?'🚀 They can launch now':'Back to build only',intel:on?'🎯 '+INTEL_NAME+' on for that agency':INTEL_NAME+' off for that agency'}[k])}catch(e){toast('Could not change that')}}
 
-/* ═══════════ FIND PROSPECTS NOW: Scout goes looking, and you can watch ═══════════
-   One big button. Scout travels the UK map, reads the brand list, the news and (if you have it) pitch intelligence,
+/* ═══════════ FIND PROSPECTS NOW: Nora goes looking, and you can watch ═══════════
+   One big button. Nora travels the UK map, reads the brand list, the news and (if you have it) pitch intelligence,
    and drops pins as matches turn up. It lands as a scored set you can act on straight away. */
 const UK_GB=[[1.35,51.13],[1.42,51.38],[0.9,51.5],[0.65,51.56],[1.15,51.79],[1.28,51.94],[1.6,52.15],[1.75,52.48],[1.73,52.62],[1.3,52.93],[0.5,52.96],[0.2,52.8],[0.34,53.14],[0.12,53.58],[-0.19,54.08],[-0.4,54.28],[-0.61,54.49],[-1.05,54.62],[-1.2,54.69],[-1.38,54.9],[-1.42,55.02],[-1.65,55.4],[-2.0,55.77],[-2.52,56.0],[-3.1,55.98],[-3.6,56.03],[-2.9,56.2],[-2.6,56.28],[-2.9,56.46],[-2.58,56.56],[-2.46,56.7],[-2.08,57.15],[-1.78,57.5],[-2.0,57.69],[-2.52,57.67],[-3.28,57.72],[-3.87,57.59],[-4.22,57.48],[-4.05,57.81],[-3.65,58.12],[-3.09,58.44],[-3.03,58.64],[-3.52,58.6],[-4.4,58.55],[-5.0,58.62],[-5.3,58.25],[-5.16,57.9],[-5.75,57.6],[-5.71,57.28],[-5.83,57.0],[-6.2,56.73],[-5.6,56.5],[-5.47,56.41],[-5.6,56.0],[-5.8,55.3],[-5.6,55.42],[-5.0,55.75],[-4.85,55.85],[-4.63,55.46],[-4.86,55.24],[-5.03,54.9],[-4.86,54.64],[-4.4,54.75],[-4.05,54.84],[-3.6,54.88],[-3.26,54.98],[-3.39,54.87],[-3.59,54.55],[-3.23,54.11],[-2.86,54.07],[-3.05,53.82],[-3.0,53.65],[-3.0,53.42],[-3.1,53.38],[-3.4,53.34],[-3.83,53.33],[-4.2,53.3],[-4.5,53.42],[-4.63,53.31],[-4.27,53.14],[-4.77,52.8],[-4.41,52.89],[-4.05,52.72],[-4.08,52.41],[-4.66,52.1],[-5.27,51.88],[-5.05,51.71],[-4.7,51.67],[-4.2,51.68],[-3.94,51.62],[-3.7,51.48],[-3.17,51.46],[-2.99,51.55],[-2.65,51.62],[-2.7,51.48],[-2.98,51.35],[-3.48,51.2],[-4.12,51.2],[-4.53,51.02],[-4.94,50.54],[-5.08,50.42],[-5.48,50.21],[-5.71,50.07],[-5.2,49.96],[-5.07,50.15],[-4.6,50.33],[-4.14,50.37],[-3.64,50.22],[-3.53,50.46],[-3.41,50.62],[-2.94,50.72],[-2.45,50.6],[-1.98,50.71],[-1.75,50.72],[-1.4,50.85],[-1.09,50.79],[-0.79,50.73],[-0.14,50.82],[0.24,50.74],[0.59,50.85],[0.97,50.91],[1.18,51.08]];
 const UK_NI=[[-5.93,54.62],[-5.82,54.85],[-6.15,55.22],[-6.65,55.2],[-7.3,55.12],[-7.55,54.95],[-8.17,54.6],[-7.9,54.25],[-7.0,54.35],[-6.6,54.05],[-6.27,54.1],[-6.0,54.05],[-5.6,54.27],[-5.45,54.5]];
@@ -7299,15 +7343,15 @@ function ukPath(P){return P.map((p,i)=>{const[x,y]=ukXY(p[0],p[1]);return(i?'L':
 function placeOf(p){const c=String(p.city||'').toLowerCase().split(/[,(]/)[0].trim();return UK_CITY[c]||UK_REG[p.region]||UK_REG.any}
 function nearestStop(ll){let best=UK_ROUTE[0],d=1e9;UK_ROUTE.forEach(k=>{const q=UK_CITY[k];const dd=(q[0]-ll[0])**2+(q[1]-ll[1])**2;if(dd<d){d=dd;best=k}});return best}
 let FIND_RUN=null;
-function findHero(){const n=PROSPECTS.map(fitP).filter(Boolean).length;return '<div class="fhero">'+agentFace('prospects',64,{badge:false,cls:'big'})+'<div class="grow"><b>Scout is ready to go looking</b><p>'+PROSPECTS.length+' brands, the latest news'+(intelOn()?', and '+INTEL_NAME.toLowerCase()+' on '+INTEL.rows.length+' advertisers':'')+'. Scout scours the UK and brings back the ones with a real reason to hear from you.</p></div><button class="fbtn" onclick="findNow()"><span class="fb-ic">'+ico('radar')+'</span><span><b>Find prospects now</b><small>'+(n?n+' fit you so far':'Answers first, then go')+'</small></span></button></div>'+intelTeaser()}
+function findHero(){const n=PROSPECTS.map(fitP).filter(Boolean).length;return '<div class="fhero">'+agentFace('prospects',64,{badge:false,cls:'big'})+'<div class="grow"><b>Nora is ready to go looking</b><p>'+PROSPECTS.length+' brands, the latest news'+(intelOn()?', and '+INTEL_NAME.toLowerCase()+' on '+INTEL.rows.length+' advertisers':'')+'. Nora scours the UK and brings back the ones with a real reason to hear from you.</p></div><button class="fbtn" onclick="findNow()"><span class="fb-ic">'+ico('radar')+'</span><span><b>Find prospects now</b><small>'+(n?n+' fit you so far':'Answers first, then go')+'</small></span></button></div>'+intelTeaser()}
 const _brandsView=brandsView;brandsView=function(c){return findHero()+_brandsView(c)};
-function findNow(){if(!profDone()){toast('Tell Scout who you want to work with first');go('prospects');return}closeOverlays();
+function findNow(){if(!profDone()){toast('Tell Nora who you want to work with first');go('prospects');return}closeOverlays();
   const R=PROSPECTS.map(fitP).filter(Boolean).sort((a,b)=>b.s-a.s);const chosen=new Set(campTargets(curCamp()).map(a=>norm(a.name)));const top=R.filter(x=>!chosen.has(norm(x.p.name))).slice(0,24);
   const stops=UK_ROUTE.map(k=>({k,ll:UK_CITY[k],hits:[]}));top.forEach(x=>{const ll=placeOf(x.p);const s=stops.find(z=>z.k===nearestStop(ll));s.hits.push({x,ll})});
   const path=stops.filter(s=>s.hits.length);if(!path.length){toast('No new brands fit right now. Try widening your answers.');return}
   const W=ukXY(2.2,49.8)[0]+10,H=ukXY(0,49.8)[1]+10;
-  const o=document.createElement('div');o.className='finder';o.setAttribute('role','dialog');o.setAttribute('aria-label','Scout is finding prospects');
-  o.innerHTML='<div class="fd-in"><div class="fd-top">'+agentFace('prospects',44,{badge:false})+'<div class="grow"><b>Scout is scouring the UK</b><small id="fdStat">Reading '+PROSPECTS.length+' brands'+(intelOn()?' and '+INTEL.rows.length+' advertisers':'')+'</small></div><button class="btn btn-ghost btn-sm fd-skip" onclick="findFinish()">Skip to results</button><button class="icon-btn" onclick="findClose()" aria-label="Close">'+ico('x')+'</button></div>'+
+  const o=document.createElement('div');o.className='finder';o.setAttribute('role','dialog');o.setAttribute('aria-label','Nora is finding prospects');
+  o.innerHTML='<div class="fd-in"><div class="fd-top">'+agentFace('prospects',44,{badge:false})+'<div class="grow"><b>Nora is scouring the UK</b><small id="fdStat">Reading '+PROSPECTS.length+' brands'+(intelOn()?' and '+INTEL.rows.length+' advertisers':'')+'</small></div><button class="btn btn-ghost btn-sm fd-skip" onclick="findFinish()">Skip to results</button><button class="icon-btn" onclick="findClose()" aria-label="Close">'+ico('x')+'</button></div>'+
     '<div class="fd-body"><div class="fd-map"><svg viewBox="0 0 '+W.toFixed(0)+' '+H.toFixed(0)+'" id="fdSvg"><defs><radialGradient id="fdG"><stop offset="0" stop-color="#0b9f8a" stop-opacity=".35"/><stop offset="1" stop-color="#0b9f8a" stop-opacity="0"/></radialGradient></defs>'+
       '<path d="'+ukPath(UK_GB)+'" class="uk"/><path d="'+ukPath(UK_NI)+'" class="uk"/>'+UK_ROUTE.map(k=>{const[x,y]=ukXY(...UK_CITY[k]);return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="2.2" class="cty"/>'}).join('')+
       '<g id="fdPins"></g><path id="fdTrail" class="trail" d=""/><g id="fdScout" class="scout"><circle r="46" fill="url(#fdG)" class="sweep"/><g transform="translate(-17,-17) scale(.83)"><circle cx="20.5" cy="20.5" r="20.5" fill="#0b9f8a"/>'+eyesSVG('scan')+'</g></g></svg>'+
@@ -7358,7 +7402,7 @@ function paywallModal(){const c=curCamp();const tg=campTargets(c);const ppl=sum(
     '<h2>You built all of this <span class="serif">for free.</span></h2><p class="sub">Here is what is ready to go the moment you launch:</p>'+
     '<div class="pw-got">'+[['target',tg.length,'brands on your list'],['user',ppl,'decision makers'],['doc',B,'pieces in your content bank'],['send',ppl*st,'messages drafted in your voice']].map(x=>'<div><span>'+ico(x[0])+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>').join('')+'</div>'+
     pricingBlock()+
-    '<p class="tiny muted" style="margin-top:12px">Co-pilot, not autopilot. Launching never sends anything on its own: Pilot lines up each message, and you approve every one.</p>'+
+    '<p class="tiny muted" style="margin-top:12px">Co-pilot, not autopilot. Launching never sends anything on its own: Otis lines up each message, and you approve every one.</p>'+
     '<div class="modal-foot">'+(pre?'<span class="lft tiny muted">This is a preview. Once Plato is live, this is where launching is unlocked.</span><button class="btn btn-ghost" onclick="closeOverlays()">Not yet</button><button class="btn btn-primary" onclick="closeOverlays();S.pwSeen=1;save();launchGo()">Carry on with the demo'+ico('arrow','a')+'</button>':
       '<button class="btn btn-ghost" onclick="closeOverlays()">Keep building</button><button class="btn btn-primary" onclick="askToLaunch()">'+esc(PRICING.cta||'I am ready to launch')+ico('rocket','a')+'</button>')+'</div></div>',true)}
 async function askToLaunch(){const c=curCamp();try{await api('upgrade',{method:'POST',body:{campaign:c.name,brands:campTargets(c).length}});closeOverlays();modal('<div class="row" style="gap:12px;align-items:center">'+agentFace('launch',52,{badge:false})+'<div class="grow"><h2 style="margin:0">Over to Scope &amp; Lens</h2><p class="sub" style="margin:4px 0 0">Josh has been told you are ready to launch '+esc(c.name)+'. You will hear back shortly. Keep building in the meantime, nothing is lost.</p></div></div><div class="modal-foot"><button class="btn btn-primary" onclick="closeOverlays()">Lovely</button></div>')}
@@ -7447,7 +7491,7 @@ function campCard(c,big){const st=campStats(c);const live=campLive(c);const nx=c
     '<div class="cc-crew">'+OUT_K.map(k=>{const s=campStepState(c,k);return '<span class="cc-a s'+s+'" data-tip="'+esc(MODULES.find(m=>m.k===k).l+': '+campStepSub(c,k))+'">'+agentFace(k,big?34:28,{badge:false})+(s===2?'<i>'+ico('check')+'</i>':'')+'</span>'}).join('<em></em>')+'</div>'+
     '<div class="cc-n"><div><b>'+st.tg.length+'</b><small>brands</small></div><div><b>'+st.ppl+'</b><small>people</small></div><div><b>'+st.sent+'</b><small>sent</small></div><div><b>'+st.rep+'</b><small>replies</small></div></div>'+
     '<button class="btn '+(live?'btn-ink':'btn-primary')+' btn-sm cc-go" onclick="openCamp(\''+c.id+'\',\''+(live?'launch':nx)+'\')">'+(live?'Today’s messages':'Continue with '+A.n)+ico('arrow','a')+'</button></article>'}
-function newCard(){return '<button class="cc11 cc-new" onclick="newCampaignFlow()"><span class="cn-plus">'+ico('plus')+'</span><b>New campaign</b><small>Scout, Muse, Relay and Pilot build it with you, step by step.</small><span class="cn-faces">'+OUT_K.map(k=>agentFace(k,26,{badge:false})).join('')+'</span></button>'}
+function newCard(){return '<button class="cc11 cc-new" onclick="newCampaignFlow()"><span class="cn-plus">'+ico('plus')+'</span><b>New campaign</b><small>Nora, Gus, Priya and Otis build it with you, step by step.</small><span class="cn-faces">'+OUT_K.map(k=>agentFace(k,26,{badge:false})).join('')+'</span></button>'}
 function openCamp(id,k){S.cur=id;save();go(k||'prospects')}
 /* the crew, as a relay: each one takes the baton and hands it on */
 function crewRelay(c){return '<section class="relay" data-tour="crew"><div class="rl-h"><div><h2 class="h-m">How every campaign gets built</h2><p class="muted small">Four specialists, one baton. You stay in charge of every decision.</p></div></div><div class="rl-track"><svg class="rl-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path id="rlP" d="M40 100 C 220 100 230 20 375 20 S 530 100 625 100 S 780 20 960 20" class="rl-line"/><circle r="7" class="rl-dot"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#rlP"/></animateMotion></circle></svg>'+
@@ -7473,15 +7517,15 @@ VIEWS.camps=()=>{const C=S.campaigns.filter(c=>campsF==='all'||(campsF==='live'?
 function campRename(id){const c=S.campaigns.find(x=>x.id===id);modal('<h2>Rename the campaign</h2><div class="field"><input class="inp" id="crN" value="'+esc(c.name)+'"></div><div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="const v=$(\'#crN\').value.trim();if(v){act(\'Renamed\',()=>{S.campaigns.find(x=>x.id===\''+id+'\').name=v},{refresh:false,quiet:true})}closeOverlays();go(VIEW,VIEW_ARG,true)">Save</button></div>');setTimeout(()=>$('#crN').select(),50)}
 function campCopy(id){const o=S.campaigns.find(x=>x.id===id);act('Duplicated '+o.name,()=>{const c=newCamp(o.name+' (copy)');Object.assign(c,{problem:o.problem,targets:o.targets.slice(),assets:o.assets.slice(),reach:JSON.parse(JSON.stringify(Object.assign({},o.reach,{steps:null}))),bank:o.bank?JSON.parse(JSON.stringify(o.bank)):undefined});c.reach.steps=genSteps(c);S.campaigns.unshift(c);S.cur=c.id},{refresh:false,ic:'📋'});go('camps')}
 function campDel(id){const c=S.campaigns.find(x=>x.id===id);confirmBox('Delete '+esc(c.name)+'?','Its plan and drafts go. The brands stay in your workspace. You can undo straight after.','Delete',()=>{act('Deleted '+c.name,()=>{S.campaigns=S.campaigns.filter(x=>x.id!==id);if(S.cur===id)S.cur=S.campaigns[0].id},{refresh:false});go('camps')},true)}
-/* starting a campaign: name it, pick the problem, then Scout takes it */
+/* starting a campaign: name it, pick the problem, then Nora takes it */
 let NC_PROB='';
 function newCampaignFlow(){closeOverlays();const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);NC_PROB=mine[0]||'';const others=Object.keys(L_PROBLEMS).filter(k=>!mine.includes(k));const n=S.campaigns.length;
-  modal('<div class="nc"><div class="nc-faces">'+OUT_K.map((k,i)=>agentFace(k,i?40:52,{badge:false,cls:i?'':'big'})).join('<i></i>')+'</div><h2>A new campaign</h2><p class="sub">Two quick choices, then Scout finds the brands. Nothing is sent until you launch.</p>'+
+  modal('<div class="nc"><div class="nc-faces">'+OUT_K.map((k,i)=>agentFace(k,i?40:52,{badge:false,cls:i?'':'big'})).join('<i></i>')+'</div><h2>A new campaign</h2><p class="sub">Two quick choices, then Nora finds the brands. Nothing is sent until you launch.</p>'+
     '<div class="field"><label>Which problem is it about?</label>'+(mine.length?'<div class="chips" id="ncP">'+mine.map(k=>'<button class="chip'+(k===NC_PROB?' on':'')+'" data-k="'+k+'" onclick="ncPick(\''+k+'\')">'+esc(L_PROBLEMS[k].label)+'</button>').join('')+'</div>':'')+
       '<select class="inp sel-s" style="margin-top:8px" onchange="if(this.value)ncPick(this.value)"><option value="">'+(mine.length?'Or another problem…':'Choose the problem…')+'</option>'+Object.entries(L_PROB_GROUPS).map(([g,gl])=>'<optgroup label="'+esc(gl)+'">'+(mine.length?others:Object.keys(L_PROBLEMS)).filter(k=>L_PROBLEMS[k].g===g).map(k=>'<option value="'+k+'">'+esc(L_PROBLEMS[k].label)+'</option>').join('')+'</optgroup>').join('')+'</select></div>'+
     '<div class="field"><label>Give it a name</label><input class="inp" id="ncN" placeholder="'+esc(ncName())+'"></div>'+
     (n&&S.campaigns.some(c=>c.targets.length)?'<label class="row" style="gap:8px"><input type="checkbox" id="ncCopy"> Start with the brands from '+esc(curCamp().name)+'</label>':'')+
-    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="ncGo()">'+agentFace('prospects',22,{badge:false})+'Start with Scout'+ico('arrow','a')+'</button></div></div>')}
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="ncGo()">'+agentFace('prospects',22,{badge:false})+'Start with Nora'+ico('arrow','a')+'</button></div></div>')}
 function ncName(){const p=L_PROBLEMS[NC_PROB];const s=(S.setup.profile.sectors||[])[0];return p?cap1(p.short)+(s?' · '+secLabel(s).split(/[ ,&]/)[0]:''):'New campaign'}
 function ncPick(k){NC_PROB=k;$$('#ncP .chip').forEach(b=>b.classList.toggle('on',b.dataset.k===k));const n=$('#ncN');if(n)n.placeholder=ncName();if(!$('#ncP .chip.on')&&L_PROBLEMS[k])toast('Solving '+L_PROBLEMS[k].short)}
 function ncGo(){if(!NC_PROB){toast('Pick the problem first');return}const nm=($('#ncN').value.trim()||ncName());const cp=$('#ncCopy')&&$('#ncCopy').checked;const old=curCamp();
@@ -7491,7 +7535,7 @@ function ncGo(){if(!NC_PROB){toast('Pick the problem first');return}const nm=($(
 newCampaign=newCampaignFlow;
 /* the problem for this campaign, chosen in What to share */
 function probPicker(c){const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||mine[0]||'';
-  return '<div class="card probp"><div class="row between wrap" style="gap:10px"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">Muse picks the gift and writes every message around it.</p></div></div><div class="chips" style="margin-top:10px">'+
+  return '<div class="card probp"><div class="row between wrap" style="gap:10px"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">Gus picks the gift and writes every message around it.</p></div></div><div class="chips" style="margin-top:10px">'+
     mine.concat(cur&&!mine.includes(cur)?[cur]:[]).map(k=>'<button class="chip'+(k===cur?' on':'')+'" onclick="setCampProb(\''+k+'\')">'+(k===cur?'<span class="ck">✓</span>':'')+esc(L_PROBLEMS[k].label)+'</button>').join('')+
     '<select class="inp sel-s" onchange="if(this.value)setCampProb(this.value)"><option value="">Another problem…</option>'+Object.entries(L_PROBLEMS).filter(([k])=>!mine.includes(k)).map(([k,v])=>'<option value="'+k+'">'+esc(v.label)+'</option>').join('')+'</select></div></div>'}
 function setCampProb(k){const c=curCamp();act('This campaign solves '+L_PROBLEMS[k].short,()=>{c.problem=k},{refresh:false,ic:'🎯',quiet:true});go(VIEW,VIEW_ARG,true)}
@@ -7508,7 +7552,7 @@ function dueNow(c,pid,steps){const s=nextFor(c,pid,steps);return s&&campLive(c)&
 function stepState(c,pid,s,steps){if(c.sent&&c.sent[pid+':'+s.id])return 'done';if(c.skipped&&c.skipped[pid+':'+s.id])return 'skip';const n=nextFor(c,pid,steps);if(n&&n.id===s.id&&campLive(c)&&s.w<=campWeek(c))return 'due';if(s.warm){const x=ptLookup(c,pid);if(x&&!warmReady(x.a,x.p))return 'warm'}return 'later'}
 const ACT_VERB={linkedin:'sent it',email:'sent it',workshop:'sent it',phone:'had the call',event:'done it',mail:'posted it',social:'posted it'};
 missionControl=function(c,ppl){const steps=c.reach.steps.slice().sort((x,y)=>x.w-y.w);if(!steps.length)return '<div class="card empty" style="margin-top:18px">Plan the journey first. <button class="link" onclick="go(\'reach\')">How to reach them</button></div>';
-  if(!ppl.length)return '<div class="card empty" style="margin-top:18px">'+art('radar','sm')+'<b>Add the people first</b><p>Every message personalises itself to the person and their brand.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">Ask Scout to find the people</button></div>';
+  if(!ppl.length)return '<div class="card empty" style="margin-top:18px">'+art('radar','sm')+'<b>Add the people first</b><p>Every message personalises itself to the person and their brand.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">Ask Nora to find the people</button></div>';
   const live=campLive(c);const team=(c.members||[]).length>1;const mineOnly=team&&!MC_ALL;const mine=ppl.filter(x=>!mineOnly||ownerOf(c,x.a)===ME());
   const due=mine.map(x=>({x,s:dueNow(c,x.p.id,steps)})).filter(q=>q.s);const soon=mine.map(x=>({x,s:nextFor(c,x.p.id,steps)})).filter(q=>q.s&&!due.some(d=>d.x.p.id===q.x.p.id)).sort((a,b)=>a.s.w-b.s.w);
   if(!ptPerson||!ppl.some(x=>x.p.id===ptPerson)){ptPerson=((due[0]||soon[0]||{x:ppl[0]}).x).p.id;ptStep=null}
@@ -7551,7 +7595,7 @@ markStepSent=function(force){const c=curCamp();const steps=c.reach.steps.slice()
 TOUR_MAIN.length=0;TOUR_MAIN.push(
   {sel:'.sd-nav',alt:'.sd-ham',view:'home',t:'Everything lives on the left',b:'Home, your campaigns, the four steps that build a campaign, your results, your team and the insights we share. On a phone, it is behind the menu button.'},
   {sel:'[data-tour=newcamp]',alt:'.sd-ham',view:'home',t:'Start a campaign from anywhere',b:'Every campaign starts with a problem you solve. Pick it, name it, and your team gets to work.'},
-  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'Your team building your campaign',b:'Scout finds who to target, Muse makes what to share, Relay plans how to reach them and Pilot launches it. Ticks show what is done. Tap the campaign name to switch.'},
+  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'Your team building your campaign',b:'Nora finds who to target, Gus makes what to share, Priya plans how to reach them and Otis launches it. Ticks show what is done. Tap the campaign name to switch.'},
   {sel:'[data-tour=camps]',view:'home',t:'Your campaigns at a glance',b:'What is live, what is still being built, and the one button that takes you to the next thing to do.'},
   {sel:'[data-tour=crew]',view:'home',t:'How every campaign gets built',b:'Four specialists and one baton. Tap any of them to jump to their step.'},
   {sel:'#nav-signals',alt:'.sd-ham',view:'home',t:'Results',b:'Signals shows who is leaning in, hottest first, with the reason why. Revenue tracks the deals they turn into, against your target.'},
@@ -7564,7 +7608,7 @@ const _tourVis=tourVis;tourVis=function(sel){if(_tourVis(sel))return true;const 
 const _endTour=endTour;endTour=function(done){const main=TOUR===TOUR_MAIN;_endTour(done);if(main&&!coachDone()&&!(S.coach&&S.coach.on))setTimeout(()=>coachOffer(),done?900:300)};
 /* the welcome */
 function dotWelcome(){const n=(S.setup.you||(SESSION&&SESSION.name)||'').split(' ')[0];S.welcomed=1;save();
-  modal('<div class="dw"><div class="dw-face">'+agentFace('home',84,{badge:false,cls:'big'})+'</div><h2>Hello'+(n?' '+esc(n):'')+'. I’m Plato.</h2><p class="sub">I’ll be with you the whole way. I can show you around, and I can build your first campaign with you, step by step, alongside Scout, Muse, Relay and Pilot.</p>'+
+  modal('<div class="dw"><div class="dw-face">'+agentFace('home',84,{badge:false,cls:'big'})+'</div><h2>Hello'+(n?' '+esc(n):'')+'. I’m Plato.</h2><p class="sub">I’ll be with you the whole way. I can show you around, and I can build your first campaign with you, step by step, alongside Nora, Gus, Priya and Otis.</p>'+
     '<div class="dw-crew">'+OUT_K.map(k=>'<span>'+agentFace(k,40,{badge:false})+'<b>'+AGENTS[k].n+'</b><small>'+esc(MODULES.find(m=>m.k===k).l)+'</small></span>').join('')+'</div>'+
     '<div class="dw-btns"><button class="btn btn-primary btn-lg" onclick="closeOverlays();coachStart()">'+ico('sparkle')+'Yes, build my first campaign with me</button><button class="btn btn-line" onclick="closeOverlays();startTour()">Show me around first</button><button class="btn btn-ghost" onclick="closeOverlays()">I’ll explore on my own</button></div></div>')}
 function coachOffer(force){if(coachDone()&&!force){coachStart();return}
@@ -7572,7 +7616,7 @@ function coachOffer(force){if(coachDone()&&!force){coachStart();return}
 /* the guided build */
 const COACH=[
   {k:'home',t:'Tell me about your agency',say:'Seven quick taps: what you do, who you want to win and the problems you solve. Or let me read your website and suggest it.',go:()=>go('prospects'),done:()=>profDone(),alt:['Read my website instead',()=>go('plan')]},
-  {k:'home',t:'Start the campaign',say:'Name it and pick the one problem it solves. Everything Muse makes and Pilot writes is built around that problem.',go:()=>{if(!curCamp().problem)newCampaignFlow();else go('prospects')},done:()=>!!curCamp().problem},
+  {k:'home',t:'Start the campaign',say:'Name it and pick the one problem it solves. Everything Gus makes and Otis writes is built around that problem.',go:()=>{if(!curCamp().problem)newCampaignFlow();else go('prospects')},done:()=>!!curCamp().problem},
   {k:'prospects',t:'Find your brands',say:'Press Find prospects now and watch me scour the UK. Then add at least three brands you like the look of.',go:()=>go('prospects','brands'),hint:'.fbtn',done:()=>campTargets(curCamp()).length>=3},
   {k:'prospects',t:'Find the people',say:'Add a decision maker at each brand. Ask me to find them, or add someone you already know.',go:()=>go('prospects','people'),done:()=>{const t=campTargets(curCamp());return t.length&&t.filter(a=>a.people.length).length>=Math.min(3,t.length)}},
   {k:'give',t:'Choose what to give',say:'Pick one genuinely useful thing to give. My best pick for your problem is at the top. One great gift beats three good ones.',go:()=>go('give'),hint:'[data-tour=assets]',done:()=>curCamp().assets.length>0},
@@ -7603,10 +7647,10 @@ const _launch11=launch;launch=function(){_launch11();if(S.coach&&S.coach.on)setT
 /* the walkthrough tells the same story as your team */
 WALK.splice(0,WALK.length,
  {k:'Welcome',t:n=>'Hello'+(n?' '+n:'')+'. Here’s how new business becomes <span class="serif">predictable.</span>',b:'Every campaign starts with a problem you solve. Then a team of four builds it with you: who to target, what to share, how to reach them, and launch. Free to build. You only pay to launch.',v:'crew'},
- {k:'Step 1 · Scout',t:()=>'Find the brands <span class="serif">worth your time.</span>',b:'Scout scours the UK for brands that fit you, each with a reason to talk now: agency moves, likely pitches, new leaders, campaigns. Then finds the people who decide.',v:'brands'},
- {k:'Step 2 · Muse',t:()=>'Give before <span class="serif">you ask.</span>',b:'Muse picks something genuinely useful to make for them, and drafts a bank of posts and pieces around it, so there is always something new to share.',v:'give'},
- {k:'Step 3 · Relay',t:()=>'A journey, <span class="serif">not a blast.</span>',b:'Relay paces touchpoints across LinkedIn, email, events and post over weeks, ending in the offer of a free workshop. One email a week, never more.',v:'journey'},
- {k:'Step 4 · Pilot',t:()=>'Launch, then <span class="serif">one day at a time.</span>',b:'Pilot writes every message in your voice and shows you only what is due today. You check it, send it and tick it off. Nothing leaves without you.',v:'launch'},
+ {k:'Step 1 · Nora',t:()=>'Find the brands <span class="serif">worth your time.</span>',b:'Nora scours the UK for brands that fit you, each with a reason to talk now: agency moves, likely pitches, new leaders, campaigns. Then finds the people who decide.',v:'brands'},
+ {k:'Step 2 · Gus',t:()=>'Give before <span class="serif">you ask.</span>',b:'Gus picks something genuinely useful to make for them, and drafts a bank of posts and pieces around it, so there is always something new to share.',v:'give'},
+ {k:'Step 3 · Priya',t:()=>'A journey, <span class="serif">not a blast.</span>',b:'Priya paces touchpoints across LinkedIn, email, events and post over weeks, ending in the offer of a free workshop. One email a week, never more.',v:'journey'},
+ {k:'Step 4 · Otis',t:()=>'Launch, then <span class="serif">one day at a time.</span>',b:'Otis writes every message in your voice and shows you only what is due today. You check it, send it and tick it off. Nothing leaves without you.',v:'launch'},
  {k:'Then · Results',t:()=>'See who is <span class="serif">leaning in.</span>',b:'Signals scores every accept, open, click and reply. Revenue tracks the deals against your target. Team shows everyone’s outreach, and Insights brings you what we spot.',v:'signals'});
 const _walkVis=walkVis;walkVis=function(v){if(v==='crew')return '<div class="wv-crew">'+OUT_K.map((k,i)=>'<div style="--i:'+i+'">'+agentFace(k,64,{badge:false,cls:'big'})+'<b>'+AGENTS[k].n+'</b><small>'+esc(MODULES.find(m=>m.k===k).l)+'</small></div>').join('<i></i>')+'</div>';return _walkVis(v)};
 /* your logo, and taking it away again */
@@ -7670,17 +7714,17 @@ const IMG12={"plato_face": "data:image/webp;base64,UklGRuQcAABXRUJQVlA4INgcAAAwa
 
 /* ═══════════ v12 THE CREW: Plato plus four bots ═══════════
    Plato is the guide for everything, bottom right. Each outreach step has a bot with one job and a personality to match:
-   Scout finds who to target, Muse makes what to share, Relay plans how to reach them, Pilot launches it.
+   Nora finds who to target, Gus makes what to share, Priya plans how to reach them, Otis launches it.
    They hand the work to each other, and talk to each other while they do it. The bots are drawn in SVG, so they are sharp at any size
    and can blink, scan and talk. */
 Object.assign(AGENTS.home,{n:'Plato',role:'Your guide',col:'#2c56ed',img:'plato',me:'I can see everything in Plato. Ask me anything, or ask me to do it for you.'});
-Object.assign(AGENTS.prospects,{n:'Scout',role:'Finds who to target',col:'#0b9f8a',img:'',bot:'radar',eyes:'scan',motto:'Fewer, better, sooner.',
+Object.assign(AGENTS.prospects,{n:'Nora',role:'Finds who to target',col:'#0b9f8a',img:'',bot:'radar',eyes:'scan',motto:'Fewer, better, sooner.',
   me:'I find the few brands worth your time and the people who actually decide. I do not do maybe. I do a score out of 100.'});
-Object.assign(AGENTS.give,{n:'Muse',role:'Makes what to share',col:'#e8890c',img:'',bot:'spark',eyes:'spark',motto:'Useful first. Clever second.',
+Object.assign(AGENTS.give,{n:'Gus',role:'Makes what to share',col:'#e8890c',img:'',bot:'spark',eyes:'spark',motto:'Useful first. Clever second.',
   me:'I come up with the thing so useful they would pay for it. Then you give it away. Yes, really. That is the whole trick.'});
-Object.assign(AGENTS.reach,{n:'Relay',role:'Plans how to reach them',col:'#7048e8',img:'',bot:'ping',eyes:'happy',motto:'Never two emails in a week.',
+Object.assign(AGENTS.reach,{n:'Priya',role:'Plans how to reach them',col:'#7048e8',img:'',bot:'ping',eyes:'happy',motto:'Never two emails in a week.',
   me:'I plan how you reach them: which road, how often, and when to be quiet and let them come to you.'});
-Object.assign(AGENTS.launch,{n:'Pilot',role:'Launches it with you',col:'#e03131',img:'',bot:'rocket',eyes:'visor',motto:'Small burns, every day.',
+Object.assign(AGENTS.launch,{n:'Otis',role:'Launches it with you',col:'#e03131',img:'',bot:'rocket',eyes:'visor',motto:'Small burns, every day.',
   me:'I line up today’s messages. You check them and send them. Ten minutes a day, every day, until they reply.'});
 const BOT_GLOW={radar:'#c3fae8',spark:'#fff3bf',ping:'#e5dbff',rocket:'#ffe3e3'};
 /* one bot, as SVG. Same body for all four (a dark, glossy head with a screen for a face), with its own crest, eyes and colour */
@@ -7715,30 +7759,30 @@ function godBust(k,sz){const A=AGENTS[k]||AGENTS.home;if(k==='home'||!A.bot)retu
 const botBust=godBust;
 /* what each bot says when you arrive: dry, quick, a bit cheeky, always useful */
 const _agentSays12=agentSays;agentSays=function(k){try{const c=curCamp();const tg=campTargets(c);const P=PROB();
-  if(k==='prospects'){if(!profDone())return 'Tell me who you want to win. Five quick taps and I will go and find them. I am fast, not psychic.';if(!campScanned(c))return 'Press Find prospects now and I will sweep for the few brands worth your time. Spraying and praying is someone else’s department.';const ppl=sum(tg,a=>a.people.length);return tg.length?tg.length+' brand'+(tg.length===1?'':'s')+' locked'+(ppl?', '+ppl+' people who decide. Muse is already twitching.':'. Now let me find who actually signs things off.'):'Pick the brands you like the look of. I have scored them, so you do not have to squint.'}
-  if(k==='give'){if(!c.problem)return 'Give me a problem and I will give you ten ideas. Which one does this campaign solve?';if(c.assets.length)return bankReady(c)?'Gift made, content bank full. I may have peaked. Relay, it is yours.':'Good gift. Now fill the content bank around '+P.short+' so every touch has something worth opening.';return 'Ideas below, built from your proof and their news. Pick one great gift. One. I know, I struggle too.'}
+  if(k==='prospects'){if(!profDone())return 'Tell me who you want to win. Five quick taps and I will go and find them. I am fast, not psychic.';if(!campScanned(c))return 'Press Find prospects now and I will sweep for the few brands worth your time. Spraying and praying is someone else’s department.';const ppl=sum(tg,a=>a.people.length);return tg.length?tg.length+' brand'+(tg.length===1?'':'s')+' locked'+(ppl?', '+ppl+' people who decide. Gus is already twitching.':'. Now let me find who actually signs things off.'):'Pick the brands you like the look of. I have scored them, so you do not have to squint.'}
+  if(k==='give'){if(!c.problem)return 'Give me a problem and I will give you ten ideas. Which one does this campaign solve?';if(c.assets.length)return bankReady(c)?'Gift made, content bank full. I may have peaked. Priya, it is yours.':'Good gift. Now fill the content bank around '+P.short+' so every touch has something worth opening.';return 'Ideas below, built from your proof and their news. Pick one great gift. One. I know, I struggle too.'}
   if(k==='reach'){const s=(c.reach.steps||[]).length;if(!(c.reach.ch||[]).length)return 'Pick your channels, or take the Scope & Lens route and I will pace it properly. Nobody likes the person who emails twice before lunch.';return s+' touches over '+c.reach.weeks+' weeks, never two emails in one week. Scan your LinkedIn profile first: they will look you up before they accept.'}
   if(k==='launch'){if(!campLive(c))return 'Everything is fuelled. Press launch and I will line up each day’s messages. Nothing goes out without you.';const due=(typeof dueToday==='function'?dueToday(c):[]).length;return due?due+' step'+(due===1?'':'s')+' for today. Ten minutes, then go and do your actual job.':'Nothing due today. Coasting is part of the flight plan.'}
   return _agentSays12(k)}catch(e){return AGENTS[k]?AGENTS[k].me:''}};
 /* your team talking to each other: two or three lines about where this campaign is, so you can see the hand-offs happen */
 function crewChat(k){try{const c=curCamp();const tg=campTargets(c);const ppl=sum(tg,a=>a.people.length);const P=PROB();const g=toolById(c.assets[0]);const s=(c.reach.steps||[]).length;
   const H=a=>{try{return scoreAccount(a).heat||0}catch(e){return 0}};const hot=tg.slice().sort((a,b)=>H(b)-H(a))[0];
-  if(k==='prospects'){if(!campScanned(c))return [['prospects','Sweeping the UK for brands that fit. Muse, hands off until I am done.'],['give','I was not touching anything. (I was.)']];
-    if(!ppl)return [['prospects','Muse, the shortlist is in. People next, then they are all yours.'],['give','Tell me when you have names. I make better gifts for people than for logos.']];
-    return [['prospects',tg.length+' brands, '+ppl+' decision maker'+(ppl===1?'':'s')+'. Muse, over to you.'],['give','Lovely. '+(c.problem?'Already thinking about '+P.short+'.':'What is their problem? Pick one and I will build around it.')],['reach','I will plan the road once there is something worth delivering.']]}
-  if(k==='give'){if(!c.problem)return [['give','Scout, what keeps these people up at night?'],['prospects',(hot&&hot.news?'Their news says plenty. Start with '+hot.name+'.':'Pick a problem below. I only deal in evidence.')]];
+  if(k==='prospects'){if(!campScanned(c))return [['prospects','Sweeping the UK for brands that fit. Gus, hands off until I am done.'],['give','I was not touching anything. (I was.)']];
+    if(!ppl)return [['prospects','Gus, the shortlist is in. People next, then they are all yours.'],['give','Tell me when you have names. I make better gifts for people than for logos.']];
+    return [['prospects',tg.length+' brands, '+ppl+' decision maker'+(ppl===1?'':'s')+'. Gus, over to you.'],['give','Lovely. '+(c.problem?'Already thinking about '+P.short+'.':'What is their problem? Pick one and I will build around it.')],['reach','I will plan the road once there is something worth delivering.']]}
+  if(k==='give'){if(!c.problem)return [['give','Nora, what keeps these people up at night?'],['prospects',(hot&&hot.news?'Their news says plenty. Start with '+hot.name+'.':'Pick a problem below. I only deal in evidence.')]];
     if(!g)return [['give','Problem set: '+P.short+'. Ideas are below, ranked.'],['reach','Pick the most useful one, not the cleverest. I have to deliver it.']];
-    return [['give','Gift ready: '+g.n+'. Relay, make sure they actually see it.'],['reach','On it. Nobody gets two emails in a week on my watch.']]}
-  if(k==='reach'){if(!(c.reach.ch||[]).length)return [['reach','Pilot, I need channels before you get excited.'],['launch','I am always excited.'],['reach','Exactly the problem.']];
-    return [['reach',s+' touches over '+c.reach.weeks+' weeks, paced. Pilot, do not rush it.'],['launch','Rushing is for cold emailers. Ready when you are.']]}
-  if(k==='launch'){if(!campLive(c))return [['launch','Pre-flight check. Scout?'],['prospects',tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' '+(ppl===1?'person':'people')+'. Scored.'],['give',g?'Gift wrapped: '+g.n+'.':'No gift yet. Do not look at me like that.'],['reach',s?'Route planned. '+s+' touches.':'No route yet.']];
+    return [['give','Gift ready: '+g.n+'. Priya, make sure they actually see it.'],['reach','On it. Nobody gets two emails in a week on my watch.']]}
+  if(k==='reach'){if(!(c.reach.ch||[]).length)return [['reach','Otis, I need channels before you get excited.'],['launch','I am always excited.'],['reach','Exactly the problem.']];
+    return [['reach',s+' touches over '+c.reach.weeks+' weeks, paced. Otis, do not rush it.'],['launch','Rushing is for cold emailers. Ready when you are.']]}
+  if(k==='launch'){if(!campLive(c))return [['launch','Pre-flight check. Nora?'],['prospects',tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' '+(ppl===1?'person':'people')+'. Scored.'],['give',g?'Gift wrapped: '+g.n+'.':'No gift yet. Do not look at me like that.'],['reach',s?'Route planned. '+s+' touches.':'No route yet.']];
     const due=(typeof dueToday==='function'?dueToday(c):[]).length;return [['launch',due?due+' step'+(due===1?'':'s')+' due today.':'Nothing due today. Holding altitude.'],['prospects',hot&&H(hot)>=3?hot.name+' is warming up. Lean in there first.':'I am watching for anyone warming up.']]}
   return []}catch(e){return []}}
 function crewHTML(k){const L=crewChat(k);if(!L.length)return '';
   return '<div class="crew" aria-label="Your team talking">'+L.map((x,i)=>{const A=AGENTS[x[0]];return '<div class="crw" style="--d:'+(.35+i*.55)+'s;--ac:'+A.col+'">'+agentFace(x[0],22,{badge:false})+'<span><b>'+esc(A.n)+'</b>'+esc(x[1])+'</span></div>'}).join('')+'</div>'}
 /* your team chat lives on Home only (see fixes12.js), so the step pages stay clean */
 /* handing on: each bot passes the work on in its own words */
-const BOT_HAND={prospects:'Brands locked. Over to you, Muse.',give:'Gift wrapped. Your road, Relay.',reach:'Route planned. Light it up, Pilot.',launch:'Launched. Plato, keep an eye on who warms up.'};
+const BOT_HAND={prospects:'Brands locked. Over to you, Gus.',give:'Gift wrapped. Your road, Priya.',reach:'Route planned. Light it up, Otis.',launch:'Launched. Plato, keep an eye on who warms up.'};
 const _handoff12=handoff;handoff=function(k,label,f,line){const h=_handoff12(k,label,f,line);const A=AGENTS[k];if(!BOT_HAND[k]||!A)return h;return h.replace(/<b>[^<]*“Over to you, [^”]*”<\/b>/,'<b>'+esc(A.n)+': “'+esc(BOT_HAND[k])+'”</b>')};
 
 /* ═══════════ v12 SHELL: Plato, your logo, your colours ═══════════
@@ -7906,7 +7950,7 @@ VIEWS.library=()=>{const L=libState();const d=L.learned;const O=S.setup.offer;co
     (true?many('team',d.team||[],'The team',t=>esc(t)):'')+
     (true?many('method',d.method||[],'How you work',t=>esc(t)):'')+
     (d.voice?'<div class="lr-sec"><div class="lr-h"><b>How you sound</b><small>'+esc(LEARN_USE.voice)+'</small></div><p class="small">'+esc(d.voice)+'</p></div>':'')+
-    ((d.services||[]).length||(d.sectors||[]).length?'<div class="lr-sec"><div class="lr-h"><b>What it sounds like you do</b><small>Shapes the brands Scout suggests</small></div><p class="small">'+esc((d.services||[]).map(k=>DISC[k].l).concat((d.sectors||[]).map(k=>L_SECTORS[k].label)).join(', '))+'</p></div>':'')+
+    ((d.services||[]).length||(d.sectors||[]).length?'<div class="lr-sec"><div class="lr-h"><b>What it sounds like you do</b><small>Shapes the brands Nora suggests</small></div><p class="small">'+esc((d.services||[]).map(k=>DISC[k].l).concat((d.sectors||[]).map(k=>L_SECTORS[k].label)).join(', '))+'</p></div>':'')+
     '<div class="row" style="gap:8px;margin-top:16px;flex-wrap:wrap"><button class="btn btn-primary" onclick="applyLearned()">'+ico('check')+(L.applied?'Update my messages':'Use this in my messages')+'</button>'+(L.applied?'<span class="small muted">In use since '+fmtDate(L.applied)+'</span>':'')+'</div>'
    :'<div class="card-h"><h3>What we learned</h3></div><p class="small muted">Add a file and I will pull out what you do best, why you, your first offer, proof points, case studies, clients, awards, the team and how you work. You choose what to use, and see exactly where each piece goes.</p><ul class="lr-how"><li>Proof and case studies become the evidence in your messages</li><li>Clients and awards become credibility lines</li><li>Decks and case studies can be sent as gifts in What to share</li></ul>')+'</div></div>'};
 /* proof, clients and awards that are ticked are what messages draw on */
@@ -8087,7 +8131,7 @@ VIEWS.give=()=>{const c=campPrep();campTab='value';return secHead('give','Give b
 
 /* the problem picker starts empty: you choose it for this campaign */
 probPicker=function(c){const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||'';
-  return '<div class="card probp'+(cur?'':' pneed')+'"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">'+(cur?'Muse builds the gift and every message around it.':'Pick one. Muse builds the gift and every message around it.')+'</p></div><div class="chips" style="margin-top:10px">'+
+  return '<div class="card probp'+(cur?'':' pneed')+'"><div><div class="lab" style="margin:0">The problem this campaign solves</div><p class="small muted" style="margin-top:2px">'+(cur?'Gus builds the gift and every message around it.':'Pick one. Gus builds the gift and every message around it.')+'</p></div><div class="chips" style="margin-top:10px">'+
     mine.concat(cur&&!mine.includes(cur)?[cur]:[]).map(k=>'<button class="chip'+(k===cur?' on':'')+'" onclick="setCampProb(\''+k+'\')">'+(k===cur?'<span class="ck">✓</span>':'')+esc(L_PROBLEMS[k].label)+'</button>').join('')+
     '<select class="inp sel-s" onchange="if(this.value)setCampProb(this.value)" aria-label="Another problem"><option value="">Another problem…</option>'+Object.entries(L_PROBLEMS).filter(([k])=>!mine.includes(k)).map(([k,v])=>'<option value="'+k+'">'+esc(v.label)+'</option>').join('')+'</select></div></div>'};
 
@@ -8313,21 +8357,21 @@ const GUIDES=[
  {k:'start',g:'home',t:'Your first campaign, start to finish',s:'The whole permissionless process in one sitting: profile, preferences, brands, people, a gift, a journey and a launch.',m:12,
   sec:[['Before you build',['Open Agency profile and complete the three tiles: Who you are, Why you and Your assets. Each tile turns dark blue when it is done.','Upload at least one asset: a credentials deck, a case study or a pitch. Paste text if you have no files to hand.','Press Save agency profile. Show me brands that fit appears once everything is complete.']],
    ['Build the campaign',['Press New campaign and give it a name. You choose the problem it solves later, in What to share.','In Who to target, set your prospecting preferences, then press Find prospects now.','Add the brands you like, then open Decision makers and add the people who decide.','In What to share, pick the problem, choose one gift and fill the content bank.','In How to reach, choose your channels or take the Scope & Lens route, and scan your LinkedIn profile.']],
-   ['Launch and keep going',['Open Launch and press Launch. Pilot sets out the steps due each day.','Copy or open each message, send it from your own LinkedIn or email, then press I have sent it.','Check Signals for who is warming up, and move real conversations into Pipeline.']]],
+   ['Launch and keep going',['Open Launch and press Launch. Otis sets out the steps due each day.','Copy or open each message, send it from your own LinkedIn or email, then press I have sent it.','Check Signals for who is warming up, and move real conversations into Pipeline.']]],
   tip:'Ask Plato at any point: what should I do next?'},
- {k:'who',g:'prospects',t:'Who to target: brands worth your time',s:'How Scout finds brands, what the score means, and how to build a short list you can actually work.',m:6,
+ {k:'who',g:'prospects',t:'Who to target: brands worth your time',s:'How Nora finds brands, what the score means, and how to build a short list you can actually work.',m:6,
   sec:[['Set who you want',['Open your agency profile, then Who you want: what you do best, sectors, client size, where, the people you sell to and the problems you solve.','Set it once. Every campaign and every brand score uses it. Change it there any time.']],
-   ['Find and choose',['Press Find prospects now. Scout scans for brands that match your agency profile and brings back the best fits.','Every brand has a score out of 100: sector (40), size (25), problems you solve (15), location (10) and timing (10). Tap a score to see the working.','Swipe right to add a brand, left to pass. Twelve to twenty brands is plenty for one campaign.']],
+   ['Find and choose',['Press Find prospects now. Nora scans for brands that match your agency profile and brings back the best fits.','Every brand has a score out of 100: sector (40), size (25), problems you solve (15), location (10) and timing (10). Tap a score to see the working.','Swipe right to add a brand, left to pass. Twelve to twenty brands is plenty for one campaign.']],
    ['People and timing',['Open Your list and add the two or three people who decide at each brand.','Open Why now. It follows only the brands on your list, newest stories first. Use a fresh story as your reason to get in touch.']]],
   tip:'Fewer, better brands beat a long list every time.'},
  {k:'give',g:'give',t:'What to share: give before you ask',s:'Choosing the problem, picking one gift, and filling the content bank that every message draws on.',m:6,
-  sec:[['Start with their problem',['Pick the problem this campaign solves at the top of What to share. Everything Muse suggests is built around it.','Your edge comes from your agency profile. Edit it there and every gift and message updates.']],
+  sec:[['Start with their problem',['Pick the problem this campaign solves at the top of What to share. Everything Gus suggests is built around it.','Your edge comes from your agency profile. Edit it there and every gift and message updates.']],
    ['Choose one gift',['Picked for you shows the three best fits, with the reason each one suits you.','Made from what you have turns your point of view, proof, sendables and the news on your brands into ideas.','Lead with one gift. Extra gifts are saved for later in the journey.']],
    ['Fill the content bank',['Add the hero piece, a case study, three LinkedIn posts and the rest of the bank. Messages pull from it automatically.','Add a link to the gift so every message carries a trackable link.']]],
   tip:'Useful first, clever second.'},
  {k:'reach',g:'reach',t:'How to reach: a journey, not a blast',s:'Channels, pace and timing, plus getting your LinkedIn profile ready before you connect.',m:5,
   sec:[['Pick the route',['Nothing is selected until you choose. Tap channels, or press Use the Scope & Lens route.','The route covers LinkedIn, email, content every two weeks from week one, events, a workshop, something in the post, a warm call when they engage, and LinkedIn ads in the background.','Choose Light, Steady or Full. There is never more than one email in a week.']],
-   ['Scan your LinkedIn profile',['Paste your profile link and press Scan my profile. Relay reads it the way your buyers will and scores it out of 100.','Work through the three to five suggestions and tick each one off. Then you can connect without a note.']],
+   ['Scan your LinkedIn profile',['Paste your profile link and press Scan my profile. Priya reads it the way your buyers will and scores it out of 100.','Work through the three to five suggestions and tick each one off. Then you can connect without a note.']],
    ['Meet them in person',['Events lists upcoming events your prospects are likely to attend, soonest first.','Search for where their people are speaking, or host your own breakfast for eight.']]],
   tip:'Never two emails in one week. Always something useful.'},
  {k:'launch',g:'launch',t:'Launch: a few minutes a day',s:'How the daily steps work, why nothing can be marked as sent until it is, and how autopilot works with Premium.',m:4,
@@ -8555,7 +8599,7 @@ function onbDraw(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=
     '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">Covered the logos on your last five ads and your rivals’. It was harder to tell them apart than I expected. Want the page? No catch.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
     '<p class="onb-say">95% of B2B buyers are not in market at any one time, and of the 5% who are, 81% already have a preferred agency. Pitching at the moment they need someone is too late. Being remembered before they need anyone is the whole game.</p>';
   if(C.k==='new')body='<p class="onb-say">Nobody cares what you can do. Everybody cares about what you can do for them. So we show up with value before anyone asks for it, and we keep showing up.</p><div class="onb-pr">'+[['target','Relevant','One problem, a short list of brands, and a reason to talk now.'],['gift','Valuable','Something useful they would happily pay for, given freely.'],['loop','Persistent','A steady rhythm over weeks. Never a blast, never a one-off.'],['user','Human','You send it, in your words, from your own accounts.']].map(x=>'<div>'+ico(x[0])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+'</div>';
-  if(C.k==='how')body='<p class="onb-say">Every campaign is built in four steps, and each step has a bot that does that one job. They hand the work to each other, and you will see them talk as they do it. Nothing goes out until the first three steps are done.</p><div class="onb-gods">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="ogd" style="--d:'+(i*.12)+'s">'+godBust(k,120)+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em><span>'+esc(A.me)+'</span></div>'}).join('<i class="ogd-a">'+ico('arrow')+'</i>')+'</div>'+'<div class="crew onb-crew">'+[['prospects','Twelve brands that fit, and the people who decide. Muse, over to you.'],['give','Their problem is standing out. I will make them a free audit.'],['reach','I will pace it over twelve weeks. Pilot, do not rush it.'],['launch','Ten minutes a day. Liftoff when you are ready.']].map((x,i)=>{const A=AGENTS[x[0]];return '<div class="crw" style="--d:'+(.8+i*.6)+'s">'+agentFace(x[0],22,{badge:false})+'<span><b>'+esc(A.n)+'</b>'+esc(x[1])+'</span></div>'}).join('')+'</div>';
+  if(C.k==='how')body='<p class="onb-say">Every campaign is built in four steps, and each step has a specialist who does that one job. They hand the work to each other, and you will see them talk as they do it. Nothing goes out until the first three steps are done.</p><div class="onb-gods">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="ogd" style="--d:'+(i*.12)+'s">'+godBust(k,120)+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em><span>'+esc(A.me)+'</span></div>'}).join('<i class="ogd-a">'+ico('arrow')+'</i>')+'</div>'+'<div class="crew onb-crew">'+[['prospects','Twelve brands that fit, and the people who decide. Gus, over to you.'],['give','Their problem is standing out. I will make them a free audit.'],['reach','I will pace it over twelve weeks. Otis, do not rush it.'],['launch','Ten minutes a day. Liftoff when you are ready.']].map((x,i)=>{const A=AGENTS[x[0]];return '<div class="crw" style="--d:'+(.8+i*.6)+'s">'+agentFace(x[0],22,{badge:false})+'<span><b>'+esc(A.n)+'</b>'+esc(x[1])+'</span></div>'}).join('')+'</div>';
   if(C.k==='why')body='<p class="onb-say">It compounds. Every useful thing you give earns attention a pitch never will. By the time they need an agency, you are already the obvious one to call.</p><div class="onb-proof"><div><b>£2.5m</b><span>added to one agency’s pipeline in nine months</span></div><div><b>£55m+</b><span>new business revenue won for agencies</span></div><div><b>100+</b><span>pitches behind the method</span></div></div><p class="onb-small">Plato does the heavy lifting: finding brands with a reason to talk, ideas for what to give, a paced plan, every message drafted in your voice, and a few minutes a day to send it.</p>';
   if(C.k==='demo')body='<div class="onb-demo"><div class="od-l"><p class="onb-say">Before you build your own, let me show you Plato in full swing. It is a made-up agency with invented brands and numbers, so you can see exactly how a superuser runs it, day to day.</p><ul class="od-u"><li>Two campaigns: one live, one being built</li><li>Brands scored out of 100, with the people who decide</li><li>Signals, a full pipeline and a daily routine</li></ul><p class="onb-small">When you are ready, press Build my own. The demo disappears and none of it touches your workspace.</p></div><div class="od-r">'+platoFace(120,'big')+'</div></div>';
   el.innerHTML='<div class="onb-in"><div class="onb-top">'+platoFace(40)+'<div class="grow"><small>'+(ONB+1)+' of '+ONB_CH.length+'</small><div class="onb-bar"><i style="width:'+((ONB+1)/ONB_CH.length*100)+'%"></i></div></div>'+(ONB_REPLAY||ONB>0?'<button class="btn btn-ghost btn-sm" onclick="onbSkip()">Skip</button>':'')+'</div>'+
@@ -8588,11 +8632,11 @@ function endDemo(){if(!DEMO_MODE)return;endTour&&['tourHole','tourCard','tourBlo
   setTimeout(()=>platoNudge('Now yours. Start with your agency profile: who you are, why you, and your assets. Then I will build your first campaign with you, step by step.',['Guide me',"coachStart()"]),500)}
 TOURS.demo=[
   {sel:'[data-tour=camps]',view:'home',t:'A superuser’s home',b:'Two campaigns: one live and working, one being built. They start every day here, with who to contact today and why.'},
-  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'The four steps, always in reach',b:'Scout, Muse, Relay and Pilot. Ticks show what is done for the campaign you are building.'},
-  {sel:'.bgrid,.bsw,.fhero2',view:'prospects',t:'Who to target',b:'Scout found these brands. Every one has a score out of 100 built from the agency profile. Tap a score to see the working.'},
-  {sel:'[data-tour=assets]',view:'give',t:'What to share',b:'One problem, one great gift. Muse suggests ideas made from the agency’s own proof, assets and the news on each brand.'},
-  {sel:'[data-tour=timeline]',view:'reach',t:'How to reach',b:'Relay paces it over twelve weeks, one campaign a quarter: never two emails in a week, content every fortnight, LinkedIn ads in the background.'},
-  {sel:'.mc,.lmodes,.launch-h,#view h1',view:'launch',t:'Launch, a few minutes a day',b:'Pilot sets out the steps due today. They send each one themselves, and can only tick it off once it has really gone.'},
+  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'The four steps, always in reach',b:'Nora, Gus, Priya and Otis. Ticks show what is done for the campaign you are building.'},
+  {sel:'.bgrid,.bsw,.fhero2',view:'prospects',t:'Who to target',b:'Nora found these brands. Every one has a score out of 100 built from the agency profile. Tap a score to see the working.'},
+  {sel:'[data-tour=assets]',view:'give',t:'What to share',b:'One problem, one great gift. Gus suggests ideas made from the agency’s own proof, assets and the news on each brand.'},
+  {sel:'[data-tour=timeline]',view:'reach',t:'How to reach',b:'Priya paces it over twelve weeks, one campaign a quarter: never two emails in a week, content every fortnight, LinkedIn ads in the background.'},
+  {sel:'.mc,.lmodes,.launch-h,#view h1',view:'launch',t:'Launch, a few minutes a day',b:'Otis sets out the steps due today. They send each one themselves, and can only tick it off once it has really gone.'},
   {sel:'#view h1',view:'signals',t:'Signals',b:'Who is warming up, hottest first, with the reason why.'},
   {sel:'.ptk',view:'pipeline',t:'Pipeline',b:'Won against target, what the pipeline should bring in, and the gap still to find.'},
   {sel:'#plato',view:'home',t:'And me',b:'Ask me anything, or tell me what to do. When you are ready, press Build my own at the top.'}];
@@ -8601,7 +8645,7 @@ const _endTour12=endTour;endTour=function(done){const demo=TOUR===TOURS.demo;_en
 TOUR_MAIN.length=0;TOUR_MAIN.push(
   {sel:'.sd-nav',alt:'.sd-ham',view:'home',t:'Everything lives on the left',b:'Home, your campaigns, the four steps, your results, insights and guides. On a phone, it is behind the menu button.'},
   {sel:'[data-tour=newcamp]',alt:'.sd-ham',view:'home',t:'Start a campaign from anywhere',b:'Once your agency profile is done, every campaign starts here.'},
-  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'The four steps',b:'Scout finds who to target, Muse makes what to share, Relay plans how to reach them and Pilot launches it.'},
+  {sel:'.sd-grp',alt:'.sd-ham',view:'home',t:'The four steps',b:'Nora finds who to target, Gus makes what to share, Priya plans how to reach them and Otis launches it.'},
   {sel:'#nav-signals',alt:'.sd-ham',view:'home',t:'Results',b:'Signals shows who is leaning in. Pipeline tracks the deals against your target.'},
   {sel:'#nav-agency',alt:'.sd-ham',view:'home',t:'Agency profile, team and settings',b:'Your profile feeds everything. Team and Settings sit with it, under the line.'},
   {sel:'#vmode',view:'home',t:'Dashboard or Plato',b:'Prefer a conversation? Switch to Plato view and do everything by talking.'},
@@ -8616,7 +8660,7 @@ COACH.splice(0,COACH.length,
   {k:'give',t:'Pick the problem and the gift',say:'Choose the problem this campaign solves, then one genuinely useful thing to give. One great gift beats three good ones.',go:()=>go('give'),hint:'[data-tour=assets]',done:()=>!!curCamp().problem&&curCamp().assets.length>0},
   {k:'give',t:'Fill your content bank',say:'Draft the posts and outlines, fill in what you know and mark each one ready. Messages pull from it.',go:()=>go('give'),hint:'#bank',done:()=>bankReady(curCamp())},
   {k:'reach',t:'Plan the journey',say:'Pick your channels or take the Scope & Lens route, then scan your LinkedIn profile so you will not need a note when you connect.',go:()=>go('reach'),hint:'[data-tour=liscan]',done:()=>{const c=curCamp();return c.reach.ch.length>0&&!!(S.liScan&&S.liScan.score)}},
-  {k:'launch',t:'Launch it',say:'Press launch. Then Pilot sets out each day’s steps for you to check and send. Nothing goes out without you.',go:()=>go('launch'),hint:'.lbtn',done:()=>campLive(curCamp())});
+  {k:'launch',t:'Launch it',say:'Press launch. Then Otis sets out each day’s steps for you to check and send. Nothing goes out without you.',go:()=>go('launch'),hint:'.lbtn',done:()=>campLive(curCamp())});
 coachStop=function(){if(S.coach)S.coach.on=0;save();const e=$('#coach');if(e)e.remove();toast('I am in the corner if you need me. Ask any time.')};
 coachHere=function(st){const v={home:st.t==='Finish your agency profile'?'agency':'prospects',prospects:'prospects',give:'give',reach:'reach',launch:'launch'}[st.k];if(st.t==='Start your first campaign')return false;return VIEW===v};
 dotWelcome=function(){S.welcomed=1;save()};
@@ -8629,10 +8673,10 @@ const _mPipe=MODULES.find(m=>m.k==='pipeline');if(_mPipe)Object.assign(_mPipe,{l
 ['prospects_after','give_after','reach_after','launch_after'].forEach(k=>{const v=VIEWS[k];if(!v)return;VIEWS[k]=function(a){if(!profReady())return;return v(a)}});
 /* a new campaign is just a name: the problem is chosen while you build it, in What to share */
 newCampaignFlow=function(){closeOverlays();if(!profReady()){toast('Finish your agency profile first. Then you can build campaigns.');go('agency');return}const n=S.campaigns.filter(c=>!isBlankCamp(c)).length;const cur=curCamp();
-  modal('<div class="nc"><div class="nc-faces">'+OUT_K.map((k,i)=>agentFace(k,i?40:52,{badge:false,cls:i?'':'big'})).join('<i></i>')+'</div><h2>A new campaign</h2><p class="sub">Name it, then Scout finds the brands. You choose the problem it solves in What to share. Nothing is sent until you launch.</p>'+
+  modal('<div class="nc"><div class="nc-faces">'+OUT_K.map((k,i)=>agentFace(k,i?40:52,{badge:false,cls:i?'':'big'})).join('<i></i>')+'</div><h2>A new campaign</h2><p class="sub">Name it, then Nora finds the brands. You choose the problem it solves in What to share. Nothing is sent until you launch.</p>'+
     '<div class="field"><label for="ncN">Give it a name</label><input class="inp" id="ncN" placeholder="e.g. Standing out in financial services" onkeydown="if(event.key===\'Enter\')ncGo()"></div>'+
     (n&&cur&&cur.targets.length&&!isBlankCamp(cur)?'<label class="row" style="gap:8px"><input type="checkbox" id="ncCopy"> Start with the brands from '+esc(cur.name)+'</label>':'')+
-    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="ncGo()">'+agentFace('prospects',22,{badge:false})+'Start with Scout'+ico('arrow','a')+'</button></div></div>');setTimeout(()=>{const i=$('#ncN');i&&i.focus()},200)};
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="ncGo()">'+agentFace('prospects',22,{badge:false})+'Start with Nora'+ico('arrow','a')+'</button></div></div>');setTimeout(()=>{const i=$('#ncN');i&&i.focus()},200)};
 newCampaign=newCampaignFlow;
 ncGo=function(){const nm=($('#ncN').value||'').trim()||'Campaign '+(S.campaigns.filter(c=>!isBlankCamp(c)).length+1);const cp=$('#ncCopy')&&$('#ncCopy').checked;const old=curCamp();
   act('Started '+nm,()=>{const c=newCamp(nm);c.touched=1;if(cp&&old)c.targets=old.targets.slice();const blank=S.campaigns.find(x=>isBlankCamp(x)&&!x.touched);if(blank)S.campaigns=S.campaigns.filter(x=>x!==blank);S.campaigns.unshift(c);S.cur=c.id},{refresh:false,ic:'🚀'});
@@ -8729,7 +8773,7 @@ function edgeOf(){const O=S.setup.offer,I=agInfo(),d=libState().learned||{};cons
 const _thinkCard121=thinkCard;thinkCard=function(c){const E=edgeOf();return _thinkCard121(c).replace(/<div class="cx-n dim"><span class="cx-ic">(<svg[\s\S]*?<\/svg>)<\/span><small>Your edge<\/small><b>[^<]*<\/b>(<button[^>]*>Add it<\/button>)?<\/div>/,'<div class="cx-n'+(E.why||E.best?'':' dim')+'"><span class="cx-ic">$1</span><small>Your edge</small><b>'+esc(E.why||E.best||'From your agency profile')+'</b></div>')};
 const _valueView121=valueView;valueView=function(c){const h=_valueView121(c);const E=edgeOf();const i=h.indexOf('<aside class="card sticky offer12"');if(i<0)return h;const j=h.indexOf('</aside>',i);
   const rows=[['star','What you do best',E.best],['bolt','Why you, not them',E.why],['check','Proof',E.proof],['bulb','Your first offer',E.first],['people','Clients',E.clients],['trophy','Recognition',E.awards],['flag','What you believe',E.pov]].filter(x=>x[2]);
-  return h.slice(0,i)+'<aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">Pulled from your agency profile and your assets. Muse uses it in every gift and every message.</p>'+
+  return h.slice(0,i)+'<aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">Pulled from your agency profile and your assets. Gus uses it in every gift and every message.</p>'+
     rows.map(x=>'<div class="ofl"><span>'+ico(x[0])+'</span><div><small>'+x[1]+'</small><p>'+esc(x[2])+'</p></div></div>').join('')+'<button class="link tiny" style="margin-top:6px" onclick="go(\'agency\',\'value\')">Change it in your agency profile</button></aside>'+h.slice(j+8)};
 
 /* ── 4. the LinkedIn scan: read the real profile, show what was read, then score it ── */
@@ -8827,7 +8871,7 @@ valueView=function(c){const T=toolsFor();const best=T.slice(0,3);const rest=T.sl
     (libGifts().length?'<div class="sec-h" style="margin-top:28px"><h2 class="h-m">From your library</h2><span class="muted small">Things you already have. Proof beats promise.</span></div><div class="tgrid">'+libGifts().map(t=>miniTool(t,c)).join('')+'</div>':'')+
     (MOREIDEAS?'<div class="sec-h" style="margin-top:28px"><h2 class="h-m">More ideas to give</h2>'+seg([['all','All']].concat(Object.entries(TOOL_FORMATS).filter(([k])=>T.slice(3).some(t=>t.f===k))),toolF,"toolF=$;go('give',null,true)")+'</div><div class="tgrid">'+rest.map(t=>miniTool(t,c)).join('')+'</div>'
       :'<button class="morebar" onclick="MOREIDEAS=true;go(\'give\',null,true)">'+ico('plus')+'Browse '+(T.length-3)+' more ideas to give</button>')+
-  '</div><aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">From your agency profile and assets. Muse uses it in every gift and message.</p>'+
+  '</div><aside class="card sticky offer12" data-tour="offer"><div class="card-h"><h3>Your edge</h3></div><p class="small muted" style="margin-bottom:12px">From your agency profile and assets. Gus uses it in every gift and message.</p>'+
     edgeRows.map(x=>'<div class="ofl"><span>'+ico(x[0])+'</span><div><small>'+x[1]+'</small><p>'+esc(x[2])+'</p></div></div>').join('')+'<button class="link tiny" style="margin-top:6px" onclick="go(\'agency\',\'value\')">Change it in your agency profile</button></aside></div>'+
   (tg.length?'<details class="hooksd"><summary><b>How to open with each brand</b><span class="muted small">'+Math.min(tg.length,6)+' brands, using their news and your gift</span></summary><div class="hooks">'+tg.slice(0,6).map(a=>{const n=a.news;const ang=L_ANGLES[n?n.type:'none'];return '<div class="hook"><div class="hk-h">'+logo(a,36)+'<div class="grow" style="min-width:0"><b>'+esc(a.name)+'</b><div class="tiny muted">'+(n?esc(L_TRIGGER_LABELS[n.type])+' · '+fmtYM(n.date):'No headline this quarter')+'</div></div></div><p class="small" style="margin-top:10px"><b style="color:var(--brand)">The move:</b> '+esc(angleT(ang.move,a,pick||best[0]))+'</p></div>'}).join('')+'</div></details>':'')+
   '<div class="listbar"><div class="grow muted small">'+(pick?'Giving <b style="color:var(--ink)">'+esc(pick.n)+'</b>'+(many?' first, then '+(c.assets.length-1)+' more later':''):'Choose one thing to give. You can pick more, but one works best.')+'</div><button class="btn btn-primary" onclick="'+(c.assets.length?"go('reach')":"toast('Tap Use this on an idea you like')")+'">Next: how to reach them'+ico('arrow','a')+'</button></div>'};
@@ -8850,7 +8894,7 @@ const _vCamps122=VIEWS.camps;VIEWS.camps=function(a){const keep=S.campaigns;S.ca
 
 /* ═══════════ v12.3 ═══════════
    1. What we learned: tick what we found, or write your own.
-   2. Who you want lives in the agency profile, set once. Scout never asks again.
+   2. Who you want lives in the agency profile, set once. Nora never asks again.
    3. Events pinpointed to your sectors, your own events, and one tap to put an event into the plan.
    4. What to share starts with the content bank. Ideas are built from your content, your sectors, problems and roles.
    5. Launching needs a hero piece, a case study and a blog post or report. Posts, videos and recordings are a bonus. */
@@ -8879,7 +8923,7 @@ const _digestLibrary123=digestLibrary;digestLibrary=async function(silent){const
 
 /* ── 2. who you want, in the agency profile ── */
 ONB_STEP.prospects.li[0]='Who you want lives in your agency profile: sectors, client size, where, the people you sell to and the problems you solve. Set it once.';
-AG12.splice(2,0,['want','Who you want','target','Sectors, client size, where, the people you sell to and the problems you solve. Scout uses it to find brands.']);
+AG12.splice(2,0,['want','Who you want','target','Sectors, client size, where, the people you sell to and the problems you solve. Nora uses it to find brands.']);
 const SIZE_MAP={'1 to 10':'xs','11 to 25':'sm','26 to 50':'md','51 to 100':'md','101 to 250':'lg','More than 250':'lg'};
 function wantProf(){const P=S.setup.profile;if(!P.discs||!P.discs.length)P.discs=P.discipline?[P.discipline]:[];if(!P.problems)P.problems=P.problem?[P.problem]:[];if(!P.sectors)P.sectors=[];if(!P.roles)P.roles=[];if(!P.region)P.region='any';if(!P.csize)P.csize='';
   const sz=SIZE_MAP[agInfo().size];if(sz)P.asize=sz;else if(!P.asize)P.asize='';return P}
@@ -8890,7 +8934,7 @@ function wantForm(){const P=wantProf();
   const q=(n,ic,t,inner,wide)=>'<div class="qcard'+(wide?' wide':'')+'"><div class="qh"><span class="gi">'+ico(ic)+'<i>'+n+'</i></span><b>'+t+'</b></div>'+inner+'</div>';
   const ch=(key,opts,max)=>'<div class="chips">'+opts.map(([k,l])=>{const on=max?(P[key]||[]).includes(k):P[key]===k;return '<button class="chip'+(on?' on':'')+'" onclick="wantPick(\''+key+'\',\''+k+'\','+(max||0)+')">'+(max?'<span class="ck">'+(on?'✓':'')+'</span>':'')+esc(l)+'</button>'}).join('')+'</div>';
   const probs='<div class="pgroups">'+Object.entries(L_PROB_GROUPS).map(([g,gl])=>'<div class="pgrp"><small>'+esc(gl)+'</small><div class="chips">'+Object.entries(L_PROBLEMS).filter(([k,v])=>v.g===g).map(([k,v])=>{const o=P.problems.includes(k);return '<button class="chip'+(o?' on':'')+'" onclick="wantPick(\'problems\',\''+k+'\',5)"><span class="ck">'+(o?(P.problems.indexOf(k)+1):'')+'</span>'+esc(v.label)+'</button>'}).join('')+'</div></div>').join('')+'</div>';
-  return '<p class="small muted" style="margin:0 0 12px">Set this once. Scout uses it to find brands for every campaign, and the score on each brand is built from it. Change it here any time.</p><div class="qgrid">'+
+  return '<p class="small muted" style="margin:0 0 12px">Set this once. Nora uses it to find brands for every campaign, and the score on each brand is built from it. Change it here any time.</p><div class="qgrid">'+
     q(1,'star','What do you do best? Up to three',ch('discs',Object.entries(DISC).map(([k,v])=>[k,v.l]),3),true)+
     q(2,'layers','Which sectors? Up to three, favourite first',ch('sectors',Object.entries(L_SECTORS).map(([k,v])=>[k,v.label]),3),true)+
     q(3,'grid','What size of client?',ch('csize',[['S','Challengers and scale ups'],['M','Established mid-size'],['L','Household names'],['auto','You decide']]))+
@@ -8902,7 +8946,7 @@ function wantPick(k,v,max){const P=wantProf();if(max){const a=P[k]||[];P[k]=a.in
 const _vAgency123=VIEWS.agency;VIEWS.agency=function(tab){let h=_vAgency123(tab);h=h.replace('Finish these three before your first campaign.','Finish these four before your first campaign.');
   const on=(h.match(/class="agt[^"]*\bon\b[^"]*"[^>]*onclick="go\('agency','([a-z]+)'\)"/)||[])[1];
   if(on==='want')h=h.replace('<div class="agsave">',wantForm()+'<div class="agsave">');return h};
-/* Scout never asks: preferences live in the agency profile */
+/* Nora never asks: preferences live in the agency profile */
 editProfile=function(){go('agency','want')};
 const _vProspects123=VIEWS.prospects;VIEWS.prospects=function(tab){PF=null;if(!profDone()&&!DEMO_MODE)return secHead('prospects','Who to <span class="serif">target.</span>')+'<div class="gate12">'+agentFace('prospects',56,{badge:false})+'<div class="grow"><div class="sh-k">One thing first</div><h2>Tell me who you <span class="serif">want.</span></h2><p>Your sectors, client size, the people you sell to and the problems you solve live in your agency profile. Set them once and I will use them for every campaign.</p><button class="btn btn-primary" onclick="go(\'agency\',\'want\')">Set who you want'+ico('arrow','a')+'</button></div></div>';
   return _vProspects123(tab).replace('Change your prospecting preferences','Change who you want')};
@@ -8962,7 +9006,7 @@ const _bankSlots123=bankSlots;bankSlots=function(c){return _bankSlots123(c).map(
 bankAdd=(function(orig){return function(k,how){if(how==='maker')return orig(k,how);
   modal('<h2>Add to the content bank</h2><p class="sub">Something you have already made. Upload it, or add a title and a link.</p>'+
     '<div class="field"><label for="bkS">What kind</label><select class="inp" id="bkS">'+BANK_SLOTS.map(s=>'<option value="'+s.k+'"'+(s.k===k?' selected':'')+'>'+s.l+'</option>').join('')+'</select></div>'+
-    '<label class="dz c" style="margin-bottom:12px"><input type="file" hidden accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="bankFile(this.files[0])"><span class="dz-ic">'+ico('upload')+'</span><b>Upload the file</b><small id="bkFst">PDF, Word, PowerPoint or text. The words are read so Muse can suggest gifts from it. The file itself is not kept.</small></label>'+
+    '<label class="dz c" style="margin-bottom:12px"><input type="file" hidden accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="bankFile(this.files[0])"><span class="dz-ic">'+ico('upload')+'</span><b>Upload the file</b><small id="bkFst">PDF, Word, PowerPoint or text. The words are read so Gus can suggest gifts from it. The file itself is not kept.</small></label>'+
     '<div class="field"><label for="bkT">Title</label><input class="inp" id="bkT" placeholder="e.g. Our state of FMCG branding report"></div><div class="field"><label for="bkU">Link <span class="muted">· optional</span></label><input class="inp" id="bkU" placeholder="https://"></div>'+
     '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="bankSaveOwn()">Add it as ready</button></div>');setTimeout(()=>$('#bkT')&&$('#bkT').focus(),60)}})(bankAdd);
 let BK_TEXT='';
@@ -8971,7 +9015,7 @@ bankSaveOwn=function(){const t=$('#bkT').value.trim();if(!t){$('#bkT').focus();r
   act('Added to the content bank',()=>{bankOf(c).items.push({id:uid(),slot:k,t,url:$('#bkU').value.trim(),status:'ready',src:'own',at:today(),text:text||undefined})},{refresh:false,ic:'📚'});closeOverlays();go('give',null,true)};
 const _bankCard123=bankCard;bankCard=function(c){let h=_bankCard123(c);const ok=bankReady(c);
   h=h.replace('<div class="lab" style="margin:0">The engine of the campaign</div><h2 class="h-m">Your content bank</h2>','<div class="lab" style="margin:0">Step 1</div><h2 class="h-m">Your content bank</h2>');
-  h=h.replace('<b>Outreach needs this ready before launch.</b>','<b>To launch you need a hero piece, a case study and a blog post or report.</b> LinkedIn posts, videos and screen recordings are a bonus. Upload what you have first: Muse builds your gift ideas from it.');
+  h=h.replace('<b>Outreach needs this ready before launch.</b>','<b>To launch you need a hero piece, a case study and a blog post or report.</b> LinkedIn posts, videos and screen recordings are a bonus. Upload what you have first: Gus builds your gift ideas from it.');
   h=h.replace(/<button class="btn btn-primary btn-xs" onclick="document\.querySelector\(\\?'\[data-tour=assets\]\\?'\)\.scrollIntoView\(\{behavior:\\?'smooth\\?'\}\)">Choose what to give<\/button>/,'<button class="btn btn-primary btn-xs" onclick="bankAdd(\'hero\')">'+ico('upload')+'Upload your own</button><button class="btn btn-ghost btn-xs" onclick="document.querySelector(\'[data-tour=assets]\').scrollIntoView({behavior:\'smooth\'})">Or pick a gift below</button>');
   h=h.replace("<button class=\"btn btn-ghost btn-xs\" onclick=\"bankAdd('case')\">"+ico('plus')+"Add a link</button>","<button class=\"btn btn-ghost btn-xs\" onclick=\"bankAdd('case')\">"+ico('upload')+"Upload or link</button>");
   h=h.replace(/(<div class="bk-a"><button class="btn btn-line btn-xs" onclick="bankAdd\('(?:lipost|blog|video|screen)','maker'\)">)/g,'$1');
@@ -9032,7 +9076,7 @@ ONB_CH.splice(0,ONB_CH.length,
  {k:'hello',t:'Welcome to <span class="serif">Plato.</span>'},
  {k:'old',t:'Most new business is <span class="serif">noise.</span>'},
  {k:'formula',t:'Predictable revenue, from <span class="serif">permissionless value.</span>'},
- {k:'process',t:'Four steps. Four <span class="serif">bots.</span>'},
+ {k:'process',t:'Four steps. Four <span class="serif">specialists.</span>'},
  {k:'prospects',t:'Step 1. Who to <span class="serif">target.</span>'},
  {k:'give',t:'Step 2. What to <span class="serif">share.</span>'},
  {k:'reach',t:'Step 3. How to <span class="serif">reach them.</span>'},
@@ -9041,7 +9085,7 @@ ONB_CH.splice(0,ONB_CH.length,
  {k:'demo',t:'See it done <span class="serif">properly.</span>'});
 function onbFlow(cur){return '<div class="onb-flow">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="of-s'+(k===cur?' on':'')+'">'+agentFace(k,cur===k?52:44,{badge:false})+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em></div>'}).join('<i class="of-a">'+ico('arrow')+'</i>')+'<i class="of-a">'+ico('arrow')+'</i><div class="of-s of-end'+(cur==='results'?' on':'')+'"><span class="of-ic">'+ico('pound')+'</span><small>The result</small><b>Predictable pipeline</b><em>Signals to won</em></div></div>'}
 onbDraw=function(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=(S.setup.you||(SESSION&&SESSION.name)||'').split(' ')[0];let body='';
-  if(C.k==='hello')body='<p class="onb-say">'+(n?'Welcome, '+esc(n)+'. ':'Welcome. ')+'This is how agencies build a predictable new business pipeline without cold pitching: find the right brands, give them something genuinely useful first, and keep showing up. The next few screens show you the method, the four steps and the bots that run them. Then you see Plato in full swing, and build yours.</p>'+onbFlow('')+
+  if(C.k==='hello')body='<p class="onb-say">'+(n?'Welcome, '+esc(n)+'. ':'Welcome. ')+'This is how agencies build a predictable new business pipeline without cold pitching: find the right brands, give them something genuinely useful first, and keep showing up. The next few screens show you the method, the four steps and the crew who run them. Then you see Plato in full swing, and build yours.</p>'+onbFlow('')+
     (ONB_REPLAY?'':'<div class="grid2" style="margin-top:18px"><div class="field"><label for="obY">Your first name</label><input class="inp" id="obY" value="'+esc(S.setup.you||(SESSION&&SESSION.name)||'')+'" autocomplete="given-name"></div><div class="field"><label for="obA">Your agency</label><input class="inp" id="obA" value="'+esc(S.setup.agency==='Your agency'?'':S.setup.agency||SESSION&&SESSION.orgName||'')+'" placeholder="e.g. Brightside Studio" autocomplete="organization"></div></div>');
   if(C.k==='old')body='<div class="onb-vs"><div class="vs-old"><small>The old way</small><div class="vs-msg">Hi, we are an award-winning agency. Have you got fifteen minutes next week for a quick chat about how we can help?</div><ul><li>A cold list, a template and a blast</li><li>All about the agency, nothing for them</li><li>One shot, then silence</li></ul></div>'+
     '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">Covered the logos on your last five ads and your rivals’. It was harder to tell them apart than I expected. Want the page? No catch.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
@@ -9049,9 +9093,9 @@ onbDraw=function(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=
   if(C.k==='formula')body='<p class="onb-say">You do not need permission to be useful. Give the right people something valuable, steadily, and the conversations come to you. Do it every week and new business stops being feast or famine.</p>'+
     '<div class="onb-eq"><div><span>'+ico('target')+'</span><b>The right brands</b><small>A short list with a reason to talk now</small></div><i>×</i><div><span>'+ico('gift')+'</span><b>Real value, first</b><small>Something they would happily pay for, given freely</small></div><i>×</i><div><span>'+ico('loop')+'</span><b>A steady rhythm</b><small>Weeks, not one shot. Never a blast</small></div><i>=</i><div class="eq-r"><span>'+ico('pound')+'</span><b>Predictable pipeline</b><small>Warm conversations, month after month</small></div></div>'+
     '<div class="onb-pr">'+[['target','Relevant','One problem, a short list of brands, and a reason to talk now.'],['gift','Valuable','Useful whether or not they ever hire you.'],['loop','Persistent','A steady rhythm over weeks. Never a one-off.'],['user','Human','You send it, in your words, from your own accounts.']].map(x=>'<div>'+ico(x[0])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+'</div>';
-  if(C.k==='process')body='<p class="onb-say">Every campaign is built in the same four steps, in order. Each step has a bot that does that one job, then hands the work to the next. Nothing goes out until the first three are done.</p>'+
+  if(C.k==='process')body='<p class="onb-say">Every campaign is built in the same four steps, in order. Each step has a specialist who does that one job, then hands the work to the next. Nothing goes out until the first three are done.</p>'+
     '<div class="onb-gods">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="ogd" style="--d:'+(i*.12)+'s">'+godBust(k,110)+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em><span>'+esc(A.role)+'</span></div>'}).join('<i class="ogd-a">'+ico('arrow')+'</i>')+'</div>'+
-    '<p class="onb-small" style="margin-top:14px">You stay in charge at every step. The bots find, suggest, plan and draft. You choose, edit and send.</p>';
+    '<p class="onb-small" style="margin-top:14px">You stay in charge at every step. The crew find, suggest, plan and draft. You choose, edit and send.</p>';
   if(ONB_STEP[C.k]){const A=AGENTS[C.k];const X=ONB_STEP[C.k];
     body='<div class="onb-step"><div class="os-bot">'+godBust(C.k,150)+'<b>'+esc(A.n)+'</b><small>'+esc(A.role)+'</small><p class="os-say">“'+esc(X.say)+'”</p></div>'+
       '<div class="os-r"><div class="os-k">What happens here</div><ol class="os-li">'+X.li.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol><div class="os-get">'+ico('check')+'<span><b>What you get</b>'+esc(X.get)+'</span></div></div></div>'+onbFlow(C.k)}
@@ -9343,12 +9387,12 @@ function intentChannels(sigs){const c=new Set();sigs.forEach(g=>{const f=(SIGNAL
 function highIntent(r){const n=r.ch.size+(r.ch.has('events')?1:0);return r.s.heat>=4||r.ch.has('talk')||(n>=2&&r.touches>=3)||(r.ppl.length>=3&&r.touches>=4)}
 
 /* ═══════════ v13: YOUR TEAM ═══════════
-   The four bots are now "your team": Scout, Muse, Relay and Pilot. Simpler to look at: a flat colour,
+   The four bots are now "your team": Nora, Gus, Priya and Otis. Simpler to look at: a flat colour,
    a white face, two eyes and one symbol that says what each one does. */
-Object.assign(AGENTS.prospects,{n:'Scout',role:'Finds who to target',bot:'scout',motto:'Fewer, better, sooner.',me:'I find the few brands worth your time and the people who actually decide.'});
-Object.assign(AGENTS.give,{n:'Muse',role:'Makes what to share',bot:'muse',motto:'Useful first.',me:'I turn your work into something so useful they would pay for it. Then you give it away.'});
-Object.assign(AGENTS.reach,{n:'Relay',role:'Plans how to reach them',bot:'relay',motto:'Steady, never pushy.',me:'I plan which channels, how often, and when to stay quiet.'});
-Object.assign(AGENTS.launch,{n:'Pilot',role:'Launches it with you',bot:'pilot',motto:'Ten minutes a day.',me:'I line up each day’s messages. You approve them, and they go.'});
+Object.assign(AGENTS.prospects,{n:'Nora',role:'Finds who to target',bot:'scout',motto:'Fewer, better, sooner.',me:'I find the few brands worth your time and the people who actually decide.'});
+Object.assign(AGENTS.give,{n:'Gus',role:'Makes what to share',bot:'muse',motto:'Useful first.',me:'I turn your work into something so useful they would pay for it. Then you give it away.'});
+Object.assign(AGENTS.reach,{n:'Priya',role:'Plans how to reach them',bot:'relay',motto:'Steady, never pushy.',me:'I plan which channels, how often, and when to stay quiet.'});
+Object.assign(AGENTS.launch,{n:'Otis',role:'Launches it with you',bot:'pilot',motto:'Ten minutes a day.',me:'I line up each day’s messages. You approve them, and they go.'});
 botSVG=function(kind,col,x,crop){const ns=x?' xmlns="http://www.w3.org/2000/svg" width="240" height="240"':'';const ink='#15151c';
   const sym={scout:'<circle cx="60" cy="18" r="7" fill="none" stroke="#fff" stroke-width="3"/><circle cx="60" cy="18" r="2.4" fill="#fff"/>',
     muse:'<path d="M60 9l2.6 6.4L69 18l-6.4 2.6L60 27l-2.6-6.4L51 18l6.4-2.6z" fill="#fff"/>',
@@ -9577,19 +9621,19 @@ async function domFetch(){const names=[...DOM_Q].slice(0,30);DOM_Q=new Set([...D
     if(got)save()}catch(e){}if(DOM_Q.size)DOM_T=setTimeout(domFetch,600)}
 
 /* ── 3. More prospects, from the agency's own preferences ── */
-async function findMorePros(){if(!isLive()){toast('Finding more prospects works once Plato is live');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Scout is searching';}
+async function findMorePros(){if(!isLive()){toast('Finding more prospects works once Plato is live');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Nora is searching';}
   try{const j=await api('discover',{method:'POST',body:{sectors:P.sectors||[],size:P.csize||P.size||[],region:P.region||'any',problems:(P.problems||[]).map(k=>(L_PROBLEMS[k]||{label:k}).label),exclude:PROSPECTS.map(p=>p.name).concat(S.accounts.map(a=>a.name))}});
     const add=(j.companies||[]).filter(co=>!PROSPECTS.some(p=>norm(p.name)===norm(co.name)));
     add.forEach(co=>{PROSPECTS.push({name:co.name,sector:co.sector,sub:co.sub,city:co.city,region:co.region,size:co.size,nt:'none',nd:'',news:'',src:'',pub:'',all:[],domain:co.domain,found:today()});DOMAINS[co.name]=co.domain});
     S.foundPros=(S.foundPros||[]).concat(add.map(co=>Object.assign({},co,{found:today()}))).slice(-400);save();
-    toast(add.length?'🎯 Scout found '+add.length+' more prospects that fit':'Nothing new fits right now. Try widening Who you want.');go('prospects','brands',true)}
-  catch(e){toast(e.message||'Scout could not search just now');if(b){b.disabled=false;b.textContent='Find more prospects'}}}
+    toast(add.length?'🎯 Nora found '+add.length+' more prospects that fit':'Nothing new fits right now. Try widening Who you want.');go('prospects','brands',true)}
+  catch(e){toast(e.message||'Nora could not search just now');if(b){b.disabled=false;b.textContent='Find more prospects'}}}
 /* prospects found before come back on every visit */
 setTimeout(()=>{try{(S.foundPros||[]).forEach(co=>{if(!PROSPECTS.some(p=>norm(p.name)===norm(co.name))){PROSPECTS.push({name:co.name,sector:co.sector,sub:co.sub,city:co.city,region:co.region,size:co.size,nt:'none',nd:'',news:'',src:'',pub:'',all:[],domain:co.domain,found:co.found});DOMAINS[co.name]=co.domain}})}catch(e){}},0);
 
 /* ── 4. Who to target: the second tab is Find decision makers ── */
 const _vPros13=VIEWS.prospects;VIEWS.prospects=function(tab){let h=String(_vPros13(tab)).replace(/>Your list(?=<i>|<\/button>)/g,'>Find decision makers');
-  if((tab||'brands')==='brands'&&profDone()&&!DEMO_MODE)h=h.replace(/(<div class="profchips[^"]*">)/,'<div class="morebar"><span>'+ico('target')+'<b>'+PROSPECTS.map(fitP).filter(Boolean).length+' brands fit what you want.</b> Want more? Scout can search for organisations that match your preferences.</span><button class="btn btn-line btn-sm" id="morePros" onclick="findMorePros()">'+ico('plus')+'Find more prospects</button></div>$1');
+  if((tab||'brands')==='brands'&&profDone()&&!DEMO_MODE)h=h.replace(/(<div class="profchips[^"]*">)/,'<div class="morebar"><span>'+ico('target')+'<b>'+PROSPECTS.map(fitP).filter(Boolean).length+' brands fit what you want.</b> Want more? Nora can search for organisations that match your preferences.</span><button class="btn btn-line btn-sm" id="morePros" onclick="findMorePros()">'+ico('plus')+'Find more prospects</button></div>$1');
   return h};
 
 /* ── 5. The demo: leaving it takes you back to your own workspace, where you left it ── */
@@ -9604,13 +9648,13 @@ const _renderShell13=renderShell;renderShell=function(){_renderShell13.apply(thi
 
 /* ── 6. The hero piece: read properly, explained, and a blurb you can edit ── */
 function pieceLocal(it){const t=String(it.text||'').replace(/\s+/g,' ').trim();const sents=t.split(/(?<=[.!?])\s+/).filter(s=>s.length>40).slice(0,3);
-  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. Once Plato is live, Muse reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
+  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. Once Plato is live, Gus reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
 async function pieceRead(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;pieceModal(it,null);
   let r=null;const P=S.setup.profile||{};
   if(isLive()){try{r=await api('piece',{method:'POST',body:{title:it.t,url:it.url||'',text:(it.text||'').slice(0,16000),kind:(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'hero piece'}).l,agency:S.setup.agency,sectors:(P.sectors||[]).map(k=>(L_SECTORS[k]||{label:k}).label),roles:(P.roles||[]).map(k=>(L_ROLES[k]||{label:k}).label),problem:PROB().short}})}catch(e){r=null}}
   if(!r||(!r.what&&!r.note))r=pieceLocal(it);it.ai=Object.assign({},r,{at:today()});if(!it.blurb&&r.blurb)it.blurb=r.blurb;save();pieceModal(it,r)}
 function pieceModal(it,r){const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'Piece'}).l;
-  if(!r){modal('<div class="pc-load">'+agentFace('give',56,{badge:false})+'<h2>Muse is reading '+esc(it.t)+'</h2><p class="sub">Working out what it is, why your prospects would value it, and a blurb to share it with.</p><div class="pc-bar"><i></i></div></div>');return}
+  if(!r){modal('<div class="pc-load">'+agentFace('give',56,{badge:false})+'<h2>Gus is reading '+esc(it.t)+'</h2><p class="sub">Working out what it is, why your prospects would value it, and a blurb to share it with.</p><div class="pc-bar"><i></i></div></div>');return}
   modal('<div class="row" style="gap:12px;align-items:flex-start">'+agentFace('give',44,{badge:false})+'<div class="grow"><small class="muted">'+esc(k)+' · '+(r.read==='file'?'read from your file':r.read==='link'?'read from the link':'only the title')+'</small><h2 style="margin-top:2px">'+esc(it.t)+'</h2></div></div>'+
     (r.note&&!r.what?'<p class="pc-note">'+ico('info')+esc(r.note)+'</p>':'')+
     '<div class="field"><label for="pcWhat">What it is</label><textarea class="inp" id="pcWhat" rows="2">'+esc(r.what||'')+'</textarea></div>'+
@@ -9619,14 +9663,14 @@ function pieceModal(it,r){const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'Piece'
     '<div class="field"><label for="pcBlurb">The blurb you share it with <span class="muted">· edit it so it sounds like you</span></label><textarea class="inp" id="pcBlurb" rows="4">'+esc(it.blurb||r.blurb||'')+'</textarea></div>'+
     ((r.hooks||[]).length?'<div class="pc-hooks"><b>Reasons to open it</b>'+r.hooks.map(h=>'<span>'+esc(h)+'</span>').join('')+'</div>':'')+
     '<div class="modal-foot"><button class="btn btn-ghost" onclick="pieceRead(\''+it.id+'\')">'+ico('loop')+'Read it again</button><button class="btn btn-primary" onclick="pieceSave(\''+it.id+'\')">Save</button></div>')}
-function pieceSave(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;act('Saved what Muse understood',()=>{it.ai=Object.assign({},it.ai||{},{what:$('#pcWhat').value.trim(),why:$('#pcWhy').value.trim()});it.blurb=$('#pcBlurb').value.trim();it.edited=today()},{refresh:false,ic:'✍️'});closeOverlays();go('give',null,true)}
-/* after adding a piece with a file or link, Muse reads it straight away */
+function pieceSave(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;act('Saved what Gus understood',()=>{it.ai=Object.assign({},it.ai||{},{what:$('#pcWhat').value.trim(),why:$('#pcWhy').value.trim()});it.blurb=$('#pcBlurb').value.trim();it.edited=today()},{refresh:false,ic:'✍️'});closeOverlays();go('give',null,true)}
+/* after adding a piece with a file or link, Gus reads it straight away */
 const _bankSaveOwn13=bankSaveOwn;bankSaveOwn=function(){const c=curCamp();const n0=bankOf(c).items.length;const hadText=!!BK_TEXT;const url=($('#bkU')||{}).value;_bankSaveOwn13();const it=bankOf(c).items[n0];
   if(it&&(hadText||url))setTimeout(()=>pieceRead(it.id),250);else if(it&&it.slot==='hero')setTimeout(()=>pieceModal(it,pieceLocal(it)),250)};
-/* show what Muse understood under the content bank, with a way to edit it */
+/* show what Gus understood under the content bank, with a way to edit it */
 const _bankCard13=bankCard;bankCard=function(c){const h=String(_bankCard13(c));const I=bankOf(c).items.filter(x=>x.src==='own');if(!I.length)return h;
-  return h+'<div class="pcs"><div class="lab">'+agentFace('give',22,{badge:false})+'What Muse understood from your content</div><div class="pcs-g">'+I.map(it=>{const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:''}).l;const ai=it.ai;
-    return '<div class="pcc'+(it.slot==='hero'?' hero':'')+'"><small>'+esc(k)+'</small><b>'+esc(it.t)+'</b>'+(ai&&(ai.why||ai.what)?'<p>'+esc(ai.why||ai.what)+'</p>':'<p class="muted">Not read yet.</p>')+(it.blurb?'<blockquote>'+esc(it.blurb)+'</blockquote>':'')+'<div class="row" style="gap:6px"><button class="btn btn-line btn-xs" onclick="'+(ai?'pieceModal(bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\'),bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\').ai)':'pieceRead(\''+it.id+'\')')+'">'+ico(ai?'edit':'eye')+(ai?'Edit the blurb':'Read it with Muse')+'</button></div></div>'}).join('')+'</div></div>'};
+  return h+'<div class="pcs"><div class="lab">'+agentFace('give',22,{badge:false})+'What Gus understood from your content</div><div class="pcs-g">'+I.map(it=>{const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:''}).l;const ai=it.ai;
+    return '<div class="pcc'+(it.slot==='hero'?' hero':'')+'"><small>'+esc(k)+'</small><b>'+esc(it.t)+'</b>'+(ai&&(ai.why||ai.what)?'<p>'+esc(ai.why||ai.what)+'</p>':'<p class="muted">Not read yet.</p>')+(it.blurb?'<blockquote>'+esc(it.blurb)+'</blockquote>':'')+'<div class="row" style="gap:6px"><button class="btn btn-line btn-xs" onclick="'+(ai?'pieceModal(bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\'),bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\').ai)':'pieceRead(\''+it.id+'\')')+'">'+ico(ai?'edit':'eye')+(ai?'Edit the blurb':'Read it with Gus')+'</button></div></div>'}).join('')+'</div></div>'};
 
 /* ═══════════ v13: YOUR INSIGHTS ═══════════
    Personal to the agency: ranked by the sectors it wants, the brands on its campaigns and what it does.
@@ -9694,22 +9738,22 @@ const SHOT_V='13';
 GUIDES.splice(0,GUIDES.length,
  {k:'start',g:'home',t:'Your first campaign, start to finish',s:'The whole permissionless process in one sitting: agency profile, brands, people, a gift, a journey and a launch.',m:10,
   sec:[['Your agency profile first','agency',['Open Agency profile in the sidebar. Complete Who you are, Why you, Who you want and Your assets. Each turns brand blue when it is done.','Add your website and press Read my website, and upload a credentials deck or case study. What we learned fills in from them, and you can tick, untick or write your own.','Nobody can start a campaign until the profile is complete, because every brand, gift and message is built from it.']],
-   ['Build the campaign','home',['Press New campaign. Campaigns run for twelve weeks by default, so a year is four quarterly campaigns.','Work through the four steps in the sidebar, in order: Who to target with Scout, What to share with Muse, How to reach them with Relay, and Launch with Pilot.','Home shows Today’s priorities: the next thing to do for every campaign, connection and conversation. Tick each one off as you go.']],
+   ['Build the campaign','home',['Press New campaign. Campaigns run for twelve weeks by default, so a year is four quarterly campaigns.','Work through the four steps in the sidebar, in order: Who to target with Nora, What to share with Gus, How to reach them with Priya, and Launch with Otis.','Home shows Today’s priorities: the next thing to do for every campaign, connection and conversation. Tick each one off as you go.']],
    ['Launch and keep going','launch',['In Launch, choose how to send: yourself (included), or through Amplify with you approving each message (Premium).','Open Launch for a few minutes each day and work through what is due.','Watch Signals & Intent for who is leaning in, and add real conversations to Pipeline the day they start.']]],
   tip:'Ask Plato at any point: what should I do next?'},
- {k:'who',g:'prospects',t:'Who to target: brands worth your time',s:'How Scout finds brands, what the score means, finding decision makers, and getting more prospects.',m:6,
-  sec:[['Tell Scout who you want','prospects',['Who you want lives in your agency profile: what you do best, sectors, client size, where, the people you sell to and the problems you solve.','On Who to target, your choices show as chips. Press Change who you are targeting, next to them, to change them.','Every brand gets a score out of 100: sector (40), size (25), problems you solve (15), location (10) and timing (10). Tap a score to see the working.']],
-   ['Find more prospects','prospects',['Press Find prospects now and Scout brings back the best fits from the research edition.','Want more? Press Find more prospects. Scout searches for real UK organisations that match your preferences and checks each website exists.','Add the brands you like. Twelve to twenty is plenty for one campaign.']],
+ {k:'who',g:'prospects',t:'Who to target: brands worth your time',s:'How Nora finds brands, what the score means, finding decision makers, and getting more prospects.',m:6,
+  sec:[['Tell Nora who you want','prospects',['Who you want lives in your agency profile: what you do best, sectors, client size, where, the people you sell to and the problems you solve.','On Who to target, your choices show as chips. Press Change who you are targeting, next to them, to change them.','Every brand gets a score out of 100: sector (40), size (25), problems you solve (15), location (10) and timing (10). Tap a score to see the working.']],
+   ['Find more prospects','prospects',['Press Find prospects now and Nora brings back the best fits from the research edition.','Want more? Press Find more prospects. Nora searches for real UK organisations that match your preferences and checks each website exists.','Add the brands you like. Twelve to twenty is plenty for one campaign.']],
    ['Find decision makers','people',['Open the Find decision makers tab. Add the two or three people who decide at each brand on your list.','Why now follows only the brands on your list, newest stories first. A fresh story is your reason to get in touch.']]],
   tip:'Fewer, better brands beat a long list every time.'},
- {k:'give',g:'give',t:'What to share: give before you ask',s:'The content bank, how Muse reads your hero piece, and choosing one gift.',m:6,
-  sec:[['Step 1. Fill the content bank','give',['To launch you need three things: a hero piece, a case study, and a blog post or report. LinkedIn posts, videos and screen recordings are a bonus.','Press Add, then upload the file or paste a link. Muse reads the words, not just the title.']],
-   ['Let Muse read your hero piece','give',['After you add a piece with a file or link, Muse works out what it is, why your prospects would value it, and who would value it most.','Muse drafts a short blurb to share it with. Edit anything that is not quite right and press Save. Your version is the one used.','You can reopen it any time from What Muse understood, under the content bank.']],
-   ['Step 2. Choose one gift','give',['Pick the problem this campaign solves at the top of the page. Every idea is built around it.','Muse suggests gifts made from your content, your sectors and the people you are targeting. Lead with one. Extra ideas are saved for later.']]],
+ {k:'give',g:'give',t:'What to share: give before you ask',s:'The content bank, how Gus reads your hero piece, and choosing one gift.',m:6,
+  sec:[['Step 1. Fill the content bank','give',['To launch you need three things: a hero piece, a case study, and a blog post or report. LinkedIn posts, videos and screen recordings are a bonus.','Press Add, then upload the file or paste a link. Gus reads the words, not just the title.']],
+   ['Let Gus read your hero piece','give',['After you add a piece with a file or link, Gus works out what it is, why your prospects would value it, and who would value it most.','Gus drafts a short blurb to share it with. Edit anything that is not quite right and press Save. Your version is the one used.','You can reopen it any time from What Gus understood, under the content bank.']],
+   ['Step 2. Choose one gift','give',['Pick the problem this campaign solves at the top of the page. Every idea is built around it.','Gus suggests gifts made from your content, your sectors and the people you are targeting. Lead with one. Extra ideas are saved for later.']]],
   tip:'Useful first, clever second.'},
  {k:'reach',g:'reach',t:'How to reach: a journey, not a blast',s:'Channels, pace, your LinkedIn profile, and events worth being at.',m:5,
-  sec:[['Pick the route','reach',['Choose your channels, or press Use the Scope & Lens route for LinkedIn, email, content, events and LinkedIn Ads.','Relay paces it over twelve weeks and never sends two emails in one week. Every message is written in your voice.']],
-   ['Get your LinkedIn profile ready','reach',['Paste your profile link and press Scan. Relay reads the real profile and shows you what it read.','You get a score and three to five changes, each with copy to paste. Tick them off as you make them.']],
+  sec:[['Pick the route','reach',['Choose your channels, or press Use the Scope & Lens route for LinkedIn, email, content, events and LinkedIn Ads.','Priya paces it over twelve weeks and never sends two emails in one week. Every message is written in your voice.']],
+   ['Get your LinkedIn profile ready','reach',['Paste your profile link and press Scan. Priya reads the real profile and shows you what it read.','You get a score and three to five changes, each with copy to paste. Tick them off as you make them.']],
    ['Events','reach',['Events for your sectors come first, with an All events option. Add your own if it is missing.','Add to my plan puts a LinkedIn nudge in the week before and a meet-them-there touchpoint in the event’s week.']]],
   tip:'Never two emails in one week. Always something useful.'},
  {k:'launch',g:'launch',t:'Launch: send it yourself, or let Amplify send it',s:'The two ways to send, and exactly what happens to every message you approve.',m:5,
@@ -9830,10 +9874,10 @@ TOURS.demo.splice(0,TOURS.demo.length,
   {sel:'[data-tour=hero]',view:'home',t:'A superuser’s home',b:'Plato’s brief comes first: what is live, who is engaging, and the one thing to do today.'},
   {sel:'[data-tour=moves]',view:'home',t:'Today’s priorities',b:'Everything that moves their campaigns forward, most important first: messages due, replies to answer, brands to lean into. Tick each one off.'},
   {sel:'[data-tour=numbers]',view:'home',t:'The numbers',b:'Brands engaging, replies, meetings, opportunities and pipeline, with the trend over eight weeks.'},
-  {sel:'#sdg-camp,#tabbar',view:'home',t:'The four steps, always in reach',b:'Scout, Muse, Relay and Pilot build every campaign with you. Ticks show what is done.'},
-  {sel:'.bgrid,.bsw,.fhero2,.profchips',view:'prospects',t:'Who to target',b:'Scout scores every brand out of 100 from the agency profile, and finds the people who decide.'},
-  {sel:'[data-tour=assets],.deck',view:'give',t:'What to share',b:'One problem, one great gift, made from the agency’s own content. Muse reads the hero piece and drafts the blurb.'},
-  {sel:'[data-tour=timeline]',view:'reach',t:'How to reach',b:'Relay paces it over twelve weeks, one campaign a quarter, with every message written.'},
+  {sel:'#sdg-camp,#tabbar',view:'home',t:'The four steps, always in reach',b:'Nora, Gus, Priya and Otis build every campaign with you. Ticks show what is done.'},
+  {sel:'.bgrid,.bsw,.fhero2,.profchips',view:'prospects',t:'Who to target',b:'Nora scores every brand out of 100 from the agency profile, and finds the people who decide.'},
+  {sel:'[data-tour=assets],.deck',view:'give',t:'What to share',b:'One problem, one great gift, made from the agency’s own content. Gus reads the hero piece and drafts the blurb.'},
+  {sel:'[data-tour=timeline]',view:'reach',t:'How to reach',b:'Priya paces it over twelve weeks, one campaign a quarter, with every message written.'},
   {sel:'.htw,.mc,#view h1',view:'launch',t:'Launch, a few minutes a day',b:'Send it yourself, or let Amplify send what you approve. Each step can only be ticked off once it is due and has really gone.'},
   {sel:'.itl-lean,.sgc-wrap,#view h1',view:'signals',t:'Signals & Intent',b:'Every organisation showing high intent across outreach, ads, events and content, with the people engaging.'},
   {sel:'.pfg,#view h1',view:'perf',t:'Campaign performance',b:'Each campaign’s reach, engagement, conversations and opportunities.'},
@@ -9842,7 +9886,7 @@ TOURS.demo.splice(0,TOURS.demo.length,
 TOUR_MAIN.splice(0,TOUR_MAIN.length,
   {sel:'.sd-nav,#tabbar',view:'home',t:'Everything in one place',b:'Home, your campaigns, the four steps, your results and help. On a phone it is the bar at the bottom.'},
   {sel:'[data-tour=newcamp],.tb-i:nth-child(2)',view:'home',t:'Start a campaign',b:'Once your agency profile is done, every campaign starts here.'},
-  {sel:'#sdg-camp,.tb-i:nth-child(2)',view:'home',t:'Your campaign and its four steps',b:'Scout finds who to target, Muse makes what to share, Relay plans how to reach them and Pilot launches it.'},
+  {sel:'#sdg-camp,.tb-i:nth-child(2)',view:'home',t:'Your campaign and its four steps',b:'Nora finds who to target, Gus makes what to share, Priya plans how to reach them and Otis launches it.'},
   {sel:'#sdg-res,.tb-i:nth-child(4)',view:'home',t:'Results',b:'Campaign performance, Signals & Intent, and Pipeline.'},
   {sel:'[data-tour=moves],[data-tour=hero]',view:'home',t:'Today’s priorities',b:'What to do next, across every campaign. Plato reminds you about anything still to do.'},
   {sel:'#nav-agency,.tb-i:nth-child(5)',view:'home',t:'Agency profile, team and settings',b:'Your profile feeds everything.'},
@@ -9902,16 +9946,16 @@ const V14_RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').m
 
 /* ── 1. Say what you do there ───────────────────────────────── */
 (function(){const N={
-  prospects:{l:'Pick your brands',q:'Scout finds the few worth your time'},
-  give:{l:'Make your gift',q:'Muse builds something they will actually want'},
-  reach:{l:'Plan the journey',q:'Relay paces every touchpoint over weeks'},
-  launch:{l:'Launch',q:'Pilot lines up each day. You stay in charge'}};
+  prospects:{l:'Pick your brands',q:'Nora finds the few worth your time'},
+  give:{l:'Make your gift',q:'Gus builds something they will actually want'},
+  reach:{l:'Plan the journey',q:'Priya paces every touchpoint over weeks'},
+  launch:{l:'Launch',q:'Otis lines up each day. You stay in charge'}};
   MODULES.forEach(m=>{if(N[m.k]){m.l=N[m.k].l;m.q=N[m.k].q}})})();
 function stageMove(k,c){const tg=campTargets(c);
-  if(k==='prospects'){if(!profDone())return 'Answer the five quick questions, so Scout knows exactly who to hunt.';
-    if(!campScanned(c))return 'Press <b>Find prospects now</b> and Scout sweeps for brands that fit.';
+  if(k==='prospects'){if(!profDone())return 'Answer the five quick questions, so Nora knows exactly who to hunt.';
+    if(!campScanned(c))return 'Press <b>Find prospects now</b> and Nora sweeps for brands that fit.';
     if(!tg.length)return 'Tick the brands you like the look of. Each one joins this campaign.';
-    if(!sum(tg,a=>a.people.length))return 'Open a brand and add its decision makers, or ask Scout to find the people.';
+    if(!sum(tg,a=>a.people.length))return 'Open a brand and add its decision makers, or ask Nora to find the people.';
     return 'Brands and people locked. <button class="link" onclick="go(\'give\')">Next: make your gift →</button>'}
   if(k==='give'){if(!c.assets.length)return 'Tap <b>Use this</b> on one idea. One great gift beats three good ones.';
     if(!bankReady(c))return 'Now fill the content bank, so every touchpoint has something worth opening.';
@@ -10170,8 +10214,8 @@ function flowNode(o){const ch=REACH_CH.find(x=>x.k===o.ch);const col=o.col||(ch?
 function flowWire(lbl){return '<i class="jfw">'+(lbl?'<em>'+esc(lbl)+'</em>':'')+'</i>'}
 function flowSplit(q,yes,no){return '<div class="jfs"><span class="jfs-q">'+ico('layers')+esc(q)+'</span></div><div class="jfb"><div><span class="jfb-t y">Yes</span><i class="jfw sh"></i>'+flowNode(yes)+'</div><div><span class="jfb-t n">Not yet</span><i class="jfw sh"></i>'+flowNode(no)+'</div></div><i class="jfm"></i>'}
 function flowHTML(c){const R=c.reach;const st=(R.steps||[]).slice().sort((a,b)=>a.w-b.w);const tg=campTargets(c);const ppl=sum(tg,a=>a.people.length);
-  if(!st.length)return '<div class="empty">'+agentFace('reach',44,{badge:false})+'Pick at least one channel above and Relay will draw the flow.</div>';
-  const gift=toolById(c.assets[0]);let h=flowNode({t:tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' decision maker'+(ppl===1?'':'s'),s:'Scored and ready, from Scout',ic:'target',col:'#0b9f8a',cls:'start',who:'prospects'});
+  if(!st.length)return '<div class="empty">'+agentFace('reach',44,{badge:false})+'Pick at least one channel above and Priya will draw the flow.</div>';
+  const gift=toolById(c.assets[0]);let h=flowNode({t:tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' decision maker'+(ppl===1?'':'s'),s:'Scored and ready, from Nora',ic:'target',col:'#0b9f8a',cls:'start',who:'prospects'});
   let prevW=0,splitLI=false,splitEM=false;
   st.forEach((s,i)=>{const gap=s.w-prevW;h+=flowWire(i===0?'Week '+s.w:gap<=0?'Same week':'Wait '+gap+' week'+(gap===1?'':'s'));prevW=s.w;
     const ch=REACH_CH.find(x=>x.k===s.ch);const isGift=gift&&/gift|share|teardown|report|benchmark/i.test(s.t);
@@ -10179,7 +10223,7 @@ function flowHTML(c){const R=c.reach;const st=(R.steps||[]).slice().sort((a,b)=>
     if(!splitLI&&s.ch==='linkedin'&&/connect/i.test(s.t)){splitLI=true;h+=flowWire('A few days');
       h+=flowSplit('Accepted?',{t:'Carry on',s:'The next touch goes as planned',ic:'check',col:'#0b9f8a'},{t:'Like a recent post',s:'Warm up, then try again',ic:'heart',col:'#0a66c2'})}
     else if(!splitEM&&s.ch==='email'&&i>0){splitEM=true;h+=flowWire('A few days');
-      h+=flowSplit('Opened it?',{t:'Pilot flags them',s:'Warming up: lean in',ic:'bolt',col:'#e03131'},{t:'Try another channel',s:'Relay switches it up next',ic:'loop',col:'#7048e8'})}});
+      h+=flowSplit('Opened it?',{t:'Otis flags them',s:'Warming up: lean in',ic:'bolt',col:'#e03131'},{t:'Try another channel',s:'Priya switches it up next',ic:'loop',col:'#7048e8'})}});
   h+=flowWire('Whenever they reply')+flowNode({t:'Over to you: book the meeting',s:'The flow stops for them. The conversation starts.',ic:'check',col:'#14102e',cls:'goal',who:'launch'});
   return '<div class="jflow" aria-label="The campaign as a flow">'+h+'</div>'}
 let FLOW_TOK=0;
@@ -10205,6 +10249,112 @@ function flowPlay(){const tok=++FLOW_TOK;const f=$('.jflow');if(!f)return;const 
 function emptyBots(){$$('#view .empty>.orb').forEach(o=>{const k=AGENTS[VIEW]&&AGENTS[VIEW].bot?VIEW:['signals','pipeline','team','insights'].includes(VIEW)?'launch':'prospects';
   o.outerHTML='<span class="emb">'+agentFace(k,46,{badge:false})+'</span>'})}
 (function(){const _go16=go;go=function(){const r=_go16.apply(this,arguments);setTimeout(emptyBots,40);return r}})();
+
+/* ═══════════ v17 THE CREW, AS PEOPLE ═══════════
+   The four bots become four characters with real names and real personalities, drawn as cartoons in our colours:
+   Nora finds who to target, Gus makes what to share, Priya plans how to reach them, Otis launches it.
+   Drawn in SVG so they stay sharp at any size, and they still blink, glance around and talk. */
+
+const CREW17={
+  prospects:{n:'Nora',bot:'nora',role:'Finds who to target',motto:'Fewer, better, sooner.',
+    me:'I find the few brands worth your time and the people who actually sign things off.',
+    bio:'Reads annual reports for fun. Knows who really signs things off before they do. Quietly, relentlessly nosy.',
+    loves:'A fresh trigger event',hates:'Lists of 5,000 “leads”',quirk:'Has never once said “just circling back”'},
+  give:{n:'Gus',bot:'gus',role:'Makes what to share',motto:'Useful first.',
+    me:'I turn your best work into something so useful they would pay for it. Then you give it away.',
+    bio:'Would give you the jumper off his back, then knit you a better one. Believes nobody ever ignored a genuinely good gift.',
+    loves:'Making something they keep',hates:'Brochures dressed up as gifts',quirk:'Wraps everything, even PDFs'},
+  reach:{n:'Priya',bot:'priya',role:'Plans how to reach them',motto:'Steady, never pushy.',
+    me:'I plan which channels, how often, and when to stay quiet and let them come to you.',
+    bio:'Remembers everyone’s name, and their dog’s. Has a plan for the plan. Would rather vanish than double-text.',
+    loves:'Perfect timing',hates:'Two emails before lunch',quirk:'Colour-codes her calendar by mood'},
+  launch:{n:'Otis',bot:'otis',role:'Launches it with you',motto:'Ten minutes a day.',
+    me:'I line up each day’s messages in your voice. You approve them, and they go.',
+    bio:'Lives for a countdown. Calm when it matters, giddy when someone replies. Checks the dials so you do not have to.',
+    loves:'The first reply of the week',hates:'Anything sent without your say-so',quirk:'Says “wheels up” far too often'}};
+Object.keys(CREW17).forEach(k=>Object.assign(AGENTS[k],CREW17[k]));
+
+/* ── the drawings ─────────────────────────────────────────── */
+const CI='#15151c';
+function crewArt(kind){const O='stroke="'+CI+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"';
+  const sk={nora:'#f6caa6',gus:'#b47448',priya:'#c58660',otis:'#f8d7bd'}[kind]||'#f6caa6';
+  const ear=(x)=>'<ellipse cx="'+x+'" cy="63" rx="5" ry="6.5" fill="'+sk+'" '+O+'/>';
+  const head='<path d="M37 60c0-15 10-26 23-26s23 11 23 26c0 15-9 27-23 27S37 75 37 60z" fill="'+sk+'" '+O+'/>';
+  const neck='<path d="M53 82v12h14V82" fill="'+sk+'" '+O+'/>';
+  const cheeks='<ellipse cx="45" cy="70" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".42"/><ellipse cx="75" cy="70" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".42"/>';
+  const eyes=(ry)=>'<g class="pupils"><g class="eyes"><ellipse cx="51" cy="61" rx="3.1" ry="'+(ry||3.9)+'" fill="'+CI+'"/><ellipse cx="69" cy="61" rx="3.1" ry="'+(ry||3.9)+'" fill="'+CI+'"/><circle cx="52.2" cy="59.4" r="1.15" fill="#fff"/><circle cx="70.2" cy="59.4" r="1.15" fill="#fff"/></g></g>';
+  const body=(fill)=>'<path d="M18 124c2-20 18-31 42-31s40 11 42 31z" fill="'+fill+'" '+O+'/>';
+  let s='';
+  if(kind==='nora'){const hair='#7b3a1e';
+    s=body('#2c56ed')+'<path d="M48 94l12 13 12-13" fill="#f6f1e7" '+O+'/>'+'<path d="M60 107v17" '+O+'/>'+
+      neck+
+      '<circle cx="60" cy="27" r="10.5" fill="'+hair+'" '+O+'/>'+'<path d="M47 20l27 12" stroke="#ffd43b" stroke-width="4" stroke-linecap="round"/><path d="M74 32l4 1.8" stroke="#ff8fa3" stroke-width="4" stroke-linecap="round"/><path d="M45.5 19.3l-2-.9" stroke="'+CI+'" stroke-width="3" stroke-linecap="round"/>'+
+      ear(37)+ear(83)+head+
+      '<path d="M36 62c-2-18 9-29 24-29s27 10 24 29c-4-9-9-13-14-14-3 5-11 7-20 6-6 1-11 3-14 8z" fill="'+hair+'" '+O+'/>'+
+      
+      eyes()+
+      '<g fill="#fff" fill-opacity=".28" stroke="'+CI+'" stroke-width="2.6"><circle cx="51" cy="61" r="8.2"/><circle cx="69" cy="61" r="8.2"/></g><path d="M59.2 60.5q.8-1.4 1.6 0" '+O+' fill="none"/>'+
+      '<path d="M43 49.5q5-3.4 11-1.2" '+O+' fill="none"/><path d="M64 47.6q6-3.6 12 .4" '+O+' fill="none"/>'+
+      cheeks+'<path class="b-m" d="M55 74.5q5 3 10-1.2" '+O+' fill="none"/>'}
+  if(kind==='gus'){const beard='#3a2417';
+    s=body('#14102e')+'<path d="M30 112q30 6 60 0M26 120q34 6 68 0" stroke="#f6f1e7" stroke-opacity=".35" stroke-width="2" fill="none"/>'+
+      neck+ear(37)+ear(83)+head+
+      '<path d="M37.5 62c1 21 10 31 22.5 31s21.5-10 22.5-31c-4 7-11 10-22.5 10S41.5 69 37.5 62z" fill="'+beard+'" '+O+'/>'+
+      '<path d="M50 72q5-5 10-1.6q5-3.4 10 1.6q-5 3-10 .8q-5 2.2-10-.8z" fill="'+beard+'" '+O+'/>'+
+      '<path class="b-m" d="M53 77q7 7 14 0z" fill="#fff" '+O+'/>'+
+      '<path d="M34 54c0-17 11-26 26-26s26 9 26 26z" fill="#2c56ed" '+O+'/><rect x="31" y="47" width="58" height="11" rx="5.5" fill="#1d3fc4" '+O+'/>'+
+      '<path d="M40 50v5M46 50v5M52 50v5M58 50v5M64 50v5M70 50v5M76 50v5M82 50v5" stroke="#fff" stroke-opacity=".3" stroke-width="1.6"/>'+
+      '<circle cx="60" cy="24" r="7" fill="#f6f1e7" '+O+'/>'+
+      
+      '<g class="pupils"><g class="eyes"><path d="M47 63.5q4-5.4 8 0M65 63.5q4-5.4 8 0" stroke="'+CI+'" stroke-width="3.2" stroke-linecap="round" fill="none"/></g></g>'+
+      '<ellipse cx="44" cy="68" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".38"/><ellipse cx="76" cy="68" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".38"/>'+
+      '<g transform="rotate(-8 82 108)"><rect x="70" y="97" width="25" height="21" rx="3" fill="#f6f1e7" '+O+'/><path d="M82.5 97v21M70 106h25" stroke="#2c56ed" stroke-width="4"/><path d="M82.5 97q-7-8-9-2 0 3 9 2zM82.5 97q7-8 9-2 0 3-9 2z" fill="#2c56ed" '+O+' stroke-width="1.8"/></g>'}
+  if(kind==='priya'){const hair='#1d1520';
+    s='<path d="M33 62c-4-22 10-32 27-32s31 10 27 32c3 12 4 24-1 34H35c-5-10-4-22-2-34z" fill="'+hair+'" '+O+'/>'+
+      body('#5eead4')+'<path d="M50 94q10 9 20 0" stroke="'+CI+'" stroke-width="2.4" fill="none"/>'+
+      neck+ear(37)+ear(83)+head+
+      '<path d="M37 58c0-15 10-24 24-24 13 0 23 9 22 24-6-8-14-12-22-11-4 4-13 9-24 11z" fill="'+hair+'" '+O+'/>'+
+      [74,83,92,101].map((y,i)=>'<ellipse cx="'+(86+i*.6)+'" cy="'+y+'" rx="5.6" ry="5.2" fill="'+hair+'" '+O+'/>').join('')+'<rect x="82" y="105" width="9" height="4" rx="2" fill="#ffd43b" '+O+' stroke-width="1.6"/>'+
+      '<path d="M33 60c0-30 54-30 54 0" stroke="'+CI+'" stroke-width="6" fill="none"/><path d="M33 60c0-30 54-30 54 0" stroke="#f6f1e7" stroke-width="2.6" fill="none"/><rect x="28" y="54" width="10" height="16" rx="4.5" fill="#f6f1e7" stroke="'+CI+'" stroke-width="2.4"/><path d="M33 68c0 9 7 14 15 12" stroke="'+CI+'" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="49" cy="79.6" r="2.8" fill="#ff8fa3" stroke="'+CI+'" stroke-width="1.6"/>'+
+      '<circle cx="83.5" cy="70.5" r="2" fill="#ffd43b" stroke="'+CI+'" stroke-width="1.2"/>'+
+      eyes()+'<path d="M45 52.5q5-3 10-.6M65 51.9q5-2.4 10 .6" '+O+' fill="none"/>'+
+      cheeks+'<path class="b-m" d="M54 73q6 6.5 12 0z" fill="#fff" '+O+'/>'+
+      '<circle cx="60" cy="74" r="0" />'}
+  if(kind==='otis'){const cap='#6b3f22';
+    s=body('#2c56ed')+'<path d="M40 97l20 10 20-10" fill="none" '+O+'/>'+
+      neck+'<path d="M43 92c10 6 24 6 34 0l3 8c-12 7-28 7-40 0z" fill="#f6f1e7" '+O+'/><path d="M78 96c7 2 13 8 16 15-6-1-11-4-14-8z" fill="#f6f1e7" '+O+'/>'+
+      '<path d="M35 58v14c0 4 6 4 6 0V60z M85 58v14c0 4-6 4-6 0V60z" fill="'+cap+'" '+O+'/>'+
+      head+
+      '<path d="M41 62c-1-6 0-10 3-13M79 62c1-6 0-10-3-13" stroke="#e8590c" stroke-width="4" stroke-linecap="round" fill="none"/>'+
+      '<path d="M35 60c-2-20 9-31 25-31s27 11 25 31c-6-9-14-13-25-13s-19 4-25 13z" fill="'+cap+'" '+O+'/>'+
+      '<path d="M36 47q24-10 48 0" stroke="'+CI+'" stroke-width="5" fill="none"/>'+
+      '<g fill="#5eead4" stroke="'+CI+'" stroke-width="2.4"><circle cx="49.5" cy="44" r="7"/><circle cx="70.5" cy="44" r="7"/></g><path d="M47 41.5l3-2.5M68 41.5l3-2.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M56.5 44h7" '+O+'/>'+
+      eyes()+'<path d="M45 54q5-2 10 0M65 54q5-2 10 0" '+O+' fill="none"/>'+
+      '<g fill="#c2592a" opacity=".55"><circle cx="44" cy="67" r=".9"/><circle cx="46.5" cy="69.5" r=".9"/><circle cx="42.5" cy="70" r=".9"/><circle cx="76" cy="67" r=".9"/><circle cx="73.5" cy="69.5" r=".9"/><circle cx="77.5" cy="70" r=".9"/></g>'+
+      cheeks+'<path class="b-m" d="M52.5 72.5q7.5 8 15 0z" fill="#fff" '+O+'/>'}
+  return s}
+const CREW_KINDS=['nora','gus','priya','otis'];
+botSVG=function(kind,col,x,crop){const map={scout:'nora',radar:'nora',muse:'gus',spark:'gus',relay:'priya',ping:'priya',pilot:'otis',rocket:'otis'};kind=map[kind]||kind;
+  if(!CREW_KINDS.includes(kind))kind='nora';
+  const ns=x?' xmlns="http://www.w3.org/2000/svg" width="240" height="240"':'';
+  const id='cc'+kind+(x?'x':'');
+  return '<svg'+ns+' viewBox="'+(crop?'24 18 72 72':'0 0 120 120')+'" class="botsvg b2 c17 b-'+kind+'">'+(x?'<defs><clipPath id="c"><circle cx="60" cy="60" r="60"/></clipPath></defs>':'')+
+    '<g'+(x?' clip-path="url(#c)"':'')+'><rect width="120" height="120" fill="'+col+'"/><circle cx="96" cy="24" r="30" fill="#fff" opacity=".1"/><circle cx="16" cy="104" r="22" fill="#000" opacity=".07"/>'+crewArt(kind)+'</g></svg>'};
+
+/* ── meet the crew: a proper profile for each one ──────────── */
+function crewMeet(k){k=k||'prospects';const A=AGENTS[k];if(!A)return;buzz();
+  const tabs=OUT_K.map(x=>'<button type="button" class="cm-tab'+(x===k?' on':'')+'" style="--ac:'+AGENTS[x].col+'" onclick="crewMeet(\''+x+'\')" aria-label="Meet '+esc(AGENTS[x].n)+'">'+agentFace(x,40,{badge:false})+'<small>'+esc(AGENTS[x].n)+'</small></button>').join('');
+  const m=MODULES.find(z=>z.k===k)||{l:''};const i=OUT_K.indexOf(k);
+  const html='<div class="cm" style="--ac:'+A.col+'"><div class="cm-tabs" role="tablist" aria-label="The crew">'+tabs+'</div>'+
+    '<div class="cm-card"><div class="cm-art">'+botSVG(A.bot,A.col)+'</div><div class="cm-txt"><span class="cm-step">Step '+(i+1)+' · '+esc(m.l)+'</span><h2>'+esc(A.n)+'</h2><p class="cm-role">'+esc(A.role)+'</p>'+
+    '<p class="cm-bio">'+esc(A.bio||A.me)+'</p><p class="cm-motto">“'+esc(A.motto)+'”</p></div></div>'+
+    '<div class="cm-facts"><div><small>Loves</small><b>'+esc(A.loves||'')+'</b></div><div><small>Can’t stand</small><b>'+esc(A.hates||'')+'</b></div><div><small>Quirk</small><b>'+esc(A.quirk||'')+'</b></div></div>'+
+    '<div class="cm-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Close</button><button class="btn btn-primary" onclick="closeOverlays();go(\''+k+'\')">Go to '+esc(m.l)+ico('arrow')+'</button></div></div>';
+  if(isApp())sheet(html,'cm-sheet');else modal(html)}
+/* a "Meet the crew" button sits with the crew on every stage */
+(function(){const _cd17=crewDeck;crewDeck=function(k){const h=_cd17(k);if(!h)return h;
+  const b='<button type="button" class="dk-meet" onclick="crewMeet(\''+k+'\')">'+ico('people')+'<span class="dm-l">Meet the crew</span><span class="dm-s">Crew</span></button>';
+  return /class="dk-camp"[\s\S]*?<\/button>/.test(h)?h.replace(/(class="dk-camp"[\s\S]*?<\/button>)/,'$1'+b):h.replace('<div class="dk-team"',b+'<div class="dk-team"')}})();
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;

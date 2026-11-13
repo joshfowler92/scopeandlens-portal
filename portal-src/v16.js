@@ -17,8 +17,8 @@ function flowNode(o){const ch=REACH_CH.find(x=>x.k===o.ch);const col=o.col||(ch?
 function flowWire(lbl){return '<i class="jfw">'+(lbl?'<em>'+esc(lbl)+'</em>':'')+'</i>'}
 function flowSplit(q,yes,no){return '<div class="jfs"><span class="jfs-q">'+ico('layers')+esc(q)+'</span></div><div class="jfb"><div><span class="jfb-t y">Yes</span><i class="jfw sh"></i>'+flowNode(yes)+'</div><div><span class="jfb-t n">Not yet</span><i class="jfw sh"></i>'+flowNode(no)+'</div></div><i class="jfm"></i>'}
 function flowHTML(c){const R=c.reach;const st=(R.steps||[]).slice().sort((a,b)=>a.w-b.w);const tg=campTargets(c);const ppl=sum(tg,a=>a.people.length);
-  if(!st.length)return '<div class="empty">'+agentFace('reach',44,{badge:false})+'Pick at least one channel above and Relay will draw the flow.</div>';
-  const gift=toolById(c.assets[0]);let h=flowNode({t:tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' decision maker'+(ppl===1?'':'s'),s:'Scored and ready, from Scout',ic:'target',col:'#0b9f8a',cls:'start',who:'prospects'});
+  if(!st.length)return '<div class="empty">'+agentFace('reach',44,{badge:false})+'Pick at least one channel above and Priya will draw the flow.</div>';
+  const gift=toolById(c.assets[0]);let h=flowNode({t:tg.length+' brand'+(tg.length===1?'':'s')+', '+ppl+' decision maker'+(ppl===1?'':'s'),s:'Scored and ready, from Nora',ic:'target',col:'#0b9f8a',cls:'start',who:'prospects'});
   let prevW=0,splitLI=false,splitEM=false;
   st.forEach((s,i)=>{const gap=s.w-prevW;h+=flowWire(i===0?'Week '+s.w:gap<=0?'Same week':'Wait '+gap+' week'+(gap===1?'':'s'));prevW=s.w;
     const ch=REACH_CH.find(x=>x.k===s.ch);const isGift=gift&&/gift|share|teardown|report|benchmark/i.test(s.t);
@@ -26,7 +26,7 @@ function flowHTML(c){const R=c.reach;const st=(R.steps||[]).slice().sort((a,b)=>
     if(!splitLI&&s.ch==='linkedin'&&/connect/i.test(s.t)){splitLI=true;h+=flowWire('A few days');
       h+=flowSplit('Accepted?',{t:'Carry on',s:'The next touch goes as planned',ic:'check',col:'#0b9f8a'},{t:'Like a recent post',s:'Warm up, then try again',ic:'heart',col:'#0a66c2'})}
     else if(!splitEM&&s.ch==='email'&&i>0){splitEM=true;h+=flowWire('A few days');
-      h+=flowSplit('Opened it?',{t:'Pilot flags them',s:'Warming up: lean in',ic:'bolt',col:'#e03131'},{t:'Try another channel',s:'Relay switches it up next',ic:'loop',col:'#7048e8'})}});
+      h+=flowSplit('Opened it?',{t:'Otis flags them',s:'Warming up: lean in',ic:'bolt',col:'#e03131'},{t:'Try another channel',s:'Priya switches it up next',ic:'loop',col:'#7048e8'})}});
   h+=flowWire('Whenever they reply')+flowNode({t:'Over to you: book the meeting',s:'The flow stops for them. The conversation starts.',ic:'check',col:'#14102e',cls:'goal',who:'launch'});
   return '<div class="jflow" aria-label="The campaign as a flow">'+h+'</div>'}
 let FLOW_TOK=0;

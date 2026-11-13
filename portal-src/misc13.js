@@ -20,19 +20,19 @@ async function domFetch(){const names=[...DOM_Q].slice(0,30);DOM_Q=new Set([...D
     if(got)save()}catch(e){}if(DOM_Q.size)DOM_T=setTimeout(domFetch,600)}
 
 /* ── 3. More prospects, from the agency's own preferences ── */
-async function findMorePros(){if(!isLive()){toast('Finding more prospects works once Plato is live');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Scout is searching';}
+async function findMorePros(){if(!isLive()){toast('Finding more prospects works once Plato is live');return}const P=S.setup.profile||{};const b=$('#morePros');if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>Nora is searching';}
   try{const j=await api('discover',{method:'POST',body:{sectors:P.sectors||[],size:P.csize||P.size||[],region:P.region||'any',problems:(P.problems||[]).map(k=>(L_PROBLEMS[k]||{label:k}).label),exclude:PROSPECTS.map(p=>p.name).concat(S.accounts.map(a=>a.name))}});
     const add=(j.companies||[]).filter(co=>!PROSPECTS.some(p=>norm(p.name)===norm(co.name)));
     add.forEach(co=>{PROSPECTS.push({name:co.name,sector:co.sector,sub:co.sub,city:co.city,region:co.region,size:co.size,nt:'none',nd:'',news:'',src:'',pub:'',all:[],domain:co.domain,found:today()});DOMAINS[co.name]=co.domain});
     S.foundPros=(S.foundPros||[]).concat(add.map(co=>Object.assign({},co,{found:today()}))).slice(-400);save();
-    toast(add.length?'🎯 Scout found '+add.length+' more prospects that fit':'Nothing new fits right now. Try widening Who you want.');go('prospects','brands',true)}
-  catch(e){toast(e.message||'Scout could not search just now');if(b){b.disabled=false;b.textContent='Find more prospects'}}}
+    toast(add.length?'🎯 Nora found '+add.length+' more prospects that fit':'Nothing new fits right now. Try widening Who you want.');go('prospects','brands',true)}
+  catch(e){toast(e.message||'Nora could not search just now');if(b){b.disabled=false;b.textContent='Find more prospects'}}}
 /* prospects found before come back on every visit */
 setTimeout(()=>{try{(S.foundPros||[]).forEach(co=>{if(!PROSPECTS.some(p=>norm(p.name)===norm(co.name))){PROSPECTS.push({name:co.name,sector:co.sector,sub:co.sub,city:co.city,region:co.region,size:co.size,nt:'none',nd:'',news:'',src:'',pub:'',all:[],domain:co.domain,found:co.found});DOMAINS[co.name]=co.domain}})}catch(e){}},0);
 
 /* ── 4. Who to target: the second tab is Find decision makers ── */
 const _vPros13=VIEWS.prospects;VIEWS.prospects=function(tab){let h=String(_vPros13(tab)).replace(/>Your list(?=<i>|<\/button>)/g,'>Find decision makers');
-  if((tab||'brands')==='brands'&&profDone()&&!DEMO_MODE)h=h.replace(/(<div class="profchips[^"]*">)/,'<div class="morebar"><span>'+ico('target')+'<b>'+PROSPECTS.map(fitP).filter(Boolean).length+' brands fit what you want.</b> Want more? Scout can search for organisations that match your preferences.</span><button class="btn btn-line btn-sm" id="morePros" onclick="findMorePros()">'+ico('plus')+'Find more prospects</button></div>$1');
+  if((tab||'brands')==='brands'&&profDone()&&!DEMO_MODE)h=h.replace(/(<div class="profchips[^"]*">)/,'<div class="morebar"><span>'+ico('target')+'<b>'+PROSPECTS.map(fitP).filter(Boolean).length+' brands fit what you want.</b> Want more? Nora can search for organisations that match your preferences.</span><button class="btn btn-line btn-sm" id="morePros" onclick="findMorePros()">'+ico('plus')+'Find more prospects</button></div>$1');
   return h};
 
 /* ── 5. The demo: leaving it takes you back to your own workspace, where you left it ── */
@@ -47,13 +47,13 @@ const _renderShell13=renderShell;renderShell=function(){_renderShell13.apply(thi
 
 /* ── 6. The hero piece: read properly, explained, and a blurb you can edit ── */
 function pieceLocal(it){const t=String(it.text||'').replace(/\s+/g,' ').trim();const sents=t.split(/(?<=[.!?])\s+/).filter(s=>s.length>40).slice(0,3);
-  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. Once Plato is live, Muse reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
+  return{read:t?'file':'title',what:sents[0]||'',why:sents[1]||'',who:'',blurb:sents.length?sents.slice(0,2).join(' '):'',hooks:[],note:t?'Read in this browser. Once Plato is live, Gus reads it in full.':'We could not read the piece itself. Upload the file, or add a link to a page with the words on it.'}}
 async function pieceRead(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;pieceModal(it,null);
   let r=null;const P=S.setup.profile||{};
   if(isLive()){try{r=await api('piece',{method:'POST',body:{title:it.t,url:it.url||'',text:(it.text||'').slice(0,16000),kind:(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'hero piece'}).l,agency:S.setup.agency,sectors:(P.sectors||[]).map(k=>(L_SECTORS[k]||{label:k}).label),roles:(P.roles||[]).map(k=>(L_ROLES[k]||{label:k}).label),problem:PROB().short}})}catch(e){r=null}}
   if(!r||(!r.what&&!r.note))r=pieceLocal(it);it.ai=Object.assign({},r,{at:today()});if(!it.blurb&&r.blurb)it.blurb=r.blurb;save();pieceModal(it,r)}
 function pieceModal(it,r){const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'Piece'}).l;
-  if(!r){modal('<div class="pc-load">'+agentFace('give',56,{badge:false})+'<h2>Muse is reading '+esc(it.t)+'</h2><p class="sub">Working out what it is, why your prospects would value it, and a blurb to share it with.</p><div class="pc-bar"><i></i></div></div>');return}
+  if(!r){modal('<div class="pc-load">'+agentFace('give',56,{badge:false})+'<h2>Gus is reading '+esc(it.t)+'</h2><p class="sub">Working out what it is, why your prospects would value it, and a blurb to share it with.</p><div class="pc-bar"><i></i></div></div>');return}
   modal('<div class="row" style="gap:12px;align-items:flex-start">'+agentFace('give',44,{badge:false})+'<div class="grow"><small class="muted">'+esc(k)+' · '+(r.read==='file'?'read from your file':r.read==='link'?'read from the link':'only the title')+'</small><h2 style="margin-top:2px">'+esc(it.t)+'</h2></div></div>'+
     (r.note&&!r.what?'<p class="pc-note">'+ico('info')+esc(r.note)+'</p>':'')+
     '<div class="field"><label for="pcWhat">What it is</label><textarea class="inp" id="pcWhat" rows="2">'+esc(r.what||'')+'</textarea></div>'+
@@ -62,11 +62,11 @@ function pieceModal(it,r){const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:'Piece'
     '<div class="field"><label for="pcBlurb">The blurb you share it with <span class="muted">· edit it so it sounds like you</span></label><textarea class="inp" id="pcBlurb" rows="4">'+esc(it.blurb||r.blurb||'')+'</textarea></div>'+
     ((r.hooks||[]).length?'<div class="pc-hooks"><b>Reasons to open it</b>'+r.hooks.map(h=>'<span>'+esc(h)+'</span>').join('')+'</div>':'')+
     '<div class="modal-foot"><button class="btn btn-ghost" onclick="pieceRead(\''+it.id+'\')">'+ico('loop')+'Read it again</button><button class="btn btn-primary" onclick="pieceSave(\''+it.id+'\')">Save</button></div>')}
-function pieceSave(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;act('Saved what Muse understood',()=>{it.ai=Object.assign({},it.ai||{},{what:$('#pcWhat').value.trim(),why:$('#pcWhy').value.trim()});it.blurb=$('#pcBlurb').value.trim();it.edited=today()},{refresh:false,ic:'✍️'});closeOverlays();go('give',null,true)}
-/* after adding a piece with a file or link, Muse reads it straight away */
+function pieceSave(id){const c=curCamp();const it=bankOf(c).items.find(x=>x.id===id);if(!it)return;act('Saved what Gus understood',()=>{it.ai=Object.assign({},it.ai||{},{what:$('#pcWhat').value.trim(),why:$('#pcWhy').value.trim()});it.blurb=$('#pcBlurb').value.trim();it.edited=today()},{refresh:false,ic:'✍️'});closeOverlays();go('give',null,true)}
+/* after adding a piece with a file or link, Gus reads it straight away */
 const _bankSaveOwn13=bankSaveOwn;bankSaveOwn=function(){const c=curCamp();const n0=bankOf(c).items.length;const hadText=!!BK_TEXT;const url=($('#bkU')||{}).value;_bankSaveOwn13();const it=bankOf(c).items[n0];
   if(it&&(hadText||url))setTimeout(()=>pieceRead(it.id),250);else if(it&&it.slot==='hero')setTimeout(()=>pieceModal(it,pieceLocal(it)),250)};
-/* show what Muse understood under the content bank, with a way to edit it */
+/* show what Gus understood under the content bank, with a way to edit it */
 const _bankCard13=bankCard;bankCard=function(c){const h=String(_bankCard13(c));const I=bankOf(c).items.filter(x=>x.src==='own');if(!I.length)return h;
-  return h+'<div class="pcs"><div class="lab">'+agentFace('give',22,{badge:false})+'What Muse understood from your content</div><div class="pcs-g">'+I.map(it=>{const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:''}).l;const ai=it.ai;
-    return '<div class="pcc'+(it.slot==='hero'?' hero':'')+'"><small>'+esc(k)+'</small><b>'+esc(it.t)+'</b>'+(ai&&(ai.why||ai.what)?'<p>'+esc(ai.why||ai.what)+'</p>':'<p class="muted">Not read yet.</p>')+(it.blurb?'<blockquote>'+esc(it.blurb)+'</blockquote>':'')+'<div class="row" style="gap:6px"><button class="btn btn-line btn-xs" onclick="'+(ai?'pieceModal(bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\'),bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\').ai)':'pieceRead(\''+it.id+'\')')+'">'+ico(ai?'edit':'eye')+(ai?'Edit the blurb':'Read it with Muse')+'</button></div></div>'}).join('')+'</div></div>'};
+  return h+'<div class="pcs"><div class="lab">'+agentFace('give',22,{badge:false})+'What Gus understood from your content</div><div class="pcs-g">'+I.map(it=>{const k=(BANK_SLOTS.find(s=>s.k===it.slot)||{l:''}).l;const ai=it.ai;
+    return '<div class="pcc'+(it.slot==='hero'?' hero':'')+'"><small>'+esc(k)+'</small><b>'+esc(it.t)+'</b>'+(ai&&(ai.why||ai.what)?'<p>'+esc(ai.why||ai.what)+'</p>':'<p class="muted">Not read yet.</p>')+(it.blurb?'<blockquote>'+esc(it.blurb)+'</blockquote>':'')+'<div class="row" style="gap:6px"><button class="btn btn-line btn-xs" onclick="'+(ai?'pieceModal(bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\'),bankOf(curCamp()).items.find(x=>x.id===\''+it.id+'\').ai)':'pieceRead(\''+it.id+'\')')+'">'+ico(ai?'edit':'eye')+(ai?'Edit the blurb':'Read it with Gus')+'</button></div></div>'}).join('')+'</div></div>'};

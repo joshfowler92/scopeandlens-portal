@@ -1,10 +1,10 @@
 /* ═══════════ v13: YOUR TEAM ═══════════
-   The four bots are now "your team": Scout, Muse, Relay and Pilot. Simpler to look at: a flat colour,
+   The four bots are now "your team": Nora, Gus, Priya and Otis. Simpler to look at: a flat colour,
    a white face, two eyes and one symbol that says what each one does. */
-Object.assign(AGENTS.prospects,{n:'Scout',role:'Finds who to target',bot:'scout',motto:'Fewer, better, sooner.',me:'I find the few brands worth your time and the people who actually decide.'});
-Object.assign(AGENTS.give,{n:'Muse',role:'Makes what to share',bot:'muse',motto:'Useful first.',me:'I turn your work into something so useful they would pay for it. Then you give it away.'});
-Object.assign(AGENTS.reach,{n:'Relay',role:'Plans how to reach them',bot:'relay',motto:'Steady, never pushy.',me:'I plan which channels, how often, and when to stay quiet.'});
-Object.assign(AGENTS.launch,{n:'Pilot',role:'Launches it with you',bot:'pilot',motto:'Ten minutes a day.',me:'I line up each day’s messages. You approve them, and they go.'});
+Object.assign(AGENTS.prospects,{n:'Nora',role:'Finds who to target',bot:'scout',motto:'Fewer, better, sooner.',me:'I find the few brands worth your time and the people who actually decide.'});
+Object.assign(AGENTS.give,{n:'Gus',role:'Makes what to share',bot:'muse',motto:'Useful first.',me:'I turn your work into something so useful they would pay for it. Then you give it away.'});
+Object.assign(AGENTS.reach,{n:'Priya',role:'Plans how to reach them',bot:'relay',motto:'Steady, never pushy.',me:'I plan which channels, how often, and when to stay quiet.'});
+Object.assign(AGENTS.launch,{n:'Otis',role:'Launches it with you',bot:'pilot',motto:'Ten minutes a day.',me:'I line up each day’s messages. You approve them, and they go.'});
 botSVG=function(kind,col,x,crop){const ns=x?' xmlns="http://www.w3.org/2000/svg" width="240" height="240"':'';const ink='#15151c';
   const sym={scout:'<circle cx="60" cy="18" r="7" fill="none" stroke="#fff" stroke-width="3"/><circle cx="60" cy="18" r="2.4" fill="#fff"/>',
     muse:'<path d="M60 9l2.6 6.4L69 18l-6.4 2.6L60 27l-2.6-6.4L51 18l6.4-2.6z" fill="#fff"/>',

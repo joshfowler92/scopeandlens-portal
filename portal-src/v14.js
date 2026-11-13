@@ -10,16 +10,16 @@ const V14_RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').m
 
 /* ── 1. Say what you do there ───────────────────────────────── */
 (function(){const N={
-  prospects:{l:'Pick your brands',q:'Scout finds the few worth your time'},
-  give:{l:'Make your gift',q:'Muse builds something they will actually want'},
-  reach:{l:'Plan the journey',q:'Relay paces every touchpoint over weeks'},
-  launch:{l:'Launch',q:'Pilot lines up each day. You stay in charge'}};
+  prospects:{l:'Pick your brands',q:'Nora finds the few worth your time'},
+  give:{l:'Make your gift',q:'Gus builds something they will actually want'},
+  reach:{l:'Plan the journey',q:'Priya paces every touchpoint over weeks'},
+  launch:{l:'Launch',q:'Otis lines up each day. You stay in charge'}};
   MODULES.forEach(m=>{if(N[m.k]){m.l=N[m.k].l;m.q=N[m.k].q}})})();
 function stageMove(k,c){const tg=campTargets(c);
-  if(k==='prospects'){if(!profDone())return 'Answer the five quick questions, so Scout knows exactly who to hunt.';
-    if(!campScanned(c))return 'Press <b>Find prospects now</b> and Scout sweeps for brands that fit.';
+  if(k==='prospects'){if(!profDone())return 'Answer the five quick questions, so Nora knows exactly who to hunt.';
+    if(!campScanned(c))return 'Press <b>Find prospects now</b> and Nora sweeps for brands that fit.';
     if(!tg.length)return 'Tick the brands you like the look of. Each one joins this campaign.';
-    if(!sum(tg,a=>a.people.length))return 'Open a brand and add its decision makers, or ask Scout to find the people.';
+    if(!sum(tg,a=>a.people.length))return 'Open a brand and add its decision makers, or ask Nora to find the people.';
     return 'Brands and people locked. <button class="link" onclick="go(\'give\')">Next: make your gift →</button>'}
   if(k==='give'){if(!c.assets.length)return 'Tap <b>Use this</b> on one idea. One great gift beats three good ones.';
     if(!bankReady(c))return 'Now fill the content bank, so every touchpoint has something worth opening.';

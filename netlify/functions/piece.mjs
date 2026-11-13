@@ -24,9 +24,9 @@ PIECE:
 ${text}`;
   try { const r = await claude({ model: process.env.DIGEST_MODEL || 'claude-haiku-5-5', max_tokens: 700, messages: [{ role: 'user', content: ask }] }, 8500);
     const t = claudeText(await r.json()); const m = t.match(/\{[\s\S]*\}/); const j = m ? JSON.parse(m[0]) : null;
-    if (!j) return bad('Muse could not read that just now. Try again.', 502);
+    if (!j) return bad('Gus could not read that just now. Try again.', 502);
     const clean = (s) => String(s || '').replace(/\u2014/g, ', ').slice(0, 600);
     return json({ read, what: clean(j.what), why: clean(j.why), who: clean(j.who), blurb: clean(j.blurb), hooks: (j.hooks || []).slice(0, 3).map(clean) });
-  } catch { return bad('Muse could not read that just now. Try again.', 502); }
+  } catch { return bad('Gus could not read that just now. Try again.', 502); }
 };
 export const config = { path: '/api/piece' };

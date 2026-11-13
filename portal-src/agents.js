@@ -3,11 +3,11 @@
 const AGENTS={
   home:{n:'Dot',role:'Your growth lead',col:'#2c56ed',eyes:'dot',ic:'home',me:'I read your world, plan the week and keep the whole team pointing the same way.'},
   agency:{n:'Echo',role:'Knows your agency',col:'#ae3ec9',eyes:'soft',ic:'star',me:'I learn who you are and how you sound, so every message is unmistakably you.'},
-  prospects:{n:'Scout',role:'Finds who to target',col:'#0b9f8a',eyes:'scan',ic:'target',me:'I scour the UK for brands with a real reason to hear from you, right now.'},
+  prospects:{n:'Nora',role:'Finds who to target',col:'#0b9f8a',eyes:'scan',ic:'target',me:'I scour the UK for brands with a real reason to hear from you, right now.'},
   give:{n:'Maker',role:'Makes what to share',col:'#f76707',eyes:'happy',ic:'gift',me:'I dream up something genuinely useful to give before you ask for anything.'},
   reach:{n:'Guide',role:'Plans how to reach them',col:'#2f9e44',eyes:'wink',ic:'send',me:'I map the journey touch by touch, the way you would get to know someone in person.'},
-  launch:{n:'Pilot',role:'Launches it with you',col:'#14102e',eyes:'visor',ic:'rocket',me:'I line up every message in your voice. Nothing leaves without your say-so.'},
-  signals:{n:'Scout',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
+  launch:{n:'Otis',role:'Launches it with you',col:'#14102e',eyes:'visor',ic:'rocket',me:'I line up every message in your voice. Nothing leaves without your say-so.'},
+  signals:{n:'Nora',role:'Spots who is leaning in',col:'#e03131',eyes:'wide',ic:'pulse',me:'I watch every accept, open, click and reply, and tell you who is warming up.'},
   pipeline:{n:'Tally',role:'Counts the revenue',col:'#c98a12',eyes:'calm',ic:'pound',me:'I turn conversations into numbers you can plan a year around.'},
   team:{n:'Huddle',role:'Keeps the team in step',col:'#7048e8',eyes:'round',ic:'people',me:'I keep everyone on the same page: who is talking to who, and where it is up to.'},
   insights:{n:'Scoop',role:'Brings you the news',col:'#212529',eyes:'round',ic:'bulb',me:'I bring you what Josh has spotted, before everyone else hears about it.'}
