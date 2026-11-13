@@ -56,13 +56,13 @@ function crewArt(kind){const O='stroke="'+CI+'" stroke-width="2.4" stroke-linejo
       
       '<g class="pupils"><g class="eyes"><path d="M47 63.5q4-5.4 8 0M65 63.5q4-5.4 8 0" stroke="'+CI+'" stroke-width="3.2" stroke-linecap="round" fill="none"/></g></g>'+
       '<ellipse cx="44" cy="68" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".38"/><ellipse cx="76" cy="68" rx="4.4" ry="2.6" fill="#ff7a7a" opacity=".38"/>'+
-      '<g transform="rotate(-8 82 108)"><rect x="70" y="97" width="25" height="21" rx="3" fill="#f6f1e7" '+O+'/><path d="M82.5 97v21M70 106h25" stroke="#2c56ed" stroke-width="4"/><path d="M82.5 97q-7-8-9-2 0 3 9 2zM82.5 97q7-8 9-2 0 3-9 2z" fill="#2c56ed" '+O+' stroke-width="1.8"/></g>'}
+      '<g transform="rotate(-8 82 108)"><rect x="70" y="97" width="25" height="21" rx="3" fill="#f6f1e7" '+O+'/><path d="M82.5 97v21M70 106h25" stroke="#2c56ed" stroke-width="4"/><path d="M82.5 97q-7-8-9-2 0 3 9 2zM82.5 97q7-8 9-2 0 3-9 2z" fill="#2c56ed" '+O.replace('2.4','1.8')+'/></g>'}
   if(kind==='priya'){const hair='#1d1520';
     s='<path d="M33 62c-4-22 10-32 27-32s31 10 27 32c3 12 4 24-1 34H35c-5-10-4-22-2-34z" fill="'+hair+'" '+O+'/>'+
       body('#5eead4')+'<path d="M50 94q10 9 20 0" stroke="'+CI+'" stroke-width="2.4" fill="none"/>'+
       neck+ear(37)+ear(83)+head+
       '<path d="M37 58c0-15 10-24 24-24 13 0 23 9 22 24-6-8-14-12-22-11-4 4-13 9-24 11z" fill="'+hair+'" '+O+'/>'+
-      [74,83,92,101].map((y,i)=>'<ellipse cx="'+(86+i*.6)+'" cy="'+y+'" rx="5.6" ry="5.2" fill="'+hair+'" '+O+'/>').join('')+'<rect x="82" y="105" width="9" height="4" rx="2" fill="#ffd43b" '+O+' stroke-width="1.6"/>'+
+      [74,83,92,101].map((y,i)=>'<ellipse cx="'+(86+i*.6)+'" cy="'+y+'" rx="5.6" ry="5.2" fill="'+hair+'" '+O+'/>').join('')+'<rect x="82" y="105" width="9" height="4" rx="2" fill="#ffd43b" '+O.replace('2.4','1.6')+'/>'+
       '<path d="M33 60c0-30 54-30 54 0" stroke="'+CI+'" stroke-width="6" fill="none"/><path d="M33 60c0-30 54-30 54 0" stroke="#f6f1e7" stroke-width="2.6" fill="none"/><rect x="28" y="54" width="10" height="16" rx="4.5" fill="#f6f1e7" stroke="'+CI+'" stroke-width="2.4"/><path d="M33 68c0 9 7 14 15 12" stroke="'+CI+'" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="49" cy="79.6" r="2.8" fill="#ff8fa3" stroke="'+CI+'" stroke-width="1.6"/>'+
       '<circle cx="83.5" cy="70.5" r="2" fill="#ffd43b" stroke="'+CI+'" stroke-width="1.2"/>'+
       eyes()+'<path d="M45 52.5q5-3 10-.6M65 51.9q5-2.4 10 .6" '+O+' fill="none"/>'+
