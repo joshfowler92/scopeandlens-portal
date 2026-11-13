@@ -1,0 +1,245 @@
+/* ═══════════ v15: title first, one crew, and a calmer phone ═══════════ */
+
+/* ── stage heads: the title, then the crew (all sizes) ── */
+.sh.st15{margin-bottom:14px}
+.deck{margin:0 0 18px}
+.dk-top{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px dashed var(--rule)}
+.dk-camp{display:flex;align-items:baseline;gap:8px;min-width:0;text-align:left;padding:2px 0}
+.dk-camp small{font:700 11px var(--sans);color:var(--mute);letter-spacing:.04em;text-transform:uppercase;flex:none}
+.dk-camp b{font-size:14.5px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.dk-camp em{font:800 12px var(--sans);font-style:normal;color:var(--brand);flex:none}
+.dk-camp:hover b{color:var(--brand)}
+.dk-top .ctb{flex:none}
+/* launch: the hero carries the title; Pilot speaks in the crew now, not twice */
+.lhero .lh-ag{display:none}
+.lhero+.deck{margin-top:16px}
+
+/* "show more" for lists folded on a phone */
+.m15-x{display:none !important}
+.m15-more{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin:10px 0 4px;padding:13px 16px;border-radius:12px;border:1.5px solid var(--rule-2);background:var(--paper);font:800 14px var(--sans);color:var(--ink)}
+.m15-more svg{width:15px;height:15px}
+.m15-more:active{transform:scale(.98)}
+
+/* ═════════ the phone (app mode) ═════════ */
+@media (max-width:900px){
+  /* calm chrome */
+  .demo-rib{height:auto;min-height:0;padding:7px 14px;gap:8px;font-size:12px;justify-content:space-between}
+  .demo-rib>span:not(.ag){font-size:0;flex:1;text-align:left}
+  .demo-rib>span:not(.ag)::after{content:'Demo agency, invented data';font-size:12.5px;font-weight:700}
+  .demo-rib button{font-size:12.5px;white-space:nowrap}
+  .pfoot2{display:none}
+  .view-inner>p.tiny.muted,.view-inner>.tiny.muted,.view-inner>p.sh-p{display:none}
+  .sh .sh-p,.sh-l>p:not(.sh-t){display:none}
+  .sh{margin-bottom:12px}
+  .sh .sh-t{font-size:34px;line-height:1.02}
+  .sh-a{gap:8px;flex-wrap:wrap;margin-top:12px;width:100%}
+  .sh-a>*{flex:1 1 auto;justify-content:center;white-space:nowrap}
+  .pills{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .pills::-webkit-scrollbar{display:none}
+  .pills>*{flex:none}
+  .view input,.view select,.view textarea{max-width:100%;box-sizing:border-box}
+  .handoff.plain{padding:16px;gap:12px;flex-direction:column;align-items:stretch}
+  .handoff.plain .btn{justify-content:center}
+  .handoff.plain b{font-size:15px}
+
+  /* the crew deck, compact: campaign, four bots, one line of chat, your move */
+  .deck{padding:12px 12px 12px;gap:10px;border-radius:16px}
+  .dk-top{padding-bottom:8px}
+  .dk-camp b{font-size:13.5px}
+  .dk-team{justify-content:space-between;gap:0}
+  .dk-b{padding:6px 4px 4px;flex:1}
+  .dk-b .ag{width:30px !important;height:30px !important}
+  .dk-b small{font-size:10px}
+  .dk-ln{width:auto;flex:1 1 6px;min-width:6px;max-width:22px}
+  .dk-here{font-size:8.5px;padding:2px 6px;top:-8px}
+  .dk-ok{width:14px;height:14px;top:0;right:4px}
+  .dk-chat{min-height:44px;gap:0}
+  .dk-m.past{display:none}
+  .dk-m{align-items:center}
+  .dk-m .ag{width:22px !important;height:22px !important;flex:none}
+  .dk-bb{font-size:12.5px;padding:6px 10px}
+  .dk-move{flex-direction:column;align-items:flex-start;gap:6px;padding-top:9px}
+  .dk-mt{font-size:13.5px;line-height:1.45}
+
+  /* ── Home ── */
+  .g13{grid-template-columns:minmax(0,1fr) !important}
+  .g13>*,.g13-r>*{min-width:0;max-width:100%}
+  .hp{padding:16px}
+  .hp-h{flex-wrap:wrap}
+  .hp-h p{display:none}
+  .hp-i{padding:12px 2px !important}
+  .hp-a{box-sizing:border-box;padding-left:0 !important;width:100%}
+  .hp-a .btn{flex:1}
+  .hp-a .plb,.hp-a .askp{display:none}
+  .hp-f{display:none}
+  .g13-r>.hins,.relay,.hi-i .plb-i{display:none}
+  .sec-h{flex-wrap:wrap}
+  .sec-h>.row{flex-wrap:wrap;gap:8px}
+  .hi-i small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+
+  /* ── Pick your brands ── */
+  .skey{display:none}
+  .filters .profchips>span{display:none}
+  .filters .profchips{margin-bottom:8px}
+  .filters>.row.wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px;padding-bottom:2px}
+  .filters>.row.wrap::-webkit-scrollbar{display:none}
+  .filters>.row.wrap>*{flex:none}
+  .bgrid{gap:10px}
+  .bc{display:grid;grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"lg nm fit" "lg sub fit" "news news news" "f f f";column-gap:12px;row-gap:2px;padding:14px !important;align-items:center}
+  .bc-top{display:contents}
+  .bc-top>.lg{grid-area:lg;width:44px !important;height:44px !important;align-self:start}
+  .bc-top>.fitb{grid-area:fit;align-self:start}
+  .bc-top .fit.big,.bc-top .fit.big svg,.bc-top .fit.big b{width:40px !important;height:40px !important}
+  .bc-top .fit.big b{font-size:13px}
+  .bc-top .fitb small{display:none}
+  .bc>h3{grid-area:nm;margin:0;font-size:16px;line-height:1.2}
+  .bc-sub{grid-area:sub;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bc-news{grid-area:news;margin-top:10px;padding:8px 10px !important;gap:6px;flex-wrap:nowrap;align-items:center}
+  .bc-news p,.bc-news .src{display:none}
+  .bc-news .ntag{flex:none}
+  .bc-f{grid-area:f;margin-top:10px;padding-top:0;border:0}
+  .bc-f .btn{flex:1;justify-content:center}
+
+  /* ── Make your gift ── */
+  .cx12,.advice,.offer12,.bank-gaps{display:none}
+  .bank{padding:16px !important}
+  .bank-h{grid-template-columns:auto 1fr auto !important}
+  .bank-h p{display:none}
+  .bk>p.tiny{display:none}
+  .bk{padding:12px !important}
+  .bank>p.tiny{display:none}
+  .ft .ft-b>p.ft-t,.ft .ft-b>dl{display:none}
+  .ft .ft-why{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ft .tthumb.big{height:120px !important;min-height:0 !important}
+  .ft-f{flex-wrap:wrap}
+  .bsug.empty{flex-direction:column;align-items:flex-start}
+
+  /* ── Plan the journey ── */
+  .lir{flex-wrap:wrap;gap:10px}
+  .lir>.grow{flex:1 1 calc(100% - 50px);min-width:0}
+  .lir>.btn{width:100%;justify-content:center}
+  .evc>.row:first-child{flex-wrap:wrap}
+  .evc>.row:first-child>.grow{flex:1 1 calc(100% - 56px);min-width:0}
+  .evc>.row:first-child>.btn{width:100%;justify-content:center}
+  .evc .evt-w,.evc>.row:first-child p.small,.adscard p.small,.adscard .tiny,.mi p,.evc>p.tiny{display:none}
+  .mideas{gap:8px}
+  .mi{padding:12px !important}
+  .evc .evt-img{height:120px}
+  .seq-card .legend,.seq-sum .muted{display:none}
+  .lisc-r{flex-wrap:wrap}
+  .lisc-r>.grow{flex:1 1 calc(100% - 90px);min-width:0}
+  .lisc-r p.small{display:none}
+  .lis span small,.lis span>span{display:none}
+
+  /* ── Launch ── */
+  .htw .ht p,.htw .ht ol,.htw .sec-h .muted{display:none}
+  .htw .ht-g{grid-template-columns:1fr 1fr !important;gap:8px}
+  .htw .ht{padding:12px !important;min-height:0}
+  .htw .ht b{font-size:14px;line-height:1.25}
+  .htw .sec-h h2{font-size:18px}
+  .lhero{padding:22px 18px !important}
+  .lhero h1{font-size:30px !important}
+  .lhero .lh-copy>p{display:none}
+  .lh-stats{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:6px}
+  .lh-stats b{font-size:22px !important}
+  .mc-h{flex-wrap:wrap}
+  .mc-h>.grow{flex:1 1 calc(100% - 64px);min-width:0}
+  .pb-why{display:none}
+  .li-warn{flex-wrap:wrap}
+  .li-warn>.grow{flex:1 1 calc(100% - 30px);min-width:0}
+  .li-warn>.btn{width:100%;justify-content:center}
+  .nn-hero{flex-wrap:wrap}
+  .nn-hero>.grow{flex:1 1 calc(100% - 56px);min-width:0}
+  .nn-hero>.pill{order:-1;margin-left:auto}
+  .pb-act{flex-wrap:wrap}
+  .pb-act .btn-primary{width:100%;justify-content:center;order:-1}
+  .mc-main>p.tiny{display:none}
+
+  /* ── Signals ── */
+  body[data-view="signals"] .sh .sh-a,body[data-view="signals"] .srcs{display:none}
+  .itl-h{display:grid !important;grid-template-columns:auto auto minmax(0,1fr);column-gap:10px;row-gap:6px;align-items:center}
+  .itl-h>.grow{min-width:0}
+  .itl-h>.heat-e{grid-column:3;justify-self:start}
+  .itl-h small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .itl-lh .tiny{display:none}
+  .gapc .gc-h p{display:none}
+  .gi2{flex-wrap:wrap}
+  .gi2>.grow{flex:1 1 calc(100% - 44px);min-width:0}
+  .gi2>.gv{width:100%;text-align:left;display:flex;gap:8px;align-items:baseline;padding-left:42px}
+  .orb-hint{display:none}
+
+  /* ── Pipeline ── */
+  .ptk-two,.ptk-bar{display:none}
+
+  /* ── Insights ── */
+  .irail,.ins13-h p{display:none}
+  .ins13-h .row{flex-wrap:wrap;gap:8px}
+  .ins13-h>div:first-child:not(.row){display:none}
+
+  /* ── Agency profile ── */
+  .agfeeds{display:none}
+  .agtiles{display:grid !important;grid-template-columns:1fr 1fr;gap:8px}
+  .agtiles .agt{padding:12px !important;min-height:0}
+  .agtiles .agt p,.agtiles .agt small:not(.tag){display:none}
+
+  /* ── Team ── */
+  .tkpis{display:grid !important;grid-template-columns:1fr 1fr;gap:8px}
+  .tkpis>*{min-width:0}
+
+  /* sticky bars at the foot of a stage: one slim row, not a slab */
+  .listbar{padding:10px 12px !important;gap:10px !important;flex-direction:row !important;align-items:center !important;flex-wrap:nowrap !important}
+  .listbar>.grow{flex:1 1 auto;min-width:0;display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;line-height:1.35}
+  .listbar>.grow>*{display:inline !important;margin-right:4px}
+  .listbar>.grow .lgs{display:none !important}
+  .listbar>.grow b,.listbar>.grow .num{font-size:14px}
+  .listbar>.grow .muted,.listbar>.grow small{font-size:11.5px}
+  .listbar>.btn{flex:none;padding:10px 14px;font-size:14px;width:auto !important}
+  .agsave{padding:10px 12px !important;gap:8px !important;flex-direction:row !important;flex-wrap:wrap !important;align-items:center}
+  .agsave>.grow{display:none}
+  .agsave>.btn{flex:1 1 140px;justify-content:center;padding:10px 8px;font-size:13.5px;white-space:nowrap}
+  /* team: headers that had a picker beside them stack instead */
+  .jmap-card .card-h{flex-wrap:wrap;gap:8px}
+  .jmap-card .card-h h3{flex:1 1 100%}
+  .jmap-card .card-h select{width:100%}
+  .two table th:nth-child(3),.two table td:nth-child(3),.two table th:nth-child(4),.two table td:nth-child(4),.two table th:nth-child(6),.two table td:nth-child(6){display:none}
+
+  /* company profiles: nothing past the right edge */
+  .drawer{width:auto !important;left:0;right:0;max-width:100%}
+  .drawer-h,.drawer-b{overflow-x:hidden;padding-left:18px !important;padding-right:18px !important}
+  .drawer-h .stepper{grid-template-columns:repeat(5,minmax(0,1fr)) !important;width:100%;box-sizing:border-box}
+  .drawer-h .stepper>button{min-width:0;padding-left:2px;padding-right:2px}
+  .drawer-h .stepper span{font-size:10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .drawer-h>.row:not(.between){flex-wrap:wrap;gap:8px}
+  .drawer-h>.row:not(.between)>.seg{max-width:100%}
+  .drawer-h>.row:not(.between)>.row{margin-left:auto}
+  .drawer-b>*{max-width:100%;box-sizing:border-box}
+  /* small phones: the crew and chips shrink rather than spill */
+  .deck{grid-template-columns:minmax(0,1fr) !important}
+  .deck>*{min-width:0}
+  .dk-b{min-width:0}
+  .tabsbar{min-width:0}
+  .tabsbar .chips{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;max-width:100%}
+  .tabsbar .chips::-webkit-scrollbar{display:none}
+  .tabsbar .chips>*{flex:none}
+  .pfg,.bgrid,.cc-grid,.gdg,.hooks,.orb-flex,.itg,.feat,.evg,.mideas,.gcl,.agg,.ht-g1{grid-template-columns:minmax(0,1fr) !important}
+  .k13-g,.agtiles,.tkpis{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .orb-dial{min-width:0;max-width:100% !important}
+  /* segmented controls and card headers wrap or scroll instead of running off the edge */
+  .view .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+  .view .seg::-webkit-scrollbar{display:none}
+  .view .seg>button{flex:none}
+  .card-h{flex-wrap:wrap;gap:8px}
+  .card-h>.row{flex-wrap:wrap;gap:6px}
+  .gdc .row{flex-wrap:wrap}
+  .field .chips{flex-wrap:wrap !important;overflow:visible !important;margin-right:0 !important;width:auto !important;max-width:100%}
+  .row.between>.btn{max-width:100%;white-space:normal;text-align:left;height:auto}
+  .row.wrap>div{min-width:0;max-width:100%}
+  .sgc-row{max-width:100%}
+  .pft{min-width:0}
+}
+@media (max-width:360px){
+  .dk-b small{display:none}
+  .dk-here{display:none}
+  .dk-camp small{display:none}
+  .stepper span{font-size:9px}
+}
