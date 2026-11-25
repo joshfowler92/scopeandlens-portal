@@ -111,7 +111,7 @@ async function findDM(aid){const a=accountById(aid);const b=$('#dmb-'+aid);await
   if(b){b.disabled=true;b.innerHTML='Searching…'}
   try{let items;if(useAmp)items=await ampFindPeople(a);else{const j=await api('people?company='+encodeURIComponent(a.name)+'&domain='+encodeURIComponent(domainOf(a))+'&titles='+encodeURIComponent(myDiscs().flatMap(k=>DISC[k].titles).slice(0,8).join('|')));items=(j.people||[]).map(p=>({name:p.name,role:p.title,li:p.linkedin}))}
     S.live.people[a.name]={ts:new Date().toISOString(),items};save();toast(items.length?'Found '+items.length+' at '+esc(a.name):'Nobody new found at '+esc(a.name))}
-  catch(e){toast('Could not search just now')}go(VIEW,VIEW_ARG,true)}
+  catch(e){toast(e.message||'Could not search just now')}go(VIEW,VIEW_ARG,true)}
 
 /* why now: the news that makes now the right time */
 const NEWS_GROUPS={all:['All',null],agency:['Agency moves and pitches',['pitch','agency']],leadership:['Leadership changes',['leadership']],marketing:['Marketing and agency',['brand','launch','digital']],deals:['Deals and ownership',['deal']],company:['Company news',['results','expansion','restructure','sustainability','regulation']]};
