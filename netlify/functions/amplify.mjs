@@ -6,7 +6,7 @@
 //   POST /api/amplify-hook                    events from the partner, signed with AMPLIFY_WEBHOOK_SECRET
 import crypto from 'node:crypto';
 import { json, bad, needUser, getOrgs, store, getUsers , isFounder } from './_lib.mjs';
-const OPEN = ['companies', 'people', 'profile'];
+const OPEN = ['companies', 'people', 'profile', 'find-people'];
 const PREMIUM = ['enrich', 'send', 'campaign', 'pause', 'resume', 'approve', 'status', 'events'];
 export default async (req) => {
   const url = new URL(req.url);
