@@ -155,8 +155,8 @@ function ropeInit(){ropeStop();const svg=$('#seqSvg');if(!svg||!$('#ropeP'))retu
   const ends=nodes.map(n=>({el:n,id:n.dataset.id,x:+n.dataset.x,y:+n.dataset.y,dx:0,dy:0}));
   /* one rope segment between each pair of neighbours: a verlet chain pinned at both ends */
   const segs=[];for(let i=1;i<ends.length;i++){const a=ends[i-1],b=ends[i];const dist=Math.hypot(b.x-a.x,b.y-a.y);
-    const n=Math.max(7,Math.min(16,Math.round(dist/30)));const slack=dist*1.055+14;const seg={a,b,n,rest:slack/n,p:[]};
-    for(let j=0;j<=n;j++){const t=j/n;const sag=Math.sin(Math.PI*t)*slack*.07;seg.p.push({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t+sag,px:0,py:0})}
+    const n=Math.max(7,Math.min(16,Math.round(dist/30)));const slack=dist*1.012+3;const seg={a,b,n,rest:slack/n,p:[]};
+    for(let j=0;j<=n;j++){const t=j/n;const sag=Math.sin(Math.PI*t)*slack*.015;seg.p.push({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t+sag,px:0,py:0})}
     seg.p.forEach(q=>{q.px=q.x;q.py=q.y});segs.push(seg)}
   const draw=()=>{let d='',ds='';segs.forEach(seg=>{d+='M'+seg.p[0].x.toFixed(1)+' '+seg.p[0].y.toFixed(1);
       for(let j=1;j<seg.p.length-1;j++){const q=seg.p[j],r=seg.p[j+1];d+=' Q'+q.x.toFixed(1)+' '+q.y.toFixed(1)+' '+((q.x+r.x)/2).toFixed(1)+' '+((q.y+r.y)/2).toFixed(1)}
@@ -173,8 +173,8 @@ function ropeInit(){ropeStop();const svg=$('#seqSvg');if(!svg||!$('#ropeP'))retu
     const tick=now=>{if(!svg.isConnected){ropeStop();return}
       const t=now/1000;let dt=Math.min(.05,(now-last)/1000);last=now;
       segs.forEach((seg,si)=>{const P=seg.p;P[0].x=seg.a.x+seg.a.dx;P[0].y=seg.a.y+seg.a.dy;P[P.length-1].x=seg.b.x+seg.b.dx;P[P.length-1].y=seg.b.y+seg.b.dy;
-        for(let j=1;j<P.length-1;j++){const q=P[j];const vx=(q.x-q.px)*.982,vy=(q.y-q.py)*.982;q.px=q.x;q.py=q.y;
-          q.x+=vx+Math.sin(t*.9+si*2+j*.7)*.35*dt*60;q.y+=vy+900*dt*dt}
+        for(let j=1;j<P.length-1;j++){const q=P[j];const vx=(q.x-q.px)*.86,vy=(q.y-q.py)*.86;q.px=q.x;q.py=q.y;
+          q.x+=vx;q.y+=vy+260*dt*dt}
         for(let k=0;k<3;k++)for(let j=0;j<P.length-1;j++){const q=P[j],r=P[j+1];let ddx=r.x-q.x,ddy=r.y-q.y;const dl=Math.hypot(ddx,ddy)||1;const diff=(dl-seg.rest)/dl*.5;
           if(j===0){r.x-=ddx*diff*2;r.y-=ddy*diff*2}else if(j===P.length-2){q.x+=ddx*diff*2;q.y+=ddy*diff*2}else{q.x+=ddx*diff;q.y+=ddy*diff;r.x-=ddx*diff;r.y-=ddy*diff}}});
       draw();RP.raf=requestAnimationFrame(tick)};

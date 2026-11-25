@@ -273,15 +273,15 @@ const L_ANGLES = {
   agency: {
     why:'A new agency means a new plan, and the gaps around it are wide open: the disciplines the new agency does not cover, and the people who will need help making it work.',
     move:'Do not compete with the new appointment. Send {ASSET} on the part of the plan they are not covering, using {CAP}, and offer to make the new work go further.',
-    line:'Congratulations on the new agency at {CO}. We had a thought about the bit around the edges that usually gets missed. Happy to share, no strings.' },
+    line:'Congratulations on the new agency at {CO}. We had a thought about the bit around the edges that usually gets missed. Happy to share it if it is useful.' },
   leadership: {
     why:'New leaders get roughly 90 days to set a direction, and they rarely feel loyal to the agencies they inherited. The roster is more open now than it will be for years.',
-    move:'Send the new team {ASSET}, framed as what you would look at in their first 100 days. No pitch attached. Make it something they could take into their first board meeting.',
-    line:'Saw the leadership news at {CO}. We put together a short note on what we would look at in the first 100 days. No pitch, it is yours either way.' },
+    move:'Send the new team {ASSET}, framed as what you would look at in their first 100 days. Make it something they could take into their first board meeting.',
+    line:'Saw the leadership news at {CO}. We put together a short note on what we would look at in the first 100 days. Happy to send it over if it is useful.' },
   results: {
     why:'Results are when the board writes its questions down. Whatever the headline, someone in marketing now owns a number they have to move before the next update.',
     move:'Pick the one line in the statement about growth or pressure and build {ASSET} around it. Show how {CAP} moves that exact number, using their own figures.',
-    line:'Read the latest numbers from {CO} and one line jumped out. We sketched how we would attack it. Happy to send it over, no strings.' },
+    line:'Read the latest numbers from {CO} and one line jumped out. We sketched how we would attack it. Happy to send it over if it is useful.' },
   expansion: {
     why:'Growing into new places means new audiences who have never heard of them, and an in-house team stretched across more openings than it can handle well.',
     move:'Send {ASSET} for the new market or sites: who they need to win there and how {CAP} gets them noticed from day one.',
@@ -317,7 +317,7 @@ const L_ANGLES = {
   none: {
     why:'No big headline this quarter, which means nobody else has a reason to get in touch either. Quiet accounts are often the most receptive.',
     move:'Check the live news link for anything in the last few weeks, then send {ASSET} built around {PROB}. Watch for {SIGNAL}.',
-    line:'Been looking at {CO} and had an idea about {PROB}. Put it on a page. Happy to send it over, no strings.' }
+    line:'Been looking at {CO} and had an idea about {PROB}. Put it on a page. Happy to send it over if it is useful.' }
 };
 
 /* ── triggers: the "why now" behind a reach out ─────────────── */

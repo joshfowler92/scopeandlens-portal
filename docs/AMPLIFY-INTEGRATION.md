@@ -180,3 +180,9 @@ Point `AMPLIFY_API_URL` at a staging endpoint, switch Amplify on for a test agen
 4. Launch, Amplify it: **Pull in the latest replies** calls `events`
 5. Launch: launching with autopilot on calls `campaign`, and **Pause** and **Resume** call `pause` and `resume`
 6. How to reach: **Scan my profile** calls `profile`
+
+## Pipeline from live conversations (v18)
+
+Pipeline shows "Deals from live conversations". Any organisation with a LinkedIn reply, email reply or meeting in the last 45 days that is not already in the pipeline is suggested as an engaged lead (replies) or meeting held (meetings), with the conversation as its source ("LinkedIn conversation via Amplify"). With "Add them automatically" on, Plato adds them as they arrive. The signals come from the same Amplify events feed (`ampEvents`) that powers Signals and intent, so no extra endpoint is needed.
+
+Sender fields for Amplify now live in the agency profile ("About you"): the sender's LinkedIn profile and the email the outreach comes from.

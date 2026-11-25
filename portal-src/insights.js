@@ -25,7 +25,7 @@ function seedInsights(){const by={};PROSPECTS.forEach(p=>{if(p.nt!=='none'){by[p
   summary:'Recent agency appointments and big campaign moves, and what they tell us about how these brands buy.',brands:['Oxfam GB','Thatchers Cider','Guide Dogs','Rude Health'],
   body:['- '+lnk('Happy Hour won a three way pitch to create Oxfam’s 2026 Christmas campaign.','Oxfam GB'),'- '+lnk('Thatchers launched its summer campaign with Initials CX, a new agency relationship.','Thatchers Cider'),
     '- '+lnk('Guide Dogs is repositioning its brand with a new creative platform.','Guide Dogs'),'- '+lnk('Rude Health launched a £1m integrated campaign, its biggest since the Oddlygood takeover.','Rude Health')].join('\n')+
-   '\n\nWhat it tells us: when a brand has just moved, the losing agencies go quiet. That is exactly when a useful, no strings piece of thinking gets read.'},
+   '\n\nWhat it tells us: when a brand has just moved, the losing agencies go quiet. That is exactly when a genuinely useful piece of thinking gets read.'},
  {id:'quarter-intel',cat:'intel',date:'2026-10-07',cover:total+' signals',title:'Where the news is clustering this quarter',
   summary:'We read the news on '+PROSPECTS.length+' brands. Here is where the signals sit, and what to do with them.',brands:[],
   body:'Across the '+PROSPECTS.length+' brands in the current edition, '+total+' had a meaningful piece of news this year.\n\n'+

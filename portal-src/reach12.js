@@ -13,7 +13,7 @@ const _planSteps12=planSteps;planSteps=function(ch,W,pace){const base=_planSteps
   const out=base.slice();for(let w=1;w<=W;w+=2)out.push({w,ch:'social',t:w===1?'Post about the problem you solve':'Post again, and share it with anyone who engaged',task:1,warm:0,nonote:0,accept:0,lib:7,content:1});
   return out.sort((a,b)=>a.w-b.w||STEP_ORDER(a)-STEP_ORDER(b))};
 const _journeyView12=journeyView;journeyView=function(c){const R=c.reach;let h=_journeyView12(c).replace(liReadyCard(c),'');
-  if(!R.ch.length)h='<div class="pickch">'+agentFace('reach',44,{badge:false})+'<div class="grow"><b>Choose how you will show up</b><p>Tap the channels you want below, or take the Scope &amp; Lens route: LinkedIn, email, content every two weeks, events, a workshop, something in the post, a warm call when they engage, and LinkedIn ads running quietly in the background.</p></div><button class="btn btn-primary" onclick="recommendMix()">✨ Use the Scope &amp; Lens route</button></div>'+h;
+  if(!R.ch.length)h='<div class="pickch">'+agentFace('reach',44,{badge:false})+'<div class="grow"><b>Choose how you will show up</b><p>Tap the channels you want below, or take the Scope &amp; Lens route: LinkedIn, email, content every two weeks, events, a workshop, something in the post, a warm call when they engage, and LinkedIn ads running quietly in the background.</p></div><button class="btn btn-primary" onclick="recommendMix()">Use the Scope &amp; Lens route</button></div>'+h;
   return liScanCard(c)+h};
 
 /* ── LinkedIn profile scanner ── */

@@ -3584,6 +3584,449 @@ button.jfn[onclick]:hover{border-color:var(--fc);box-shadow:0 0 0 3px color-mix(
 @media (max-width:900px){.dk-meet .dm-l{display:none}.dk-meet .dm-s{display:inline}}
 .dk-top .dk-meet .dm-l,.dk-top .dk-meet .dm-s{background:none;padding:0;margin:0;border:0;font:inherit;color:inherit;min-width:0;width:auto;flex:none}
 
+/* ═══════════ v18 CALM ═══════════ */
+/* quieter surfaces: flat paper, no glow */
+.side{background:var(--paper)!important}
+.pfoot2{display:none!important}
+
+/* ── the sidebar: flat, nothing folds, nothing hides ── */
+.side{display:flex;flex-direction:column;height:100dvh;min-height:0}
+.side>.sd-top,.side>.sd-new{flex:none}
+.sd-nav{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.sd18-foot{flex:none}
+.sd18{display:flex;flex-direction:column;gap:2px}
+.sd18 .sd-i{min-height:40px}
+.sd18-camp{margin:2px 0 6px 18px;padding:6px 0 4px 10px;border-left:2px solid var(--rule-2);display:flex;flex-direction:column;gap:2px}
+.sd18-camp.act{border-left-color:var(--brand)}
+.sd18-ch{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:6px 8px;border-radius:10px;border:1.5px solid var(--rule-2);background:var(--bg)}
+.sd18-ch:hover{border-color:var(--brand)}
+.sd18-ch .grow{min-width:0}
+.sd18-ch b{display:block;font-size:12.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sd18-ch small{display:block;font-size:11px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sd18-ch svg{width:14px;height:14px;flex:none;color:var(--mute)}
+.sd18-dot{width:8px;height:8px;border-radius:50%;background:var(--rule-2);flex:none}
+.sd18-dot.live{background:#12b886;box-shadow:0 0 0 3px color-mix(in srgb,#12b886 25%,transparent)}
+.sd18-dot.build{background:var(--brand)}
+.sd18-steps{display:flex;flex-direction:column;gap:1px;margin-top:4px}
+.sd18-s{display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:6px 8px;border-radius:9px;font:600 13px var(--sans);color:var(--ink);min-height:34px}
+.sd18-s:hover{background:color-mix(in srgb,var(--brand) 7%,transparent)}
+.sd18-s.on{background:color-mix(in srgb,var(--brand) 12%,transparent);color:var(--brand)}
+.sd18-n{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--rule-2);display:grid;place-items:center;font:700 10.5px var(--sans);flex:none;color:var(--mute);background:var(--paper)}
+.sd18-n svg{width:11px;height:11px}
+.sd18-s.dn .sd18-n{background:#12b886;border-color:#12b886;color:#fff}
+.sd18-s.dn .sd18-n svg{stroke:#fff}
+.sd18-s.on .sd18-n{border-color:var(--brand);color:var(--brand)}
+.sd18-l{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sd18-s .ag{flex:none}
+.sd18-s.lock{opacity:.55}
+@media (min-width:901px){body.sd-mini .sd18-camp{margin:2px 0;padding:4px 0;border-left:0;border-top:1.5px solid var(--rule-2)}
+  body.sd-mini .sd18-ch{display:none}body.sd-mini .sd18-l,body.sd-mini .sd18-n{display:none}body.sd-mini .sd18-s{justify-content:center;padding:6px 0}}
+@media (max-height:760px) and (min-width:901px){.sd18 .sd-i{min-height:34px;padding-top:5px;padding-bottom:5px}.sd18-s{min-height:30px;padding:4px 8px}.sd18-foot .sd-i{padding-top:5px;padding-bottom:5px}}
+
+/* help menu */
+.help18{position:fixed;z-index:400;width:290px;background:var(--paper);border:1.5px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);padding:6px;display:flex;flex-direction:column;gap:2px;animation:h18in .18s var(--ease)}
+@keyframes h18in{from{opacity:0;transform:translateY(6px)}}
+.help18 button{display:flex;align-items:center;gap:12px;text-align:left;padding:9px 10px;border-radius:11px}
+.help18 button:hover{background:var(--bg)}
+.help18 button>svg{width:18px;height:18px;flex:none;margin:0 7px}
+.help18 b{display:block;font-size:14px}.help18 small{display:block;font-size:12px;color:var(--mute)}
+.h18-josh{background:color-mix(in srgb,var(--brand) 9%,transparent)}
+.jf18{display:inline-grid;place-items:center;border-radius:50%;overflow:hidden;background:#ffb547;flex:none;border:2px solid var(--ink)}
+.jf18 img{width:100%;height:100%;object-fit:cover;display:block}
+.sj18-h{display:flex;gap:16px;align-items:center;margin-bottom:16px}
+.sj18-h h2{margin:0}.sj18-h p{margin:4px 0 0}
+.sj18-f{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+
+/* ── the slim campaign bar on each stage ── */
+.cb18{display:flex;align-items:center;gap:14px;margin:4px 0 22px;padding:8px 8px 8px 14px;background:var(--paper);border:1.5px solid var(--rule-2);border-radius:16px}
+.cb18-c{display:flex;flex-direction:column;align-items:flex-start;min-width:0;max-width:240px;text-align:left;padding:2px 10px 2px 0;border-right:1.5px solid var(--rule-2)}
+.cb18-c small{font:700 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cb18-c b{font-size:14px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.cb18-c em{font:700 11.5px var(--sans);font-style:normal;color:var(--brand)}
+.cb18-steps{display:flex;align-items:center;gap:4px;flex:1;min-width:0}
+.cb18-s{display:flex;align-items:center;gap:7px;padding:5px 10px 5px 5px;border-radius:99px;font:600 13px var(--sans);color:var(--mute);position:relative;white-space:nowrap}
+.cb18-s:hover{background:var(--bg);color:var(--ink)}
+.cb18-s.on{background:var(--ink);color:var(--bg)}
+.cb18-s.dn{color:var(--ink)}
+.cb18-s i{width:15px;height:15px;border-radius:50%;background:#12b886;display:grid;place-items:center}
+.cb18-s i svg{width:9px;height:9px;stroke:#fff;stroke-width:3}
+.cb18-ln{flex:1;min-width:8px;max-width:40px;height:2px;background:var(--rule-2);border-radius:2px}
+.cb18-ln.fed{background:#12b886}
+.cb18-m{display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:99px;border:1.5px solid var(--rule-2);font:700 12.5px var(--sans);flex:none}
+.cb18-m svg{width:14px;height:14px}
+@media (max-width:1180px){.cb18-s span{display:none}.cb18-s{padding:4px}}
+@media (max-width:900px){.cb18{flex-wrap:wrap;gap:8px;padding:8px}.cb18-c{border-right:0;max-width:none;flex:1}.cb18-steps{order:3;width:100%;justify-content:space-between}.cb18-m span{display:none}}
+
+/* ── the hand-over moment ── */
+.hand18{position:fixed;right:24px;bottom:24px;z-index:380;width:min(380px,calc(100vw - 32px));background:var(--paper);border:1.5px solid var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--ink);padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;animation:h18up .5s cubic-bezier(.34,1.56,.64,1)}
+.hand18.out{opacity:0;transform:translateY(20px);transition:all .45s}
+@keyframes h18up{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.h18-faces{display:flex;align-items:center;gap:8px}
+.h18-arc{width:40px;height:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 9px);animation:h18dash 1s linear infinite}
+@keyframes h18dash{to{background-position:18px 0}}
+.h18-chat p{margin:0 0 6px;padding:8px 12px;border-radius:14px;background:var(--bg);font-size:13.5px;opacity:0;transform:translateY(6px);animation:h18p .4s forwards;animation-delay:var(--d)}
+.h18-chat p b{display:block;font-size:11.5px;color:var(--mute)}
+@keyframes h18p{to{opacity:1;transform:none}}
+.hand18 .btn{align-self:flex-start}
+.h18-x{position:absolute;right:8px;top:8px}
+
+@media (prefers-reduced-motion:reduce){.hand18,.h18-chat p,.help18{animation:none;opacity:1;transform:none}}
+
+/* ═══ agency profile ═══ */
+.ag18{display:flex;flex-direction:column;gap:14px}
+.ag18-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.ag18-t{font-size:clamp(30px,3.4vw,44px);line-height:1.02;letter-spacing:-.035em;margin:4px 0 0}
+.ag18-amp{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:14px;border:1.5px dashed var(--brand);background:color-mix(in srgb,var(--brand) 6%,transparent);text-align:left}
+.ag18-amp svg{width:18px;height:18px;color:var(--brand)}.ag18-amp b{display:block;font-size:13px}.ag18-amp small{display:block;font-size:12px;color:var(--mute)}
+.ag18-steps{display:flex;gap:6px;flex-wrap:wrap}
+.ag18-st{display:flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:99px;border:1.5px solid var(--rule-2);background:var(--paper);font:600 13.5px var(--sans);color:var(--mute)}
+.ag18-st b{font-weight:700}
+.ag18-st:hover{border-color:var(--ink);color:var(--ink)}
+.ag18-st.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.ag18-n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--ink);font:800 12px var(--sans);border:1.5px solid var(--rule-2)}
+.ag18-n svg{width:12px;height:12px;stroke-width:3}
+.ag18-st.dn .ag18-n{background:#12b886;border-color:#12b886;color:#fff}.ag18-st.dn .ag18-n svg{stroke:#fff}
+.ag18-body{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+.ag18-main{display:flex;flex-direction:column;min-height:min(560px,calc(100dvh - 300px));max-height:calc(100dvh - 250px);overflow:auto;padding:24px 26px 0}
+.ag18-hd h2{font-size:26px;letter-spacing:-.03em;margin:0}.ag18-hd p{margin:4px 0 18px;color:var(--mute);font-size:15px}
+.ag18-g{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.ag18-g .span2{grid-column:1/-1}
+.ag18-g .field{margin-bottom:12px}
+.tag18{display:inline-block;margin-left:4px;padding:1px 7px;border-radius:99px;background:color-mix(in srgb,var(--brand) 12%,transparent);color:var(--brand);font:700 10.5px var(--sans);vertical-align:1px}
+.ag18-foot{position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding:14px 0 18px;background:linear-gradient(transparent,var(--paper) 30%)}
+.ag18-foot svg.l{transform:rotate(180deg)}
+.ag18-saved{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mute)}.ag18-saved svg{width:14px;height:14px;color:#12b886}
+.ag18-read{display:flex;flex-direction:column;gap:6px;max-width:620px}
+.ag18-web label{display:block;font:700 13px var(--sans);margin-bottom:6px}
+.ag18-row{display:flex;gap:10px}.ag18-row .inp{flex:1}
+.ok18{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;color:#0b7a5a}.ok18 svg{width:14px;height:14px}
+.ag18-or{display:flex;align-items:center;gap:12px;margin:14px 0 8px;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.ag18-or::before,.ag18-or::after{content:'';flex:1;height:1.5px;background:var(--rule-2)}
+.ag18-read.busy{flex-direction:row;align-items:center;gap:26px;padding:10px 0 20px}
+.ag18-scan{width:120px;height:150px;border:2px solid var(--ink);border-radius:12px;background:repeating-linear-gradient(var(--paper) 0 14px,var(--rule) 14px 16px);position:relative;overflow:hidden;flex:none;box-shadow:5px 5px 0 var(--ink)}
+.ag18-scan i{position:absolute;left:0;right:0;height:28px;background:linear-gradient(transparent,color-mix(in srgb,var(--brand) 45%,transparent));animation:scan18 1.4s ease-in-out infinite alternate}
+@keyframes scan18{from{top:-20px}to{top:130px}}
+.ag18-feed{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.ag18-feed li{display:flex;align-items:center;gap:9px;font-size:15px;animation:h18p .35s both}
+.ag18-feed li svg{width:16px;height:16px;color:#12b886;stroke-width:3}
+.ag18-feed li.now{font-weight:700}
+.sp18{width:14px;height:14px;border-radius:50%;border:2px solid var(--rule-2);border-top-color:var(--brand);animation:spin18 .8s linear infinite}
+@keyframes spin18{to{transform:rotate(360deg)}}
+.ag18-want .qgrid{grid-template-columns:1fr 1fr;gap:12px}
+.ag18-want .qcard{padding:12px 14px}
+.ag18-files{margin-top:16px;padding:14px 16px;border:1.5px solid var(--rule-2);border-radius:14px}
+.ag18-files ul{list-style:none;margin:10px 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ag18-files li{display:flex;align-items:center;gap:8px;font-size:13.5px}.ag18-files li svg{width:15px;height:15px;color:var(--mute)}.ag18-files li small{color:var(--mute)}
+
+/* the character */
+.ch18{position:sticky;top:12px;background:var(--paper);border:1.5px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:18px 18px 12px;display:flex;flex-direction:column;align-items:center;max-height:calc(100dvh - 250px);overflow:auto}
+.ch18>*{flex:none}
+.ch18-k{font:800 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);align-self:flex-start}
+.ch18-av{position:relative;width:200px;height:200px;margin:8px 0 6px}
+.ch18-ring{position:absolute;inset:20px;width:160px;height:160px}
+.ch18-ring .t{fill:none;stroke:var(--rule);stroke-width:7}
+.ch18-ring .v{fill:none;stroke:var(--ac);stroke-width:7;stroke-linecap:round;transition:stroke-dasharray .8s var(--ease)}
+.ch18-em{position:absolute;left:50%;top:50%;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font:800 34px var(--sans);letter-spacing:-.02em;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);animation:emB 5s ease-in-out infinite}
+@keyframes emB{50%{transform:translateY(-4px)}}
+.ch18-o{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;display:grid;place-items:center;border:1.5px dashed var(--rule-2);background:var(--paper);color:var(--rule-2);transition:all .3s}
+.ch18-o svg{width:14px;height:14px}
+.ch18-o.on{border:2px solid var(--ink);background:#ffd43b;color:var(--ink)}
+.ch18-o.new{animation:pop18 .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop18{0%{transform:scale(0) rotate(-40deg)}100%{transform:none}}
+.ch18-n{text-align:center;margin-bottom:10px}.ch18-n b{display:block;font-size:18px;letter-spacing:-.02em}.ch18-n span{font-size:12.5px;color:var(--mute)}
+.ch18-t{list-style:none;margin:0;padding:0;width:100%;display:flex;flex-direction:column;gap:2px}
+.ch18-t li{display:flex;gap:10px;align-items:flex-start;padding:6px 4px;border-top:1px solid var(--rule)}
+.ch18-i{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:var(--bg);color:var(--rule-2);flex:none}
+.ch18-i svg{width:13px;height:13px}
+.ch18-t li small{display:block;font:700 10.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--mute)}
+.ch18-t li b{display:block;font-size:12.5px;font-weight:600;line-height:1.35;color:var(--rule-2)}
+.ch18-t li.on .ch18-i{background:#ffd43b;color:var(--ink)}
+.ch18-t li.on b{color:var(--ink)}
+.ch18-t li.new{animation:new18 1.2s ease}
+@keyframes new18{0%{background:color-mix(in srgb,#ffd43b 60%,transparent)}100%{background:transparent}}
+@media (max-width:1180px){.ag18-body{grid-template-columns:1fr}.ch18{position:static;max-height:none;order:-1;flex-direction:row;flex-wrap:wrap;gap:12px}.ch18-av{width:120px;height:120px}.ch18-ring{inset:10px;width:100px;height:100px}.ch18-em{width:64px;height:64px;margin:-32px 0 0 -32px;font-size:22px}.ch18-o{width:22px;height:22px;margin:-11px 0 0 -11px}.ch18-o svg{width:10px;height:10px}.ch18-t{display:none}.ch18-k{width:100%}.ag18-main{max-height:none;min-height:0}}
+@media (max-width:640px){.ag18-g{grid-template-columns:1fr}.ag18-want .qgrid{grid-template-columns:1fr}.ag18-row{flex-direction:column}.ag18-st b{display:none}.ag18-st{padding:4px}.ag18-top{flex-direction:column;align-items:flex-start}.ag18-read.busy{flex-direction:column}.ag18-main{padding:18px 16px 0}}
+@media (min-width:901px){.coach.min{left:276px!important;right:auto!important;bottom:18px!important}}
+.coach.min .co-pill{padding:6px 12px 6px 6px}
+/* ── v18b Pick your brands ── */
+.pk-steps{display:flex;align-items:stretch;gap:10px;margin:4px 0 18px}
+.pk-st{flex:1;display:flex;align-items:center;gap:12px;text-align:left;padding:12px 16px;border:1.5px solid var(--rule);border-radius:14px;background:var(--paper);position:relative;transition:border-color .2s,box-shadow .2s}
+.pk-st:hover{border-color:var(--ink)}
+.pk-st.on{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.pk-st b{display:block;font-size:15.5px;letter-spacing:-.01em}.pk-st small{display:block;font-size:12.5px;color:var(--mute);margin-top:1px}
+.pk-n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 13px var(--sans);background:var(--bg);border:1.5px solid var(--rule-2);flex:none}
+.pk-n svg{width:14px;height:14px}
+.pk-st.dn .pk-n,.pk-st:first-child:has(.pk-n svg) .pk-n{background:var(--good);border-color:var(--good);color:#fff}
+.pk-st.crit{border-color:#f08c00;background:#fff8ec}.pk-st.crit .pk-n{background:#f08c00;border-color:#f08c00;color:#fff}
+.pk-st.crit small{color:#a35a00;font-weight:600}
+.pk-st em{position:absolute;top:-9px;right:14px;font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;background:#f08c00;color:#fff;padding:3px 8px;border-radius:99px}
+.pk-ar{display:grid;place-items:center;color:var(--rule-2)}.pk-ar svg{width:18px;height:18px}
+.pk-fresh{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 10px;border-radius:14px;background:color-mix(in srgb,var(--brand) 8%,var(--paper));border:1px solid color-mix(in srgb,var(--brand) 25%,transparent);margin-bottom:12px;animation:popIn .4s var(--spring)}
+.pk-fresh span{font-size:14px}
+.pk-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.seg18{display:inline-flex;padding:3px;border-radius:11px;background:var(--bg);border:1px solid var(--rule)}
+.seg18 button{padding:6px 12px;border-radius:8px;font:600 13px var(--sans);color:var(--mute)}
+.seg18 button.on{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.inp.sm{height:34px;padding:0 10px;font-size:13px;width:auto}
+.pk-addn{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mute)}
+.pb-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:14px}
+.pb{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule);border-radius:16px;overflow:hidden;transition:transform .2s var(--ease),box-shadow .2s,border-color .2s}
+.pb:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(0,0,0,.35);border-color:var(--rule-2)}
+.pb.on{border-color:var(--good);box-shadow:0 0 0 1.5px var(--good)}
+.pb-cov{position:relative;height:96px;background:hsl(var(--h) 55% 88%);overflow:visible}
+.pb-cov svg{position:absolute;inset:0;width:100%;height:100%}
+.pb-cov .c1{fill:hsl(var(--h) 60% 78%)}.pb-cov .c2{fill:hsl(calc(var(--h) + 40) 55% 82%)}
+.pb-cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pb-lg{position:absolute;left:14px;bottom:-20px;border-radius:12px;background:var(--paper);padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.pb-lg .lg{border-radius:9px}
+.pb-b{padding:28px 16px 4px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pb h3{margin:0;font-size:17px;letter-spacing:-.02em;line-height:1.2}
+.pb-m{color:var(--mute);font-size:12.5px;margin-top:-8px;line-height:1.35}
+.pb-sc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pb-fit,.pb-pl{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:11px;background:var(--bg);text-align:left;border:1px solid transparent;transition:border-color .15s}
+.pb-fit:hover,.pb-pl:hover{border-color:var(--rule-2)}
+.pb-fit small,.pb-pl small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.pb-fit b,.pb-pl b{display:block;font-size:13px}
+.pb-fit .ring,.pb-fit svg{width:34px;height:34px;flex:none}
+.bars{display:flex;align-items:flex-end;gap:2px;height:22px;flex:none;padding:0 4px}
+.bars i{width:5px;border-radius:2px;background:var(--rule)}.bars i:nth-child(1){height:8px}.bars i:nth-child(2){height:14px}.bars i:nth-child(3){height:20px}
+.pl18-low .bars i:nth-child(1){background:#868e96}
+.pl18-med .bars i:nth-child(-n+2){background:#f08c00}
+.pl18-high .bars i{background:#e03131}
+.pl18-high b{color:#c92a2a}.pl18-med b{color:#a35a00}
+.fp-h b.pl18-high{color:#c92a2a}.fp-h b.pl18-med{color:#a35a00}.fp-h b.pl18-low{color:var(--mute)}
+.pw18{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pw18 li{display:flex;gap:8px;font-size:13.5px;line-height:1.4}.pw18 svg{width:14px;height:14px;flex:none;margin-top:3px;color:var(--good)}
+.pb-now{border-left:3px solid var(--brand);padding:2px 0 2px 10px}
+.pb-now b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.pb-now b span{font-weight:600;color:var(--mute);letter-spacing:.02em;text-transform:none;font-size:11.5px;margin-left:4px}
+.pb-now p{margin:3px 0 2px;font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pb-now a{font-size:12px;font-weight:600;color:var(--brand);display:inline-flex;gap:4px;align-items:center}.pb-now a svg{width:11px;height:11px}
+.pb-now.quiet{border-color:var(--rule)}.pb-now.quiet p{color:var(--mute)}
+.pb-f{display:flex;gap:8px;padding:12px 16px 14px;justify-content:space-between}
+.pb-f .btn.on{color:var(--good);border-color:var(--good)}
+.pk-more{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px 0 6px}
+.pk-hero{display:grid;place-items:center;padding:48px 20px;border:1.5px dashed var(--rule-2);border-radius:20px;background:var(--paper);text-align:center}
+.pk-hc{max-width:520px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.pk-hc h2{margin:0;font-size:30px;letter-spacing:-.03em}.pk-hc p{margin:0 0 6px;color:var(--mute);font-size:15.5px;line-height:1.5}
+.pk-dm{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--good) 10%,var(--paper));margin-bottom:16px;font-size:14px;line-height:1.5}
+.pk-dm.crit{background:#fff8ec;border:1.5px solid #f08c00}.pk-dm>svg{width:20px;height:20px;flex:none;margin-top:1px}.pk-dm.crit>svg{color:#f08c00}
+.pk-foot{position:sticky;bottom:12px;z-index:20;display:flex;align-items:center;gap:12px;margin-top:18px;padding:10px 10px 10px 14px;background:var(--paper);border:1.5px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink)}
+.pk-foot .lgs{display:flex}.pk-foot .lgs .lg{margin-left:-6px;border:2px solid var(--paper);border-radius:8px}.pk-foot .lgs .lg:first-child{margin-left:0}
+/* the scan */
+.scan18{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(18,20,28,.55);backdrop-filter:blur(6px);opacity:0;transition:opacity .25s}
+.scan18.on{opacity:1}
+.sc18{width:min(620px,calc(100vw - 24px));background:var(--paper);border-radius:22px;padding:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);transform:translateY(10px) scale(.98);transition:transform .35s var(--ease)}
+.scan18.on .sc18{transform:none}
+.sc18-top{display:flex;align-items:center;gap:12px}.sc18-top b{display:block;font-size:16px}.sc18-top small{color:var(--mute);font-size:13px}
+.sc18-mid{display:grid;grid-template-columns:180px 1fr;gap:22px;margin:22px 0 18px;align-items:center}
+.sc18-n b{display:block;font:800 52px/1 var(--sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.sc18-n small{color:var(--mute);font-size:13px}
+.sc18-st{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.sc18-st li{display:grid;grid-template-columns:18px 1fr;column-gap:10px;row-gap:5px;align-items:center;font-size:13.5px;color:var(--mute);transition:color .3s}
+.sc18-st li svg{width:16px;height:16px}
+.sc18-st li i{grid-column:2;height:3px;border-radius:3px;background:var(--rule);overflow:hidden}
+.sc18-st li u{display:block;height:100%;width:0;background:var(--brand);border-radius:3px}
+.sc18-st li.go{color:var(--ink);font-weight:600}.sc18-st li.go u{width:100%;transition:width 1s var(--ease)}
+.sc18-st li.dn svg{color:var(--good)}
+.sc18-f{border-top:1px solid var(--rule);padding-top:14px}.sc18-f small{display:block;font:700 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+#sc18F{display:flex;flex-wrap:wrap;gap:6px;min-height:40px}
+.sc18-b{display:inline-flex;align-items:center;gap:7px;padding:4px 10px 4px 4px;border-radius:99px;background:var(--bg);font-size:12.5px;animation:popIn .4s var(--spring)}
+.sc18-b em{font-style:normal;font-weight:800;color:var(--brand)}
+@media (max-width:700px){.pk-steps{flex-direction:column}.pk-ar{display:none}.sc18-mid{grid-template-columns:1fr}.sc18-n b{font-size:40px}.pk-foot{flex-wrap:wrap}.pk-foot .btn{width:100%;justify-content:center}.pk-addn label{display:none}}
+.rg18{position:relative;width:36px;height:36px;flex:none;display:grid;place-items:center}
+.rg18 svg{position:absolute;inset:0;width:100%;height:100%}.rg18 .t{fill:none;stroke:var(--rule);stroke-width:3.5}.rg18 .v{fill:none;stroke:var(--brand);stroke-width:3.5;stroke-linecap:round}
+.rg18 b{font:800 12px var(--sans);position:relative}
+.fp-h b.pl18-high,.fp-h b.pl18-med,.fp-h b.pl18-low{font-size:22px;line-height:1.1;min-width:84px}
+.pk-addn select{min-width:66px}
+/* calmer page heads: less scrolling */
+.sh-t{font-size:clamp(30px,2.9vw,40px)!important;line-height:1.05!important}
+.sh{margin-bottom:12px!important;padding-top:0!important}
+.cb18-s.on,.cb18-s.on.dn{color:#fff}
+@media (max-width:1180px){.cb18-s span{display:revert}.cb18-s>span:not(.ag){display:none}}
+@media (min-width:901px){.coach.min{left:50%!important;right:auto!important;top:10px!important;bottom:auto!important;transform:translateX(-50%);z-index:60}.coach.min .co-pill{padding:3px 12px 3px 3px}.coach.min .co-pill small{display:none}}
+@media (max-width:900px){.coach.min{display:none!important}.pk-foot{bottom:92px}.pk-foot .lgs{display:none}}
+@media (min-width:901px){.coach.min{left:auto!important;right:290px!important;transform:none}.pk-foot{margin-right:74px}}
+@media (max-width:900px){.pk-foot{position:static;margin-right:0}.pk-steps{flex-direction:row;gap:8px}.pk-st{padding:10px;gap:8px}.pk-st small{display:none}.pk-st b{font-size:13.5px}.pk-n{width:24px;height:24px}.cb18-steps{flex-basis:100%;overflow-x:auto}.cb18 .cb18-c{flex:1 1 0}}
+/* ── v18c Create value ── */
+.cv-prob{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 16px;font-size:14.5px;color:var(--mute)}.cv-prob b{color:var(--ink)}
+.cv-prob select{max-width:340px;font-weight:600;color:var(--ink)}
+.cv{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:22px;align-items:start}
+.cv-main{display:flex;flex-direction:column;gap:26px;min-width:0}
+.cv-feed{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:20px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.cv-feed.slim{padding:12px 14px;box-shadow:none;border:1px solid var(--rule)}
+.cv-feed label{display:block;margin-bottom:8px}.cv-feed label b{display:block;font-size:17px;letter-spacing:-.01em}.cv-feed label span{display:block;color:var(--mute);font-size:14px;margin-top:3px;line-height:1.45}
+.cv-feed textarea{width:100%;resize:vertical;font-size:14.5px;line-height:1.5}
+.cv-uses{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px}.cv-uses small{font-size:12px;color:var(--mute);margin-right:2px}
+.cv-uses span{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;background:var(--bg);font-size:12px}.cv-uses svg{width:12px;height:12px}
+.cv-fa{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+.cv-fl{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;min-height:150px}
+.cv-fl li{display:flex;gap:8px;align-items:center;font-size:14px;animation:popIn .35s var(--spring)}.cv-fl svg{width:14px;height:14px;color:var(--good)}
+.cv-ph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.cv-ph h2{margin:0;font-size:24px;letter-spacing:-.02em}
+.cv-gl{font:800 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:16px 0 6px}
+.cv-gl:first-of-type{margin-top:4px}
+.cv-it{display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;padding:12px 4px;border-bottom:1px solid var(--rule);transition:background .15s}
+.cv-it:hover{background:color-mix(in srgb,var(--brand) 4%,transparent)}
+.cv-it.new{animation:popIn .5s var(--spring) both}
+.cv-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--bg);flex:none}.cv-ic svg{width:17px;height:17px}
+.cv-it small{display:block;font-size:11.5px;color:var(--mute);font-weight:600}
+.cv-it b{display:block;font-size:15px;letter-spacing:-.01em;margin:1px 0 3px}
+.cv-val{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-2,#444)}
+.cv-st{flex:none;align-self:center;font:700 12px var(--sans);padding:4px 10px;border-radius:99px;background:var(--bg);color:var(--mute);display:inline-flex;gap:5px;align-items:center;white-space:nowrap}
+.cv-st svg{width:12px;height:12px}
+.cv-it.ready .cv-st{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.cv-it.you .cv-st{background:#fff4e0;color:#a35a00}
+.cv-it.ready .cv-ic{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.cv-ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:8px}
+.cv-idea{display:flex;flex-direction:column;gap:5px;padding:14px;border-radius:16px;background:var(--paper);border:1px solid var(--rule)}
+.cv-idea.ai{border-color:color-mix(in srgb,var(--brand) 35%,transparent);background:color-mix(in srgb,var(--brand) 4%,var(--paper))}
+.cv-ik{display:flex;gap:5px;align-items:center;font:800 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--brand)}.cv-ik svg{width:12px;height:12px}
+.cv-idea b{font-size:15px;letter-spacing:-.01em}.cv-idea p{margin:0;font-size:13.5px;line-height:1.45}.cv-idea small{color:var(--mute);font-size:12.5px;line-height:1.4}
+.cv-ia{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:6px}
+.cv-bank{position:sticky;top:12px;padding:16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule);display:flex;flex-direction:column;gap:10px}
+.cv-bh{display:flex;gap:12px;align-items:center}.cv-bh small{display:block;font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}.cv-bh b{font-size:16px}
+.cv-bank ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.cv-bank li{display:flex;gap:9px;align-items:center;padding:7px 0;border-top:1px solid var(--rule);font-size:13.5px}
+.cv-bank li i{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--rule-2);display:grid;place-items:center;flex:none}
+.cv-bank li.ok i{background:var(--good);border-color:var(--good);color:#fff}.cv-bank li i svg{width:10px;height:10px}
+.cv-bank li em{font-style:normal;font-size:12px;color:var(--mute);font-weight:700}
+.cv-bank p{margin:0;font-size:12.5px;color:var(--mute);line-height:1.45}
+.cv-bank .btn{justify-content:center}
+@media (max-width:1100px){.cv{grid-template-columns:1fr}.cv-bank{position:static;order:-1}}
+@media (max-width:700px){.cv-feed{flex-direction:column}.cv-st{display:none}}
+/* calmer journey line */
+.rope{stroke-width:2;opacity:.75}.rope-sh{display:none}.trav .halo{animation:none;opacity:.18}
+/* tooltips wrap instead of being cut off */
+[data-tip]:hover::after,[data-tip]:focus-visible::after{white-space:normal!important;width:max-content;max-width:260px!important;text-align:left;line-height:1.4}
+.chtog{overflow:visible}
+/* ── v18d planner ── */
+.pl18{margin:0 0 18px;padding:14px 16px;border-radius:18px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.pl18-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pl18-h b{display:block;font-size:16px;letter-spacing:-.01em}.pl18-h .grow span{display:block;font-size:13.5px;color:var(--mute);margin-top:2px}
+.pl18-d,.pl18-e{display:flex;flex-direction:column;gap:3px}.pl18-d small,.pl18-e small{font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.pl18-e b{font-size:14px;line-height:34px}
+.pl18-t{display:inline-flex;gap:6px;align-items:center;margin-top:10px;font:600 13px var(--sans);color:var(--brand)}.pl18-t svg{width:14px;height:14px}
+.pl18-s{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px 18px}
+.pl18-s li{display:flex;align-items:flex-start;gap:10px;padding:8px 4px;border-top:1px solid var(--rule);cursor:pointer}
+.pl18-s li:hover{background:var(--bg)}
+.pl18-dt{width:82px;flex:none;font:700 12px var(--sans);color:var(--mute);padding-top:2px}
+.pl18-ch{width:24px;height:24px;border-radius:7px;background:var(--bg);display:grid;place-items:center;flex:none}.pl18-ch svg{width:13px;height:13px}
+.pl18-s b{display:block;font-size:13.5px}.pl18-s em{display:inline-flex;gap:5px;align-items:center;font-style:normal;font-size:12px;color:var(--brand);font-weight:600;margin-top:2px}.pl18-s em svg{width:12px;height:12px}
+.pl18-s em.no{color:var(--mute);font-weight:500}
+.pp18{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(18,20,28,.5);backdrop-filter:blur(5px);opacity:0;transition:opacity .25s}.pp18.on{opacity:1}
+.pp18-c{width:min(420px,calc(100vw - 24px));background:var(--paper);border-radius:22px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.pp18-c b{font-size:17px}.pp18-c ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;min-height:118px;align-self:stretch;text-align:left}
+.pp18-c li{display:flex;gap:8px;align-items:center;font-size:14px;animation:popIn .35s var(--spring)}.pp18-c li svg{width:14px;height:14px;color:var(--good)}
+/* ── v18d launch ── */
+.ln18{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:22px;align-items:start}
+.ln18-main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ln18-side{position:sticky;top:12px;padding:16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule);display:flex;flex-direction:column;gap:10px}
+.ln18-sh b{display:block;font-size:16px}.ln18-sh small{color:var(--mute);font-size:12.5px}
+.ln18-rem{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.ln18-rem li{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--rule);cursor:pointer}
+.ln18-rem .d{width:52px;flex:none;font:700 11.5px var(--sans);color:var(--mute);padding-top:3px}
+.ln18-rem .i{width:24px;height:24px;border-radius:7px;background:var(--bg);display:grid;place-items:center;flex:none}.ln18-rem .i svg{width:13px;height:13px}
+.ln18-rem b{display:block;font-size:13px;line-height:1.35}.ln18-rem small{display:block;font-size:12px;color:var(--mute)}
+.ln18-rem li.hot .d{color:#e8590c}.ln18-rem li.hot .i{background:#fff0e0;color:#e8590c}
+.ln18-mode{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.ln18-mode>span{font-size:13px;color:var(--mute);font-weight:600}
+.ln18-pre{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ln18-ck,.ln18-go{padding:18px;border-radius:18px;background:var(--paper);border:1px solid var(--rule)}
+.ln18-ck h2{margin:0 0 10px;font-size:22px;letter-spacing:-.02em}
+.ln18-ck ul{list-style:none;margin:0;padding:0}.ln18-ck li{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--rule);font-size:14px}
+.ln18-ck li i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--rule-2);display:grid;place-items:center;flex:none}.ln18-ck li.ok i{background:var(--good);border-color:var(--good);color:#fff}.ln18-ck li i svg{width:11px;height:11px}
+.ln18-go{display:flex;flex-direction:column;gap:12px;align-items:flex-start;border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.ln18-go p{margin:0;font-size:14.5px;line-height:1.5}
+.ln18-gd{display:flex;flex-direction:column;gap:3px}.ln18-gd small{font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.ln18-go .btn.off{opacity:.75}
+.ln18-stat{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule)}
+.ln18-n{display:flex;gap:22px}.ln18-n b{display:block;font:800 26px/1 var(--sans);letter-spacing:-.03em}.ln18-n small{font-size:12px;color:var(--mute)}
+.ln18-p{flex:1;min-width:120px;height:6px;border-radius:6px;background:var(--rule);overflow:hidden}.ln18-p i{display:block;height:100%;background:var(--good);border-radius:6px}
+.ln18-th{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.ln18-th h2{margin:0;font-size:24px;letter-spacing:-.02em}
+.ln18-today .htw,.ln18-today .handoff{display:none}
+@media (max-width:1100px){.ln18{grid-template-columns:1fr}.ln18-side{position:static}.ln18-pre{grid-template-columns:1fr}}
+/* ── v18e shared ── */
+.kp18{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0;border:1px solid var(--rule);border-radius:16px;background:var(--paper);overflow:hidden}
+.kp18>div{padding:12px 14px;border-left:1px solid var(--rule)}.kp18>div:first-child{border-left:0}
+.kp18 b{display:block;font:800 24px/1.1 var(--sans);letter-spacing:-.03em}.kp18 small{font-size:12px;color:var(--mute)}
+.pop18{position:fixed;z-index:400;background:var(--paper);border:1px solid var(--rule-2);border-radius:12px;box-shadow:0 12px 30px -10px rgba(0,0,0,.3);padding:5px;display:flex;flex-direction:column;min-width:170px}
+.pop18 button{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:8px;font:600 13.5px var(--sans);text-align:left}.pop18 button:hover{background:var(--bg)}.pop18 svg{width:14px;height:14px}.pop18 .bad{color:#c92a2a}
+/* campaigns */
+.cr18-l{display:flex;flex-direction:column;gap:10px}
+.cr18{background:var(--paper);border:1px solid var(--rule);border-radius:16px;transition:border-color .2s,box-shadow .2s}
+.cr18.cur{border-color:var(--rule-2)}.cr18.open{border-color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.cr18-r{display:grid;grid-template-columns:minmax(200px,1.4fr) auto minmax(280px,2fr) 110px auto;gap:18px;align-items:center;padding:14px 16px}
+.cr18-n b{display:block;font-size:16px;letter-spacing:-.01em;margin:2px 0 1px}.cr18-n small{font-size:12.5px;color:var(--mute)}
+.cr18-st{display:inline-flex;align-items:center;gap:6px;font:700 11.5px var(--sans);color:var(--mute)}.cr18-st.live{color:var(--good)}.cr18-st i{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 25%,transparent)}
+.cr18-steps{display:flex;gap:4px}.cr18-steps>span{position:relative;opacity:.45}.cr18-steps>span.s2,.cr18-steps>span.s1{opacity:1}
+.cr18-steps i{position:absolute;right:-3px;bottom:-3px;width:13px;height:13px;border-radius:50%;background:var(--good);display:grid;place-items:center;border:1.5px solid var(--paper)}.cr18-steps i svg{width:7px;height:7px;stroke:#fff;stroke-width:3.5}
+.cr18-f{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.cr18-f b{display:block;font-size:16px}.cr18-f small{font-size:11.5px;color:var(--mute)}
+.cr18-f i{display:block;height:3px;border-radius:3px;background:var(--rule);margin-top:4px;overflow:hidden}.cr18-f em{display:block;height:100%;background:var(--brand)}
+.cr18-v b{display:block;font-size:17px}.cr18-v small{font-size:11.5px;color:var(--mute)}
+.cr18-a{display:flex;gap:6px;align-items:center;justify-content:flex-end}
+.cr18-perf{border-top:1px solid var(--rule);padding:16px}
+.cr18-perf .kstrip{margin-top:0}
+.cr18-new{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px dashed var(--rule-2);border-radius:16px;text-align:left}.cr18-new svg{width:18px;height:18px}.cr18-new span{color:var(--mute);font-size:13px}
+.cr18-new:hover{border-color:var(--ink)}
+@media (max-width:1200px){.cr18-r{grid-template-columns:1fr auto;}.cr18-f{grid-column:1/-1}.cr18-steps{justify-self:end}.cr18-v{grid-column:1}.cr18-a{grid-column:2}}
+@media (max-width:700px){.cr18-f{grid-template-columns:repeat(3,1fr)}.cr18-a{flex-wrap:wrap}}
+/* signals */
+.sg18{margin:16px 0}
+.sg18-lean{margin:6px 0 22px}.sg18-lean h2{margin:0;font-size:24px;letter-spacing:-.02em}
+.sg18-lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.sg18-c{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--c)}
+.sg18-c b{display:block;font-size:14.5px}.sg18-c small{display:block;font-size:12.5px;color:var(--mute);line-height:1.35}
+.sg18-ca{grid-column:2/-1;display:flex;gap:6px;margin-top:4px}
+.sg18-t{margin:0;font-size:20px;letter-spacing:-.02em}
+.sg18-tw{border:1px solid var(--rule);border-radius:16px;overflow:auto;background:var(--paper)}
+.sg18-tb{width:100%;border-collapse:collapse;font-size:13.5px}
+.sg18-tb th{text-align:left;font:800 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--mute);padding:10px 14px;border-bottom:1px solid var(--rule)}
+.sg18-tb td{padding:9px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+.sg18-tb tr{cursor:pointer}.sg18-tb tbody tr:hover{background:var(--bg)}.sg18-tb tr:last-child td{border-bottom:0}
+.sg18-o{display:flex;gap:10px;align-items:center}.sg18-o b{display:block}.sg18-o small{display:block;color:var(--mute);font-size:12px;max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg18-h{display:block;width:90px;height:6px;border-radius:6px;background:var(--rule);overflow:hidden}.sg18-h i{display:block;height:100%;background:var(--c)}
+.sg18-tb td small{font-size:11.5px;color:var(--mute)}
+.sg18-p span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--bg);font:700 10px var(--sans);margin-right:-4px;border:1.5px solid var(--paper)}.sg18-p em{font-style:normal;font-size:11.5px;color:var(--mute);margin-left:8px}
+/* pipeline automation */
+.ap18{margin:0 0 18px;padding:14px 16px;border-radius:16px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.ap18-h{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.ap18-h b{display:block;font-size:16px}.ap18-h .grow span{display:block;font-size:13px;color:var(--mute);line-height:1.45;max-width:640px}
+.ap18-i{width:38px;height:38px;border-radius:12px;background:#ffd43b;display:grid;place-items:center;flex:none;border:1.5px solid var(--ink)}.ap18-i svg{width:18px;height:18px}
+.ap18-t{display:flex;gap:8px;align-items:center;font:600 13px var(--sans)}
+.ap18-l{display:flex;flex-direction:column;margin-top:10px}
+.ap18-r{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--rule)}.ap18-r b{display:block;font-size:14px}.ap18-r small{font-size:12.5px;color:var(--mute)}
+/* insights */
+.in18{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 18px}
+.in18 button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border-radius:16px;background:var(--paper);border:1px solid var(--rule);text-align:left;transition:transform .2s,border-color .2s}
+.in18 button:hover{transform:translateY(-2px);border-color:var(--ink)}
+.in18 span{width:32px;height:32px;border-radius:10px;background:color-mix(in srgb,var(--brand) 12%,transparent);color:var(--brand);display:grid;place-items:center}.in18 span svg{width:16px;height:16px}
+.in18 b{font:800 28px/1 var(--sans);letter-spacing:-.03em}.in18 small{font-size:12.5px;color:var(--mute)}
+.ins18 p:not(.sh-p),.ins18 .tiny{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ins18 .sh-p{display:none}
+/* reports */
+.rp18{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}
+.rp18-c{position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule)}
+.rp18-c label{font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;gap:6px}
+.rp18-c label select{font:600 14px var(--sans);text-transform:none;letter-spacing:0;color:var(--ink)}
+.rp18-o{display:flex;flex-direction:column}.rp18-o button{display:flex;gap:9px;align-items:center;padding:7px 0;font-size:14px;text-align:left}
+.rp18-o i{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--rule-2);display:grid;place-items:center}.rp18-o .on i{background:var(--brand);border-color:var(--brand);color:#fff}.rp18-o i svg{width:11px;height:11px}
+.rp18-c .btn{justify-content:center}
+.rp18-pv{background:#fff;color:#15151c;border-radius:18px;padding:36px 40px;box-shadow:0 20px 50px -25px rgba(0,0,0,.35);border:1px solid var(--rule)}
+.rp18-doc header small{color:#666;font-size:12px}.rp18-doc h1{font-size:30px;margin:6px 0 2px;letter-spacing:-.02em}.rp18-doc header p{color:#666;margin:0 0 20px}
+.rp18-doc h2{font-size:16px;margin:24px 0 8px}
+.rp-k{display:flex;gap:24px;flex-wrap:wrap;border:1px solid #e5e5e5;border-radius:12px;padding:14px 16px}.rp-k b{display:block;font-size:24px}.rp-k small{color:#666;font-size:12px}
+.rp-f div{display:grid;grid-template-columns:150px 1fr 50px;gap:10px;align-items:center;margin:6px 0;font-size:13px}.rp-f i{height:8px;background:#eee;border-radius:4px;overflow:hidden}.rp-f em{display:block;height:100%;background:#2c56ed;border-radius:4px}
+.rp-b,.rp-p,.rp-n{padding-left:18px;font-size:13.5px;margin:0}.rp-b li,.rp-p li,.rp-n li{margin:6px 0}.rp-b span,.rp-p span{color:#666;margin-left:8px}.rp-p em{font-style:normal;font-weight:700;margin-left:8px}
+.rp18-doc footer{margin-top:30px;color:#999;font-size:11px}
+@media (max-width:900px){.rp18{grid-template-columns:1fr}.rp18-c{position:static}.rp18-pv{padding:22px}}
+.ap18-ok{display:flex;gap:6px;align-items:center;margin:10px 0 0;font-size:13px;color:var(--mute)}.ap18-ok svg{width:14px;height:14px;color:var(--good)}
+.hid18{display:none!important}.ptk18{display:block;margin:12px 0 0;font-size:13px}
+.sh:not(.plain) .sh-p{display:none}
+.ins18 .pills{display:none}
+.ins18 .ins13-h>div>p{display:none}.ins18 .ins13-h{padding:8px 12px!important}
+.pl18-h .grow,.ap18-h .grow{flex:1 1 240px;min-width:200px}
+@media (max-width:700px){.cr18-r{grid-template-columns:1fr}.cr18-steps,.cr18-v,.cr18-a{justify-self:start;grid-column:auto}.cr18-a{justify-content:flex-start}.kp18{grid-template-columns:repeat(2,1fr)}.kp18>div{border-left:0;border-top:1px solid var(--rule)}.sg18-tb th:nth-child(3),.sg18-tb td:nth-child(3),.sg18-tb th:nth-child(4),.sg18-tb td:nth-child(4){display:none}}
+
 </style>
 </head>
 <body>
@@ -3871,15 +4314,15 @@ const L_ANGLES = {
   agency: {
     why:'A new agency means a new plan, and the gaps around it are wide open: the disciplines the new agency does not cover, and the people who will need help making it work.',
     move:'Do not compete with the new appointment. Send {ASSET} on the part of the plan they are not covering, using {CAP}, and offer to make the new work go further.',
-    line:'Congratulations on the new agency at {CO}. We had a thought about the bit around the edges that usually gets missed. Happy to share, no strings.' },
+    line:'Congratulations on the new agency at {CO}. We had a thought about the bit around the edges that usually gets missed. Happy to share it if it is useful.' },
   leadership: {
     why:'New leaders get roughly 90 days to set a direction, and they rarely feel loyal to the agencies they inherited. The roster is more open now than it will be for years.',
-    move:'Send the new team {ASSET}, framed as what you would look at in their first 100 days. No pitch attached. Make it something they could take into their first board meeting.',
-    line:'Saw the leadership news at {CO}. We put together a short note on what we would look at in the first 100 days. No pitch, it is yours either way.' },
+    move:'Send the new team {ASSET}, framed as what you would look at in their first 100 days. Make it something they could take into their first board meeting.',
+    line:'Saw the leadership news at {CO}. We put together a short note on what we would look at in the first 100 days. Happy to send it over if it is useful.' },
   results: {
     why:'Results are when the board writes its questions down. Whatever the headline, someone in marketing now owns a number they have to move before the next update.',
     move:'Pick the one line in the statement about growth or pressure and build {ASSET} around it. Show how {CAP} moves that exact number, using their own figures.',
-    line:'Read the latest numbers from {CO} and one line jumped out. We sketched how we would attack it. Happy to send it over, no strings.' },
+    line:'Read the latest numbers from {CO} and one line jumped out. We sketched how we would attack it. Happy to send it over if it is useful.' },
   expansion: {
     why:'Growing into new places means new audiences who have never heard of them, and an in-house team stretched across more openings than it can handle well.',
     move:'Send {ASSET} for the new market or sites: who they need to win there and how {CAP} gets them noticed from day one.',
@@ -3915,7 +4358,7 @@ const L_ANGLES = {
   none: {
     why:'No big headline this quarter, which means nobody else has a reason to get in touch either. Quiet accounts are often the most receptive.',
     move:'Check the live news link for anything in the last few weeks, then send {ASSET} built around {PROB}. Watch for {SIGNAL}.',
-    line:'Been looking at {CO} and had an idea about {PROB}. Put it on a page. Happy to send it over, no strings.' }
+    line:'Been looking at {CO} and had an idea about {PROB}. Put it on a page. Happy to send it over if it is useful.' }
 };
 
 /* ── triggers: the "why now" behind a reach out ─────────────── */
@@ -4272,12 +4715,12 @@ const TOOLS=[
   steps:['Pick their most pressing growth problem','Set one measurable goal','Plan three moves with owners and timings','Show how they would know it worked'],
   send:'Post it printed, follow up on LinkedIn',opener:'Wrote a one page 90 day plan for you. If I were in your seat, this is what I’d do first.',
   d:['full','brand','b2b','digital','media','creative'],p:['slow','working','roi']},
- {id:'roundtable',n:'Peer Roundtable',f:'event',t:'A small, no pitch breakfast with marketing leaders from their world.',
+ {id:'roundtable',n:'Peer Roundtable',f:'event',t:'A small breakfast with marketing leaders from their world.',
   what:'An invitation to a small breakfast of eight or so senior marketers from the same sector, around one useful topic.',
   who:['cmo','brand','founder'],why:'Peers are the thing senior marketers value most. You become the host, not the seller.',
   helps:'Gives them a room of peers to learn from, with nothing to buy.',effort:'Half a day to organise',
   steps:['Pick a topic your sector cares about right now','Invite eight to ten peers','Host it well and keep it pitch free','Send everyone a one page write up after'],
-  send:'Personal email invitation, then a LinkedIn note',opener:'Getting a few marketing leaders from your world round a table for breakfast. No pitches, decent coffee. Fancy it?',
+  send:'Personal email invitation, then a LinkedIn note',opener:'Getting a few marketing leaders from your world round a table for breakfast. Good coffee and a proper conversation. Would you like to join?',
   d:['brand','creative','media','pr','experiential','full','b2b','data','effectiveness'],p:['relevant','customer','slow']},
  {id:'adlib',n:'Competitor Ad Review',f:'report',t:'Everything their rivals are running right now, and the gap it leaves.',
   what:'A visual review of their rivals’ current ads across channels, with the themes they all share and the space left open.',
@@ -4313,8 +4756,8 @@ const STEP_LIB=[
   {w:1,ch:'linkedin',t:'Connect, no note',nonote:1,why:'Requests without a note get accepted more often. A note reads as a pitch. With your profile set up for them, it does the talking. Only add a note if you have genuinely met, or share something real.',
    m:['Send the request with no note.','Send the request with no note.','Send the request with no note.']},
   {w:1,ch:'email',t:'Give something useful',why:'Lead with the thing you made for them, with a tracked link. No call to action beyond "want it?" keeps it generous.',
-   m:['{first}, we made something with {brand} in mind: {asset}. It’s yours either way. No strings, and no follow-up call ambush. Shall I send it over?','{first}, put together {asset} for {brand}. Five minutes of reading, at most. Want a copy?','{first}, how are you thinking about {probshort} at {brand} this year? We built {asset} around exactly that. Happy to share.']},
-  {w:2,ch:'linkedin',t:'Thanks for connecting',accept:1,why:'Once they accept, say thanks the way you would in person. Something light and human: their news, the week, even the weather. No pitch.',
+   m:['{first}, we made something with {brand} in mind: {asset}. It’s yours either way. Shall I send it over?','{first}, put together {asset} for {brand}. Five minutes of reading, at most. Want a copy?','{first}, how are you thinking about {probshort} at {brand} this year? We built {asset} around exactly that. Happy to share.']},
+  {w:2,ch:'linkedin',t:'Thanks for connecting',accept:1,why:'Once they accept, say thanks the way you would in person. Something light and human: their news, the week, even the weather. Keep it about them.',
    m:['Thanks for connecting, {first}. Hope the week’s being kind to you so far.','Thanks for connecting, {first}. Hope you’ve managed to dodge the rain today.','Thanks for connecting, {first}. Looks like a busy one at {brand} at the moment.']},
   {w:2,ch:'linkedin',t:'Engage with their posts',task:1,why:'Thoughtful comments keep you visible without asking for anything.',
    m:['Like or comment on something {first} or {brand} has shared. Add a real thought, not "great post".','Share one of {brand}’s posts with a line on why it matters to {sector}.','Reply to a comment on {first}’s post with something genuinely useful.']},
@@ -4333,11 +4776,11 @@ const STEP_LIB=[
   {w:7,ch:'linkedin',t:'Share some proof',why:'A relevant result, shared lightly, answers the question they have not asked yet.',
    m:['{first}, thought this might be useful: {proof}. Not a hint. Well, maybe a small one.','{first}, a quick one we’re proud of: {proof}. Felt relevant to {brand}.','{first}, how would {brand} measure something like this: {proof}?']},
   {w:8,ch:'event',t:'Invite them to a room of peers',why:'If you want to meet them, say so. Peers are what senior marketers value most, and you become the host, not the seller.',
-   m:['{first}, we’re getting a small group of {sector} marketing leaders round a table for breakfast. No pitches, decent coffee, and a proper conversation. Fancy it?','{first}, we’re at [event] next month. Would be good to finally say hello in person, if you’re there.','{first}, small breakfast, eight {sector} marketers, one useful topic. Would love you there.']},
+   m:['{first}, we’re getting a small group of {sector} marketing leaders round a table for breakfast. Good coffee and a proper conversation. Would you like to join us?','{first}, we’re at [event] next month. Would be good to finally say hello in person, if you’re there.','{first}, small breakfast, eight {sector} marketers, one useful topic. Would love you there.']},
   {w:9,ch:'email',t:'A second piece of value',why:'Persistence with something new to give is welcome. Persistence with nothing is not. Trickle in the next thing from your content bank.',
    m:['{first}, a second idea for {brand}, built on the first. {solution}. Same deal as before: yours to keep.','{first}, one more for the pile: {solution}. Short read.','{first}, if you could fix one thing at {brand} before next year, what would it be? We have a thought on {probshort}.']},
   {w:10,ch:'workshop',t:'Offer a free workshop',why:'Every campaign builds to this. A free workshop with you and your team goes deeper on the insight, and it is where real trust and rapport are built, in the room.',
-   m:['{first}, would a free workshop help? We’d spend 90 minutes with you and the team going deeper on {probshort}. No pitch, just the thinking, and we’ll come to you.','{first}, an offer, no strings: a free half day with your team on {probshort}. You keep everything we make in the room.','{first}, we run a short workshop on {probshort} for a few brands a quarter. Would {brand} like one?']},
+   m:['{first}, would a free workshop help? We’d spend 90 minutes with you and the team going deeper on {probshort}. Just the thinking, and we’ll come to you.','{first}, an offer: a free half day with your team on {probshort}. You keep everything we make in the room.','{first}, we run a short workshop on {probshort} for a few brands a quarter. Would {brand} like one?']},
   {w:11,ch:'linkedin',t:'Check in',why:'A human check-in, with no ask, keeps the door open.',
    m:['{first}, how’s the quarter shaping up at {brand}? If anything’s keeping you up at night, I’m a decent sounding board.','{first}, hope the quarter’s been kind. Here if useful.','{first}, what’s been the surprise of the year at {brand}?']},
   {w:12,ch:'email',t:'An idea for next year',why:'Planning season is when doors open. Arrive with a thought, not a request.',
@@ -5613,7 +6056,7 @@ function seqSVG(c){const R=c.reach;const W=R.weeks;const chs=REACH_CH.filter(x=>
     pts.map((p,i)=>{const ch=REACH_CH.find(x=>x.k===p.s.ch)||REACH_CH[0];return '<g class="sq-node'+(p.s.task?' task':'')+'" style="animation-delay:'+(0.25+i*0.14)+'s" onclick="editTouch(\''+p.s.id+'\')"><title>'+esc(p.s.t)+'</title><circle cx="'+p.x+'" cy="'+p.y+'" r="21" class="nd"/>'+icon(ch.ic,p.x,p.y,.72,p.s.task?'var(--brand)':'#fff')+'<circle cx="'+(p.x+16)+'" cy="'+(p.y-16)+'" r="9" class="bdg"/><text x="'+(p.x+16)+'" y="'+(p.y-12.5)+'" text-anchor="middle" class="bn">'+(i+1)+'</text><text x="'+p.x+'" y="'+(p.dup?p.y-30:p.y+38)+'" text-anchor="middle" class="lb">'+esc(p.s.t.length>17?p.s.t.slice(0,16)+'…':p.s.t)+'</text></g>'}).join('')+
     (pts.length>1?'<g class="trav"><circle r="11" class="halo"/><circle r="6" class="core"/><animateMotion dur="'+Math.max(5,pts.length*1.1)+'s" repeatCount="indefinite" begin="1.4s"><mpath href="#seqP"/></animateMotion></g>':'')+'</svg>'}
 function journeyView(c){const R=c.reach;const tg=campTargets(c);const ppl=sum(tg,a=>a.people.length);const W=R.weeks;const touches=R.steps.filter(s=>!s.task).length;const nch=new Set(R.steps.map(s=>s.ch)).size;
-  return liReadyCard(c)+bankStrip(c)+'<div class="jgrid"><div class="card" data-tour="rsettings"><div class="row between" style="gap:10px;flex-wrap:wrap"><div class="lab" style="margin:0">Where you will show up</div><button class="btn btn-'+(isRecMix(R)?'ghost':'accent')+' btn-xs" onclick="recommendMix()">'+(isRecMix(R)?ico('check')+'Scope &amp; Lens recommended':'✨ Use the Scope &amp; Lens recommended mix')+'</button></div><div class="chgrid" style="margin-top:12px">'+REACH_CH.map(x=>'<button class="chtog'+(R.ch.includes(x.k)?' on':'')+(REC_CH.includes(x.k)?' rec':'')+'" onclick="toggleCh(\''+x.k+'\')" data-tip="'+esc(CH_WHY[x.k]||'')+'">'+ico(x.ic)+'<span>'+x.l+(x.k==='phone'?' <small>warm only</small>':'')+'</span></button>').join('')+'</div>'+
+  return liReadyCard(c)+bankStrip(c)+'<div class="jgrid"><div class="card" data-tour="rsettings"><div class="row between" style="gap:10px;flex-wrap:wrap"><div class="lab" style="margin:0">Where you will show up</div><button class="btn btn-'+(isRecMix(R)?'ghost':'accent')+' btn-xs" onclick="recommendMix()">'+(isRecMix(R)?ico('check')+'Scope &amp; Lens recommended':'Use the Scope &amp; Lens recommended mix')+'</button></div><div class="chgrid" style="margin-top:12px">'+REACH_CH.map(x=>'<button class="chtog'+(R.ch.includes(x.k)?' on':'')+(REC_CH.includes(x.k)?' rec':'')+'" onclick="toggleCh(\''+x.k+'\')" data-tip="'+esc(CH_WHY[x.k]||'')+'">'+ico(x.ic)+'<span>'+x.l+(x.k==='phone'?' <small>warm only</small>':'')+'</span></button>').join('')+'</div>'+
     '<div class="row wrap" style="gap:18px;margin-top:16px"><div><div class="lab">How long</div>'+seg([['4','4 weeks'],['8','8 weeks'],['12','12 weeks · a quarter']],String(W),"setReach('weeks',+$)")+'</div><div><div class="lab">How often</div>'+seg(['light','steady','full'].map(p=>[p,PACE_L[p][0]+' · '+paceCount(R.ch,W,p)]),R.pace,"setReach('pace',$)")+'</div></div><p class="pace-d">'+esc(PACE_L[R.pace||'steady'][1])+' <b>'+R.steps.length+' touchpoints over '+W+' weeks.</b></p></div>'+
     '<div class="card adscard'+(R.ads?' on':'')+'"><div class="row between top"><div><div class="lab" style="margin:0">Always on, in the background</div><h3 style="margin-top:6px">LinkedIn ads</h3></div><button class="tgl'+(R.ads?' on':'')+'" onclick="toggleAds()" aria-pressed="'+(R.ads?'true':'false')+'"><i></i></button></div>'+
     '<p class="small" style="margin-top:8px">Not a touchpoint you send. Ads run quietly to the brands on your list for the whole campaign, so they have seen your name before your first message lands. The company engagement report then shows who is paying attention.</p>'+
@@ -5624,7 +6067,7 @@ function journeyView(c){const R=c.reach;const tg=campTargets(c);const ppl=sum(tg
     '<div class="legend" style="margin-top:6px"><span><i class="lg-dot"></i>A message or touch</span><span><i class="lg-dot o"></i>A light action, like engaging with their posts</span><span><i class="lg-dot t"></i>Where each person is</span></div></div>'+
   (R.ch.includes('event')?'<div style="margin-top:16px">'+eventsCard(c)+'</div>':'')+(R.ch.includes('mail')?'<div style="margin-top:16px">'+mailCard(c)+'</div>':'')+
   '<div class="row wrap" style="margin-top:14px;gap:8px"><button class="btn btn-line btn-sm" onclick="downloadPlanPDF()">'+ico('download')+'Download the plan as a PDF</button><button class="btn btn-ghost btn-sm" onclick="regenSteps()">'+ico('loop')+'Ask Priya to replan it</button><button class="btn btn-ghost btn-sm" onclick="exportPlan()" data-tip="For your CRM or outreach tool">'+ico('file')+'CSV</button></div>'+
-  '<div class="listbar"><div class="grow row wrap" style="gap:16px"><span class="kv"><b>'+tg.length+'</b> brands</span><span class="kv"><b>'+ppl+'</b> people</span><span class="kv"><b>'+ppl*touches+'</b> touches in total</span></div><button class="btn btn-primary btn-rocket" onclick="confirmJourney()">🚀 Next: launch it'+ico('arrow','a')+'</button></div>'}
+  '<div class="listbar"><div class="grow row wrap" style="gap:16px"><span class="kv"><b>'+tg.length+'</b> brands</span><span class="kv"><b>'+ppl+'</b> people</span><span class="kv"><b>'+ppl*touches+'</b> touches in total</span></div><button class="btn btn-primary btn-rocket" onclick="confirmJourney()">Next: launch it'+ico('arrow','a')+'</button></div>'}
 function isRecMix(R){return REC_CH.every(k=>R.ch.includes(k))}
 function confirmJourney(){const c=curCamp();if(c.status==='draft'){c.status='planned';save()}if(!c.awJ){c.awJ=1;award('journey')}go('launch')}
 function toggleAds(){const c=curCamp();act(c.reach.ads?'Turned LinkedIn ads off':'LinkedIn ads on, in the background',()=>{c.reach.ads=!c.reach.ads},{refresh:false,ic:'📣',ms:2600});go('campaigns','journey',true)}
@@ -5756,10 +6199,10 @@ function composeMsg(s,a,p,c,o){o=Object.assign({},S.compose,o||{});const P=purpo
     proof:V.proof?pick(['Thought this might be useful: {proof}.','A quick one we are proud of: {proof}. Felt relevant to {brand}.']):'Thought a recent result might be useful. [Add a result you are proud of.]',
     checkin:pick(['How is the quarter shaping up at {brand}?','Hope the quarter has been kind to {brand}.']),
     idea:pick(['I have one idea for next year at {brand} that I think is worth a look.','We have been sketching what a great next year could look like for {brand}.']),
-    invite:pick(['We are getting a small group of {sector} marketing leaders round a table for breakfast. No pitches, one useful topic.','Small breakfast, eight {sector} marketers, one proper conversation about {prob}.']),
+    invite:pick(['We are getting a small group of {sector} marketing leaders round a table for breakfast. One useful topic, and plenty of time to talk.','Small breakfast, eight {sector} marketers, one proper conversation about {prob}.']),
     print:pick(['A printed copy of {asset}, for your desk.','{asset}, in print.']),
     call:'',post:''}[P]||'';
-  const joke={connect:'No pitch, I promise. I left it at home.',give:'No strings, and no follow-up call ambush.',follow:'Or not at all, your call.',proof:'Not a hint. Well, maybe a small one.',checkin:'Here if you need a sounding board, or just a moan.',idea:'I will bring the biscuits.',invite:'Decent coffee guaranteed, wisdom likely.',print:'For your desk, or your bin. No hard feelings.'}[P];
+  const joke={connect:'Genuinely curious what you are working on next.',give:'Yours to keep, whatever happens next.',follow:'Or not at all, your call.',proof:'Not a hint. Well, maybe a small one.',checkin:'Here if you need a sounding board, or just a moan.',idea:'I will bring the biscuits.',invite:'Decent coffee guaranteed, wisdom likely.',print:'For your desk, or your bin. No hard feelings.'}[P];
   const playful={connect:'I promise I am more interesting than my connection request.',give:'It is free, it is short, and it does not come with a 47 slide deck.',follow:'Think of this as the director’s cut.',checkin:'No agenda, just nosiness.',idea:'It is a good one. I checked twice.',invite:'There will be pastries. That is a promise, not a pitch.'}[P];
   const ctaT={soft:{give:tool.lib?'Want the full version?':'Shall I send it over?',connect:'Would be good to be connected.',follow:'Happy to talk it through, if useful.',invite:'Fancy it?',idea:'Worth a look?',def:'Happy to share if useful.'},
     chat:{formal:'Would you be open to a short conversation?',def:'Worth a quick chat?'},call:{formal:'Would you have fifteen minutes next week?',def:'Free for fifteen minutes next week?'},none:{def:'No need to reply. It is yours either way.'}}[o.cta]||{};
@@ -5772,7 +6215,7 @@ function composeMsg(s,a,p,c,o){o=Object.assign({},S.compose,o||{});const P=purpo
   /* they accepted: a relaxed thanks and something light and human. No pitch. */
   if(P==='thanks'){const b=[pick(['Thanks for connecting.','Thanks for accepting, good to be connected.','Good to be connected, thanks for accepting.'])];
     b.push(n&&inc('news')?newsHook(n,'warm'):smallTalk(seed));
-    if(funny)b.push(pick(['No pitch incoming, I promise.','That is it. No sales pitch hiding at the bottom.','Anyway, I will let you get on.']));
+    if(funny)b.push(pick(['Hope the week is treating you well.','Good to be connected.','Anyway, I will let you get on.']));
     if(L==='long')b.push(pick(['If {prob} is ever on the radar at {brand}, I have something useful on it. No rush at all.','I spend most of my time on {prob} for {sector} brands, so if that is ever useful, shout.']));
     return{subject:'',body:fill(greet+'\n\n'+b.join(' '))}}
   /* the same gift, restyled for LinkedIn: shorter, chattier, still useful */
@@ -5828,7 +6271,7 @@ function composerHTML(ctx){const C=S.compose;const ch=ctx.s&&ctx.s.ch;const P=pu
 function curPT(){const c=curCamp();return campTargets(c).flatMap(a=>a.people.map(p=>({a,p}))).find(q=>q.p.id===ptPerson)}
 function noNoteHTML(ctx){const x=curPT();const p=x&&x.p;const met=p&&p.met||'';const pct=liPct();const msg=ctx.msg;
   return '<div class="cmp nonote">'+(pct<100?'<div class="warnbar li-warn">'+ico('linkedin')+'<span class="grow"><b>Your LinkedIn profile is '+pct+'% ready.</b> They will look you up before they accept. Sort it first and the request does the work on its own.</span><button class="btn btn-line btn-xs" onclick="liModal()">Get it ready</button></div>':'')+
-    '<div class="nn-hero"><span class="nn-ic">'+ico('linkedin')+'</span><div class="grow"><b>'+(met?'A short note, because you have genuinely met':'Connect with no note')+'</b><p>'+(met?'You have something real in common, so a line helps here. Keep it short and human.':'Hit Connect and skip the note. Your profile does the talking, and they hear from you properly once they accept.')+'</p></div><span class="pill '+(met?'':'good')+'">'+(met?'Note added':'✨ Recommended')+'</span></div>'+
+    '<div class="nn-hero"><span class="nn-ic">'+ico('linkedin')+'</span><div class="grow"><b>'+(met?'A short note, because you have genuinely met':'Connect with no note')+'</b><p>'+(met?'You have something real in common, so a line helps here. Keep it short and human.':'Hit Connect and skip the note. Your profile does the talking, and they hear from you properly once they accept.')+'</p></div><span class="pill '+(met?'':'good')+'">'+(met?'Note added':'Recommended')+'</span></div>'+
     (met?'<textarea class="inp pb-msg" id="pbMsg" rows="4" oninput="cmpCount()">'+esc(msg.body)+'</textarea><div class="cmp-count" id="cmpCount" data-lim="300">'+msg.body.length+' / 300</div>':'')+
     '<details class="nn-met"'+(met?' open':'')+'><summary>Have you actually met, or share something real?</summary><p class="tiny muted">Only if it is true: you met at an event, you were introduced, you worked with the same person. Otherwise, leave it blank.</p><div class="row" style="gap:8px;margin-top:8px"><input class="inp" id="nnMet" value="'+esc(met)+'" placeholder="e.g. at the Retail Week breakfast, or we both know Sam Patel"><button class="btn btn-line btn-sm" onclick="setMet($(\'#nnMet\').value)">'+(met?'Update':'Add a note')+'</button>'+(met?'<button class="btn btn-ghost btn-sm" onclick="setMet(\'\')">No note</button>':'')+'</div></details></div>'}
 function setMet(v){const x=curPT();if(!x)return;act(v.trim()?'Added a note for '+x.p.name:'Back to no note',()=>{x.p.met=v.trim()},{refresh:false,quiet:true});clearDraft();go(VIEW,VIEW_ARG,true)}
@@ -6143,7 +6586,7 @@ function seedInsights(){const by={};PROSPECTS.forEach(p=>{if(p.nt!=='none'){by[p
   summary:'Recent agency appointments and big campaign moves, and what they tell us about how these brands buy.',brands:['Oxfam GB','Thatchers Cider','Guide Dogs','Rude Health'],
   body:['- '+lnk('Happy Hour won a three way pitch to create Oxfam’s 2026 Christmas campaign.','Oxfam GB'),'- '+lnk('Thatchers launched its summer campaign with Initials CX, a new agency relationship.','Thatchers Cider'),
     '- '+lnk('Guide Dogs is repositioning its brand with a new creative platform.','Guide Dogs'),'- '+lnk('Rude Health launched a £1m integrated campaign, its biggest since the Oddlygood takeover.','Rude Health')].join('\n')+
-   '\n\nWhat it tells us: when a brand has just moved, the losing agencies go quiet. That is exactly when a useful, no strings piece of thinking gets read.'},
+   '\n\nWhat it tells us: when a brand has just moved, the losing agencies go quiet. That is exactly when a genuinely useful piece of thinking gets read.'},
  {id:'quarter-intel',cat:'intel',date:'2026-10-07',cover:total+' signals',title:'Where the news is clustering this quarter',
   summary:'We read the news on '+PROSPECTS.length+' brands. Here is where the signals sit, and what to do with them.',brands:[],
   body:'Across the '+PROSPECTS.length+' brands in the current edition, '+total+' had a meaningful piece of news this year.\n\n'+
@@ -6935,7 +7378,7 @@ function liChecks(){const A=liAud();const c=curCamp();const g=c&&toolById(c.asse
   {k:'proof',t:'Your experience shows work they will recognise',why:'Proof from their world beats a long list of skills.',sug:'Add two or three '+A.sec+' results to your experience.'+(O.proof?' For example: '+O.proof.replace(/\.$/,'')+'.':'')}]}
 function cap1(t){t=String(t||'');return t.charAt(0).toUpperCase()+t.slice(1)}
 function liPct(){const L=liState();const C=liChecks();return Math.round(C.filter(x=>L.c[x.k]).length/C.length*100)}
-function liTick(k){const L=liState();act(L.c[k]?'Unticked a profile check':'Profile check done',()=>{L.c[k]=L.c[k]?0:today()},{refresh:false,quiet:true,ic:'✅'});if(liPct()===100){award('liready');confetti(80);toast('✨ Profile ready. No note needed on your connection requests now.')}if($('.modal .lic'))liModal(true);else go(VIEW,VIEW_ARG,true)}
+function liTick(k){const L=liState();act(L.c[k]?'Unticked a profile check':'Profile check done',()=>{L.c[k]=L.c[k]?0:today()},{refresh:false,quiet:true,ic:'✅'});if(liPct()===100){award('liready');confetti(80);toast('Profile ready. No note needed on your connection requests now.')}if($('.modal .lic'))liModal(true);else go(VIEW,VIEW_ARG,true)}
 function liList(){const L=liState();return '<div class="lic">'+liChecks().map(x=>'<div class="lic-i'+(L.c[x.k]?' ok':'')+'"><button class="lic-b" onclick="liTick(\''+x.k+'\')" aria-pressed="'+(L.c[x.k]?'true':'false')+'" aria-label="Done: '+esc(x.t)+'">'+(L.c[x.k]?ico('check'):'')+'</button><div class="grow"><b>'+esc(x.t)+'</b><p>'+esc(x.why)+'</p>'+
   '<div class="lic-s"><span>'+esc(x.sug)+'</span>'+(x.bank?'<button class="btn btn-ghost btn-xs" onclick="closeOverlays();go(\'give\',\'bank\')">Open the content bank</button>':'<button class="btn btn-ghost btn-xs" onclick="copyText(this.previousElementSibling.textContent,this)">'+ico('copy')+'Copy Priya’s line</button>')+'</div></div></div>').join('')+'</div>'}
 function liReadyCard(c){if(!c.reach.ch.includes('linkedin'))return '';const p=liPct();const A=liAud();
@@ -6969,7 +7412,7 @@ function bankGaps(c){return bankSlots(c).filter(s=>s.core&&!s.ok)}
 function makerDraft(k,c){const A=liAud();const g=toolById(c.assets[0]);const asset=g?g.n.replace(/^The /,'the '):'[your hero piece]';const proof=(S.setup.offer.proof||'').replace(/\.$/,'');const n=bankOf(c).items.filter(x=>x.slot===k).length;
   const D={
   lipost:[
-    {t:'The problem, said plainly',body:'Most '+A.sec+' brands we talk to say the same thing about '+A.prob+': they know it matters, and it keeps slipping down the list.\n\nThe question we always ask first: [the one question you ask].\n\nIf the answer is [the answer that worries you], that is where the work starts.\n\nWe put what we know into '+asset+'. Message me and it is yours. No form, no follow-up ambush.'},
+    {t:'The problem, said plainly',body:'Most '+A.sec+' brands we talk to say the same thing about '+A.prob+': they know it matters, and it keeps slipping down the list.\n\nThe question we always ask first: [the one question you ask].\n\nIf the answer is [the answer that worries you], that is where the work starts.\n\nWe put what we know into '+asset+'. If it would help, message me and I will send it over.'},
     {t:'The gift',body:'We made something for '+A.sec+' marketing teams: '+asset+'.\n\nIt is built around '+A.prob+', and it takes about ten minutes.\n\nWhat you get: [the one thing they walk away with].\n\nComment or message me and I will send it over.'},
     {t:'The proof',body:proof?'A result we are proud of: '+lcf(proof)+'.\n\nWhat made the difference: [the one decision that mattered].\n\nIf '+A.prob+' is on your list this year, happy to share how we got there.':'A result we are proud of: [a real result, in one line].\n\nWhat made the difference: [the one decision that mattered].\n\nIf '+A.prob+' is on your list this year, happy to share how we got there.'},
     {t:'A myth worth busting',body:'A myth about '+A.prob+' we hear all the time: [the myth].\n\nWhat we actually see: [what you see instead].\n\nThe fix is rarely bigger budgets. It is usually [your point of view].'}],
@@ -8150,7 +8593,7 @@ const _planSteps12=planSteps;planSteps=function(ch,W,pace){const base=_planSteps
   const out=base.slice();for(let w=1;w<=W;w+=2)out.push({w,ch:'social',t:w===1?'Post about the problem you solve':'Post again, and share it with anyone who engaged',task:1,warm:0,nonote:0,accept:0,lib:7,content:1});
   return out.sort((a,b)=>a.w-b.w||STEP_ORDER(a)-STEP_ORDER(b))};
 const _journeyView12=journeyView;journeyView=function(c){const R=c.reach;let h=_journeyView12(c).replace(liReadyCard(c),'');
-  if(!R.ch.length)h='<div class="pickch">'+agentFace('reach',44,{badge:false})+'<div class="grow"><b>Choose how you will show up</b><p>Tap the channels you want below, or take the Scope &amp; Lens route: LinkedIn, email, content every two weeks, events, a workshop, something in the post, a warm call when they engage, and LinkedIn ads running quietly in the background.</p></div><button class="btn btn-primary" onclick="recommendMix()">✨ Use the Scope &amp; Lens route</button></div>'+h;
+  if(!R.ch.length)h='<div class="pickch">'+agentFace('reach',44,{badge:false})+'<div class="grow"><b>Choose how you will show up</b><p>Tap the channels you want below, or take the Scope &amp; Lens route: LinkedIn, email, content every two weeks, events, a workshop, something in the post, a warm call when they engage, and LinkedIn ads running quietly in the background.</p></div><button class="btn btn-primary" onclick="recommendMix()">Use the Scope &amp; Lens route</button></div>'+h;
   return liScanCard(c)+h};
 
 /* ── LinkedIn profile scanner ── */
@@ -8596,7 +9039,7 @@ function onbDraw(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=
   if(C.k==='hello')body='<div class="onb-hero"><img src="'+IMG12.plato_hero+'" alt="Plato"></div><div class="onb-c"><p class="onb-say">'+(n?'Welcome, '+esc(n)+'. ':'Welcome. ')+'I am your guide to the '+PORTAL_NAME+'. In the next few minutes I will show you how we win new business without cold pitching, what the four steps are, and Plato in full swing. Then we build yours.</p>'+
     (ONB_REPLAY?'':'<div class="grid2"><div class="field"><label for="obY">Your first name</label><input class="inp" id="obY" value="'+esc(S.setup.you||(SESSION&&SESSION.name)||'')+'" autocomplete="given-name"></div><div class="field"><label for="obA">Your agency</label><input class="inp" id="obA" value="'+esc(S.setup.agency==='Your agency'?'':S.setup.agency||SESSION&&SESSION.orgName||'')+'" placeholder="e.g. Brightside Studio" autocomplete="organization"></div></div>')+'</div>';
   if(C.k==='old')body='<div class="onb-vs"><div class="vs-old"><small>The old way</small><div class="vs-msg">Hi, we are an award-winning agency. Have you got fifteen minutes next week for a quick chat about how we can help?</div><ul><li>A cold list, a template and a blast</li><li>All about the agency, nothing for them</li><li>One shot, then silence</li></ul></div>'+
-    '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">Covered the logos on your last five ads and your rivals’. It was harder to tell them apart than I expected. Want the page? No catch.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
+    '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">I put your last five ads next to your rivals’ with the logos covered, and it was harder to tell them apart than I expected. I wrote up what stood out, in case it is useful for your next brief.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
     '<p class="onb-say">95% of B2B buyers are not in market at any one time, and of the 5% who are, 81% already have a preferred agency. Pitching at the moment they need someone is too late. Being remembered before they need anyone is the whole game.</p>';
   if(C.k==='new')body='<p class="onb-say">Nobody cares what you can do. Everybody cares about what you can do for them. So we show up with value before anyone asks for it, and we keep showing up.</p><div class="onb-pr">'+[['target','Relevant','One problem, a short list of brands, and a reason to talk now.'],['gift','Valuable','Something useful they would happily pay for, given freely.'],['loop','Persistent','A steady rhythm over weeks. Never a blast, never a one-off.'],['user','Human','You send it, in your words, from your own accounts.']].map(x=>'<div>'+ico(x[0])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+'</div>';
   if(C.k==='how')body='<p class="onb-say">Every campaign is built in four steps, and each step has a specialist who does that one job. They hand the work to each other, and you will see them talk as they do it. Nothing goes out until the first three steps are done.</p><div class="onb-gods">'+OUT_K.map((k,i)=>{const A=AGENTS[k];const m=MODULES.find(x=>x.k===k);return '<div class="ogd" style="--d:'+(i*.12)+'s">'+godBust(k,120)+'<small>Step '+(i+1)+'</small><b>'+esc(m.l)+'</b><em>'+esc(A.n)+'</em><span>'+esc(A.me)+'</span></div>'}).join('<i class="ogd-a">'+ico('arrow')+'</i>')+'</div>'+'<div class="crew onb-crew">'+[['prospects','Twelve brands that fit, and the people who decide. Gus, over to you.'],['give','Their problem is standing out. I will make them a free audit.'],['reach','I will pace it over twelve weeks. Otis, do not rush it.'],['launch','Ten minutes a day. Liftoff when you are ready.']].map((x,i)=>{const A=AGENTS[x[0]];return '<div class="crw" style="--d:'+(.8+i*.6)+'s">'+agentFace(x[0],22,{badge:false})+'<span><b>'+esc(A.n)+'</b>'+esc(x[1])+'</span></div>'}).join('')+'</div>';
@@ -9088,7 +9531,7 @@ onbDraw=function(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=
   if(C.k==='hello')body='<p class="onb-say">'+(n?'Welcome, '+esc(n)+'. ':'Welcome. ')+'This is how agencies build a predictable new business pipeline without cold pitching: find the right brands, give them something genuinely useful first, and keep showing up. The next few screens show you the method, the four steps and the crew who run them. Then you see Plato in full swing, and build yours.</p>'+onbFlow('')+
     (ONB_REPLAY?'':'<div class="grid2" style="margin-top:18px"><div class="field"><label for="obY">Your first name</label><input class="inp" id="obY" value="'+esc(S.setup.you||(SESSION&&SESSION.name)||'')+'" autocomplete="given-name"></div><div class="field"><label for="obA">Your agency</label><input class="inp" id="obA" value="'+esc(S.setup.agency==='Your agency'?'':S.setup.agency||SESSION&&SESSION.orgName||'')+'" placeholder="e.g. Brightside Studio" autocomplete="organization"></div></div>');
   if(C.k==='old')body='<div class="onb-vs"><div class="vs-old"><small>The old way</small><div class="vs-msg">Hi, we are an award-winning agency. Have you got fifteen minutes next week for a quick chat about how we can help?</div><ul><li>A cold list, a template and a blast</li><li>All about the agency, nothing for them</li><li>One shot, then silence</li></ul></div>'+
-    '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">Covered the logos on your last five ads and your rivals’. It was harder to tell them apart than I expected. Want the page? No catch.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
+    '<div class="vs-new"><small>The permissionless way</small><div class="vs-msg">I put your last five ads next to your rivals’ with the logos covered, and it was harder to tell them apart than I expected. I wrote up what stood out, in case it is useful for your next brief.</div><ul><li>A short list with a reason to talk now</li><li>Something useful, given before you ask</li><li>A steady rhythm over weeks</li></ul></div></div>'+
     '<p class="onb-say">95% of B2B buyers are not in market at any one time, and of the 5% who are, 81% already have a preferred agency. Pitching at the moment they need someone is too late. Being remembered before they need anyone is the whole game.</p>';
   if(C.k==='formula')body='<p class="onb-say">You do not need permission to be useful. Give the right people something valuable, steadily, and the conversations come to you. Do it every week and new business stops being feast or famine.</p>'+
     '<div class="onb-eq"><div><span>'+ico('target')+'</span><b>The right brands</b><small>A short list with a reason to talk now</small></div><i>×</i><div><span>'+ico('gift')+'</span><b>Real value, first</b><small>Something they would happily pay for, given freely</small></div><i>×</i><div><span>'+ico('loop')+'</span><b>A steady rhythm</b><small>Weeks, not one shot. Never a blast</small></div><i>=</i><div class="eq-r"><span>'+ico('pound')+'</span><b>Predictable pipeline</b><small>Warm conversations, month after month</small></div></div>'+
@@ -10091,8 +10534,8 @@ function ropeInit(){ropeStop();const svg=$('#seqSvg');if(!svg||!$('#ropeP'))retu
   const ends=nodes.map(n=>({el:n,id:n.dataset.id,x:+n.dataset.x,y:+n.dataset.y,dx:0,dy:0}));
   /* one rope segment between each pair of neighbours: a verlet chain pinned at both ends */
   const segs=[];for(let i=1;i<ends.length;i++){const a=ends[i-1],b=ends[i];const dist=Math.hypot(b.x-a.x,b.y-a.y);
-    const n=Math.max(7,Math.min(16,Math.round(dist/30)));const slack=dist*1.055+14;const seg={a,b,n,rest:slack/n,p:[]};
-    for(let j=0;j<=n;j++){const t=j/n;const sag=Math.sin(Math.PI*t)*slack*.07;seg.p.push({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t+sag,px:0,py:0})}
+    const n=Math.max(7,Math.min(16,Math.round(dist/30)));const slack=dist*1.012+3;const seg={a,b,n,rest:slack/n,p:[]};
+    for(let j=0;j<=n;j++){const t=j/n;const sag=Math.sin(Math.PI*t)*slack*.015;seg.p.push({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t+sag,px:0,py:0})}
     seg.p.forEach(q=>{q.px=q.x;q.py=q.y});segs.push(seg)}
   const draw=()=>{let d='',ds='';segs.forEach(seg=>{d+='M'+seg.p[0].x.toFixed(1)+' '+seg.p[0].y.toFixed(1);
       for(let j=1;j<seg.p.length-1;j++){const q=seg.p[j],r=seg.p[j+1];d+=' Q'+q.x.toFixed(1)+' '+q.y.toFixed(1)+' '+((q.x+r.x)/2).toFixed(1)+' '+((q.y+r.y)/2).toFixed(1)}
@@ -10109,8 +10552,8 @@ function ropeInit(){ropeStop();const svg=$('#seqSvg');if(!svg||!$('#ropeP'))retu
     const tick=now=>{if(!svg.isConnected){ropeStop();return}
       const t=now/1000;let dt=Math.min(.05,(now-last)/1000);last=now;
       segs.forEach((seg,si)=>{const P=seg.p;P[0].x=seg.a.x+seg.a.dx;P[0].y=seg.a.y+seg.a.dy;P[P.length-1].x=seg.b.x+seg.b.dx;P[P.length-1].y=seg.b.y+seg.b.dy;
-        for(let j=1;j<P.length-1;j++){const q=P[j];const vx=(q.x-q.px)*.982,vy=(q.y-q.py)*.982;q.px=q.x;q.py=q.y;
-          q.x+=vx+Math.sin(t*.9+si*2+j*.7)*.35*dt*60;q.y+=vy+900*dt*dt}
+        for(let j=1;j<P.length-1;j++){const q=P[j];const vx=(q.x-q.px)*.86,vy=(q.y-q.py)*.86;q.px=q.x;q.py=q.y;
+          q.x+=vx;q.y+=vy+260*dt*dt}
         for(let k=0;k<3;k++)for(let j=0;j<P.length-1;j++){const q=P[j],r=P[j+1];let ddx=r.x-q.x,ddy=r.y-q.y;const dl=Math.hypot(ddx,ddy)||1;const diff=(dl-seg.rest)/dl*.5;
           if(j===0){r.x-=ddx*diff*2;r.y-=ddy*diff*2}else if(j===P.length-2){q.x+=ddx*diff*2;q.y+=ddy*diff*2}else{q.x+=ddx*diff;q.y+=ddy*diff;r.x-=ddx*diff;r.y-=ddy*diff}}});
       draw();RP.raf=requestAnimationFrame(tick)};
@@ -10355,6 +10798,585 @@ function crewMeet(k){k=k||'prospects';const A=AGENTS[k];if(!A)return;buzz();
 (function(){const _cd17=crewDeck;crewDeck=function(k){const h=_cd17(k);if(!h)return h;
   const b='<button type="button" class="dk-meet" onclick="crewMeet(\''+k+'\')">'+ico('people')+'<span class="dm-l">Meet the crew</span><span class="dm-s">Crew</span></button>';
   return /class="dk-camp"[\s\S]*?<\/button>/.test(h)?h.replace(/(class="dk-camp"[\s\S]*?<\/button>)/,'$1'+b):h.replace('<div class="dk-team"',b+'<div class="dk-team"')}})();
+
+/* ═══════════ v18 CALM: one clear place for everything ═══════════
+   Written for someone who needs to know where to look in a second:
+   1. The sidebar is flat. Home, Campaigns (with the campaign you are building or running right under it),
+      Signals and intent, Pipeline, Insights and Reports. Nothing folds away, nothing gets cut off.
+      Agency profile, Team, Settings and Help sit at the bottom. Help has "Speak with Josh".
+   2. No crew chat on every stage. A slim campaign bar instead, and the crew show up to hand over
+      when you finish a stage.
+   3. No footer bar, a quieter coach, warmer words. */
+
+/* ── stage names: what you do there ─────────────────────────── */
+(function(){const N={prospects:'Pick your brands',give:'Create value',reach:'Plan the journey',launch:'Launch'};
+  MODULES.forEach(m=>{if(N[m.k])m.l=N[m.k]})})();
+const STAGE_L=k=>(MODULES.find(m=>m.k===k)||{}).l||k;
+if(!MODULES.some(m=>m.k==='reports'))MODULES.push({k:'reports',l:'Reports',ic:'doc',t:'Reports',lock:true,d:'Reports',why:'A clean report on any campaign, your pipeline or your signals, ready to share in a couple of clicks.'});
+SIDE_IC.reports='doc';SIDE_IC.signals='pulse';SIDE_IC.pipeline='pound';SIDE_IC.insights='bulb';SIDE_IC.camps='layers';SIDE_IC.help='help';
+
+/* ── 1. the sidebar ─────────────────────────────────────────── */
+function realCampList(){return S.campaigns.filter(x=>!(isBlankCamp(x)&&!x.touched))}
+navHTML=function(){const st=sysStats();const c=curCamp();const gate=!profReady();const real=c&&!(isBlankCamp(c)&&!c.touched);const L=campStateLabel(c);
+  const inCamp=OUT_K.includes(VIEW)||VIEW==='camps'||VIEW==='perf';
+  const step=(k,i)=>{const A=AGENTS[k];const s=campStepState(c,k);
+    return '<button class="sd18-s'+(VIEW===k?' on':'')+(s===2?' dn':'')+(gate?' lock':'')+'" data-nav="'+k+'" id="nav-'+k+'" data-tip="'+esc(STAGE_L(k)+' with '+A.n)+'">'+
+      '<span class="sd18-n">'+(gate?ico('lock'):s===2?ico('check'):(i+1))+'</span><span class="sd18-l">'+esc(STAGE_L(k))+'</span>'+agentFace(k,20,{badge:false})+'</button>'};
+  const campBlock=real?'<div class="sd18-camp'+(inCamp?' act':'')+'"><button class="sd18-ch" onclick="pickCamp(event)" data-tip="Switch campaign"><span class="sd18-dot '+L[2]+'"></span><span class="grow"><b>'+esc(c.name)+'</b><small>'+esc(L[0]+' · '+L[1])+'</small></span>'+ico('chev')+'</button>'+
+    '<div class="sd18-steps">'+OUT_K.map(step).join('')+'</div></div>':'';
+  return '<div class="sd18">'+sideItem('home','Home')+sideItem('camps','Campaigns',null,realCampList().length||'')+campBlock+
+    sideItem('signals','Signals & intent',null,st.signals&&st.signals.badge)+sideItem('pipeline','Pipeline')+sideItem('insights','Insights',null,st.insights&&st.insights.badge)+sideItem('reports','Reports')+'</div>'};
+sideFoot=function(){const adm=SESSION&&SESSION.role==='admin';
+  return '<div class="sd-foot sd18-foot">'+sideItem('agency','Agency profile',null,profReady()?'':'!')+sideItem('team','Team')+(adm?sideItem('admin','Manage access'):'')+
+    '<button class="sd-i'+(VIEW==='settings'?' on':'')+'" onclick="go(\'settings\')" id="nav-settings" data-tip="Settings">'+ico('settings')+'<span class="sd-t"><b>Settings</b></span></button>'+
+    '<button class="sd-i sd18-help" onclick="helpMenu(event)" id="nav-help" data-tip="Help" aria-haspopup="menu">'+ico('help')+'<span class="sd-t"><b>Help</b></span></button></div>'};
+/* the sliding marker follows the new step buttons too */
+(function(){const _m=sdMarker;sdMarker=function(){const nav=$('#nav');if(!nav)return _m();const on=nav.querySelector('.sd18-s.on');if(on){const m=nav.querySelector('.sd-slide');if(m)m.style.opacity=0;return}return _m()}})();
+
+/* ── Help: guides, the tour, and Josh ───────────────────────── */
+function helpMenu(e){e&&e.stopPropagation();let m=$('#help18');if(m){m.remove();return}
+  m=document.createElement('div');m.id='help18';m.className='help18';m.setAttribute('role','menu');
+  m.innerHTML='<button role="menuitem" onclick="helpClose();speakJosh()" class="h18-josh"><span class="h18-ph">'+joshFace(34)+'</span><span><b>Speak with Josh</b><small>A real person, straight to his inbox</small></span></button>'+
+    '<button role="menuitem" onclick="helpClose();go(\'guides\')">'+ico('book')+'<span><b>Guides</b><small>How to get the most from each step</small></span></button>'+
+    '<button role="menuitem" onclick="helpClose();startTour()">'+ico('eye')+'<span><b>Show me around</b><small>A quick tour of this page</small></span></button>'+
+    '<button role="menuitem" onclick="helpClose();startWalk(true)">'+ico('play')+'<span><b>Replay the walkthrough</b><small>The method, start to finish</small></span></button>';
+  document.body.appendChild(m);const b=$('#nav-help');if(b){const r=b.getBoundingClientRect();m.style.left=Math.min(r.left,innerWidth-300)+'px';m.style.bottom=(innerHeight-r.top+8)+'px'}
+  setTimeout(()=>document.addEventListener('click',helpClose,{once:true}),0)}
+function helpClose(){const m=$('#help18');if(m)m.remove()}
+const JOSH_IMG='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAB4AHgDASIAAhEBAxEB/8QAHAAAAAcBAQAAAAAAAAAAAAAAAAIDBAUGBwgB/8QAOxAAAQMDAgQFAgMGBAcAAAAAAQIDBAAFEQYhBxIxQRNRYXGBFCIjMqEIFUJykbEWksHwFzNDRFNigv/EABwBAAAHAQEAAAAAAAAAAAAAAAECAwQFBgcACP/EADARAAIBAwMBBQcEAwAAAAAAAAECAAMEEQUhMRIGIkFRcRMyYZGh0eEUgcHwI1Ox/9oADAMBAAIRAxEAPwDaKFeE+VDOa8uZm04gOK8r0jbJoY9K7M4bQhFeHASVEgADJJ7UH3EMNc7hAHb1NMAxCuLxFxSuS2P+3Jw0PcfxH3qR0/S6t63d2XzhKlYIJGTtd6Rt8gsyL7HU6OrccKfUP8gNJR+IGlpS+VM59vyU9FdQD8lNXONp+0LAa/c0QJGCkoaA6VIjTlkfY8L91Mcg7eGBVrTspale87Z/b7SOa/qg7AYlVhXO23Noqt0+NKA6+C4FEe4G4pwRT6Tw700qX9a1a240hPR6OS2sfIpF23PQ8oLynkp6KWBzAeuOvvUNqXZurbKalE9S/X8x1b3wqbPsY2xRSBR68IqsyQBiRGaKoZpUiiEdaERQGIKG9CjqG3tQowhpJUcdKJRgdsUEZmHAptcJ0e2W9yZJVhCcADupR2CR6k05HWso15qJydrRNkjKzFt5AdwfzPKG/wDlBA9yqn+nWRvKwpjjk+kQq1OgSwt3R26yVLU5kc2AlPRIqz24MNKCMHKiAnbPzWb2J/6de+5P5e4NaJYxIebQtxBSgHbm71ptpQSkgRBgCMqjZ3MuVvQEBKSoDA2qaYCEJ5lLGT6VBMLQ24nxceQV0xU6ylD7aS2sHG/5qk0SRleKPchyQfioK5x0OIUsEgq8/MeXlU34f4vM6pKUjzPWo64R0upIjOJUodj0o7ICOInSYA4zKSo8kksrGD29aB64ol6S+02tI+x9B5kFXc9viiwpCZ1vZloBSHE83KeqT0I+DkfFZj2l0wWtYVqYwrfQ/n7yyWdbrXpPIhyN6TUKVUCKTUKrQj5YmdqFA0KGKR8CaOMk0mD60okjNdGpnr8huHCemPEBtltTqj6JBJ/tXOtqMi6zXri9y877qnic5PMo8x/vWycSZaoPCa+OoVyqWwGQf51pQf0Jrnr/ABpE0uqPBfDbj6j94W94Yaz0Kjykf1xV07K2rOjugyScfIZP/ZFXlZabZc4Al9d1XB082rkiLnTNuVIGQ2O5x51BXbjxfLWsfRwo+AOUDmSSPcZrFGLg5rufcL7cPqU2xlwMx4CXSkLWU8xU4R1wMf7FISYOnEIDTkeIF9OSNHzjfG6+/wCtaHQsxTwr+9K9X1Bnyye76zd7Lx5vtwSpdzDbScjCfDxn2Nanp7iQuXGQkO4cIH3JO2a4jYYjodCob8uKg7gtrUnbp0O3XzFWzR/EGBo7UEuDq+4vllKUrYkR2SrxUK33SOhH9KXa3zsnMTpXv+zjznXt74gGHDc55GVAflz1rML5+0feLNIRGgw23mz1PLzH2rHOIXFfT91gx2NIzlXB908v3MLZ5f5gf9KosOUZNwbN6v8ALjpUd1R2enskDJ+TRktmHvQta+XhDOrLTxxlX6OE3WzKSyv7fFCMFHqcdBnFaLpeUmTb5AQQUeL4qMHs4kK/vzVy1pq3qcllGnNeTpsd37UltKULAO33suIO3rvV60rry8cMuJkPS2vZkF2x3xsmHeVNiOphxvI5XQDy4OcZ9UnzqvdpdLa6s3FEZZd8eO3OP2zH2nah7OoDV4O2fDedDK6UgrrSVvu9pvMZci0XOHPaQrw1LivJdCVdeUlJODv0pdQ3rIGUoelhgy4owYZESIoUD0oV0WEdb0dO5AzvTfmOKVaVhxPuK6IETM9fa2tt203edN2jL1wbyhl9K0lLUhBynnT1Az3+cViuiLTqOO3MZmOpefC/xFn+JW+T61abdHgwJupZktBDybi6orT+Y/crA+aV0nMjy71cpLAKUyPBfb59spKMH9Un+lataWVOyt+ikNjgk/KRFwvVVBMruntHwpWsdU2a5sBla3mboyznlS426jlUcDtzoUPmpC66OsDSGmHNPRJQbGAG1qQE75xjYYzV6uGjbxdrrD1Ppl2GzeIKFNck1RDM1hRBUw4RuncBSVDPKodCCadz77CtCQzqbQ1/hOAff9N9NKQP5VBwEj1wKsdKr1AOp3xIKrbqCUcbf0zIU6AFxlsCJAEQMHlbaDhcO5z7f1PerBwO4fad1nx21BeL/aol0t9pSiBGYkNhTTjw3cVynY8uQPmnWq+KRl2s2Ph7pOZAkvfhquV0U22lrO3MlCVKKle5A96vPAWxNaagogpfDgjJJce/8riiVLWfUmlGqsoJJ3O0Cjao7gKO6N/tKTx54O6U0v8AtA6SulosLEKzX4OwHokM+ChEnwyUKTjoVA9B3T61S52h7da5qWFaYfuMJGySHFc6RnOFAfpXUv7QOjH9b8O/p7fLEW7RXGp1vkA/8p9v7kn07g+9ZxovjHoPUttat/EG1vWC/sp5H8w1uNOLGxU242FbE/wqwR036049ozAEciNnt0BPWNjv8PjI7SGidN3+Ew1EsEqzyIy/wZCcodaOebqr8wz23qB4t6Ana54taT0SLo0wuFEk3OXKeScMMhSEJOBjJKgcDbfNW3VOsrLamkvaRm3W8OlX2xoVvkKJHllSAlPuSKrVv0/qHVFv1FqnUkhyLeLwxymMyrKY7DQAbj83kOZSlY6k+lIMzoTUJwf5h0pU6hWkNwTvjymxaM0jYtH6YTAsS3H23lfUPSnXi6uS4QAXCok9cdBsKnFdajNJxPoNBWaERu1DaT1z/DUmrrmsM1Fna6ql2LHJ3PJwZeKFNaaBUGAImoUK9NCmYjkGAEUsg75puCAKUSaEQjCZfxF0smOuTKgoDbNxUFOKAOEOjrnHYiqnHT+69ex4nhNJ8O2pbSEbJICzg/qa3uXDj3GAuJKRztLG+OoPYj1FYtq61OWPiI09ICHEORkoacG3OAsncdj0q/aFqwuKItap744+I/Ejbqn098Syxb+tqQYEZ7lKMBagfymq3re4W+TKTHCXLldHRyttp3I9SfKqvHvEiLaLrJjAOzJU/wABtSs4BwkAn0GSahouroNjubkRkqemEn6iW4oJU8fLJP2pHYCrjbU+kbyFuKoOJY7LHi6WuLF5vVsVPdbSpSowwQPLlz81YrBxQgRNQyZMSA7DjPZUqO+2ApPny42OKza73mZcT9c1LaBUQnwkvJJA9gaZptsqdHSt+SlaknIUhWD+nWlmp9ZzCLWKjAE6JvvHm2PaV8V5lTzjWGx9OjDhH/rn+LYbnYVh+rSv/EbGqUwn4rUxlp2SAAkh3kAWvbpk77VEx9P/AEEgSbhMXKGQW2gvIxncKq737UdvnWBKZ8NbMYt8qXAN0kdPjG1LExv7Q8cS76KLF0gRnP8AEk1+KnCjGkOFaQfc9KvDDcR7UEmM02OVLJUoBORhRA/XFc7cOparVqiEliQpVonueGjOfw14yR7EHI+a3bTEwy7zLUgkhDaErPY7nH9v71E6vdGztnrDkDb14Ed2gFSqolp2SMAYA2AFJmjrJ70mqsZZixJPJlrA8IUnahXhoVwikTzSiTTQL260olzB6UbEMVj1BrMONMRxu0W7UCEnw4ay08R2SvHKT7KAH/1WkocJrNOInEbQMq13DQK7/HkXman6dERhKnSlec4UoDlSRjue1SuirW/Vo1JS2DvgZ24J+UYXhRaZDnGePWZdpaWhdzudndUkrW4mYjPTONxnyHKP60rH4TWTWzcqfPbW2hZIbU0rC298gjz9jVAYnS4GpkRXMpfjOeG4Unl5m/P52rYdDXaRAkOQJLoDaieTO+/v/vrWvKxTvLKoMM3S/Ebab0LbNMwpFtuNrFwbeb8JExhoKXnxMhRR2wnI71cIOjNAXWPcXJBcgsrcX4LnKtotgAYxsAcnzzUzGlhiVzBCcHfGOlTbGpZ0VohsFBSrojy9q5T1nqziOqtLbAYiN3uHPBh+NiK3Kkn6MBKGnVuHxErBznoCoZGOnpWXtfs6wrlqy5Xh68XKHFwfpLe04cc2SfxDvkY2wK15i/zHwhp9ZW3zc4AGAMHPSns2+MwbW/LW5hSwQknurGaWDFc4Mbmiqr3mJmEwrdB01pdbjqSSxKWphKu68FKcen5jWmcMkKesL90WUq8ZQaSofxcuSc/JxWCarul2vOsGrDbkuSpL74SwhGwLrmB+icn+p7V03pqzNad0lBszJyGGgFKJzzLx9x+Tk1T+19yKVqKOd3P0H5jvRkNSqX8Fkqo/dRCd6BO9FJrNMS0gQUK8ztQoYfEiw8KUQ+mqqq6Hm602uepmLNY5V1lqPgxmy4oJO6vID1JIHzT+naPUYIgyTsID1lQFmOwkXxk4kp0hpddqtj2LxOaIQpPVhs7Ff8x3Cfk9q5Q4aw1TuNzDzyioMJW8knueXH+pp/qjUU7U2pZd3uTilPSFZA7NpGyUJ8gBtXnDBwRuK0YOnl8RpxKVeuK3XTezg0bSmQD/ACMMsfj5eg8Pn4zNLrVDqF+rE9wHYf3zl54iWxceRFvUJC1uM7PhI2KN8H43qY0jeotwbS8XS6o9geh9am7tHL2UOKKEcuEhI5uvc/16VmsqJI07eFSrQ0W217OMg7E+Y8jTBFLJjxEkKx6X6p1fp1Nukw2kLUlLiUjYnOfKrlbbVbFqUp5KCkdCR1rlLTvEhKiFturQ419q0qOD74NWz/inIU2EiYpHKdgTsB0G3fz+KGnTZTvHH6xOnBnQ7un4AwtrCkggAYGST6VmHE27MQY5bj/aY43PVOSMY9zmoFfF5UOyeM7LSp1KQUcp+5WelVex2y/cVbohD6n49kbWHZEs9XCMnkSe5369hRLqvTt0NWqcKIRn9sRTpDJMkuCGmnbnqabr64sfhp5o8FxX/UUdlugeWByg+qq3ZSvWm0C3w7TaY1st8dLEWM2Gmm09EpA2pRR261j+r6i2oXLVjxwB5Af3MtNjaC2pCmOfH1npVvRSqiE14TUbiPofmoUQGhXYgzIZFwbYbU6+6httO6lrVgD5rMtf67t9ztatOWt7xi4oLcfTsnCTnlT5+/pQoVsXYPRba7rG5q5JpkEeWfjKR2m1CrRQUU4bOZln0hSpQIyUnzpAiRCuDFyg4RIYWHE/FChW0VqKOhVhtM+SoysCJs9nvzV7sTMtlZS4ofcP4knuD801uMQuJJWkqUBtsMihQrNatMJUZR5y6KxemrGRsuwxpWXPCyThXM2Skg4qJe0s6oFQlSUJAxyqOdvOhQoViNVRjMeRNPs+CqTNdfebYBOVr25UjmPT0BrZ/wBnXiTB1ToY6ef8CPNgE+CgYT4rBO3upOcHuRynzoUKYa5YUbvSrlqo3QBgfIg/yDgw2n3L0bykE4bIM2hYpFQ3oUKw6aKOImcUQmhQoRBnmaFChQ4nZn//2Q==';
+function joshFace(sz){return '<span class="jf18" style="width:'+sz+'px;height:'+sz+'px"><img src="'+JOSH_IMG+'" alt="Josh"></span>'}
+function speakJosh(pre){const u=SESSION||{};const em=u.email||'';
+  modal('<div class="sj18"><div class="sj18-h">'+joshFace(52)+'<div><h2>Speak with <span class="serif">Josh.</span></h2><p class="muted">Your message goes straight to Josh’s inbox. He usually replies the same day.</p></div></div>'+
+    '<div class="field"><label for="sjM">What can Josh help with?</label><textarea class="inp" id="sjM" rows="5" placeholder="e.g. Can we talk through which brands to go after first?">'+esc(pre||'')+'</textarea></div>'+
+    '<div class="grid2"><div class="field"><label for="sjN">Your name</label><input class="inp" id="sjN" value="'+esc(S.setup.you||u.name||'')+'"></div><div class="field"><label for="sjE">Where should he reply?</label><input class="inp" id="sjE" type="email" value="'+esc(em)+'" placeholder="you@agency.com"></div></div>'+
+    '<div class="sj18-f"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" id="sjGo" onclick="sendJosh()">'+ico('send')+'Send to Josh</button></div></div>');
+  setTimeout(()=>{const t=$('#sjM');t&&t.focus()},120)}
+async function sendJosh(){const msg=($('#sjM')||{}).value||'';const name=($('#sjN')||{}).value||'';const email=($('#sjE')||{}).value||'';
+  if(msg.trim().length<3){toast('Add a line for Josh first');return}if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())){toast('Add an email so Josh can reply');return}
+  const b=$('#sjGo');if(b){b.disabled=true;b.textContent='Sending…'}
+  const body={message:msg.trim().slice(0,4000),name:name.trim().slice(0,120),email:email.trim().slice(0,200),agency:S.setup.agency||'',page:STAGE_L(VIEW)||VIEW,demo:!!DEMO_MODE};
+  let ok=false;
+  try{const r=await fetch('/api/josh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'same-origin'});ok=r.ok}catch(e){}
+  if(!ok){try{const r=await fetch('https://formspree.io/f/mbdzjdaw',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.assign({_subject:'Plato: a message for Josh from '+(name||'a user'),_replyto:body.email,_source:'Plato, Speak with Josh'},body))});ok=r.ok}catch(e){}}
+  if(ok){closeOverlays();toast('Sent. Josh will reply to '+body.email+'.')}
+  else{if(b){b.disabled=false;b.innerHTML=ico('send')+'Send to Josh'}location.href='mailto:josh@scopeandlens.com?subject='+encodeURIComponent('Plato: '+(body.agency||'a question'))+'&body='+encodeURIComponent(body.message)}}
+
+/* ── 2. a slim campaign bar instead of the chat on every stage ── */
+crewDeck=function(k){const c=curCamp();if(!c||!OUT_K.includes(k))return '';const many=realCampList().length>1;const L=campStateLabel(c);
+  const steps=OUT_K.map((x,i)=>{const s=campStepState(c,x);return '<button class="cb18-s'+(x===k?' on':'')+(s===2?' dn':'')+'" onclick="go(\''+x+'\')" aria-label="'+esc(STAGE_L(x))+(s===2?', done':x===k?', you are here':'')+'">'+agentFace(x,24,{badge:false})+'<span>'+esc(STAGE_L(x))+'</span>'+(s===2?'<i>'+ico('check')+'</i>':'')+'</button>'+(i<3?'<i class="cb18-ln'+(s===2?' fed':'')+'"></i>':'')}).join('');
+  return '<div class="cb18"><button class="cb18-c" onclick="'+(isApp()?'campSheet()':"go('camps')")+'" aria-label="Campaign: '+esc(c.name)+(many?'. Switch campaign':'')+'"><small>'+esc(L[0])+'</small><b>'+esc(c.name)+'</b>'+(many?'<em>Switch</em>':'')+'</button><div class="cb18-steps">'+steps+'</div><button class="cb18-m" onclick="crewMeet(\''+k+'\')">'+ico('people')+'<span>Crew</span></button></div>'};
+crewPlay=function(){};
+
+/* the crew hand over when you finish a stage: a short moment, then gone */
+let HAND18=null;
+function handSnap(){const c=curCamp();if(!c)return null;const o={id:c.id};OUT_K.forEach(k=>o[k]=campStepState(c,k));return o}
+function handCheck(){const c=curCamp();const now=handSnap();if(!now){HAND18=null;return}
+  if(HAND18&&HAND18.id===now.id){const done=OUT_K.find(k=>HAND18[k]!==2&&now[k]===2);if(done)handOver(done)}HAND18=now}
+function handOver(k){const i=OUT_K.indexOf(k);const nx=OUT_K[i+1];const A=AGENTS[k],B=nx?AGENTS[nx]:null;
+  const lines=nx?[[k,'That is '+STAGE_L(k).toLowerCase()+' done. '+B.n+', over to you.'],[nx,{give:'On it. I will build something worth opening.',reach:'Lovely. I will pace it so nobody feels chased.',launch:'Fuelled up. Every message ready for your say-so.'}[nx]]]:[[k,'We are live. I will tell you the moment someone leans in.']];
+  let el=$('#hand18');if(el)el.remove();el=document.createElement('div');el.id='hand18';el.className='hand18';el.setAttribute('role','status');
+  el.innerHTML='<div class="h18-faces">'+agentFace(k,44,{badge:false})+(nx?'<i class="h18-arc"></i>'+agentFace(nx,44,{badge:false}):'')+'</div><div class="h18-chat">'+lines.map((l,j)=>'<p style="--d:'+(0.3+j*1.1)+'s"><b>'+esc(AGENTS[l[0]].n)+'</b>'+esc(l[1])+'</p>').join('')+'</div>'+
+    (nx?'<button class="btn btn-primary btn-sm" onclick="this.closest(\'.hand18\').remove();go(\''+nx+'\')">Next: '+esc(STAGE_L(nx))+ico('arrow','a')+'</button>':'')+'<button class="icon-btn h18-x" onclick="this.closest(\'.hand18\').remove()" aria-label="Close">'+ico('x')+'</button>';
+  document.body.appendChild(el);buzz&&buzz();setTimeout(()=>{if(el.isConnected)el.classList.add('out');setTimeout(()=>el.remove(),500)},9000)}
+(function(){const _sv=save;save=function(){const r=_sv.apply(this,arguments);try{clearTimeout(handCheck.t);handCheck.t=setTimeout(handCheck,250)}catch(e){}return r}})();
+setTimeout(()=>{try{HAND18=handSnap()}catch(e){}},1500);
+
+/* ── 3. calmer by default ───────────────────────────────────── */
+/* the coach starts folded into a small pill; open it when you want it */
+(function(){const _cr=coachRender;coachRender=function(){try{if(S&&S.coach&&!S.coach.v18){S.coach.min=1;S.coach.v18=1}}catch(e){}return _cr.apply(this,arguments)}})();
+/* toasts without the emoji confetti */
+(function(){const _t=toast;toast=function(m){if(typeof m==='string')m=m.replace(/^\s*(?:[☀-➿]|[\uD83C-\uDBFF][\uDC00-\uDFFF])[️‍]*(?:[\uD83C-\uDBFF][\uDC00-\uDFFF][️]?)*\s*/,'');return _t.apply(this,[m].concat([].slice.call(arguments,1)))}})();
+/* performance lives inside Campaigns now */
+(function(){const _vp=VIEWS.perf;VIEWS.perf=function(id){const c=id&&S.campaigns.find(x=>x.id===id);if(!c){const r=realCampList();const live=r.find(campLive)||r[0];if(live)return _vp(live.id)}return _vp(id)}})();
+
+/* ═══════════ v18 AGENCY PROFILE: Plato reads you, you check it, and your agency comes to life ═══════════
+   One page, no scrolling marathons. Five short steps down the left, one at a time in the middle,
+   and your agency on the right as a character that gains a feature every time you fill something in.
+   Step one does the work: give Plato your website or your credentials and it fills in the rest. */
+
+const AG18=[['read','Start here','sparkle'],['who','About you','user'],['value','Why you','star'],['want','Who you want','target'],['voice','Voice and files','chat']];
+const ag18Tab=t=>({assets:'voice',library:'voice'}[t]||t);
+function ag18Done(k){const I=agInfo(),O=S.setup.offer,P=wantProf();
+  if(k==='read')return !!(libState().items.length||I.siteRead||I.read18);
+  if(k==='who')return !!(S.setup.agency&&S.setup.agency!=='Your agency'&&I.website&&I.location&&I.size&&I.services&&I.sender);
+  if(k==='value')return !!((O.uvp||'').trim()&&(O.different||'').trim()&&((O.proof||'').trim()||libProofs().length)&&(O.solution||'').trim()&&I.clients);
+  if(k==='want')return !!(P.discs.length&&P.sectors.length&&P.csize&&P.roles.length&&P.problems.length);
+  if(k==='voice')return !!(I.voice||S.compose.tone);return false}
+/* what the outreach partner needs to send for you, beyond the basics */
+function ag18Amp(){const I=agInfo();return[['LinkedIn profile of the sender',!!I.senderLi],['Email the outreach comes from',!!I.senderEmail]]}
+
+/* fill empty answers from whatever Plato read: the website, credentials, decks */
+function ag18Fill(){const d=libState().learned;if(!d)return 0;const O=S.setup.offer,I=agInfo(),P=wantProf();let n=0;const pk=d.pick||{};
+  const set=(o,k,v)=>{v=Array.isArray(v)?v.filter(Boolean).join(', '):v;if(v&&!String(o[k]||'').trim()){o[k]=String(v).replace(/—/g,',');n++}};
+  set(O,'uvp',(d.uvp||[])[pk.uvp||0]);set(O,'different',(d.different||[])[pk.diff||0]);set(O,'solution',(d.offer||[])[pk.offer||0]);
+  set(O,'proof',(libProofs()[0]||{}).text||((d.proofs||[])[0]||{}).text);set(I,'clients',(d.clients||[]).slice(0,6));set(I,'awards',(d.awards||[]).slice(0,2));
+  set(I,'team',(d.team||[])[0]);set(I,'method',(d.method||[])[0]);
+  if(!I.services&&(d.services||[]).length){I.services=d.services.map(k=>(DISC[k]||{}).l||k).join(', ');n++}
+  if(!P.discs.length&&(d.services||[]).length){P.discs=d.services.filter(k=>DISC[k]).slice(0,3);P.discipline=P.discs[0]||'';n++}
+  if(!P.sectors.length&&(d.sectors||[]).length){P.sectors=d.sectors.filter(k=>L_SECTORS[k]).slice(0,3);n++}
+  if(!I.voiceNote&&d.voice){I.voiceNote=d.voice;n++}
+  I.read18=today();save();return n}
+
+/* reading, with something to watch while it happens */
+let AG18_BUSY=null;
+async function ag18Read(){const url=(($('#ag18U')||{}).value||agInfo().website||'').trim();if(!url){toast('Add your website address first');const i=$('#ag18U');i&&i.focus();return}
+  setAg('website',url.replace(/^https?:\/\//,'').replace(/\/$/,''));AG18_BUSY={what:'site',t0:Date.now()};go('agency','read',true);ag18Tick();
+  let filled=0;
+  if(DEMO_MODE||!(typeof isLive==='function'&&isLive())){await new Promise(r=>setTimeout(r,4200));agInfo().read18=today();save()}
+  else{try{await readWebsite(url,true);filled=ag18Fill()}catch(e){}}
+  AG18_BUSY=null;go('agency','read',true);toast(filled?'Plato filled in '+filled+' answer'+(filled===1?'':'s')+' from your website. Check them in the next steps.':(DEMO_MODE?'In your own workspace, Plato reads the site and fills in your answers.':'Website read. Check your answers in the next steps.'))}
+function ag18Tick(){const el=$('#ag18Feed');if(!el||!AG18_BUSY)return;const L=['Opening the home page','Reading about you','Looking at your work and case studies','Finding your clients and results','Listening to how you write','Filling in your answers'];
+  const i=Math.min(L.length-1,Math.floor((Date.now()-AG18_BUSY.t0)/800));el.innerHTML=L.slice(0,i+1).map((x,j)=>'<li class="'+(j<i?'ok':'now')+'">'+(j<i?ico('check'):'<span class="sp18"></span>')+x+'</li>').join('');setTimeout(ag18Tick,400)}
+const _libDrop18=libDrop;libDrop=async function(files,id){await _libDrop18(files,id);if(VIEW==='agency'){const n=ag18Fill();if(n)toast('Plato filled in '+n+' answer'+(n===1?'':'s')+' from your files.');go('agency',VIEW_ARG,true)}};
+
+/* the character: your agency, gaining a feature for every answer */
+let AG18_SEEN=null;
+function ag18Traits(){const I=agInfo(),O=S.setup.offer,P=wantProf();const short=(t,n)=>{t=String(t||'').trim();return t.length>n?t.slice(0,n-1).replace(/\s+\S*$/,'')+'…':t};
+  const tone=(CMP.tone.find(t=>t[0]===(I.voice||S.compose.tone))||[])[2];
+  return[
+    ['home','pin','Home turf',I.location?short(I.location,40):''],
+    ['craft','layers','Craft',I.services?short(I.services,60):''],
+    ['power','bolt','Superpower',(O.uvp||'').trim()?short(O.uvp,90):''],
+    ['edge','star','Why you',(O.different||'').trim()?short(O.different,80):''],
+    ['proof','trophy','Proof',((O.proof||'').trim()||(libProofs()[0]||{}).text)?short(O.proof||(libProofs()[0]||{}).text,80):''],
+    ['move','gift','First move',(O.solution||'').trim()?short(O.solution,70):''],
+    ['allies','people','Allies',I.clients?short(I.clients,70):''],
+    ['quest','target','Quest',P.sectors.length?P.sectors.map(k=>(L_SECTORS[k]||{}).label||k).join(', ')+(P.problems.length?' · '+((L_PROBLEMS[P.problems[0]]||{}).label||''):''):''],
+    ['voice','chat','Voice',tone||''],
+    ['msg','send','Messenger',I.sender?short(I.sender,40)+(I.senderLi?' · LinkedIn ✓':''):'']]}
+function ag18Char(){const T=ag18Traits();const got=T.filter(t=>t[3]).length;const lvl=Math.max(1,Math.ceil(got/2));const name=S.setup.agency&&S.setup.agency!=='Your agency'?S.setup.agency:'Your agency';
+  const col=(S.brand&&S.brand.primary)||'#2c56ed';if(!AG18_SEEN)AG18_SEEN=new Set(T.filter(t=>t[3]).map(t=>t[0]));const fresh=T.filter(t=>t[3]&&!AG18_SEEN.has(t[0])).map(t=>t[0]);fresh.forEach(k=>AG18_SEEN.add(k));
+  const pct=Math.round(got/T.length*100),r=54,c=2*Math.PI*r;
+  const orbit=T.map((t,i)=>{const a=-Math.PI/2+i/T.length*Math.PI*2;return '<span class="ch18-o'+(t[3]?' on':'')+(fresh.includes(t[0])?' new':'')+'" style="left:'+(50+Math.cos(a)*44).toFixed(1)+'%;top:'+(50+Math.sin(a)*44).toFixed(1)+'%" data-tip="'+esc(t[2])+'">'+ico(t[1])+'</span>'}).join('');
+  return '<aside class="ch18" aria-label="Your agency, as Plato sees it"><div class="ch18-k">Your agency, as Plato sees it</div>'+
+    '<div class="ch18-av" style="--ac:'+col+'"><svg viewBox="0 0 120 120" class="ch18-ring"><circle cx="60" cy="60" r="'+r+'" class="t"/><circle cx="60" cy="60" r="'+r+'" class="v" stroke-dasharray="'+(c*pct/100).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 60 60)"/></svg>'+
+      '<span class="ch18-em">'+esc(initials(name))+'</span>'+orbit+'</div>'+
+    '<div class="ch18-n"><b>'+esc(name)+'</b><span>Level '+lvl+' of 5 · '+(got===T.length?'Fully formed':got+' of '+T.length+' features')+'</span></div>'+
+    '<ul class="ch18-t">'+T.map(t=>'<li class="'+(t[3]?'on':'')+(fresh.includes(t[0])?' new':'')+'"><span class="ch18-i">'+ico(t[1])+'</span><span class="grow"><small>'+esc(t[2])+'</small><b>'+(t[3]?esc(t[3]):'Not yet')+'</b></span></li>').join('')+'</ul></aside>'}
+
+/* the page */
+VIEWS.agency=function(tab){tab=ag18Tab(tab||'');if(!AG18.some(t=>t[0]===tab))tab=(AG18.find(t=>!ag18Done(t[0]))||AG18[1])[0];
+  const I=agInfo(),O=S.setup.offer;const idx=AG18.findIndex(t=>t[0]===tab);const ready=profReady();
+  const fld=(id,l,v,ph,on,rows,opt,tag)=>'<div class="field"><label for="'+id+'">'+l+(opt?' <span class="muted">· optional</span>':'')+(tag?' <span class="tag18">'+tag+'</span>':'')+'</label>'+(rows?'<textarea class="inp" id="'+id+'" rows="'+rows+'" placeholder="'+esc(ph)+'" onchange="'+on+'">'+esc(v||'')+'</textarea>':'<input class="inp" id="'+id+'" value="'+esc(v||'')+'" placeholder="'+esc(ph)+'" onchange="'+on+'">')+'</div>';
+  const sel=(id,l,v,opts,key)=>'<div class="field"><label for="'+id+'">'+l+'</label><select class="inp" id="'+id+'" onchange="setAg(\''+key+'\',this.value);agRefresh()"><option value="">Choose</option>'+opts.map(o=>'<option'+(v===o?' selected':'')+'>'+esc(o)+'</option>').join('')+'</select></div>';
+  const steps='<nav class="ag18-steps" aria-label="Agency profile steps">'+AG18.map((t,i)=>{const d=ag18Done(t[0]);return '<button class="ag18-st'+(t[0]===tab?' on':'')+(d?' dn':'')+'" onclick="go(\'agency\',\''+t[0]+'\')"><span class="ag18-n">'+(d?ico('check'):i+1)+'</span><b>'+t[1]+'</b></button>'}).join('')+'</nav>';
+  let body='';
+  if(tab==='read'){const hasLib=libState().items.length;
+    body='<div class="ag18-hd"><h2>Let Plato <span class="serif">read you.</span></h2><p>Share your website or drop in your credentials. Plato reads them and fills in the rest of your profile for you to check.</p></div>'+
+      (AG18_BUSY?'<div class="ag18-read busy"><div class="ag18-scan"><i></i></div><ul id="ag18Feed" class="ag18-feed"></ul></div>':
+      '<div class="ag18-read"><div class="ag18-web"><label for="ag18U">Your website</label><div class="ag18-row"><input class="inp" id="ag18U" value="'+esc(I.website||'')+'" placeholder="e.g. brightside.studio" onkeydown="if(event.key===\'Enter\')ag18Read()"><button class="btn btn-primary" onclick="ag18Read()">'+ico('sparkle')+'Read my website</button></div>'+(I.siteRead||I.read18?'<small class="ok18">'+ico('check')+'Read '+fmtDate(I.siteRead||I.read18)+'. Read it again any time.</small>':'')+'</div>'+
+      '<div class="ag18-or"><span>and, or</span></div>'+dropZone('ag18Dz',true)+
+      (hasLib?'<p class="small muted" style="margin:8px 0 0">'+hasLib+' file'+(hasLib===1?'':'s')+' read so far. <button class="link" onclick="go(\'agency\',\'voice\')">See them</button></p>':'')+'</div>')}
+  if(tab==='who')body='<div class="ag18-hd"><h2>About <span class="serif">you.</span></h2><p>The basics, and who the outreach comes from.</p></div><div class="ag18-g">'+
+    fld('agN','Agency name',S.setup.agency==='Your agency'?'':S.setup.agency,'e.g. Brightside Studio',"setAgency(this.value);agRefresh()")+fld('agW','Website',I.website,'e.g. brightside.studio',"setAg('website',this.value.trim());agRefresh()")+
+    fld('agL','Where you are based',I.location,'e.g. Manchester',"setAg('location',this.value.trim());agRefresh()")+sel('agZ','Team size',I.size,TEAM_SIZES,'size')+
+    '<div class="span2">'+fld('agS','The work you do',I.services,'e.g. Brand strategy, identity, campaigns and social',"setAg('services',this.value.trim());agRefresh()")+'</div>'+
+    fld('agSn','Who sends the outreach',I.sender,'e.g. Sam Lee, Managing Partner',"setAg('sender',this.value.trim());agRefresh()")+fld('agSl','Their LinkedIn profile',I.senderLi,'linkedin.com/in/…',"setAg('senderLi',this.value.trim());agRefresh()",0,0,'For Amplify')+
+    '<div class="span2">'+fld('agSe','The email the outreach comes from',I.senderEmail,'sam@brightside.studio',"setAg('senderEmail',this.value.trim());agRefresh()",0,0,'For Amplify')+'</div></div>';
+  if(tab==='value')body='<div class="ag18-hd"><h2>Why <span class="serif">you.</span></h2><p>One or two lines each. Plato uses these in every gift and message.</p></div><div class="ag18-g">'+
+    '<div class="span2">'+fld('agU','What you do best, in a sentence',O.uvp,'e.g. We find the one idea that makes a brand impossible to ignore',"setOffer('uvp',this.value);agRefresh()",2)+'</div>'+
+    fld('agD','Why you, not another agency',O.different,'e.g. Half our team have sat in the client chair',"setOffer('different',this.value);agRefresh()",2)+
+    fld('agP','Proof that it works',O.proof,'e.g. Grew Brand X online sales 40% in a year',"setOffer('proof',this.value);agRefresh()",2)+
+    fld('agO','The first piece of work you would offer',O.solution,'e.g. A four week brand sprint with a clear plan at the end',"setOffer('solution',this.value);agRefresh()",2)+
+    fld('agC','Clients you are proud of',I.clients,'e.g. Monzo, Gousto, Yorkshire Building Society',"setAg('clients',this.value.trim());agRefresh()",2)+'</div>';
+  if(tab==='want')body='<div class="ag18-hd"><h2>Who you <span class="serif">want.</span></h2><p>Nora uses this to find and score brands for every campaign.</p></div><div class="ag18-want">'+wantForm().replace(/<p class="small muted"[^>]*>[\s\S]*?<\/p>/,'')+'</div>';
+  if(tab==='voice'){const L=libState();body='<div class="ag18-hd"><h2>Your voice and <span class="serif">files.</span></h2><p>How you like to sound, and everything Plato has read about you.</p></div>'+
+    '<div class="field"><label>How you like to sound</label><div class="chips">'+CMP.tone.map(t=>'<button class="chip'+((I.voice||S.compose.tone)===t[0]?' on':'')+'" onclick="S.compose.tone=\''+t[0]+'\';setAg(\'voice\',\''+t[0]+'\');go(\'agency\',\'voice\',true)">'+t[1]+' '+t[2]+'</button>').join('')+'</div>'+(I.voiceNote?'<p class="small muted" style="margin-top:8px">From your website: '+esc(I.voiceNote)+'</p>':'')+'</div>'+
+    '<div class="ag18-files"><div class="row between"><b>Files Plato has read</b><span class="muted small">'+L.items.length+' in your library</span></div>'+
+      (L.items.length?'<ul>'+L.items.slice(0,6).map(x=>'<li>'+ico(x.cat==='site'?'link':'file')+'<span class="grow">'+esc(x.name)+'</span><small>'+(x.words?x.words+' words':'')+'</small></li>').join('')+'</ul>':'<p class="small muted">Nothing yet. Add your credentials, case studies or a deck.</p>')+
+      dropZone('ag18Dz2',true)+'</div>'}
+  const prev=AG18[idx-1],next=AG18[idx+1];
+  const amp=ag18Amp().filter(x=>!x[1]);
+  const foot='<div class="ag18-foot">'+(prev?'<button class="btn btn-ghost" onclick="go(\'agency\',\''+prev[0]+'\')">'+ico('arrow','l')+'Back</button>':'<span></span>')+
+    '<span class="ag18-saved">'+ico('check')+'Saved as you type</span>'+
+    (next?'<button class="btn btn-primary" onclick="saveAgency();go(\'agency\',\''+next[0]+'\')">'+(tab==='read'?'Check my answers':'Next: '+next[1].toLowerCase())+ico('arrow','a')+'</button>':
+      (ready?'<button class="btn btn-primary" onclick="saveAgency();showFits()">Show me brands that fit'+ico('arrow','a')+'</button>':'<button class="btn btn-primary" onclick="saveAgency();go(\'agency\',\''+(AG18.find(t=>!ag18Done(t[0]))||AG18[0])[0]+'\')">Finish the gaps'+ico('arrow','a')+'</button>'))+'</div>';
+  return '<div class="ag18"><div class="ag18-top"><div><div class="sh-k">Agency profile</div><h1 class="ag18-t">Everything that makes <span class="serif">you, you.</span></h1></div>'+
+    (amp.length&&tab!=='read'?'<button class="ag18-amp" onclick="go(\'agency\',\'who\')">'+ico('bolt')+'<span><b>Ready for Amplify?</b><small>Add '+esc(amp.map(x=>x[0]).join(' and '))+'</small></span></button>':'')+'</div>'+
+    steps+'<div class="ag18-body"><section class="ag18-main card" data-step="'+tab+'">'+body+foot+'</section>'+ag18Char()+'</div></div>'};
+VIEWS.agency_after=function(){try{initSegs()}catch(e){}if(AG18_BUSY)ag18Tick()};
+/* every change re-draws in place: the character picks up the new feature */
+wantPick=(function(){const _w=wantPick;return function(k,v,max){const P=wantProf();if(max){const a=P[k]||[];P[k]=a.includes(v)?a.filter(x=>x!==v):a.length>=max?a.slice(1).concat(v):a.concat(v)}else P[k]=v;
+  P.discipline=(P.discs||[])[0]||'';P.problem=(P.problems||[])[0]||'';S.setup.profAw=1;save();syncSoon&&syncSoon();const y=$('.ag18-main')?$('.ag18-main').scrollTop:0;go('agency','want',true);const m=$('.ag18-main');if(m)m.scrollTop=y;refreshNav&&refreshNav()}})();
+const _agRefresh18=agRefresh;agRefresh=function(){clearTimeout(agRefresh.t);agRefresh.t=setTimeout(()=>{if(VIEW!=='agency')return;const m=$('.ag18-main');const y=m?m.scrollTop:0;const f=document.activeElement&&document.activeElement.id;go('agency',VIEW_ARG,true);const m2=$('.ag18-main');if(m2)m2.scrollTop=y;if(f&&$('#'+f))$('#'+f).focus();refreshNav()},60)};
+/* initials skip filler words: "Northgate and Co" -> NC */
+initials=function(n){const w=String(n||'?').replace(/\(.*?\)/g,'').split(/[\s&]+/).filter(x=>x&&!/^(and|the|of|&)$/i.test(x));return (w.slice(0,2).map(x=>x[0]).join('')||'?').toUpperCase()};
+ag18Amp=function(){const I=agInfo();return[['the sender’s LinkedIn',!!I.senderLi],['the email outreach comes from',!!I.senderEmail]]};
+
+/* ═══════════ v18b PICK YOUR BRANDS ═══════════
+IC.radar=IC.radar||'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/><circle cx="12" cy="12" r="1.2"/>';IC.alert=IC.alert||'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/>';
+   Two steps, both obvious: pick brands, then find the people. Cards carry the why-now, a cover, the fit and the
+   pitch likelihood, each with its working. One "Find more prospects" button that keeps giving. */
+
+/* ── fit: what you do and whether they need it, first ── */
+const NEED18={leadership:['brand','creative','design','effectiveness','research','media','pr','full','b2b'],brand:['brand','creative','design','content','video','social','packaging','influencer','full'],
+  results:['performance','crm','data','effectiveness','media','seo','digital','martech','research'],expansion:['brand','media','experiential','pr','employer','b2b','sponsorship','full'],
+  launch:['creative','pr','social','influencer','content','video','experiential','packaging','sponsorship'],deal:['brand','design','pr','employer','full'],restructure:['effectiveness','data','martech','ai','performance','crm'],
+  digital:['digital','ux','seo','performance','crm','martech','ai','data'],sustainability:['purpose','pr','content','brand','packaging'],regulation:['pr','content','health','b2b']};
+function need18(p){const D=myDiscs();const recent=(p.all&&p.all.length?p.all:p.nt&&p.nt!=='none'?[{type:p.nt,date:p.nd}]:[]).filter(n=>monthsAgo(n.date)<=9);
+  if(!recent.length)return{pts:6,t:'No recent news yet that shows a need for what you do'};
+  const open=recent.find(n=>n.type==='agency'||n.type==='pitch');if(open)return{pts:35,t:'Their agency news opens the door for '+mainDisc().cap};
+  const hit=recent.find(n=>(NEED18[n.type]||[]).some(k=>D.includes(k)));
+  const P=S.setup.profile;const mine=(P.problems&&P.problems.length?P.problems:[P.problem]).filter(Boolean).map(probBase);const pr=recent.flatMap(n=>PROB_FROM_NEWS[n.type]||[]).find(k=>mine.includes(k));
+  if(hit){const fresh=monthsAgo(hit.date)<=3;const lab=(L_TRIGGER_LABELS[hit.type]||'Their news').toLowerCase();return{pts:Math.min(35,(fresh?30:24)+(pr?5:0)),t:'Their '+lab+' points to '+mainDisc().cap+', which is what you do'}}
+  if(pr)return{pts:20,t:'Their news hints at a problem you solve'};
+  return{pts:12,t:'News, but nothing that clearly needs what you do'}}
+function spec18(p){const I=agInfo();const hay=((I.services||'')+' '+(S.setup.offer.uvp||'')+' '+(I.clients||'')).toLowerCase();const words=String(p.sub||'').toLowerCase().split(/[^a-z]+/).filter(w=>w.length>4);return words.some(w=>hay.includes(w))}
+fitP=function(p){const P=S.setup.profile;const si=P.sectors.indexOf(p.sector);if(si<0)return null;const parts=[];
+  const n=need18(p);parts.push({k:'need',l:'Needs what you do',pts:n.pts,max:35,t:n.t});
+  const as=L_ASIZES[P.asize]||L_ASIZES.sm;let fit;if(P.csize==='auto')fit=as.fit[p.size];else{const o=['S','M','L'];const d=Math.abs(o.indexOf(P.csize)-o.indexOf(p.size));fit=d===0?30:d===1?13:2;fit=Math.round((fit*2+as.fit[p.size])/3)}
+  const sz=Math.max(0,Math.min(25,Math.round(fit/30*25)));parts.push({k:'size',l:'Size',pts:sz,max:25,t:(L_SIZES[p.size]||{label:'Size unknown'}).label+(sz>=20?', the size you win':sz>=12?', a stretch but workable':', not the size you usually win')});
+  const sp=spec18(p);parts.push({k:'sector',l:'Sector and speciality',pts:Math.min(25,(si===0?21:17)+(sp?4:0)),max:25,t:(si===0?'Your main sector':'One of your sectors')+(sp?', and close to your speciality':'')});
+  let tm=0,tt='No news in the last six months';if(p.nt&&p.nt!=='none'){const ago=monthsAgo(p.nd);if(ago<=3){tm=10;tt='Fresh news, '+fmtYM(p.nd)}else if(ago<=6){tm=5;tt='News in the last six months'}}parts.push({k:'time',l:'Timing',pts:tm,max:10,t:tt});
+  const loc=P.region==='any'?4:P.region===p.region?5:1;parts.push({k:'place',l:'Location',pts:loc,max:5,t:P.region==='any'?'You work anywhere in the UK':P.region===p.region?'In your patch':'Outside your patch'});
+  const why=[];if(n.pts>=24)why.push(['target','Needs what you do']);if(sz>=20)why.push(['grid','Your size']);if(tm>=10)why.push(['bolt','Fresh news']);why.push(['layers',si===0?'Main sector':'Your sector']);
+  return{p,s:Math.min(99,parts.reduce((a,q)=>a+q.pts,0)),why:why.slice(0,3),parts,intel:!!(p.intel&&intelOn())}};
+scoreKey=function(){return ''};
+
+/* ── pitch likelihood: separate from fit, and always says what it is based on ── */
+function pitch18(p){let s=14;const b=[];const r=p.intel&&intelOn()?p.intel:null;
+  if(r){if(r.prob==='review'){s+=55;b.push('The account is in review now')}else if(r.prob==='high'){s+=45;b.push('Our pitch model rates a review as likely')}else if(r.prob==='moderate'){s+=24;b.push('Our pitch model rates a review as possible')}
+    const yrs=r.last?Math.floor(daysAgo(r.last)/365):0;if(yrs>=5&&!/in.?house/i.test(r.move)){s+=14;b.push(yrs+' years with the same agency')}else if(/in.?house/i.test(r.move+r.agency)){s-=6;b.push('Work is done in-house')}
+    if(r.change!=null&&r.change>=10){s+=8;b.push('Media spend up '+r.change+'% this year')}}
+  const all=(p.all&&p.all.length?p.all:p.nt&&p.nt!=='none'?[{type:p.nt,date:p.nd,text:p.news}]:[]);
+  const lead=all.find(n=>n.type==='leadership'&&monthsAgo(n.date)<=12);if(lead){s+=26;b.push('New marketing or business leader in '+fmtYM(lead.date)+'. New leaders often review agencies in their first year')}
+  const ag=all.find(n=>(n.type==='agency'||n.type==='pitch')&&monthsAgo(n.date)<=9);if(ag){s+=36;b.push(n18(ag.type)+' in '+fmtYM(ag.date))}
+  const dl=all.find(n=>(n.type==='deal'||n.type==='restructure')&&monthsAgo(n.date)<=9);if(dl){s+=12;b.push('A change of ownership or structure in '+fmtYM(dl.date))}
+  const rs=all.find(n=>(n.type==='results'||n.type==='brand')&&monthsAgo(n.date)<=6);if(rs){s+=6;b.push(rs.type==='results'?'Fresh results, when budgets get set':'New brand work under way')}
+  s=Math.max(5,Math.min(95,s));const lvl=s>=62?'high':s>=38?'med':'low';
+  if(!b.length)b.push('No sign of a review yet, which makes now a good time to be known before one starts');
+  return{s,lvl,l:{high:'High',med:'Medium',low:'Low'}[lvl],b}}
+function n18(t){return({agency:'Agency news',pitch:'An open pitch or review'})[t]||L_TRIGGER_LABELS[t]||'News'}
+function pitchWhy(e,name){e.stopPropagation();const p=PROSPECTS.find(q=>q.name===name);if(!p)return;const x=pitch18(p);$$('.fitpop').forEach(n=>n.remove());
+  const d=document.createElement('div');d.className='fitpop';d.innerHTML='<div class="fp-h"><b class="pl18-'+x.lvl+'">'+x.l+'</b><div><strong>Pitch likelihood</strong><span>How likely '+esc(name)+' is to look at agencies in the next year.</span></div><button class="icon-btn" onclick="this.closest(\'.fitpop\').remove()" aria-label="Close">'+ico('x')+'</button></div>'+
+    '<ul class="pw18">'+x.b.map(t=>'<li>'+ico('check')+esc(t)+'</li>').join('')+'</ul><p class="fp-k">Based on how long they have been with their agency, changes in marketing leadership, agency and pitch news, results and media spend. Checked every day.</p>';
+  document.body.appendChild(d);const r=e.currentTarget.getBoundingClientRect();const w=Math.min(380,innerWidth-24);d.style.width=w+'px';d.style.left=Math.max(12,Math.min(innerWidth-w-12,r.left+r.width/2-w/2))+'px';const below=r.bottom+8;d.style.top=(below+d.offsetHeight>innerHeight-12?Math.max(12,r.top-d.offsetHeight-8):below)+'px';
+  setTimeout(()=>document.addEventListener('click',function off(ev){if(!d.contains(ev.target)){d.remove();document.removeEventListener('click',off)}}),0)}
+const _fitWhy18=fitWhy;fitWhy=function(e,name){_fitWhy18(e,name);const k=$('.fitpop .fp-k');if(k)k.textContent='Out of 100: whether they need what you do (35), size (25), sector and speciality (25), timing (10) and location (5). 75 or more is a strong fit.'};
+
+/* ── the card ── */
+function ring18(v){const r=15,c=2*Math.PI*r;return '<span class="rg18"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="'+r+'" class="t"/><circle cx="18" cy="18" r="'+r+'" class="v" stroke-dasharray="'+(c*v/100).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 18 18)"/></svg><b>'+v+'</b></span>'}
+function cover18(p){const d=DOMAINS[p.name]||'';const h=hue(p.name);
+  const img=d&&typeof isLive==='function'&&isLive()?'<img src="/api/cover?d='+encodeURIComponent(d)+'" alt="" loading="lazy" onload="if(this.naturalWidth<240)this.remove();else this.parentNode.classList.add(\'ph\')" onerror="this.remove()">':'';
+  return '<div class="pb-cov" style="--h:'+h+'"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="'+(40+hsh(p.name)%240)+'" cy="'+(20+hsh(p.name+'y')%80)+'" r="90" class="c1"/><circle cx="'+(260-hsh(p.name+'z')%120)+'" cy="110" r="70" class="c2"/></svg>'+img+'<span class="pb-lg">'+logo(p.name,46)+'</span></div>'}
+function news18(p){const L=(S.live.news[p.name]||{items:[]}).items;const n=(L[0]&&{type:L[0].type||p.nt,date:(L[0].date||'').slice(0,7),text:L[0].title||L[0].text,src:L[0].link||L[0].src,pub:L[0].source||L[0].pub})||(p.nt&&p.nt!=='none'&&p.news?{type:p.nt,date:p.nd,text:p.news,src:p.src,pub:p.pub}:null);
+  if(!n)return '<div class="pb-now quiet"><b>Why now</b><p>No headline lately. A quiet account is easier to get noticed in.</p></div>';
+  return '<div class="pb-now"><b>Why now <span>'+esc(L_TRIGGER_LABELS[n.type]||'News')+' · '+esc(fmtYM(n.date))+'</span></b><p>'+esc(n.text)+'</p>'+(n.src?'<a href="'+esc(n.src)+'" target="_blank" rel="noopener">'+esc(n.pub||'Source')+ico('ext')+'</a>':'')+'</div>'}
+function card18(x,on){const p=x.p;const q="'"+esc(p.name).replace(/'/g,"\\'")+"'";const pl=pitch18(p);
+  return '<article class="pb'+(on?' on':'')+'">'+cover18(p)+'<div class="pb-b"><h3>'+esc(p.name)+'</h3><small class="pb-m">'+esc(p.sub)+' · '+esc(String(p.city||'UK').split(',')[0])+' · '+esc((L_SIZES[p.size]||{label:''}).label)+'</small>'+
+    '<div class="pb-sc"><button class="pb-fit" onclick="fitWhy(event,'+q+')" aria-label="Fit '+x.s+' out of 100. See why">'+ring18(x.s)+'<span><small>Fit</small><b>'+fitWord(x.s)+'</b></span></button>'+
+    '<button class="pb-pl pl18-'+pl.lvl+'" onclick="pitchWhy(event,'+q+')" aria-label="Pitch likelihood '+pl.l+'. See why"><span class="bars"><i></i><i></i><i></i></span><span><small>Pitch likelihood</small><b>'+pl.l+'</b></span></button></div>'+
+    news18(p)+'</div><div class="pb-f"><button class="btn '+(on?'btn-line on':'btn-primary')+' btn-sm" onclick="toggleTarget('+q+')">'+ico(on?'check':'plus')+(on?'On your list':'Add to list')+'</button><button class="btn btn-ghost btn-sm" onclick="openBrand('+q+')">More info'+ico('arrow','a')+'</button></div></article>'}
+
+/* ── the page ── */
+const PK18={sort:'fit',sec:'',n:10,fresh:0};
+function pool18(c){const all=PROSPECTS.map(fitP).filter(Boolean).sort((a,b)=>b.s-a.s);const chosen=new Set(campTargets(c).map(a=>norm(a.name)));
+  const rev=Math.max(c.reveal||24,0);const seen=all.slice(0,rev);all.filter(x=>chosen.has(norm(x.p.name))&&!seen.includes(x)).forEach(x=>seen.push(x));return{all,seen,chosen}}
+function ppl18(c){const tg=campTargets(c);const has=tg.filter(a=>a.people&&a.people.length).length;return{tg,has,need:tg.length-has,ppl:sum(tg,a=>(a.people||[]).length)}}
+function steps18(tab,c){const P=ppl18(c);const crit=P.tg.length&&P.need;
+  return '<div class="pk-steps"><button class="pk-st'+(tab==='brands'?' on':'')+'" onclick="go(\'prospects\',\'brands\')"><span class="pk-n">'+(P.tg.length?ico('check'):'1')+'</span><span><b>Pick brands</b><small>'+(P.tg.length?P.tg.length+' on your list':'Choose who you want to win')+'</small></span></button>'+
+    '<span class="pk-ar">'+ico('arrow')+'</span>'+
+    '<button class="pk-st'+(tab==='people'?' on':'')+(crit?' crit':'')+(P.tg.length&&!P.need?' dn':'')+'" onclick="go(\'prospects\',\'people\')"><span class="pk-n">'+(P.tg.length&&!P.need?ico('check'):'2')+'</span><span><b>Find decision makers</b><small>'+(!P.tg.length?'The person you will actually talk to':P.need?P.need+' brand'+(P.need===1?'':'s')+' still need a named person':'Everyone has a named person')+'</small></span>'+(crit?'<em>Needed</em>':'')+'</button></div>'}
+function bar18(c){const P=ppl18(c);if(!P.tg.length)return '';
+  return '<div class="pk-foot"><span class="lgs">'+P.tg.slice(0,6).map(a=>logo(a,28)).join('')+'</span><span class="grow"><b>'+P.tg.length+' brand'+(P.tg.length===1?'':'s')+'</b> · '+P.ppl+' decision maker'+(P.ppl===1?'':'s')+'</span>'+
+    (P.need?'<button class="btn btn-primary" onclick="go(\'prospects\',\'people\')">'+ico('user')+'Find decision makers'+ico('arrow','a')+'</button>':'<button class="btn btn-primary" onclick="go(\'give\')">Next: create value'+ico('arrow','a')+'</button>')+'</div>'}
+function brands18(c){const {all,seen,chosen}=pool18(c);let R=seen.slice();if(PK18.sec)R=R.filter(x=>x.p.sector===PK18.sec);
+  if(PK18.sort==='pitch')R.sort((a,b)=>pitch18(b.p).s-pitch18(a.p).s||b.s-a.s);else if(PK18.sort==='news')R.sort((a,b)=>String(b.p.nd||'').localeCompare(String(a.p.nd||''))||b.s-a.s);
+  const secs=[...new Set(seen.map(x=>x.p.sector))];const left=all.length-seen.length;const unadded=seen.filter(x=>!chosen.has(norm(x.p.name))).length;
+  return (PK18.fresh?'<div class="pk-fresh">'+agentFace('prospects',30,{badge:false})+'<span class="grow"><b>Nora found '+PK18.fresh+' brand'+(PK18.fresh===1?'':'s')+' that fit.</b> Sorted by fit. Add the best in one go, or go through them.</span><button class="icon-btn" onclick="PK18.fresh=0;this.parentNode.remove()" aria-label="Dismiss">'+ico('x')+'</button></div>':'')+
+    '<div class="pk-bar"><div class="seg18" role="tablist">'+[['fit','Best fit'],['pitch','Likely to pitch'],['news','Latest news']].map(o=>'<button class="'+(PK18.sort===o[0]?'on':'')+'" onclick="PK18.sort=\''+o[0]+'\';go(\'prospects\',\'brands\',true)">'+o[1]+'</button>').join('')+'</div>'+
+    (secs.length>1?'<select class="inp sm" aria-label="Sector" onchange="PK18.sec=this.value;go(\'prospects\',\'brands\',true)"><option value="">All sectors</option>'+secs.map(k=>'<option value="'+k+'"'+(PK18.sec===k?' selected':'')+'>'+esc(secLabel(k))+'</option>').join('')+'</select>':'')+
+    '<span class="grow muted small">'+R.length+' brand'+(R.length===1?'':'s')+'</span>'+
+    (unadded?'<div class="pk-addn"><label for="pkN">Add the top</label><select id="pkN" class="inp sm" onchange="PK18.n=+this.value">'+[5,10,15,20,25,30,50].map(n=>'<option'+(PK18.n===n?' selected':'')+'>'+n+'</option>').join('')+'</select><button class="btn btn-line btn-sm" onclick="addTop18()">'+ico('plus')+'Add</button></div>':'')+
+    '<button class="btn btn-primary btn-sm" onclick="findNow()">'+ico('radar')+'Find more prospects</button></div>'+
+    '<div class="pb-g">'+R.map(x=>card18(x,chosen.has(norm(x.p.name)))).join('')+'</div>'+
+    (left>0?'<div class="pk-more"><span class="muted small">'+left+' more brand'+(left===1?'':'s')+' fit your profile.</span><button class="btn btn-line btn-sm" onclick="findNow()">'+ico('radar')+'Find more prospects</button></div>':'')}
+function addTop18(){const c=curCamp();const {seen,chosen}=pool18(c);let R=seen.slice();if(PK18.sec)R=R.filter(x=>x.p.sector===PK18.sec);if(PK18.sort==='pitch')R.sort((a,b)=>pitch18(b.p).s-pitch18(a.p).s);
+  const add=R.filter(x=>!chosen.has(norm(x.p.name))).slice(0,PK18.n);if(!add.length)return;
+  add.forEach(x=>{const p=x.p;const a=ensureAccount(p.name,{});a.sk=p.sector;a.sector=L_SECTORS[p.sector].label;a.sub=p.sub;a.city=p.city;a.size=L_SIZES[p.size].label;a.domain=DOMAINS[p.name]||a.domain||'';
+    if(p.nt!=='none'&&p.news&&!a.news){a.news={type:p.nt,date:p.nd,text:p.news,src:p.src,pub:p.pub};addSignal(a,'trigger',{note:L_TRIGGER_LABELS[p.nt],trig:p.nt,date:p.nd+'-01',link:p.src})}if(!c.targets.includes(a.id))c.targets.push(a.id)});
+  save();award('brand',add.length+' added');refreshNav();toast('Added '+add.length+' brand'+(add.length===1?'':'s')+'. Next, the people to talk to.');go('prospects','brands',true)}
+function hero18(){return '<div class="pk-hero"><div class="pk-hc">'+agentFace('prospects',64,{badge:false})+'<div class="sh-k">Step one</div><h2>Find brands worth <span class="serif">your time.</span></h2>'+
+  '<p>Nora checks every brand against what you do, the size you win and the sectors you know, then reads their news for a reason to talk now.</p><button class="btn btn-primary btn-lg" onclick="findNow()">'+ico('radar')+'Find prospects</button><button class="link" onclick="openAccountForm()">Or add a brand you already have in mind</button></div></div>'}
+function people18(c){const P=ppl18(c);if(!P.tg.length)return '<div class="pk-hero"><div class="pk-hc">'+agentFace('prospects',56,{badge:false})+'<h2>Pick a few brands <span class="serif">first.</span></h2><p>Then Nora finds the right person at each one.</p><button class="btn btn-primary" onclick="go(\'prospects\',\'brands\')">Pick brands</button></div></div>';
+  return '<div class="pk-dm'+(P.need?' crit':'')+'">'+ico(P.need?'alert':'check')+'<span class="grow"><b>'+(P.need?'This is the step that makes everything work.':'Everyone has a named person.')+'</b> '+(P.need?'Messages, gifts and invitations all go to a person, not a logo. Nora suggests the right roles at each brand. Confirm one or two and you are ready.':'Plato will address every message to them by name.')+'</span></div>'+peopleView(c)}
+const _vPros18=VIEWS.prospects;VIEWS.prospects=function(tab){let c=curCamp();if(!c||PF||(!profDone()&&!DEMO_MODE))return _vPros18(tab);
+  tab=tab==='people'?'people':'brands';const scanned=campScanned(c);
+  return secHead('prospects','Pick your <span class="serif">brands.</span>',scanned?'<button class="btn btn-ghost btn-sm" onclick="openAccountForm()">'+ico('plus')+'Add a brand you know</button>':'')+steps18(tab,c)+
+    '<div class="pk18">'+(tab==='people'?people18(c):scanned?brands18(c):hero18())+'</div>'+bar18(c)};
+
+/* ── the scan: calm, typographic, quick ── */
+let SC18=null;
+findNow=async function(){if(!profDone()&&!DEMO_MODE){toast('Set who you want first');go('agency','want');return}closeOverlays();const c=curCamp();if(!c)return;
+  const P=S.setup.profile;const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const before=pool18(c);const start=before.seen.length;const chosenN=before.chosen;
+  if(ampLiveSearch()){try{await ampCompanies(P,[...chosenN])}catch(e){}}
+  const all=PROSPECTS.map(fitP).filter(Boolean).sort((a,b)=>b.s-a.s);const firstRun=!c.scanned;const next=firstRun?Math.min(all.length,24):Math.min(all.length,Math.max(c.reveal||24,start)+24);
+  const fresh=all.slice(firstRun?0:Math.max(c.reveal||24,start),next);
+  if(!fresh.length){toast('That is every brand that fits right now. Widen your sectors or sizes to find more.');go('agency','want');return}
+  const steps=[['layers','Sectors you work in'],['target','Whether they need what you do'],['grid','The size you win'],['bolt','News that gives you a reason to talk'],['radar','Who is likely to look at agencies']];
+  const o=document.createElement('div');o.className='scan18';o.setAttribute('role','dialog');o.setAttribute('aria-label','Finding prospects');
+  o.innerHTML='<div class="sc18"><div class="sc18-top">'+agentFace('prospects',40,{badge:false})+'<div class="grow"><b>Nora is finding brands that fit</b><small id="sc18S">Checking UK brands against your agency profile</small></div><button class="btn btn-ghost btn-sm" onclick="scan18Done()">Skip</button></div>'+
+    '<div class="sc18-mid"><div class="sc18-n"><b id="sc18N">0</b><small>brands checked</small></div><ol class="sc18-st">'+steps.map((s,i)=>'<li data-i="'+i+'">'+ico(s[0])+'<span>'+s[1]+'</span><i><u></u></i></li>').join('')+'</ol></div>'+
+    '<div class="sc18-f"><small>Best fits so far</small><div id="sc18F"></div></div></div>';
+  document.body.appendChild(o);requestAnimationFrame(()=>o.classList.add('on'));
+  const total=Math.max(all.length*14,620)+Math.round(Math.random()*90);const T=reduce?900:5600;SC18={o,c,next,fresh,timers:[],t0:performance.now(),done:false};
+  const tick=()=>{if(!SC18||SC18.done)return;const k=Math.min(1,(performance.now()-SC18.t0)/T);const el=$('#sc18N');if(el)el.textContent=Math.round(total*(1-Math.pow(1-k,3))).toLocaleString('en-GB');if(k<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);
+  steps.forEach((s,i)=>SC18.timers.push(setTimeout(()=>{const li=o.querySelector('li[data-i="'+i+'"]');if(li)li.classList.add('go');o.querySelectorAll('li').forEach((l,j)=>{if(j<i)l.classList.add('dn')})},i*T/5.4)));
+  fresh.slice(0,8).forEach((x,i)=>SC18.timers.push(setTimeout(()=>{const f=$('#sc18F');if(f)f.insertAdjacentHTML('beforeend','<span class="sc18-b">'+logo(x.p.name,30)+'<b>'+esc(x.p.name)+'</b><em>'+x.s+'</em></span>')},T*.3+i*T*.08)));
+  SC18.timers.push(setTimeout(scan18Done,T+500));award('scan')};
+function scan18Done(){const F=SC18;if(!F||F.done)return;F.done=true;F.timers.forEach(clearTimeout);F.c.reveal=F.next;F.c.scanned=today();save();PK18.fresh=F.fresh.length;PK18.sort='fit';PK18.sec='';
+  F.o.classList.remove('on');setTimeout(()=>F.o.remove(),280);SC18=null;go('prospects','brands')}
+findClose=function(){if(SC18){SC18.timers.forEach(clearTimeout);SC18.o.remove();SC18=null}};
+const _go18b=go;go=function(v,a,k){if(v==='prospects'&&a==='news')a='brands';return _go18b(v,a,k)};
+
+/* ═══════════ v18c CREATE VALUE ═══════════
+   Tell Gus what you have. One click and he builds every asset the campaign needs, each tied to a prospect problem
+   and how you fix it. The content bank sits alongside as the checklist. Ideas are only ever for your sectors. */
+
+const CV_GROUP=[['hero','Lead with','gift'],['case','Prove it','chart'],['lipost','Stay visible','linkedin'],['blog','Go deeper','doc'],['video','For the warmest brands','play'],['screen','For the warmest brands','monitor']];
+function cvSecs(c){const P=S.setup.profile;const t=campTargets(c).map(a=>a.sk).filter(Boolean);return [...new Set((P.sectors||[]).concat(t))]}
+function cvVal(slot,c){const A=audOf();const D=mainDisc();const O=S.setup.offer;const g=toolById(c.assets[0]);const hero=g?g.n:'your hero piece';const proof=(O.proof||'').replace(/\.$/,'');
+  return({hero:'Shows a '+A.role+' at a '+A.sec+' brand exactly where '+A.prob+' is costing them, in ten minutes. It names the gap; your '+D.cap+' is how it closes.',
+    case:proof?'Proof you have fixed '+A.prob+' before: '+lcf(proof)+'. It answers "have you done this?" before they ask.':'Proof you have fixed '+A.prob+' before, told for a '+A.sec+' brand. It answers "have you done this?" before they ask.',
+    lipost:'Keeps you in their feed between messages with one useful point about '+A.prob+', so your name is familiar when the email lands.',
+    blog:'Somewhere to send a '+A.role+' who wants more: the thinking behind '+hero+', and how you would tackle '+A.prob+'.',
+    video:'Two minutes for one person: their own brand on screen, the gap you spotted, and the first move you would make.',
+    screen:'Lets them use '+hero+' without you, so the value lands even if they never reply.'})[slot]||''}
+function cvItems(c){return bankItems(c).map(it=>Object.assign({},it,{val:it.val||(it.id==='hero'?(c.heroVal18||cvVal('hero',c)):cvVal(it.slot,c))}))}
+function cvSectorIdeas(c){const secs=cvSecs(c);const lead=c.assets[0];const si=t=>Math.min(...t.sec.map(k=>secs.includes(k)?secs.indexOf(k):99));let T=toolsFor().filter(t=>t.sec&&t.sec.some(k=>secs.includes(k))&&t.id!==lead).sort((a,b)=>si(a)-si(b));if(T.length<3)T=T.concat(toolsFor().filter(t=>!t.sec&&t.id!==lead&&!T.includes(t)).slice(0,3-T.length));return T}
+
+/* ── generating: local templates always work; the AI version is better when it is there ── */
+let CV_BUSY=0;
+async function cvGenerate(){const c=curCamp();if(!c||CV_BUSY)return;const f=$('#cvFeed');if(f)c.feed18=f.value.trim();save();CV_BUSY=1;go('give',null,true);
+  const B=bankOf(c);const secs=cvSecs(c);if(!c.assets[0]){const t=cvSectorIdeas(c)[0]||toolsFor()[0];if(t)c.assets.unshift(t.id)}
+  let ai=null;if(typeof isLive==='function'&&isLive()&&!DEMO_MODE){const P=S.setup.profile,O=S.setup.offer,I=agInfo();
+    try{ai=await api('assets',{method:'POST',body:{feed:c.feed18||'',agency:S.setup.agency,uvp:O.uvp,different:O.different,proof:O.proof,offer:O.solution,services:I.services,sectors:secs.map(secLabel),roles:(P.roles||[]).map(r=>(L_ROLES[r]||{label:r}).label),problem:PROB().label,hero:(toolById(c.assets[0])||{}).n||''}})}catch(e){ai=null}}
+  else await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?300:3600));
+  const have=k=>B.items.filter(x=>x.slot===k).length;const add=(slot,t,body,val)=>B.items.push({id:uid(),slot,t,body,status:'draft',src:'maker',at:today(),val,gen18:1});
+  if(ai&&ai.items&&ai.items.length){const before={};BANK_SLOTS.forEach(sl=>before[sl.k]=bankItems(c).filter(x=>x.slot===sl.k).length);
+    ai.items.forEach(x=>{if(x.slot==='hero'){c.heroVal18=x.val;if(c.assets[0]||before.hero)return}
+      const need=x.slot==='lipost'?3:x.slot==='screen'&&!heroIsTool(c)?0:1;if(x.slot!=='hero'&&before[x.slot]>=need)return;add(x.slot,x.t,x.body,x.val)});
+    c.ideas18=(ai.ideas||[]).map(x=>Object.assign({id:uid()},x))}
+  else{const libCase=libState().items.some(x=>x.cat==='case');
+    if(!libCase&&!have('case')){const O=S.setup.offer;const A=audOf();add('case','How we fixed '+A.prob+' for [a client]','Outline\n1. The brief in one line: [what they asked for]\n2. What was really going on: [the problem behind the brief]\n3. The three moves we made: [move one], [move two], [move three]\n4. The result: '+(O.proof||'[a real result, in one line]')+'\n5. What it would mean for a '+A.sec+' brand now',cvVal('case',c))}
+    for(let i=have('lipost');i<3;i++){const d=makerDraft('lipost',c);if(d)add('lipost',d.t,d.body,cvVal('lipost',c))}
+    if(!have('blog')){const d=makerDraft('blog',c);if(d)add('blog',d.t,d.body,cvVal('blog',c))}
+    if(!have('video')){const d=makerDraft('video',c);if(d)add('video',d.t,d.body,cvVal('video',c))}
+    if(heroIsTool(c)&&!have('screen')){const d=makerDraft('screen',c);if(d)add('screen',d.t,d.body,cvVal('screen',c))}
+    if(c.feed18){const first=c.feed18.split(/(?<=[.!?])\s+/)[0].slice(0,160);const p=B.items.filter(x=>x.slot==='lipost'&&x.gen18)[0];if(p&&first)p.body='Something we have been working on: '+lcf(first.replace(/\.$/,''))+'.\n\n'+p.body}}
+  c.gen18=today();CV_BUSY=0;save();award('bank');go('give',null,true);toast('Gus built your campaign assets. Open each one to make it yours.')}
+function cvTick(){const L=$('#cvFeedList');if(!L)return;const steps=['Reading what you told me','Picking the hero piece for '+audOf().sec+' brands','Writing three LinkedIn posts','Outlining the case study','Drafting the blog post','Scripting a personalised video'];let i=0;
+  const t=setInterval(()=>{const l=$('#cvFeedList');if(!l||!CV_BUSY){clearInterval(t);return}if(i<steps.length){l.insertAdjacentHTML('beforeend','<li>'+ico('check')+steps[i]+'</li>');i++}},560)}
+
+/* ── the page ── */
+function cvRow(it,c){const s=BANK_SLOTS.find(x=>x.k===it.slot)||{l:'',ic:'doc'};const st=it.status==='ready'?'ready':(it.body&&/\[[^\]]+\]/.test(it.body))?'you':'draft';
+  return '<button class="cv-it '+st+(it.gen18&&c.gen18===today()?' new':'')+'" onclick="bankOpen(\''+it.id+'\')"><span class="cv-ic">'+ico(s.ic)+'</span><span class="grow"><small>'+esc(({hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Blog post or report',video:'Personalised video',screen:'Screen recording'})[it.slot]||s.l)+(it.src==='maker'?' · drafted by Gus':it.src==='lib'?' · from your library':'')+'</small><b>'+esc(it.t)+'</b><span class="cv-val">'+esc(it.val)+'</span></span>'+
+    '<span class="cv-st">'+(st==='ready'?ico('check')+'Ready':st==='you'?'Needs your touch':it.id==='hero'?'Being made':'Draft')+'</span></button>'}
+function cvIdea(t,c){const q="'"+t.id+"'";return '<div class="cv-idea"><div class="cv-ik">'+esc(TOOL_FORMATS[t.f]||'Idea')+'</div><b>'+esc(t.n)+'</b><p>'+esc(t.t)+'</p><small>'+esc(t.why||'')+'</small><div class="cv-ia"><button class="btn btn-line btn-xs" onclick="cvHero('+q+')">Make it the hero</button><button class="link" onclick="openTool&&openTool('+q+')">How to make it</button></div></div>'}
+function cvAiIdea(x){return '<div class="cv-idea ai"><div class="cv-ik">'+ico('sparkle')+'Gus’s idea</div><b>'+esc(x.n)+'</b><p>'+esc(x.t)+'</p><small>'+esc(x.why)+'</small><div class="cv-ia"><button class="btn btn-line btn-xs" onclick="cvAddIdea(\''+x.id+'\')">'+ico('plus')+'Add to the plan</button></div></div>'}
+function cvHero(id){const c=curCamp();act('New hero piece: '+(toolById(id)||{n:''}).n,()=>{c.assets=[id].concat(c.assets.filter(x=>x!==id));c.heroVal18='';if(bankOf(c).hero)bankOf(c).hero=0},{refresh:false,ic:'🎁'});go('give',null,true)}
+function cvAddIdea(id){const c=curCamp();const x=(c.ideas18||[]).find(i=>i.id===id);if(!x)return;bankOf(c).items.push({id:uid(),slot:'blog',t:x.n,body:x.t+'\n\nWhy it works: '+x.why+'\n\n[How you would make it]',status:'draft',src:'maker',at:today(),val:x.why});c.ideas18=c.ideas18.filter(i=>i.id!==id);save();toast('Added to the plan');go('give',null,true)}
+function cvBank(c){const sl=bankSlots(c);const p=bankPct(c);const ok=bankReady(c);
+  return '<aside class="cv-bank"><div class="cv-bh">'+ring(p,58)+'<div><small>Content bank</small><b>'+(ok?'Ready to launch':'Getting there')+'</b></div></div>'+
+    '<ul>'+sl.filter(s=>s.core||s.items.length).map(s=>'<li class="'+(s.ok?'ok':'')+'"><i>'+(s.ok?ico('check'):'')+'</i><span class="grow">'+esc(s.l)+'</span><em>'+(s.core?Math.min(s.ready,s.need)+'/'+s.need:s.ready?s.ready+' ready':'Bonus')+'</em></li>').join('')+'</ul>'+
+    '<p>'+(ok?'Enough to share something new every couple of weeks.':'To launch: a hero piece, a case study and a blog post or report, marked ready.')+'</p>'+
+    '<button class="btn btn-ghost btn-sm" onclick="bankAdd(\'case\')">'+ico('upload')+'Add something you have</button>'+
+    (ok?'<button class="btn btn-primary btn-sm" onclick="go(\'reach\')">Next: plan the journey'+ico('arrow','a')+'</button>':'')+'</aside>'}
+VIEWS.give=function(){const c=campPrep();campTab='value';const A=audOf();const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||mine[0]||'';
+  const I=cvItems(c);const gen=!!(c.gen18||I.filter(x=>x.src==='maker').length>=3);const lib=libState().items.slice(0,4);
+  const prob='<div class="cv-prob"><span>For <b>'+esc(cvSecs(c).slice(0,2).map(secLabel).join(' and ')||'your sectors')+'</b> brands facing</span><select class="inp sm" onchange="setCampProb(this.value)">'+Object.entries(L_PROBLEMS).sort((a,b)=>(mine.includes(b[0])?1:0)-(mine.includes(a[0])?1:0)).map(([k,v])=>'<option value="'+k+'"'+(k===cur?' selected':'')+'>'+esc(v.label)+'</option>').join('')+'</select></div>';
+  const feed='<section class="cv-feed'+(gen&&!CV_BUSY?' slim':'')+'">'+agentFace('give',gen?36:52,{badge:false})+'<div class="grow">'+
+    (CV_BUSY?'<b>Gus is building your campaign</b><ul id="cvFeedList" class="cv-fl"></ul>':
+    '<label for="cvFeed"><b>'+(gen?'Tell Gus more, and he will rebuild':'What do you have for this campaign?')+'</b>'+(gen?'':'<span>A report, a result, a point of view, a link. Gus turns it into everything the campaign needs, each piece tied to '+esc(A.prob)+' and how you fix it.</span>')+'</label>'+
+    '<textarea id="cvFeed" class="inp" rows="'+(gen?2:4)+'" placeholder="e.g. We have a 2026 report on why '+esc(A.sec)+' brands look alike, a case study where we lifted awareness 9 points, and a strong view that most rebrands play it too safe.">'+esc(c.feed18||'')+'</textarea>'+
+    (lib.length?'<div class="cv-uses"><small>Gus will also use</small>'+lib.map(x=>'<span>'+ico(x.cat==='site'?'link':'file')+esc(libName(x.name))+'</span>').join('')+'</div>':'')+
+    '<div class="cv-fa"><button class="btn btn-ghost btn-sm" onclick="bankAdd(\'hero\')">'+ico('upload')+'Upload a file</button><button class="btn btn-primary" onclick="cvGenerate()">'+ico('sparkle')+(gen?'Rebuild my assets':'Create my campaign assets')+'</button></div>')+'</div></section>';
+  let plan='';if(gen||I.length){plan='<section class="cv-plan"><div class="cv-ph"><h2>Your campaign <span class="serif">assets.</span></h2><span class="muted small">Tap any one to read, edit and mark it ready.</span></div>';
+    const seen=new Set();CV_GROUP.forEach(([k,l])=>{const its=I.filter(x=>x.slot===k);if(!its.length)return;plan+=(seen.has(l)?'':'<div class="cv-gl">'+l+'</div>')+its.map(it=>cvRow(it,c)).join('');seen.add(l)});plan+='</section>'}
+  const ideas=cvSectorIdeas(c).slice(0,c.more18?6:3);const ai=(c.ideas18||[]);
+  const ideasH='<section class="cv-ideas"><div class="cv-ph"><h2>More ideas for your <span class="serif">sectors.</span></h2><span class="muted small">Only for '+esc(cvSecs(c).slice(0,3).map(secLabel).join(', '))+'</span></div><div class="cv-ig">'+ai.map(cvAiIdea).join('')+ideas.map(t=>cvIdea(t,c)).join('')+'</div>'+(c.more18?'':'<button class="link" onclick="curCamp().more18=1;go(\'give\',null,true)">Show three more</button>')+'</section>';
+  return secHead('give','Create <span class="serif">value.</span>')+noTargets(c)+prob+'<div class="cv"><div class="cv-main">'+feed+plan+ideasH+'</div>'+cvBank(c)+'</div>'};
+VIEWS.give_after=function(){if(CV_BUSY)cvTick()};
+
+/* ═══════════ v18d PLAN THE JOURNEY + LAUNCH ═══════════
+   Priya plans the sequence and matches an asset to every touchpoint. A launch date drives reminders.
+   Launch is rebuilt around one question: what do I do today? */
+
+/* ── dates ── */
+function nextMonday(){const d=new Date();const k=(8-d.getDay())%7||7;d.setDate(d.getDate()+k);return d.toISOString().slice(0,10)}
+function start18(c){return c.start18||c.launched||nextMonday()}
+function stepDate(c,s){const d=new Date(start18(c)+'T09:00:00');const off={linkedin:0,email:1,phone:3,event:2,workshop:2,mail:1,social:3}[s.ch]||0;d.setDate(d.getDate()+(s.w-1)*7+off);return d}
+const fmtD=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+function setStart18(v){const c=curCamp();if(!v)return;c.start18=v;save();toast('Launch date set. Reminders follow it.');go(VIEW,VIEW_ARG,true)}
+
+/* ── assets on touchpoints ── */
+function assetName(c,id){if(!id)return '';const it=bankItems(c).find(x=>x.id===id);return it?it.t:''}
+function assetFor(c,s,used){const I=bankItems(c);const pick=slot=>{const L=I.filter(x=>x.slot===slot);if(!L.length)return '';const n=used[slot]||0;used[slot]=n+1;return L[n%L.length].id};
+  const t=(s.t||'').toLowerCase();
+  if(s.ch==='social'||s.content)return pick('lipost')||pick('blog');
+  if(/gift|give|send the|share the|benchmark|audit|report|piece|test|tool/.test(t))return I.some(x=>x.id==='hero')?'hero':pick('blog');
+  if(s.ch==='email'){const k=(used.email=(used.email||0)+1);return k===1?(I.some(x=>x.id==='hero')?'hero':pick('blog')):k===2?pick('case')||pick('blog'):pick('blog')||pick('case')}
+  if(s.ch==='phone'||s.warm)return pick('video')||'';
+  if(s.ch==='mail')return I.some(x=>x.id==='hero')?'hero':'';
+  if(s.ch==='linkedin'&&/value|useful|post|thinking/.test(t))return pick('lipost');
+  return ''}
+function priyaMatch(c){const used={};let n=0;c.reach.steps.slice().sort((a,b)=>a.w-b.w).forEach(s=>{if(s.assetSet)return;const a=assetFor(c,s,used);s.asset=a||'';if(a)n++});return n}
+function priyaPlan(){const c=curCamp();if(!c)return;const R=c.reach;if(!R.ch||!R.ch.length)R.ch=REC_CH.slice();if(!R.weeks)R.weeks=12;
+  const o=document.createElement('div');o.className='pp18';o.innerHTML='<div class="pp18-c">'+agentFace('reach',52,{badge:false})+'<b>Priya is planning the sequence</b><ul id="pp18L"></ul></div>';document.body.appendChild(o);requestAnimationFrame(()=>o.classList.add('on'));
+  const lines=['Spacing touches so nobody gets two in a week','Leading with value, asking later','Matching an asset to each touchpoint','Setting reminders from your launch date'];const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  lines.forEach((l,i)=>setTimeout(()=>{const L=$('#pp18L');if(L)L.insertAdjacentHTML('beforeend','<li>'+ico('check')+l+'</li>')},reduce?0:300+i*480));
+  setTimeout(()=>{R.steps=genSteps(c);const n=priyaMatch(c);c.planned18=today();if(!c.start18)c.start18=nextMonday();save();o.classList.remove('on');setTimeout(()=>o.remove(),250);go('reach',null,true);
+    toast(R.steps.length+' touchpoints planned. '+n+' carry an asset from your content bank.')},reduce?300:2400)}
+
+/* the touchpoint editor gets an asset picker */
+const _editTouch18=editTouch;editTouch=function(id){_editTouch18(id);const c=curCamp();const st=id?c.reach.steps.find(x=>x.id===id):null;const I=bankItems(c);const w=$('#tpW');if(!w)return;
+  const lab={hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Blog or report',video:'Video',screen:'Screen recording'};
+  w.closest('.field').insertAdjacentHTML('afterend','<div class="field"><label for="tpA">What they get <span class="muted">· from your content bank</span></label><select class="inp" id="tpA"><option value="">Nothing attached</option>'+I.map(x=>'<option value="'+x.id+'"'+(st&&st.asset===x.id?' selected':'')+'>'+esc((lab[x.slot]||'')+': '+x.t)+'</option>').join('')+'</select>'+(st?'<small class="hint">Goes out '+fmtD(stepDate(c,st))+'.</small>':'')+'</div>')};
+const _saveTouch18=saveTouch;saveTouch=function(id){const a=($('#tpA')||{}).value;const c=curCamp();const before=c.reach.steps.length;_saveTouch18(id);const s=id?c.reach.steps.find(x=>x.id===id):c.reach.steps.length>before?c.reach.steps[c.reach.steps.length-1]:null;if(s&&a!==undefined){s.asset=a||'';s.assetSet=1;save()}};
+
+/* ── the planner strip on Plan the journey ── */
+function planner18(c){const R=c.reach;const st=(R.steps||[]).filter(s=>!s.task).sort((a,b)=>a.w-b.w);const withA=st.filter(s=>s.asset).length;const end=new Date(start18(c)+'T09:00:00');end.setDate(end.getDate()+R.weeks*7-3);
+  const open=c.seqOpen18;
+  return '<section class="pl18"><div class="pl18-h">'+agentFace('reach',44,{badge:false})+'<div class="grow"><b>'+(c.planned18||st.length?'Priya’s plan: '+st.length+' touchpoints over '+R.weeks+' weeks':'Let Priya plan the sequence')+'</b><span>'+(st.length?withA+' carry an asset from your content bank. Reminders arrive the day before each one.':'She spaces the touches, leads with value and matches an asset to each one.')+'</span></div>'+
+    '<label class="pl18-d"><small>Launch date</small><input type="date" class="inp sm" value="'+start18(c)+'" min="'+today()+'" onchange="setStart18(this.value)"></label>'+
+    '<div class="pl18-e"><small>Ends</small><b>'+fmtD(end)+'</b></div>'+
+    '<button class="btn btn-primary" onclick="priyaPlan()">'+ico('sparkle')+(st.length?'Ask Priya to replan':'Ask Priya to plan')+'</button></div>'+
+    (st.length?'<button class="pl18-t" onclick="curCamp().seqOpen18=!curCamp().seqOpen18;save();go(\'reach\',null,true)">'+ico(open?'x':'list')+(open?'Hide the sequence':'See the sequence, with dates and assets')+'</button>':'')+
+    (open?'<ol class="pl18-s">'+st.map(s=>{const ch=REACH_CH.find(x=>x.k===s.ch)||REACH_CH[0];const an=assetName(c,s.asset);return '<li onclick="editTouch(\''+s.id+'\')"><span class="pl18-dt">'+fmtD(stepDate(c,s))+'</span><span class="pl18-ch">'+ico(ch.ic)+'</span><span class="grow"><b>'+esc(s.t)+'</b>'+(an?'<em>'+ico('gift')+esc(an)+'</em>':'<em class="no">No asset. Tap to add one</em>')+'</span></li>'}).join('')+'</ol>':'')+'</section>'}
+const _reach18=VIEWS.reach;VIEWS.reach=function(){const c=campPrep();if(c.reach.steps&&c.reach.steps.length&&!c.matched18){priyaMatch(c);c.matched18=1;save()}let h=String(_reach18());
+  try{h=h.replace(bankStrip(c),'')}catch(e){}
+  const i=h.indexOf('<div class="jgrid">');const pl=planner18(c);return i>-1?h.slice(0,i)+pl+h.slice(i):h+pl};
+IC.list=IC.list||'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>';
+
+/* ── reminders: what is due soon, and anything time sensitive ── */
+function reminders18(c,days){days=days||7;const now=new Date();now.setHours(0,0,0,0);const lim=new Date(now);lim.setDate(lim.getDate()+days);const out=[];
+  (c.reach.steps||[]).filter(s=>!s.task).forEach(s=>{const d=stepDate(c,s);if(d>=now&&d<=lim)out.push({d,ic:(REACH_CH.find(x=>x.k===s.ch)||{ic:'mail'}).ic,t:s.t,sub:assetName(c,s.asset)?'With '+assetName(c,s.asset):'Week '+s.w,f:"editTouch('"+s.id+"')"})});
+  campTargets(c).forEach(a=>{const n=a.news;if(n&&n.date&&daysAgo(String(n.date).slice(0,7)+'-01')<=21)out.push({d:now,hot:1,ic:'bolt',t:a.name+': '+(L_TRIGGER_LABELS[n.type]||'news'),sub:'A reason to get in touch this week',f:"openAccount&&openAccount('"+a.id+"')"})});
+  if(!out.filter(x=>!x.hot).length){(c.reach.steps||[]).filter(s=>!s.task).map(s=>({s,d:stepDate(c,s)})).filter(x=>x.d>lim).sort((a,b)=>a.d-b.d).slice(0,3).forEach(({s,d})=>out.push({d,ic:(REACH_CH.find(x=>x.k===s.ch)||{ic:'mail'}).ic,t:s.t,sub:assetName(c,s.asset)?'With '+assetName(c,s.asset):'Week '+s.w,f:"editTouch('"+s.id+"')"}))}
+  return out.sort((a,b)=>a.d-b.d).slice(0,8)}
+
+/* ── Launch, rebuilt ── */
+VIEWS.launch=function(){const c=curCamp();if(!c.reach.steps)c.reach.steps=genSteps(c);const pf=preflight(c);const ready=pf.every(x=>x.ok);const live=campLive(c);let M=S.launch.mode;if(live&&!M)M=S.launch.mode='manual';
+  const tg=campTargets(c);const ppl=[];tg.forEach(a=>a.people.forEach(p=>ppl.push({a,p})));const steps=c.reach.steps.filter(s=>!s.task);const total=ppl.length*steps.length;const done=Object.keys(c.sent||{}).length+S.launch.done.filter(x=>x.camp===c.id).length;
+  const days=c.launched?Math.max(0,daysAgo(c.launched)):0;const replies=sum(tg,a=>a.signals.filter(g=>['reply','li_reply','meeting'].includes(g.type)).length);const pct=total?Math.min(100,Math.round(done/total*100)):0;
+  const mode='<div class="ln18-mode"><span>Sending</span>'+seg([['manual','Myself'],['amplify','Through Amplify'+(isPremium()?'':' · Premium')]],M||'manual',"setMode($)")+'</div>';
+  const rem=reminders18(c,7);
+  const side='<aside class="ln18-side"><div class="ln18-sh"><b>Coming up</b><small>Reminders arrive the day before each one</small></div>'+
+    (rem.length?'<ul class="ln18-rem">'+rem.map(r=>'<li class="'+(r.hot?'hot':'')+'" onclick="'+r.f+'"><span class="d">'+(r.hot?'Now':fmtD(r.d).split(' ').slice(0,2).join(' '))+'</span><span class="i">'+ico(r.ic)+'</span><span class="grow"><b>'+esc(r.t)+'</b><small>'+esc(r.sub)+'</small></span></li>').join('')+'</ul>':'<p class="muted small">Nothing planned yet. Ask Priya to plan the journey.</p>')+
+    '<button class="link" onclick="go(\'reach\')">See the whole sequence</button></aside>';
+  let main='';
+  if(!live){main='<section class="ln18-pre"><div class="ln18-ck"><h2>Before you <span class="serif">launch.</span></h2><ul>'+pf.map(x=>'<li class="'+(x.ok?'ok':'')+'"><i>'+(x.ok?ico('check'):'')+'</i><span class="grow">'+esc(x.t)+'</span>'+(x.ok?'':'<button class="btn btn-line btn-xs" onclick="'+x.f+'">Sort it</button>')+'</li>').join('')+'</ul></div>'+
+    '<div class="ln18-go">'+agentFace('launch',56,{badge:false})+'<div class="ln18-gd"><small>Launch date</small><input type="date" class="inp sm" value="'+start18(c)+'" min="'+today()+'" onchange="setStart18(this.value)"></div>'+
+    '<p><b>'+ppl.length+' people · '+steps.length+' touchpoints · '+total+' messages.</b> Every one is written. The first goes out '+fmtD(new Date(start18(c)+'T09:00:00'))+'.</p>'+mode+
+    '<button class="btn btn-primary btn-lg'+(ready?'':' off')+'" onclick="launchNow()">'+ico('rocket')+(ready?'Launch '+esc(c.name):'Sort '+pf.filter(x=>!x.ok).length+' thing'+(pf.filter(x=>!x.ok).length===1?'':'s')+' first')+'</button>'+
+    '<small class="muted">Everything up to here is free to build. '+(canLaunch()&&!launchPreview()?'Your agency is set up to launch.':'Launching is the only step you pay for.')+'</small></div></section>'}
+  else{main='<section class="ln18-stat"><div class="ln18-n"><div><b>'+done+'</b><small>sent</small></div><div><b>'+Math.max(0,total-done)+'</b><small>to go</small></div><div><b>'+replies+'</b><small>replies</small></div><div><b>'+days+'</b><small>day'+(days===1?'':'s')+' live</small></div></div><div class="ln18-p"><i style="width:'+pct+'%"></i></div>'+mode+'</section>'+
+    ampPanel(c)+'<section class="ln18-today"><div class="ln18-th"><h2>Today’s <span class="serif">messages.</span></h2><span class="muted small">A few a day is plenty. Tick each one as you send it.</span></div>'+(M==='amplify'?amplifyView(c):missionControl(c,ppl))+'</section>'}
+  return secHead('launch',live?esc(c.name)+' is <span class="serif">live.</span>':'Ready to <span class="serif">launch.</span>')+'<div class="ln18">'+'<div class="ln18-main">'+main+'</div>'+side+'</div>'};
+
+/* ═══════════ v18e RESULTS ═══════════
+   Campaigns carry their own performance. Signals keeps the closing-in orbit and puts who to act on beside it.
+   Pipeline fills itself from live LinkedIn conversations through Amplify. Insights is visual. Reports in two clicks. */
+
+/* ── Campaigns, with performance inside ── */
+let CAMP18_OPEN=null;
+function campRow18(c){const x=campPerf(c);const live=campLive(c);const st=campStatus(c);const w=campWk(c);const nx=campNext(c);const open=CAMP18_OPEN===c.id;const cur=c.id===S.cur;
+  const fun=[['Brands',x.brands],['People',x.people],['Engaging',x.eng],['Talking',x.talks+x.meet],['Deals',x.opps.length]];const fmax=Math.max(1,x.people,x.brands);
+  return '<article class="cr18'+(open?' open':'')+(cur?' cur':'')+'"><div class="cr18-r">'+
+    '<div class="cr18-n"><span class="cr18-st '+(live?'live':'')+'">'+(live?'<i></i>Live · week '+(w.n||1)+' of '+w.W:esc(st[0]))+'</span><b>'+esc(c.name)+'</b><small>'+(c.problem&&L_PROBLEMS[c.problem]?'Solving '+esc(L_PROBLEMS[c.problem].short):'No problem chosen yet')+'</small></div>'+
+    '<div class="cr18-steps">'+OUT_K.map(k=>{const s=campStepState(c,k);return '<span class="s'+s+'" data-tip="'+esc(STAGE_L(k)+': '+campStepSub(c,k))+'">'+agentFace(k,26,{badge:false})+(s===2?'<i>'+ico('check')+'</i>':'')+'</span>'}).join('')+'</div>'+
+    '<div class="cr18-f">'+fun.map(f=>'<div><b>'+f[1]+'</b><small>'+f[0]+'</small><i><em style="width:'+Math.round(Math.min(1,f[1]/fmax)*100)+'%"></em></i></div>').join('')+'</div>'+
+    '<div class="cr18-v"><b>'+money(x.oppVal,true)+'</b><small>pipeline'+(x.wonVal?' · '+money(x.wonVal,true)+' won':'')+'</small></div>'+
+    '<div class="cr18-a"><button class="btn '+(live?'btn-ink':'btn-primary')+' btn-sm" onclick="openCamp(\''+c.id+'\',\''+(live?'launch':nx)+'\')">'+(live?'Today’s messages':'Continue')+'</button>'+
+      '<button class="btn btn-line btn-sm" onclick="CAMP18_OPEN=CAMP18_OPEN===\''+c.id+'\'?null:\''+c.id+'\';go(\'camps\',null,true)" aria-expanded="'+open+'">'+ico('chart')+(open?'Hide':'Performance')+'</button>'+
+      '<button class="icon-btn" onclick="campMenu18(event,\''+c.id+'\')" aria-label="More for '+esc(c.name)+'">'+ico('dots')+'</button></div></div>'+
+    (open?'<div class="cr18-perf">'+perfBody18(c)+'</div>':'')+'</article>'}
+function perfBody18(c){let h=perfDetail(c);h=h.replace(/^<button class="pf-back"[\s\S]*?<\/button>/,'').replace(/<div class="sh plain">[\s\S]*?<\/div><\/div>/,'');return h}
+IC.dots=IC.dots||'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>';
+function campMenu18(e,id){e.stopPropagation();$$('.pop18').forEach(n=>n.remove());const d=document.createElement('div');d.className='pop18';
+  d.innerHTML='<button onclick="campRename(\''+id+'\')">'+ico('edit')+'Rename</button><button onclick="campCopy(\''+id+'\')">'+ico('copy')+'Duplicate</button><button onclick="REP18.camp=\''+id+'\';go(\'reports\')">'+ico('doc')+'Make a report</button>'+(S.campaigns.length>1?'<button class="bad" onclick="campDel(\''+id+'\')">'+ico('trash')+'Delete</button>':'');
+  document.body.appendChild(d);const r=e.currentTarget.getBoundingClientRect();d.style.top=(r.bottom+6)+'px';d.style.left=Math.max(12,r.right-d.offsetWidth)+'px';
+  setTimeout(()=>document.addEventListener('click',function off(){d.remove();document.removeEventListener('click',off)}),0)}
+VIEWS.camps=function(id){if(id&&S.campaigns.some(c=>c.id===id))CAMP18_OPEN=id;const all=realCamps().length?realCamps():S.campaigns;const C=all.filter(c=>campsF==='all'||(campsF==='live'?campLive(c):!campLive(c)));const St=all.map(c=>({c,x:campPerf(c)}));
+  const T=[['Live',all.filter(campLive).length],['People reached',sum(St,y=>y.x.people)],['Engaging',sum(St,y=>y.x.eng)],['Conversations',sum(St,y=>y.x.talks+y.x.meet)],['Deals',sum(St,y=>y.x.opps.length)],['Pipeline',money(sum(St,y=>y.x.oppVal),true)],['Won',money(sum(St,y=>y.x.wonVal),true)]];
+  return secHead('camps','Your <span class="serif">campaigns.</span>','<button class="btn btn-line btn-sm" onclick="go(\'reports\')">'+ico('doc')+'Make a report</button><button class="btn btn-primary btn-sm" onclick="newCampaignFlow()">'+ico('plus')+'New campaign</button>')+
+    '<div class="kp18">'+T.map(t=>'<div><b>'+t[1]+'</b><small>'+t[0]+'</small></div>').join('')+'</div>'+
+    '<div class="row between wrap" style="gap:10px;margin:18px 0 10px">'+seg([['all','All '+all.length],['live','Live '+all.filter(campLive).length],['build','Building '+all.filter(c=>!campLive(c)).length]],campsF,"campsF=$;go('camps',null,true)")+'<span class="muted small">Tap Performance on any campaign to see what it is producing.</span></div>'+
+    '<div class="cr18-l">'+C.map(campRow18).join('')+'<button class="cr18-new" onclick="newCampaignFlow()">'+ico('plus')+'<b>New campaign</b><span>Nora, Gus, Priya and Otis build it with you.</span></button></div>'};
+VIEWS.perf=function(id){return VIEWS.camps(id||(S.campaigns.find(campLive)||S.campaigns[0]||{}).id)};
+VIEWS.perf_after=function(){initSegs&&initSegs()};VIEWS.camps_after=function(){initSegs&&initSegs()};
+
+/* ── Signals and intent ── */
+function sgRow18(r){const a=r.a;const H=HEAT.find(x=>x.n===r.s.heat)||HEAT[5];
+  return '<tr onclick="openAccount(\''+a.id+'\')"><td><span class="sg18-o">'+logo(a,30)+'<span><b>'+esc(a.name)+'</b><small>'+esc(intentWhy(r))+'</small></span></span></td>'+
+    '<td><span class="sg18-h" style="--c:'+H.c+'"><i style="width:'+Math.min(100,Math.round(r.rank))+'%"></i></span><small>'+H.l+'</small></td>'+
+    '<td class="sg18-p">'+r.ppl.slice(0,3).map(p=>'<span data-tip="'+esc(p.name+(p.role?', '+p.role:''))+'">'+esc(initials(p.name))+'</span>').join('')+(r.ppl.length>3?'<em>+'+(r.ppl.length-3)+'</em>':'')+'</td>'+
+    '<td class="muted small">'+(r.last?rel(String(r.last).slice(0,10)):'')+'</td>'+
+    '<td onclick="event.stopPropagation()">'+(r.opp?'<button class="pill good" onclick="go(\'pipeline\')">'+money(r.opp.value,true)+'</button>':'<button class="btn btn-line btn-xs" onclick="addToPipe(\''+a.id+'\')">'+ico('plus')+'Pipeline</button>')+'</td></tr>'}
+const _sig18=VIEWS.signals;VIEWS.signals=function(){const all=S.accounts.flatMap(a=>a.signals||[]);const hasData=!!(S.uploads.outreach||S.uploads.linkedin||S.uploads.ads||S.launch.connected||all.some(s=>INBOUND(s.type)));if(!hasData)return _sig18();
+  sgDefault();const rows=intentRows();const R=rows.filter(r=>!SGB||(SGB===4?r.s.heat>=4:SGB===3?r.s.heat>=3:r.s.heat>=2));const d30=s=>daysAgo(s.date)<=30;
+  const k=[['Engaging',rows.length],['People',sum(rows,r=>r.ppl.length)],['Replies · 30 days',all.filter(s=>['reply','li_reply'].includes(s.type)&&d30(s)).length],['Meetings · 30 days',all.filter(s=>s.type==='meeting'&&d30(s)).length],['Hot now',rows.filter(r=>r.s.heat>=4).length]];
+  const lean=rows.filter(r=>r.s.heat>=3).slice(0,4);
+  return secHead('signals','Signals and <span class="serif">intent.</span>','<select class="inp sm" aria-label="Campaign" onchange="SGC=this.value;go(\'signals\',null,true)"><option value="all">All campaigns</option>'+S.campaigns.map(c=>'<option value="'+c.id+'"'+(SGC===c.id?' selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select><button class="btn btn-ghost btn-sm" onclick="copySignals()">'+ico('copy')+'Copy a summary</button>')+
+    '<div class="kp18">'+k.map(t=>'<div><b>'+t[1]+'</b><small>'+t[0]+'</small></div>').join('')+'</div>'+
+    '<div class="sg18">'+orbitHTML()+'</div>'+
+    (lean.length?'<section class="sg18-lean"><div class="cv-ph"><h2>Lean in <span class="serif">now.</span></h2><span class="muted small">The warmest organisations, and the move that fits.</span></div><div class="sg18-lg">'+lean.map(r=>{const H=HEAT.find(x=>x.n===r.s.heat)||HEAT[5];return '<div class="sg18-c" style="--c:'+H.c+'">'+logo(r.a,38)+'<div class="grow"><b>'+esc(r.a.name)+'</b><small>'+esc(intentWhy(r))+'</small></div>'+heatDots(r.s.heat)+'<div class="sg18-ca"><button class="btn btn-primary btn-xs" onclick="askPlatoOrg(\''+r.a.id+'\')">What should I say?</button>'+(r.opp?'':'<button class="btn btn-line btn-xs" onclick="addToPipe(\''+r.a.id+'\')">'+ico('plus')+'Pipeline</button>')+'</div></div>'}).join('')+'</div></section>':'')+
+    '<section class="sg18-all"><div class="row between wrap" style="gap:10px;margin-bottom:8px"><h2 class="sg18-t">Everyone engaging</h2>'+seg([['0','Everyone'],['4','Hot'],['3','Warm and up'],['2','Aware and up']],String(SGB||0),"SGB=+$;go('signals',null,true)")+'</div>'+
+    '<div class="sg18-tw"><table class="sg18-tb"><thead><tr><th>Organisation</th><th>Intent</th><th>People</th><th>Last</th><th></th></tr></thead><tbody>'+R.map(sgRow18).join('')+'</tbody></table></div></section>'};
+
+/* ── Pipeline: deals from live LinkedIn conversations, through Amplify ── */
+function autoPipeSugs(){const have=new Set(S.opps.filter(o=>o.lane!=='lost').map(o=>o.accountId));const dis=new Set(S.autoNo18||[]);const out=[];
+  S.accounts.forEach(a=>{if(have.has(a.id)||dis.has(a.id))return;const sig=(a.signals||[]).filter(s=>['li_reply','reply','meeting'].includes(s.type)&&daysAgo(s.date)<=45).sort((x,y)=>String(y.date).localeCompare(String(x.date)));if(!sig.length)return;
+    const m=sig.find(s=>s.type==='meeting');const g=m||sig[0];const li=sig.some(s=>s.type==='li_reply');out.push({a,lane:m?'opportunity':'lead',sig:g,li,n:sig.length})});
+  return out.sort((x,y)=>(y.lane==='opportunity')-(x.lane==='opportunity')||y.n-x.n).slice(0,6)}
+function autoPipeAdd(aid,quiet){const x=autoPipeSugs().find(s=>s.a.id===aid);if(!x)return;const a=x.a;const v=+S.setup.avgDeal||0;
+  const f=()=>{S.opps.push({id:uid(),created:today(),updated:today(),name:a.name,accountId:a.id,value:v,lane:x.lane,weight:null,source:(x.li?'LinkedIn conversation':'Email reply')+' via Amplify',next:x.lane==='opportunity'?'Send the follow up from the meeting':'Reply and suggest a call',campaign:(x.sig.campaign||'')});a.stage='opp'};
+  if(quiet){f();return}act('Added '+a.name+' as '+laneName(x.lane).toLowerCase(),f,{ic:'📈'});go('pipeline',null,true)}
+function autoPipeAll(){const L=autoPipeSugs();L.forEach(x=>autoPipeAdd(x.a.id,true));save();toast('Added '+L.length+' from live conversations');go('pipeline',null,true)}
+function autoPipeNo(aid){S.autoNo18=(S.autoNo18||[]).concat(aid);save();go('pipeline',null,true)}
+function autoPipeToggle(){S.autoPipe18=!S.autoPipe18;save();if(S.autoPipe18&&autoPipeSugs().length)autoPipeAll();else go('pipeline',null,true)}
+function autoPipe18(){const L=autoPipeSugs();const on=!!S.autoPipe18;const amp=typeof ampOn==='function'&&ampOn();
+  return '<section class="ap18"><div class="ap18-h"><span class="ap18-i">'+ico('bolt')+'</span><div class="grow"><b>Deals from live conversations</b><span>'+(amp?'Amplify watches your LinkedIn and email conversations':'Plato watches replies and meetings')+'. When a conversation turns real, it becomes an engaged lead or a meeting held, with the conversation as its source.</span></div>'+
+    '<label class="ap18-t"><span>Add them automatically</span><button class="tgl'+(on?' on':'')+'" onclick="autoPipeToggle()" aria-pressed="'+on+'"><i></i></button></label></div>'+
+    (L.length?'<div class="ap18-l">'+L.map(x=>'<div class="ap18-r">'+logo(x.a,30)+'<div class="grow"><b>'+esc(x.a.name)+'</b><small>'+(x.sig.person?esc(x.sig.person)+' · ':'')+esc((SIGNALS[x.sig.type]||{l:''}).l)+' '+rel(String(x.sig.date).slice(0,10))+(x.n>1?' · '+x.n+' messages':'')+'</small></div><span class="pill">'+esc(laneName(x.lane))+'</span><button class="btn btn-primary btn-xs" onclick="autoPipeAdd(\''+x.a.id+'\')">'+ico('plus')+'Add</button><button class="icon-btn" onclick="autoPipeNo(\''+x.a.id+'\')" aria-label="Not a deal">'+ico('x')+'</button></div>').join('')+'</div>'+(L.length>1?'<button class="link" onclick="autoPipeAll()">Add all '+L.length+'</button>':''):'<p class="ap18-ok">'+ico('check')+'Every live conversation is already in your pipeline.</p>')+'</section>'}
+const _pipe18=VIEWS.pipeline;VIEWS.pipeline=function(){const h=String(_pipe18());const i=h.indexOf('</div>',h.indexOf('class="sh'))>-1?h.search(/<div class="(card trk|trk|ptrack|card ptrack|kanban|kb)/):-1;
+  if(S.autoPipe18){const L=autoPipeSugs();if(L.length){L.forEach(x=>autoPipeAdd(x.a.id,true));save()}}
+  let H=h.replace('<div class="ptk-two">','<button class="link ptk18" onclick="S.trend18=!S.trend18;save();go(\'pipeline\',null,true)">'+(S.trend18?'Hide the trends':'Show month by month, and where the pipeline sits')+'</button><div class="ptk-two'+(S.trend18?'':' hid18')+'">');const ap=autoPipe18();const j=H.indexOf('</h1>');const k=j>-1?H.indexOf('</div></div>',j):-1;return k>-1?H.slice(0,k+12)+ap+H.slice(k+12):ap+H};
+
+/* ── Insights: visual first ── */
+const _ins18=VIEWS.insights;VIEWS.insights=function(cat){const h=String(_ins18(cat));const A=getInsights();const by={};A.forEach(x=>{by[x.cat]=(by[x.cat]||0)+1});
+  const ic={opportunity:'flag',pitch:'trophy',moves:'user',intel:'chart',playbook:'bulb'};
+  const strip='<div class="in18">'+Object.entries(INS_CATS).filter(([k])=>by[k]).map(([k,l])=>'<button onclick="go(\'insights\',\''+k+'\')"><span>'+ico(ic[k]||'star')+'</span><b>'+by[k]+'</b><small>'+esc(l)+'</small></button>').join('')+'</div>';
+  const j=h.indexOf('</h1>');const k=j>-1?h.indexOf('</div></div>',j):-1;return '<div class="ins18">'+(k>-1?h.slice(0,k+12)+strip+h.slice(k+12):strip+h)+'</div>'};
+
+/* ── Reports: pick, preview, download ── */
+const REP18={camp:'all',period:'30',secs:{head:1,funnel:1,brands:1,pipe:1,next:1}};
+function repData(){const C=REP18.camp==='all'?realCamps():S.campaigns.filter(c=>c.id===REP18.camp);const St=C.map(c=>({c,x:campPerf(c)}));const days=+REP18.period||9999;
+  const sig=S.accounts.flatMap(a=>(a.signals||[]).filter(s=>INBOUND(s.type)&&daysAgo(s.date)<=days&&(REP18.camp==='all'||s.campaign===REP18.camp||(campSigs(C[0],a).includes(s)))));
+  return{C,St,sig,brands:sum(St,y=>y.x.brands),people:sum(St,y=>y.x.people),touches:sum(St,y=>y.x.touches),eng:sum(St,y=>y.x.eng),talks:sum(St,y=>y.x.talks+y.x.meet),opps:sum(St,y=>y.x.opps.length),val:sum(St,y=>y.x.oppVal),won:sum(St,y=>y.x.wonVal),
+    replies:sig.filter(s=>['reply','li_reply'].includes(s.type)).length,meet:sig.filter(s=>s.type==='meeting').length,hot:intentRows().slice(0,5)}}
+function repDoc(){const D=repData();const per={'30':'Last 30 days','90':'Last 90 days','all':'Campaign to date'}[REP18.period];const nm=REP18.camp==='all'?'All campaigns':(D.C[0]||{name:''}).name;const s=REP18.secs;
+  const fun=[['Brands targeted',D.brands],['People reached',D.people],['Touches sent',D.touches],['Brands engaging',D.eng],['Conversations',D.talks],['Opportunities',D.opps]];const fm=Math.max(1,...fun.map(f=>f[1]));
+  return '<article class="rp18-doc" id="rp18Doc"><header><small>'+esc(S.setup.agency||'')+' · New business report</small><h1>'+esc(nm)+'</h1><p>'+per+' · '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+'</p></header>'+
+    (s.head?'<section class="rp-k">'+[['Replies',D.replies],['Meetings',D.meet],['Opportunities',D.opps],['Pipeline',money(D.val,true)],['Won',money(D.won,true)]].map(k=>'<div><b>'+k[1]+'</b><small>'+k[0]+'</small></div>').join('')+'</section>':'')+
+    (s.funnel?'<section><h2>From reach to revenue</h2><div class="rp-f">'+fun.map(f=>'<div><span>'+f[0]+'</span><i><em style="width:'+Math.max(f[1]?3:0,f[1]/fm*100)+'%"></em></i><b>'+f[1]+'</b></div>').join('')+'</div></section>':'')+
+    (s.brands&&D.hot.length?'<section><h2>Who is leaning in</h2><ol class="rp-b">'+D.hot.map(r=>'<li><b>'+esc(r.a.name)+'</b><span>'+esc(intentWhy(r))+'</span></li>').join('')+'</ol></section>':'')+
+    (s.pipe?'<section><h2>Pipeline</h2><ul class="rp-p">'+D.St.flatMap(y=>y.x.opps).sort((a,b)=>(+b.value||0)-(+a.value||0)).slice(0,8).map(o=>'<li><b>'+esc(o.name)+'</b><span>'+esc(laneName(o.lane))+'</span><em>'+money(o.value,true)+'</em></li>').join('')+'</ul></section>':'')+
+    (s.next?'<section><h2>Next</h2><ul class="rp-n">'+(D.hot.slice(0,3).map(r=>'<li>Follow up with '+esc(r.a.name)+': '+esc(intentWhy(r))+'.</li>').join('')||'<li>Keep the sequence running and watch for replies.</li>')+'</ul></section>':'')+
+    '<footer>Made with Plato by Scope &amp; Lens</footer></article>'}
+function repText(){const D=repData();return (REP18.camp==='all'?'All campaigns':(D.C[0]||{}).name)+'\n'+D.replies+' replies, '+D.meet+' meetings, '+D.opps+' opportunities, '+money(D.val,true)+' pipeline, '+money(D.won,true)+' won.\nLeaning in: '+D.hot.slice(0,3).map(r=>r.a.name).join(', ')}
+function repPrint(){const d=$('#rp18Doc');if(!d)return;const w=window.open('','_blank');if(!w){toast('Allow pop-ups to download the PDF');return}
+  w.document.write('<!doctype html><html><head><title>Report</title><style>'+REP18_CSS+'</style></head><body>'+d.outerHTML+'<script>setTimeout(()=>print(),300)<\/script></body></html>');w.document.close()}
+const REP18_CSS='body{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#15151c;margin:40px}.rp18-doc header small{color:#666;font-size:12px}.rp18-doc h1{font-size:30px;margin:6px 0 2px}.rp18-doc header p{color:#666;margin:0 0 20px}.rp18-doc h2{font-size:16px;margin:24px 0 8px}.rp-k{display:flex;gap:24px;border:1px solid #ddd;border-radius:12px;padding:14px}.rp-k b{display:block;font-size:24px}.rp-k small{color:#666}.rp-f div{display:grid;grid-template-columns:150px 1fr 50px;gap:10px;align-items:center;margin:5px 0;font-size:13px}.rp-f i{height:8px;background:#eee;border-radius:4px;overflow:hidden}.rp-f em{display:block;height:100%;background:#2c56ed}.rp-b,.rp-p,.rp-n{padding-left:18px;font-size:13.5px}.rp-b li,.rp-p li{margin:5px 0}.rp-b span,.rp-p span{color:#666;margin-left:8px}.rp-p em{font-style:normal;font-weight:700;margin-left:8px}footer{margin-top:30px;color:#999;font-size:11px}';
+VIEWS.reports=function(){const opts=[['head','Headline numbers'],['funnel','Reach to revenue'],['brands','Who is leaning in'],['pipe','Pipeline'],['next','Next steps']];
+  return '<div class="sh plain"><div class="sh-l"><h1 class="sh-t">Make a <span class="serif">report.</span></h1><p class="sh-p">Pick a campaign and a period. Download it, or copy the summary.</p></div></div>'+
+    '<div class="rp18"><aside class="rp18-c"><label>Campaign<select class="inp" onchange="REP18.camp=this.value;go(\'reports\',null,true)"><option value="all">All campaigns</option>'+S.campaigns.map(c=>'<option value="'+c.id+'"'+(REP18.camp===c.id?' selected':'')+'>'+esc(c.name)+'</option>').join('')+'</select></label>'+
+      '<label>Period</label>'+seg([['30','30 days'],['90','90 days'],['all','To date']],REP18.period,"REP18.period=$;go('reports',null,true)")+
+      '<label style="margin-top:6px">Include</label><div class="rp18-o">'+opts.map(o=>'<button class="'+(REP18.secs[o[0]]?'on':'')+'" onclick="REP18.secs.'+o[0]+'=REP18.secs.'+o[0]+'?0:1;go(\'reports\',null,true)"><i>'+(REP18.secs[o[0]]?ico('check'):'')+'</i>'+o[1]+'</button>').join('')+'</div>'+
+      '<button class="btn btn-primary" onclick="repPrint()">'+ico('download')+'Download as PDF</button><button class="btn btn-line" onclick="copyText(repText(),this)">'+ico('copy')+'Copy the summary</button></aside>'+
+    '<div class="rp18-pv">'+repDoc()+'</div></div>'};
+VIEWS.reports_after=function(){initSegs&&initSegs()};
+if(typeof PAGES!=='undefined'&&!PAGES.includes('reports'))PAGES.push('reports');
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;
