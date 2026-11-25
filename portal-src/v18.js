@@ -37,7 +37,7 @@ function helpMenu(e){e&&e.stopPropagation();let m=$('#help18');if(m){m.remove();
   m=document.createElement('div');m.id='help18';m.className='help18';m.setAttribute('role','menu');
   m.innerHTML='<button role="menuitem" onclick="helpClose();speakJosh()" class="h18-josh"><span class="h18-ph">'+joshFace(34)+'</span><span><b>Speak with Josh</b><small>A real person, straight to his inbox</small></span></button>'+
     '<button role="menuitem" onclick="helpClose();go(\'guides\')">'+ico('book')+'<span><b>Guides</b><small>How to get the most from each step</small></span></button>'+
-    '<button role="menuitem" onclick="helpClose();startTour()">'+ico('eye')+'<span><b>Show me around</b><small>A quick tour of this page</small></span></button>'+
+    '<button role="menuitem" onclick="helpClose();startTour()">'+ico('eye')+'<span><b>Show me around</b><small>The whole process, step by step</small></span></button>'+
     '<button role="menuitem" onclick="helpClose();startWalk(true)">'+ico('play')+'<span><b>Replay the walkthrough</b><small>The method, start to finish</small></span></button>';
   document.body.appendChild(m);const b=$('#nav-help');if(b){const r=b.getBoundingClientRect();m.style.left=Math.min(r.left,innerWidth-300)+'px';m.style.bottom=(innerHeight-r.top+8)+'px'}
   setTimeout(()=>document.addEventListener('click',helpClose,{once:true}),0)}
