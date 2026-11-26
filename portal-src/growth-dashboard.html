@@ -4424,6 +4424,42 @@ a.dk18-nm{display:block;font-weight:700;font-size:17px;color:inherit;text-decora
 .ll18-m{flex:1;min-width:0}.ll18-m>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ll18-m a{color:inherit;text-decoration:none}.ll18-m a:hover b{text-decoration:underline}.ll18-m small{color:var(--muted);font-size:12.5px}.ll18-m .dk18-ch{padding:2px 8px;font-size:11px}
 .ll18-m p{margin:4px 0 0;font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:640px){.ll18-h{flex-wrap:wrap}.dk18-li{margin-left:0}}
+/* ═══ v18p decision makers ═══ */
+.dmp{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
+.dmp-av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;background:var(--soft,#eef0f4);color:var(--muted);overflow:hidden}.dmp-av img{width:100%;height:100%;object-fit:cover}
+.dmp.mine .dmp-av{box-shadow:0 0 0 2px #2f9e44}
+.dmp-m{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}.dmp-m b{font-size:14.5px}.dmp-m b a{color:inherit;text-decoration:none}.dmp-m b a:hover{text-decoration:underline;text-underline-offset:3px}
+.dmp-m>span{font-size:13px}.dmp-m small{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px;margin-top:2px}.dmp-m small svg{width:12px;height:12px}.dmp-m small em{color:#2f9e44;font-style:normal;font-weight:600}
+.dmp-n{display:flex;gap:6px;margin:6px 0 0;padding:6px 9px;border-radius:8px;background:color-mix(in srgb,#f08c00 8%,transparent);font-size:12.5px;color:var(--ink,#222)}.dmp-n svg{flex:none;width:12px;height:12px;margin-top:2px;color:#e67700}
+.dmp-a{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}.dmp-li svg{width:14px;height:14px;color:#0a66c2}
+.dmm18{margin:0 0 16px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card,#fff)}
+.dmm18-t{display:flex;align-items:center;gap:8px;font-size:13.5px}.dmm18-t svg{width:15px;height:15px;color:#0a66c2}.dmm18-t span{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+.dmm18-b{height:6px;border-radius:99px;margin:8px 0;background:color-mix(in srgb,var(--ink,#111) 8%,transparent);overflow:hidden}.dmm18-b i{display:block;height:100%;background:linear-gradient(90deg,#4dabf7,#0a66c2);border-radius:inherit}
+.dmm18 small{color:var(--muted);font-size:12.5px}.dmm18.out{border-color:color-mix(in srgb,#e8590c 40%,var(--line))}.dmm18.out .dmm18-b i{background:#e8590c}
+.dk18-note{display:flex;gap:8px;margin:-4px 0 12px;padding:8px 11px;border-radius:10px;background:color-mix(in srgb,#f08c00 8%,transparent);font-size:13px}.dk18-note svg{flex:none;width:13px;height:13px;margin-top:3px;color:#e67700}
+@media (max-width:640px){.dmp{flex-wrap:wrap}.dmp-a{width:100%;justify-content:flex-start;padding-left:56px}}
+.dmm18{grid-column:1/-1}
+.dmp{flex-wrap:wrap}.dmp-m{min-width:150px}.dmp-a{width:100%;justify-content:flex-start;padding-left:56px;gap:4px}.dmp-a .mini{margin-left:auto}
+.dmp-a .btn-xs{padding:4px 9px}
+.dmp-a{flex-wrap:nowrap}
+/* ═══ v18q content bank tiles ═══ */
+.cv2.one18{grid-template-columns:1fr!important}
+.bt18-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.bt18{position:relative;display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:16px;border:1px solid var(--line);background:var(--card,#fff);transition:transform .2s,box-shadow .2s,border-color .2s;min-height:150px}
+.bt18::before{content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:16px 16px 0 0;background:var(--c)}
+.bt18:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(20,24,40,.35);border-color:color-mix(in srgb,var(--c) 45%,var(--line))}
+.bt18-o{position:absolute;inset:0;border:0;background:none;cursor:pointer;border-radius:inherit}
+.bt18-h{display:flex;align-items:center;gap:8px}.bt18-h small{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.bt18-i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}.bt18-i svg{width:15px;height:15px}
+.bt18-s{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--soft,#f1f3f5);color:var(--muted)}.bt18-s svg{width:11px;height:11px}
+.bt18.ready .bt18-s{background:color-mix(in srgb,#2f9e44 12%,transparent);color:#2b8a3e}.bt18.pend .bt18-s{background:color-mix(in srgb,#e67700 12%,transparent);color:#d9480f}
+.bt18>b{font-size:14.5px;line-height:1.3}.bt18>p{margin:0;font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bt18-f{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--muted)}.bt18-f span{display:inline-flex;align-items:center;gap:4px}.bt18-f svg{width:11px;height:11px}
+.bt18-tk{position:relative;z-index:2;margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--ink,#111);cursor:pointer;padding:4px 9px;border-radius:8px;background:color-mix(in srgb,#e67700 10%,transparent)}
+.bt18.pend{border-style:dashed;background:color-mix(in srgb,var(--card,#fff) 85%,#fff4e6)}
+.bt18-pend{margin-bottom:16px;padding:14px;border-radius:18px;background:color-mix(in srgb,#e67700 5%,transparent);border:1px solid color-mix(in srgb,#e67700 20%,var(--line))}
+.bt18-ph{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13.5px}.bt18-ph .bt18-pt{flex:1}
+@media (max-width:640px){.bt18-ph{flex-wrap:wrap}.bt18-g{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -12624,6 +12660,102 @@ function lnBulk18(){const c=curCamp();const L=lnDue18(c).due;const pick=$$('.ll1
     (amp?'<div class="pace18"><span class="pace18-dot"></span><span><b>Amplify is sending at a human pace.</b> Connection requests go out roughly one every 15 minutes in working hours, messages in between.</span><label class="pace18-t"><input type="checkbox"'+(S.launch.autoConn?' checked':'')+' onchange="lnAuto18(this.checked)"> Auto-approve connection requests</label></div>':'')+
     lnOut18(c)+(LN18.mode==='deck'?lnDeck18(c):lnList18(c))};
   const g=VIEWS.launch_after;VIEWS.launch_after=function(){g&&g.apply(this,arguments);if(S.launch.autoConn){lnAutoRun18();lnOutRefresh18()}}})();
+
+/* ═══════════ v18p: decision makers that are right, clear and noted ═══════════
+   Only people who work at the brand now, in a role you sell to. Clear cards with photo, role, company and a real
+   LinkedIn button. A daily search meter, because Amplify paces LinkedIn searches to keep accounts safe. Notes on anyone. */
+
+const DM_DAY18=15;
+function dmUse18(){const d=S.dmSearch18||{};return d.date===today()?d.n||0:0}
+function dmCount18(){S.dmSearch18={date:today(),n:dmUse18()+1};save()}
+function dmMeter18(){if(!ampOn())return '';const n=dmUse18();const left=Math.max(0,DM_DAY18-n);const pct=Math.min(100,n/DM_DAY18*100);
+  return '<div class="dmm18'+(left?'':' out')+'"><div class="dmm18-t">'+ico('search')+'<b>LinkedIn searches today</b><span>'+n+' of about '+DM_DAY18+'</span></div><div class="dmm18-b"><i style="width:'+pct+'%"></i></div>'+
+    '<small>'+(left?'Amplify paces searches so your LinkedIn account stays safe. '+left+' left today, and it resets tomorrow.':'That is today’s allowance used. It resets tomorrow, so pick up the rest then. Your list is saved.')+'</small></div>'}
+
+/* who counts: works there now, in a role that matters */
+const DM_BAD18=/\b(volunteer|intern|internship|student|former|ex[- ]|retired|trustee emeritus|apprentice|work experience|placement)\b/i;
+function coMatch18(co,a){const n=v=>String(v||'').toLowerCase().replace(/\b(the|ltd|limited|plc|group|uk|inc|llp|co)\b/g,'').replace(/[^a-z0-9]/g,'');const x=n(co),y=n(a.name);if(!x)return true;return x===y||x.includes(y)||y.includes(x)||(!!domainOf(a)&&x.includes(n(domainOf(a).split('.')[0])))}
+function roleScore18(t){t=String(t||'').toLowerCase();if(!t)return 0;const W=myDiscs().flatMap(k=>DISC[k].titles).concat(S.setup.profile.roles||[]).map(x=>String(x).toLowerCase());
+  let s=W.some(w=>w&&t.includes(w))?3:0;if(/\b(chief|cmo|cbo|cco|ceo|director|head|vp|vice president|founder|partner|lead)\b/.test(t))s+=2;if(/\b(marketing|brand|growth|digital|communications|comms|fundraising|engagement|customer|insight|strategy|creative)\b/.test(t))s+=1;if(/\b(assistant|coordinator|executive|officer)\b/.test(t)&&!/chief/.test(t))s-=1;return s}
+ampFindPeople=async function(a){const j=await ampCall('find-people',{company:a.name,domain:domainOf(a),currentCompanyOnly:true,titles:myDiscs().flatMap(k=>DISC[k].titles).slice(0,6),roles:S.setup.profile.roles,limit:15,withPhotos:true});dmCount18();
+  const raw=(j.people||[]).map(p=>({name:p.name,role:p.title||p.headline||'',company:p.company||p.currentCompany||p.organization||'',li:p.linkedin||p.linkedinUrl||'',email:p.email,verified:!!p.verified,photo:photoOf18(p)}));
+  const keep=raw.filter(p=>coMatch18(p.company,a)&&!DM_BAD18.test(p.role)).map(p=>Object.assign(p,{fit:roleScore18(p.role)})).filter(p=>p.fit>0||!p.role).sort((x,y)=>y.fit-x.fit).slice(0,10);
+  keep.note=(j.note||'')+(raw.length>keep.length?(j.note?' ':'')+(raw.length-keep.length)+' left out: not at '+a.name+' now, or not in a role you sell to.':'');return keep};
+(function(){const f=findDM;findDM=async function(aid){await ampCheck();if(ampOn()&&dmUse18()>=DM_DAY18){modal('<h2>That is today’s LinkedIn searches used</h2><p class="sub">Amplify paces LinkedIn searches, about '+DM_DAY18+' a day, so your account never looks like a bot. Your list is saved. Pick up the rest tomorrow, or add someone you already know by hand.</p><div class="modal-foot"><button class="btn btn-primary" onclick="closeOverlays()">Got it</button></div>');return}return f(aid)}})();
+
+/* the card for one person: photo, name, role, company, and an obvious LinkedIn button */
+pRow=function(a,p,mine){const q="'"+a.id+"'";const li=p.li||p.linkedin;const ph=p.photo||photoByName18(p.name,a);const fit=p.fit!=null?p.fit:roleScore18(p.role||p.title);
+  const av=ph?'<span class="dmp-av"><img src="'+esc(ph)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.textContent=\''+esc(initials(p.name))+'\'"></span>':'<span class="dmp-av">'+esc(initials(p.name))+'</span>';
+  const nm=li?'<a href="'+esc(li)+'" target="_blank" rel="noopener">'+esc(p.name)+'</a>':esc(p.name);
+  return '<div class="dmp'+(mine?' mine':'')+'">'+av+'<div class="dmp-m"><b>'+nm+'</b><span>'+esc(p.role||p.title||'Role not set')+'</span><small>'+ico('home')+esc(p.company||a.name)+(fit>=4&&!mine?' · <em>Strong role match</em>':'')+(p.from==='live'?' · Amplify':'')+'</small>'+
+      (mine&&p.note18?'<p class="dmp-n">'+ico('edit')+esc(p.note18)+'</p>':'')+'</div>'+
+    '<div class="dmp-a">'+(li?'<a class="btn btn-line btn-xs dmp-li" href="'+esc(li)+'" target="_blank" rel="noopener">'+ico('linkedin')+'Profile</a>':'<a class="btn btn-ghost btn-xs dmp-li" href="'+esc(liOf18(p,a))+'" target="_blank" rel="noopener">'+ico('search')+'Find on LinkedIn</a>')+
+      (mine?'<button class="btn btn-ghost btn-xs" onclick="noteFor18('+q+',\''+p.id+'\')">'+ico('edit')+(p.note18?'Note':'Add note')+'</button><button class="mini" onclick="openPersonForm('+q+',\''+p.id+'\')" data-tip="Edit">'+ico('settings')+'</button>':
+        '<button class="btn btn-primary btn-xs" onclick="addDM('+q+',\''+esc(p.name).replace(/'/g,"\\'")+'\',\''+esc(p.role||p.title||'').replace(/'/g,"\\'")+'\',\''+esc(li||'')+'\')">'+ico('plus')+'Add</button>')+'</div></div>'};
+
+/* notes on anyone, used wherever that person shows up */
+function noteFor18(aid,pid){const a=accountById(aid);const p=a&&a.people.find(x=>x.id===pid);if(!p)return;
+  modal('<h2>What should Otis know about '+esc(p.name.split(' ')[0])+'?</h2><p class="sub">How you know them, what you talked about last time, anything that makes a message feel like it came from you. It shows on every card for them, and Plato uses it.</p>'+
+    '<textarea class="inp" id="nt18" rows="4" placeholder="e.g. Met at the Third Sector awards last year. We talked about their legacy giving push.">'+esc(p.note18||'')+'</textarea>'+
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="noteSave18(\''+aid+'\',\''+pid+'\')">Save note</button></div>');setTimeout(()=>{const t=$('#nt18');t&&t.focus()},60)}
+function noteSave18(aid,pid){const a=accountById(aid);const p=a&&a.people.find(x=>x.id===pid);if(!p)return;const v=$('#nt18').value.trim();act(v?'Saved a note on '+p.name:'Cleared the note',()=>{p.note18=v;if(v&&!p.met)p.met=v.split(/[.!?]/)[0].slice(0,120)},{refresh:false,quiet:true});closeOverlays();go(VIEW,VIEW_ARG,true)}
+
+/* the meter sits above the people step */
+(function(){const f=VIEWS.prospects;VIEWS.prospects=function(tab){let h=String(f.apply(this,arguments));const i=h.indexOf('<div class="dm">');if(i>-1&&ampOn())h=h.slice(0,i)+dmMeter18()+h.slice(i);return h}})();
+
+/* the note travels onto the Launch card */
+(function(){const f=lnCard18;lnCard18=function(c,q,i){let h=f(c,q,i);if(q.x.p.note18&&!i)h=h.replace('<div class="dk18-k">','<div class="dk18-note">'+ico('edit')+'<span><b>Your note:</b> '+esc(q.x.p.note18)+'</span></div><div class="dk18-k">');return h}})();
+(function(){const f=platoContext;platoContext=function(){const o=f.apply(this,arguments);try{o.notes=S.accounts.flatMap(a=>(a.people||[]).filter(p=>p.note18).map(p=>({person:p.name,brand:a.name,note:p.note18}))).slice(0,40)}catch(e){}return o}})();
+
+/* ═══════════ v18q: Create value, simpler and confirmed ═══════════
+   Case studies get their own kind. The content bank is a grid of tiles you can read at a glance. Anything Gus suggests
+   waits for your tick before it counts. And when a touch is built around an asset with a link, the link goes in the draft. */
+
+CV_CATS.splice(CV_CATS[0]&&CV_CATS[0].k==='mine'?1:0,0,{k:'case',l:'Case studies',ic:'trophy',c:'#2f9e44',d:'Proof you have done it'});
+CV_SLOT.case='case';CV_SLOT_C.case='#2f9e44';
+CV_HOW.case=['Pick one client with a problem like theirs','Write it as problem, what you did, what changed, with one number','Keep it to one page or a 60 second read'];
+CV_STRUCT.case='a one-page case study: the client and their problem, what the agency did, the result with a number, and one line on why it matters to a brand like the prospect';
+(function(){const f=cvGen;cvGen=function(cat,x){if(cat!=='case')return f(cat,x);const c=curCamp();const X=cx18();const real=X.cases.filter(k=>k.client&&k.result);
+  const own=bankOf(c).items.filter(i=>i.slot==='case'&&i.src==='own');const out=[];
+  real.slice(0,2).forEach(k=>out.push(['One-pager: '+k.client,(k.problem?k.problem+'. ':'')+(k.did?'What we did: '+k.did+'. ':'')+'Result: '+k.result+'.','Proof from a brand with the same problem lands harder than any claim.','2 hours']));
+  own.slice(0,1).forEach(o=>out.push(['Tighten “'+o.t+'” into one page','Pull the problem, the work and the number out of your existing case study, and cut the rest.','Busy '+x.role+'s read one page, not twelve.','1 hour']));
+  out.push(['Before and after, for '+x.secL,'Two screenshots or numbers side by side from a past client, with one line on what changed.','It shows the fix for '+x.short+' without asking them to read.','1 hour']);
+  if(!real.length)out.push(['Add your first case study','Put one real client story in your agency profile under How you sell, and Gus turns it into a one-pager here.','Otis only quotes real work, so this unlocks proof in every message.','10 minutes']);
+  return out.slice(0,4)}})();
+
+/* anything Gus adds waits for a tick */
+(function(){const f=cvAdd18;cvAdd18=function(e,cat,id){const idea=cvIdeas(cat,curCamp()).find(i=>i.id===id);if(idea&&/^Add your first case study/.test(idea.n)){go('agency','sell');setTimeout(()=>{const el=$('#cxC0');if(el){el.scrollIntoView({block:'center'});el.focus()}},150);return}f(e,cat,id);const c=curCamp();const it=bankOf(c).items.find(i=>i.idea18===id);if(it&&it.ok18==null){it.ok18=false;save()}}})();
+(function(){if(typeof cvGenerate!=='function')return;const f=cvGenerate;cvGenerate=function(){const c=curCamp();const before=new Set(bankOf(c).items.map(i=>i.id));const r=f.apply(this,arguments);
+  const mark=()=>{bankOf(c).items.forEach(i=>{if(!before.has(i.id)&&i.ok18==null)i.ok18=false});save()};if(r&&r.then)r.then(mark);else mark();return r}})();
+function bankOk18(id,v){const c=curCamp();const it=bankOf(c).items.find(i=>i.id===id);if(!it)return;it.ok18=v;save();go('give',null,true)}
+function bankOkAll18(){const c=curCamp();bankOf(c).items.forEach(i=>{if(i.ok18===false)i.ok18=true});save();toast('Confirmed. Otis can use them all.');go('give',null,true)}
+const okItem18=i=>i.ok18!==false;
+
+function bankTiles18(c){const I=cvItems(c);if(!I.length)return '';const pend=I.filter(i=>i.ok18===false);const live=I.filter(okItem18);
+  const SL={hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Blog or report',video:'Personal video',screen:'Screen recording'};
+  const tile=it=>{const cat=it.cat18&&CV_CATS.find(k=>k.k===it.cat18);const s=BANK_SLOTS.find(x=>x.k===it.slot)||{ic:'doc'};const col=cat?cat.c:CV_SLOT_C[it.slot]||'#868e96';const pending=it.ok18===false;
+    const open=it.idea18&&it.cat18?'cvMore(\''+it.cat18+'\',\''+it.idea18+'\')':'bankOpen(\''+it.id+'\')';
+    const st=pending?'Suggested':it.status==='ready'?'Ready':it.id==='hero'?'Being made':'Draft';
+    return '<article class="bt18'+(pending?' pend':'')+(it.status==='ready'?' ready':'')+'" style="--c:'+col+'"><button class="bt18-o" onclick="'+open+'" aria-label="Open '+esc(it.t)+'"></button>'+
+      '<div class="bt18-h"><span class="bt18-i">'+ico(cat?cat.ic:s.ic)+'</span><small>'+esc(SL[it.slot]||'Asset')+'</small><span class="bt18-s">'+(it.status==='ready'&&!pending?ico('check'):'')+st+'</span></div>'+
+      '<b>'+esc(it.t)+'</b>'+(it.val?'<p>'+esc(it.val)+'</p>':'')+
+      '<div class="bt18-f"><span>'+esc(it.src==='own'?'Yours':it.src==='lib'?'Your library':it.src==='gift'?'Hero':it.idea18?'Gus':'Gus')+'</span>'+(it.url?'<span>'+ico('link')+'Has a link</span>':'')+
+      (pending?'<label class="bt18-tk"><input type="checkbox" onchange="bankOk18(\''+it.id+'\',this.checked)"> Use this</label>':'')+'</div></article>'};
+  return '<section class="cv2-plan bt18-w"><div class="cv2-sh"><h2>Your content <span class="serif">bank.</span></h2><span>'+live.length+' ready to use'+(pend.length?' · '+pend.length+' waiting for your tick':'')+'. Tap a tile for the detail.</span></div>'+
+    (pend.length?'<div class="bt18-pend"><div class="bt18-ph">'+agentFace('give',28,{badge:false})+'<span class="bt18-pt"><b>Gus suggests '+pend.length+' more.</b> Tick the ones you want, and Otis will use them in messages.</span><button class="btn btn-line btn-sm" onclick="bankOkAll18()">'+ico('check')+'Use them all</button></div><div class="bt18-g">'+pend.map(tile).join('')+'</div></div>':'')+
+    '<div class="bt18-g">'+live.map(tile).join('')+'</div></section>'}
+
+/* the page, simpler: assets, ideas, the bank. The side rail is gone. */
+(function(){const f=VIEWS.give;VIEWS.give=function(){let h=f.apply(this,arguments);const c=curCamp();
+  const a=h.indexOf('<section class="cv2-plan">');if(a>-1){const b=h.indexOf('</section>',a)+10;h=h.slice(0,a)+bankTiles18(c)+h.slice(b)}else if(cvItems(c).length)h=h.replace('</div><aside','</div>'+bankTiles18(c)+'<aside');
+  h=h.replace(/<aside class="cv2-bank"[\s\S]*<\/aside>(\s*<\/div>)$/,'$1');return h.replace('<div class="cv2">','<div class="cv2 one18">')}})();
+
+/* drafts carry the asset's link */
+(function(){const f=composeMsg;composeMsg=function(s,a,p,c,o){const m=f.apply(this,arguments);try{if(!m||m.nonote||!s||!s.asset||!m.body)return m;c=c||curCamp();
+  const it=bankItems(c).find(x=>x.id===s.asset);const url=it&&(it.url||(it.src==='gift'&&toolById(c.assets[0])&&c.heroUrl18))||'';if(!url||m.body.includes(url))return m;
+  const lines=m.body.split('\n');let k=-1;for(let i=lines.length-1;i>0;i--){if(/^(cheers|thanks|thank you|best|all the best|speak soon|kind regards|regards|warmly|many thanks|talk soon)\b/i.test(lines[i].trim())){k=i;break}}
+  if(k<0){k=lines.length;while(k>1&&lines[k-1].trim().length<30&&lines[k-1].trim())k--}
+  lines.splice(k,0,url,'');return Object.assign({},m,{body:lines.join('\n').replace(/\n{3,}/g,'\n\n')})}catch(e){return m}}})();
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;
