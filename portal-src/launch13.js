@@ -17,7 +17,7 @@ const _launch13=VIEWS.launch;VIEWS.launch=function(a){let h=String(_launch13(a))
   const c=curCamp();const cb=campBar(c);return h.includes(cb)?h.replace(cb,cb+howTo()):h.replace('<div class="mc','<section class="htw-x"></section>'+howTo()+'<div class="mc')};
 /* Amplify mode: three lanes so you can see where every message goes */
 amplifyView=function(c){const L=S.launch;L.drafts=L.drafts||[];const q=L.queue;const out=L.done.slice().reverse();const on=ampOn();
-  const st=x=>x.status==='sent'?['Sent','good',x.ch==='email'?'mail':'linkedin','Sent through '+(x.ch==='email'?'email':'LinkedIn')]:on?['Queued','warn','clock','Amplify sends it at a human pace']:['Preview','mute','eye','Amplify is not connected yet, so nothing is sent'];
+  const st=x=>x.status==='sent'?['With Amplify, to approve','warn','clock','Sent to Amplify. It waits under To approve there and goes out once approved']:on?['Queued','warn','clock','Amplify sends it at a human pace']:['Preview','mute','eye','Amplify is not connected yet, so nothing is sent'];
   return '<div style="margin-top:18px">'+ampHero()+'</div>'+
     '<div class="ln13s"><section class="ln13 l-q"><div class="ln13-h"><b>'+ico('inbox')+'To approve</b><span>'+q.length+'</span></div><p class="ln13-tip"><span class="kbd">→</span> Swipe right to approve and send. <span class="kbd">←</span> Swipe left to save to Drafts.</p>'+swipeStack(q)+'</section>'+
       '<section class="ln13 l-o" id="laneOut"><div class="ln13-h"><b>'+ico('send')+'Outbox</b><span>'+out.length+'</span></div><p class="ln13-tip">'+(on?'Amplify sends these from your accounts. Replies come back to Signals & Intent.':'Approved messages wait here. They send once Amplify is connected.')+'</p>'+

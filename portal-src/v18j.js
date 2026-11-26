@@ -18,7 +18,7 @@ ampCall=async function(action,payload){const I=(typeof agInfo==='function'&&agIn
 const PHOTO_KEYS=['photo','photoUrl','photo_url','profilePicture','profile_picture','picture','avatar','image','imageUrl','profileImage'];
 function photoOf18(o){for(const k of PHOTO_KEYS){const v=o&&o[k];if(typeof v==='string'&&/^https:\/\//.test(v))return v}return ''}
 ampFindPeople=async function(a){const j=await ampCall('find-people',{company:a.name,domain:domainOf(a),titles:myDiscs().flatMap(k=>DISC[k].titles).slice(0,6),roles:S.setup.profile.roles,limit:10,withPhotos:true});
-  return (j.people||[]).map(p=>({name:p.name,role:p.title,li:p.linkedin,email:p.email,verified:!!p.verified,photo:photoOf18(p)}))};
+  const r=(j.people||[]).map(p=>({name:p.name,role:p.title,li:p.linkedin,email:p.email,verified:!!p.verified,photo:photoOf18(p)}));r.note=j.note||'';return r};
 async function apolloPeople18(a){const j=await api('people?company='+encodeURIComponent(a.name)+'&domain='+encodeURIComponent(domainOf(a))+'&titles='+encodeURIComponent(myDiscs().flatMap(k=>DISC[k].titles).slice(0,8).join('|')));return (j.people||[]).map(p=>({name:p.name,role:p.title,li:p.linkedin,photo:photoOf18(p)}))}
 function noLinkedIn18(msg){const I=agInfo();modal('<h2>Amplify cannot see your LinkedIn</h2><p class="sub">'+esc(msg)+'</p>'+
   '<div class="field"><label for="nlE">The email LinkedIn is connected under in Amplify</label><input class="inp" id="nlE" value="'+esc(I.senderEmail||(SESSION&&SESSION.email)||'')+'" placeholder="you@youragency.com"></div><p class="tiny muted">Plato will act as this account when it searches and sends. It has to be on your agency’s email domain.</p>'+
@@ -28,7 +28,7 @@ findDM=async function(aid){const a=accountById(aid);const b=$('#dmb-'+aid);await
   if(b){b.disabled=true;b.innerHTML='Searching…'}let items=null,note='';
   try{if(useAmp)items=await ampFindPeople(a)}catch(e){const m=String(e.message||'');if(/linkedin|^Confirm /i.test(m)){note=m}else note=m||'Amplify could not search just now'}
   if(!items&&canPeople){try{items=await apolloPeople18(a)}catch(e){}}
-  if(items){S.live.people[a.name]={ts:new Date().toISOString(),items};save();toast(items.length?'Found '+items.length+' at '+esc(a.name)+(note?' (from people data, not LinkedIn)':''):'Nobody new found at '+esc(a.name))}
+  if(items){S.live.people[a.name]={ts:new Date().toISOString(),items};save();const an=items.note?esc(items.note):'';toast(items.length?'Found '+items.length+' at '+esc(a.name)+(note?' (from people data, not LinkedIn)':'')+(an?'. '+an:''):(an||'Nobody new found at '+esc(a.name)))}
   go(VIEW,VIEW_ARG,true);if(note&&/linkedin|^Confirm /i.test(note))setTimeout(()=>noLinkedIn18(note),300);else if(note&&!items)toast(note)};
 /* photos travel with the person and show wherever they do */
 addDM=function(aid,name,role,li){const a=accountById(aid);const src=(livePeople(a.name)||[]).find(p=>norm(p.name)===norm(name))||{};act('Added '+name+' at '+a.name,()=>{const p=addPerson(a,{name,role});if(li)p.li=li;if(src.photo)p.photo=src.photo;if(src.email&&!p.email)p.email=src.email},{refresh:false,ic:'👤',ms:2600,quiet:true});award('person',name+' added');refreshNav();go('prospects','people',true)};
