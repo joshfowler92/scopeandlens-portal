@@ -4072,6 +4072,155 @@ button.jfn[onclick]:hover{border-color:var(--fc);box-shadow:0 0 0 3px color-mix(
 @media (prefers-reduced-motion:reduce){.ob18-orb em{animation:none;transform:rotate(calc(var(--i) * 60deg)) translateX(70px) rotate(calc(var(--i) * -60deg))}}
 @media (max-width:900px){.ob18-st,.ob18-crew{flex-direction:column}.ob18-st>i,.ob18-crew .ogd-a{transform:rotate(90deg);align-self:center}}
 .os-bot .wv-ag ul{display:none}.os-bot .wv-ag{padding:0}
+/* v18g sidebar toggle */
+.sd18-tg{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;margin-left:4px;color:var(--mute);transition:transform .25s var(--ease),background .15s;transform:rotate(-90deg)}
+.sd18-tg.open{transform:rotate(0)}.sd18-tg:hover{background:var(--rule);color:var(--ink)}.sd18-tg svg{width:14px;height:14px}
+.sd18-camp{overflow:hidden;transition:max-height .35s var(--ease),opacity .25s;max-height:420px}
+.sd18-camp.shut{max-height:0;opacity:0;margin:0!important;padding:0!important;border:0!important}
+.sg18-note{display:flex;gap:10px;align-items:center;padding:9px 12px;margin-bottom:12px;border-radius:12px;background:color-mix(in srgb,var(--brand) 6%,var(--paper));font-size:13px;color:var(--ink-2,#3a3a42)}.sg18-note svg{width:15px;height:15px;color:var(--brand);flex:none}
+.pb-inc{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:11px;border:1px dashed var(--rule-2);background:var(--paper)}
+.pb-inc>svg{width:15px;height:15px;color:var(--brand);flex:none}
+.pb-inc>span:first-of-type{flex:1;min-width:0}.pb-inc small{display:block;font:700 10.5px var(--sans);letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.pb-inc b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pb-yrs{display:flex;flex-direction:column;align-items:center;padding:2px 9px;border-radius:9px;background:var(--bg);line-height:1.1}.pb-yrs b{font-size:16px}.pb-yrs small{font-size:9.5px}
+.pb-inc.long{border-style:solid;border-color:#f08c00;background:#fff8ec}.pb-inc.long .pb-yrs{background:#f08c00;color:#fff}.pb-inc.long .pb-yrs small{color:#fff}
+.pb-inc.none b{color:var(--mute);font-weight:600}.pb-inc em{font-style:normal;font:700 11px var(--sans);color:var(--mute);display:inline-flex;gap:4px;align-items:center}.pb-inc em svg{width:11px;height:11px}
+.pb-yrs.news b{font-size:12px}
+/* ── v18h value studio ── */
+.cv2-brief{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.cv2-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:99px;font:700 13.5px var(--sans);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);background:var(--paper);animation:float18 6s ease-in-out infinite}
+.cv2-chip svg{width:15px;height:15px}
+.cv2-chip.s{background:#d0ebff}.cv2-chip.p{background:#ffe3e3;animation-delay:-1.5s}.cv2-chip.r{background:#e5dbff;animation-delay:-3s}.cv2-chip.v{background:#ffd43b;animation-delay:-4.5s}
+.cv2-chip select{border:0;background:transparent;font:700 13.5px var(--sans);color:var(--ink);max-width:300px;cursor:pointer;outline:0}
+.cv2-op{font:800 18px var(--sans);color:var(--mute)}
+@keyframes float18{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.cv2{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:22px;align-items:start}
+.cv2-main{display:flex;flex-direction:column;gap:26px;min-width:0}
+.cv2-sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cv2-sh h2{margin:0;font-size:26px;letter-spacing:-.02em}.cv2-sh>span{font-size:14px;color:var(--mute)}.cv2-sh b{color:var(--ink)}
+.cv2-cats{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.cv2-cat{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:12px 10px 11px;border-radius:16px;text-align:left;background:color-mix(in srgb,var(--c) 10%,var(--paper));border:1.5px solid color-mix(in srgb,var(--c) 30%,transparent);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .2s;animation:rise18 .5s var(--ease) both;animation-delay:calc(var(--i) * .05s)}
+.cv2-cat:hover{transform:translateY(-4px);box-shadow:0 12px 24px -14px var(--c)}
+.cv2-cat.on{background:var(--c);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink);transform:translateY(-3px);color:#fff}
+.cv2-ci{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--c);color:#fff;transition:transform .3s}
+.cv2-cat.on .cv2-ci{background:#fff;color:var(--c);transform:rotate(-8deg) scale(1.08)}
+.cv2-ci svg{width:18px;height:18px}
+.cv2-cat b{font-size:13px;line-height:1.2}.cv2-cat small{font-size:11.5px;line-height:1.3;color:var(--mute)}.cv2-cat.on small{color:rgba(255,255,255,.85)}
+@keyframes rise18{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cv2-ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.cv2-idea{position:relative;display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:18px;background:var(--paper);border:1.5px solid color-mix(in srgb,var(--c) 35%,transparent);overflow:hidden;animation:rise18 .45s var(--ease) both;animation-delay:calc(var(--i) * .07s);transition:transform .25s var(--ease),box-shadow .25s}
+.cv2-idea::before{content:'';position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,transparent);transition:transform .5s var(--ease)}
+.cv2-idea:hover{transform:translateY(-4px);box-shadow:0 18px 34px -20px var(--c)}.cv2-idea:hover::before{transform:scale(1.25)}
+.cv2-idea.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 6%,var(--paper))}
+.cv2-top{display:flex;align-items:center;justify-content:space-between;position:relative}
+.cv2-big{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--c);color:#fff;box-shadow:3px 3px 0 var(--ink);animation:float18 5s ease-in-out infinite;animation-delay:calc(var(--i) * -1.2s)}.cv2-big svg{width:21px;height:21px}
+.cv2-top em{font-style:normal;font:800 10px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
+.cv2-idea h3{margin:4px 0 0;font-size:16px;letter-spacing:-.01em;line-height:1.25;position:relative}
+.cv2-idea p{margin:0;font-size:13.5px;line-height:1.45;position:relative}
+.cv2-why{display:flex;gap:6px;font-size:12.5px;color:var(--mute);line-height:1.4}.cv2-why svg{width:13px;height:13px;color:var(--c);flex:none;margin-top:2px}
+.cv2-f{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:6px}
+.cv2-e{display:inline-flex;gap:5px;align-items:center;font-size:12px;color:var(--mute)}.cv2-e svg{width:12px;height:12px}
+.cv2-add{background:var(--c);color:#fff;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.cv2-add:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
+.cv2-in{display:inline-flex;gap:5px;align-items:center;font:700 12.5px var(--sans);color:var(--c)}.cv2-in svg{width:13px;height:13px}
+.cv2-fly{position:fixed;z-index:500;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--ink);pointer-events:none;transition:transform .55s cubic-bezier(.5,-.3,.6,1),opacity .55s}
+.cv2-gus{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:20px;background:linear-gradient(120deg,#fff4e6,#fff9db 55%,#ebfbee);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.cv2-gus label b{display:block;font-size:16px}.cv2-gus label span{display:block;font-size:13.5px;color:var(--ink-2,#444);margin:2px 0 8px;line-height:1.45}
+.cv2-gi{display:flex;gap:10px;align-items:flex-end}.cv2-gi textarea{flex:1;background:rgba(255,255,255,.8)}.cv2-ga{display:flex;flex-direction:column;gap:6px}
+.cv2-rows{display:flex;flex-direction:column;gap:8px}
+.cv2-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 12px;border-radius:14px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--c);transition:transform .2s var(--ease),box-shadow .2s}
+.cv2-row:hover{transform:translateX(3px);box-shadow:0 8px 18px -14px var(--c)}
+.cv2-ri{width:34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c);display:grid;place-items:center;flex:none}.cv2-ri svg{width:16px;height:16px}
+.cv2-row small{display:block;font-size:11px;font-weight:700;color:var(--c);text-transform:uppercase;letter-spacing:.05em}.cv2-row b{display:block;font-size:14.5px}.cv2-row .grow>span{display:block;font-size:12.5px;color:var(--mute);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cv2-st{flex:none;font:700 12px var(--sans);padding:4px 10px;border-radius:99px;background:var(--bg);color:var(--mute);display:inline-flex;gap:5px;align-items:center}.cv2-st svg{width:12px;height:12px}
+.cv2-row.ready .cv2-st{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}.cv2-row.you .cv2-st{background:#fff4e0;color:#a35a00}
+.cv2-bank{position:sticky;top:12px;padding:16px;border-radius:20px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);display:flex;flex-direction:column;gap:10px}
+.cv2-bh{display:flex;gap:12px;align-items:center}.cv2-bh small{display:block;font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}.cv2-bh>div>b{font-size:16px}
+.cv2-ring{--p:0;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--good) calc(var(--p) * 1%),var(--rule) 0);position:relative;flex:none;transition:--p .6s}
+.cv2-ring::before{content:'';position:absolute;inset:6px;border-radius:50%;background:var(--paper)}.cv2-ring b{position:relative;font:800 14px var(--sans)}
+.cv2-slots{display:flex;flex-direction:column;gap:7px}
+.cv2-slot{position:relative;display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--c) 7%,var(--paper));overflow:hidden;animation:rise18 .4s var(--ease) both;animation-delay:calc(var(--i) * .06s)}
+.cv2-slot span{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);flex:none;position:relative;z-index:1}.cv2-slot span svg{width:13px;height:13px}
+.cv2-slot b{flex:1;font-size:13px;position:relative;z-index:1}.cv2-slot em{font-style:normal;font:700 11.5px var(--sans);color:var(--mute);position:relative;z-index:1}
+.cv2-slot i{position:absolute;left:0;bottom:0;height:3px;background:var(--c);border-radius:3px;transition:width .6s var(--ease)}
+.cv2-slot.ok{background:color-mix(in srgb,var(--c) 16%,var(--paper))}.cv2-slot.ok span{background:var(--c);color:#fff;animation:pop18 .6s cubic-bezier(.34,1.56,.64,1)}
+.cv2-bank p{margin:0;font-size:12.5px;color:var(--mute);line-height:1.45}.cv2-bank .btn{justify-content:center}
+@media (max-width:1200px){.cv2-cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:1100px){.cv2{grid-template-columns:1fr}.cv2-bank{position:static;order:-1}}
+@media (max-width:700px){.cv2-cats{grid-template-columns:repeat(2,minmax(0,1fr))}.cv2-gi{flex-direction:column;align-items:stretch}.cv2-ga{flex-direction:row;justify-content:flex-end}.cv2-st{display:none}.cv2-gus{flex-direction:column}}
+@media (prefers-reduced-motion:reduce){.cv2-chip,.cv2-big{animation:none}}
+/* ── v18i insights ── */
+.in18-up{display:inline-flex;gap:7px;align-items:center;font:600 12.5px var(--sans);color:var(--mute);padding:6px 11px;border-radius:99px;background:var(--paper);border:1px solid var(--rule)}
+.in18-up i{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 var(--good);animation:ping18 2s infinite}
+@keyframes ping18{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
+.in18t{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:4px 0 22px}
+.in18t-c{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border-radius:18px;text-align:left;background:color-mix(in srgb,var(--c) 9%,var(--paper));border:1.5px solid color-mix(in srgb,var(--c) 28%,transparent);animation:rise18 .5s var(--ease) both;animation-delay:calc(var(--i) * .06s);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s}
+.in18t-c:hover{transform:translateY(-4px);box-shadow:0 14px 26px -16px var(--c)}
+.in18t-c.on{background:var(--c);color:#fff;border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.in18t-c span{width:34px;height:34px;border-radius:11px;background:var(--c);color:#fff;display:grid;place-items:center;margin-bottom:4px}.in18t-c.on span{background:#fff;color:var(--c)}.in18t-c span svg{width:17px;height:17px}
+.in18t-c b{font:800 32px/1 var(--sans);letter-spacing:-.03em}.in18t-c small{font-size:12.5px;color:var(--mute);line-height:1.3}.in18t-c.on small{color:rgba(255,255,255,.85)}
+.in18g{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start}
+.in18f{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.in18c{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--c);animation:rise18 .45s var(--ease) both;animation-delay:calc(min(var(--i),8) * .05s);transition:transform .25s var(--ease),box-shadow .25s}
+.in18c:hover{transform:translateY(-3px);box-shadow:0 16px 30px -20px var(--c)}
+.in18c.on{box-shadow:0 0 0 1.5px var(--c)}
+.in18c-h{display:flex;gap:10px;align-items:center}.in18c-h b{display:block;font-size:15px}.in18c-h small{font-size:12px;color:var(--mute)}
+.in18c-t{display:inline-flex;gap:5px;align-items:center;font:700 11px var(--sans);padding:4px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);white-space:nowrap}.in18c-t svg{width:12px;height:12px}
+.in18c p{margin:0;font-size:13.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.in18c-m span{display:block;font-size:13px;line-height:1.45;padding:9px 11px;border-radius:12px;background:color-mix(in srgb,var(--c) 7%,var(--bg))}
+.in18c-m svg{width:13px;height:13px;color:var(--c);vertical-align:-2px;margin-right:4px}.in18c-m b{margin-right:6px}
+.in18c-f{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.in18c-f small{font-size:12px;color:var(--mute)}.in18c-f a{color:var(--brand);font-weight:600}.in18c-f em{font-style:normal;color:var(--c);font-weight:700}
+.in18-side{position:sticky;top:12px;display:flex;flex-direction:column;gap:12px}
+.in18-box{padding:16px;border-radius:18px;background:var(--paper);border:1px solid var(--rule)}.in18-box h3{margin:0 0 2px;font-size:16px}.in18-box>p{margin:0 0 10px;font-size:12.5px;color:var(--mute)}
+.in18b{display:flex;flex-direction:column;gap:4px}
+.in18b-r{display:grid;grid-template-columns:24px 1fr 28px;grid-template-rows:auto auto;column-gap:8px;align-items:center;padding:6px;border-radius:10px;text-align:left;animation:rise18 .4s var(--ease) both;animation-delay:calc(var(--i) * .05s)}
+.in18b-r:hover,.in18b-r.on{background:color-mix(in srgb,var(--c) 10%,transparent)}
+.in18b-r span{grid-row:span 2;width:24px;height:24px;border-radius:7px;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c);display:grid;place-items:center}.in18b-r span svg{width:12px;height:12px}
+.in18b-r b{font-size:12.5px}.in18b-r strong{grid-row:span 2;grid-column:3;font-size:14px;text-align:right}
+.in18b-r i{grid-column:2;height:6px;border-radius:6px;background:var(--rule);overflow:hidden}.in18b-r em{display:block;height:100%;background:var(--c);border-radius:6px;animation:grow18 .9s var(--ease) both}
+@keyframes grow18{from{width:0}}
+.in18h{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.in18h div{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px;text-align:center;animation:rise18 .5s var(--ease) both;animation-delay:calc(var(--i) * .08s)}
+.in18h span{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#a5d8ff,var(--brand));color:#fff;transform:scale(var(--s));animation:float18 5s ease-in-out infinite;animation-delay:calc(var(--i) * -1.2s)}
+.in18h b{font:800 20px var(--sans)}.in18h small{font-size:12px;line-height:1.3}
+.in18-win,.in18-sl{margin-top:30px}
+.in18w{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.in18w-c{display:flex;flex-direction:column;gap:8px;align-items:flex-start;padding:16px;border-radius:18px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);animation:rise18 .45s var(--ease) both;animation-delay:calc(var(--i) * .06s);transition:transform .25s var(--ease)}
+.in18w-c:hover{transform:translate(-2px,-3px);box-shadow:6px 7px 0 var(--ink)}
+.in18w-c>span{width:40px;height:40px;border-radius:13px;background:var(--c);color:#fff;display:grid;place-items:center;animation:float18 6s ease-in-out infinite;animation-delay:calc(var(--i) * -1s)}.in18w-c>span svg{width:19px;height:19px}
+.in18w-c b{font-size:16px;letter-spacing:-.01em}.in18w-c p{margin:0;font-size:13.5px;line-height:1.45;color:var(--ink-2,#444);flex:1}
+.in18s{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.in18s-c{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:16px;background:var(--paper);border:1px solid var(--rule);text-align:left;animation:rise18 .4s var(--ease) both;animation-delay:calc(var(--i) * .05s);transition:transform .2s,border-color .2s}
+.in18s-c:hover{transform:translateY(-3px);border-color:var(--ink)}.in18s-c em{font-style:normal;font:800 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--brand)}.in18s-c b{font-size:14.5px;line-height:1.3}.in18s-c small{font-size:12px;color:var(--mute)}
+@media (max-width:1100px){.in18g{grid-template-columns:1fr}.in18-side{position:static}.in18t{grid-template-columns:repeat(3,minmax(0,1fr))}.in18w{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.in18t{grid-template-columns:1fr 1fr}.in18w{grid-template-columns:1fr}.in18f{grid-template-columns:1fr}}
+/* ── v18j motion ── */
+#bgfx18{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#bgfx18 i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.28;will-change:transform;animation:drift18 26s ease-in-out infinite alternate}
+#bgfx18 .b1{width:520px;height:520px;background:#a5b4fc;right:-140px;top:-160px}
+#bgfx18 .b2{width:420px;height:420px;background:#63e6be;left:22%;bottom:-200px;animation-duration:32s;animation-delay:-8s;opacity:.18}
+#bgfx18 .b3{width:300px;height:300px;background:#ffd43b;right:18%;top:45%;animation-duration:22s;animation-delay:-4s;opacity:.14}
+#bgfx18 b{position:absolute;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--brand) 14%,transparent);animation:bob18 16s ease-in-out infinite alternate}
+#bgfx18 .r1{width:180px;height:180px;right:6%;top:18%}#bgfx18 .r2{width:90px;height:90px;left:30%;top:70%;animation-duration:12s;animation-delay:-5s}
+@keyframes drift18{0%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,4vh) scale(1.12)}100%{transform:translate(-4vw,7vh) scale(.95)}}
+@keyframes bob18{to{transform:translate(18px,-26px)}}
+.mainw,.side,.sd{position:relative;z-index:1}
+.rv18{animation:rv18 .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--rv,0s)}
+@keyframes rv18{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* springy lifts, like the website */
+.card,.pb,.cr18,.in18c,.cv2-idea,.sg18-c,.pk-st,.ln18-ck,.ln18-go,.ln18-side,.pl18,.ap18,.kp18>div,.rp18-pv,.in18-box{transition:transform .35s cubic-bezier(.3,1.7,.45,1),box-shadow .3s ease,border-color .2s}
+.card:hover,.cr18:hover,.sg18-c:hover,.kp18>div:hover{transform:translateY(-3px)}
+.kp18>div:hover{background:color-mix(in srgb,var(--brand) 4%,var(--paper))}
+.btn{transition:transform .3s cubic-bezier(.3,1.7,.45,1),box-shadow .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0) scale(.98)}
+.sd18-s:hover .ag,.sd18-s.on .ag{animation:breath18 3s ease-in-out infinite}
+@keyframes breath18{0%,100%{transform:none}50%{transform:translateY(-3px) scale(1.04)}}
+#plato,.tb-pl{animation:breath18 5s ease-in-out infinite}
+.sh-t .serif{display:inline-block;animation:wave18 1s cubic-bezier(.2,.8,.2,1) both .15s}
+@keyframes wave18{from{opacity:0;transform:translateY(10px) rotate(-2deg)}to{opacity:1;transform:none}}
+.sh-t+*::after,.sh .sh-l::after{transform-origin:left;animation:line18 .8s cubic-bezier(.6,0,.2,1) both .2s}
+@keyframes line18{from{transform:scaleX(0)}}
+.cb18-s.on{animation:pop18 .5s cubic-bezier(.34,1.56,.64,1)}
+@media (prefers-reduced-motion:reduce){#bgfx18{display:none}.rv18,.sh-t .serif,.sd18-s .ag,#plato,.tb-pl{animation:none!important}.btn:hover,.card:hover{transform:none}}
 
 </style>
 </head>
@@ -11569,6 +11718,239 @@ onbDraw=function(){const el=$('#onb');if(!el)return;const C=ONB_CH[ONB];const n=
     '<div class="onb-nav">'+(ONB?'<button class="btn btn-ghost" onclick="ONB--;onbDraw()">Back</button>':'<span></span>')+
       (C.k==='demo'?'<div class="row wrap" style="gap:8px">'+(ONB_REPLAY?'':'<button class="btn btn-line" onclick="onbFinish(false)">Skip the demo, set up my agency</button>')+'<button class="btn btn-primary btn-lg" onclick="onbFinish(true)">'+ico('play')+'Show me the demo</button></div>':'<button class="btn btn-primary btn-lg" onclick="onbNext()">'+(ONB?'Next':'Show me how it works')+ico('arrow','a')+'</button>')+'</div></div>';
   const f=$('#obY');if(f&&!f.value)setTimeout(()=>f.focus(),300)};
+
+/* ═══════════ v18g ═══════════ */
+/* ── 1. the campaign block in the sidebar opens and closes ── */
+function sdCampOpen(){return !(S&&S.ui18&&S.ui18.campShut)}
+function sdCampToggle(e){if(e){e.stopPropagation();e.preventDefault()}S.ui18=S.ui18||{};S.ui18.campShut=!S.ui18.campShut;save();refreshNav&&refreshNav()}
+(function(){const _nav=navHTML;navHTML=function(){let h=String(_nav.apply(this,arguments));const open=sdCampOpen();
+  h=h.replace(/(<button class="sd-i[^"]*" data-nav="camps"[^>]*>)([\s\S]*?)(<\/button>)/,(m,a,b,c)=>a+b+'<span class="sd18-tg'+(open?' open':'')+'" role="button" tabindex="0" aria-label="'+(open?'Hide':'Show')+' campaign steps" onclick="sdCampToggle(event)">'+ico('chev')+'</span>'+c);
+  if(!open)h=h.replace('<div class="sd18-camp','<div class="sd18-camp shut');return h}})();
+
+/* ── 2. intent only counts people and brands that are part of a campaign ──
+   Connecting LinkedIn brings in every reply in the inbox. Those are not campaign leads unless the brand is on a
+   campaign list, and conversation signals only count from people named on that brand. Everything else is kept out. */
+const CONV18=['reply','li_reply','meeting','li_accept','call'];
+function campsFor(a){return S.campaigns.filter(c=>(c.targets||[]).includes(a.id))}
+function inCamp18(a){return campsFor(a).length>0}
+function personOk18(a,name){if(!name)return true;const k=norm(name);return (a.people||[]).some(p=>norm(p.name)===k||norm(p.name).split(' ')[0]===k.split(' ')[0]&&norm(p.name).split(' ').pop()===k.split(' ').pop())}
+function sigOk18(a,g,camp){if(g.type==='trigger')return true;if(camp){if(!(camp.targets||[]).includes(a.id))return false;if(g.campaign&&g.campaign!==camp.id)return false}else if(!inCamp18(a))return false;
+  if(CONV18.includes(g.type)&&g.src!=='manual'&&!personOk18(a,g.person))return false;return true}
+function sigs18(a,camp){return (a.signals||[]).filter(g=>sigOk18(a,g,camp))}
+ranked=function(){return S.accounts.filter(inCamp18).map(a=>({a,s:scoreAccount(Object.assign({},a,{signals:sigs18(a)}))})).sort((x,y)=>y.s.score-x.s.score)};
+intentRows=function(){const camp=SGC!=='all'&&S.campaigns.find(c=>c.id===SGC);
+  return S.accounts.filter(a=>camp?(camp.targets||[]).includes(a.id):inCamp18(a)).map(a=>{const sig=sigs18(a,camp||null);const ins=sig.filter(s=>INBOUND(s.type));if(!ins.length)return null;
+    const s=scoreAccount(Object.assign({},a,{signals:sig}));const P={};ins.forEach(g=>{const k=g.person||'';if(!k)return;const p=P[k]=P[k]||{name:k,acts:{},last:g.date,n:0};p.acts[g.type]=(p.acts[g.type]||0)+1;p.n+=SIGNALS[g.type].w;if(g.date>p.last)p.last=g.date});
+    const ppl=Object.values(P).map(p=>{const pp=a.people.find(x=>norm(x.name)===norm(p.name))||{};return Object.assign(p,{role:pp.role||''})}).sort((x,y)=>y.n-x.n);
+    const camps=camp?[camp]:campsFor(a);const talk=ins.some(g=>TALK.includes(g.type));const opp=S.opps.find(o=>o.accountId===a.id&&o.lane!=='lost');
+    const rank=s.score*(1+Math.min(.5,.12*Math.max(0,ppl.length-1)))+(talk?15:0);const ch=intentChannels(ins);const touches=sum(ins,g=>g.qty||1);
+    return{a,s,ppl,camps,talk,opp,rank,ch,touches,last:ins.map(g=>g.date).sort().pop()}}).filter(Boolean).sort((x,y)=>y.rank-x.rank)};
+/* Amplify events: only brands on a campaign, only people on that brand. The rest are counted, not tracked. */
+ampEvents=async function(){if(!ampOn())return 0;try{const j=await ampCall('events',{since:S.ampSince||isoDaysAgo(30)});let n=0,skip=0;
+  (j.events||[]).forEach(ev=>{const a=findAccountByName(ev.company||'');const t={accept:'li_accept',open:'email_open',click:'email_click',reply:'reply',li_reply:'li_reply',meeting:'meeting'}[ev.type];if(!t)return;
+    if(!a||!inCamp18(a)||(CONV18.includes(t)&&ev.person&&!personOk18(a,ev.person))){skip++;return}
+    const c=campsFor(a).sort((x,y)=>campLive(y)-campLive(x))[0];addSignal(a,t,{person:ev.person||'',date:(ev.at||today()).slice(0,10),src:'amplify',campaign:c?c.id:''});n++});
+  S.ampSince=today();S.ampSkipped18=(S.ampSkipped18||0)+skip;save();return n}catch(e){return 0}};
+/* imports of outreach and LinkedIn results follow the same rule */
+const _rts18=rowsToSignals;rowsToSignals=function(P,m,t,camp){if(!['outreach','li_outreach'].includes(t))return _rts18.apply(this,arguments);
+  const keep=P.rows.filter(r=>{const a=findAccountByName((r[m.company]||'').trim());return a&&(camp?((S.campaigns.find(c=>c.id===camp)||{}).targets||[]).includes(a.id):inCamp18(a))});
+  const left=P.rows.length-keep.length;if(left){S.ampSkipped18=(S.ampSkipped18||0)+left;setTimeout(()=>toast(left+' row'+(left===1?' was':'s were')+' left out because '+(left===1?'it is':'they are')+' not part of a campaign'),400)}
+  return _rts18.call(this,Object.assign({},P,{rows:keep}),m,t,camp)};
+/* the pipeline automation only looks at campaign conversations too */
+autoPipeSugs=function(){const have=new Set(S.opps.filter(o=>o.lane!=='lost').map(o=>o.accountId));const dis=new Set(S.autoNo18||[]);const out=[];
+  S.accounts.filter(inCamp18).forEach(a=>{if(have.has(a.id)||dis.has(a.id))return;const sig=sigs18(a).filter(s=>['li_reply','reply','meeting'].includes(s.type)&&daysAgo(s.date)<=45).sort((x,y)=>String(y.date).localeCompare(String(x.date)));if(!sig.length)return;
+    const m=sig.find(s=>s.type==='meeting');const g=m||sig[0];out.push({a,lane:m?'opportunity':'lead',sig:Object.assign({},g,{campaign:g.campaign||(campsFor(a)[0]||{}).id||''}),li:sig.some(s=>s.type==='li_reply'),n:sig.length})});
+  return out.sort((x,y)=>(y.lane==='opportunity')-(x.lane==='opportunity')||y.n-x.n).slice(0,6)};
+/* say so on Signals, so nobody wonders where their other replies went */
+(function(){const _sg=VIEWS.signals;VIEWS.signals=function(){let h=String(_sg.apply(this,arguments));const out=S.accounts.filter(a=>!inCamp18(a)&&(a.signals||[]).some(g=>INBOUND(g.type))).length;
+  const note='<div class="sg18-note">'+ico('target')+'<span><b>Only campaign prospects count here.</b> Brands on a campaign list, and the people named at them.'+(out?' '+out+' other organisation'+(out===1?'':'s')+' with activity '+(out===1?'is':'are')+' left out.':'')+'</span></div>';
+  const i=h.indexOf('<div class="kp18">');return i>-1?h.slice(0,i)+note+h.slice(i):h}})();
+
+/* ── 3. pitch intelligence on every brand card: who holds the account, and for how long ── */
+function incumbent18(p){if(p.intel&&intelOn()){const r=p.intel;const inh=/in.?house/i.test((r.move||'')+(r.agency||''));const yrs=r.last?Math.max(0,Math.floor(daysAgo(r.last)/365)):null;
+    return{who:inh?'In-house team':(r.agency||'Not known'),yrs:inh?null:yrs,since:r.last?r.last.slice(0,4):'',grp:r.group||r.holding||'',src:'Pitch intelligence'}}
+  const all=(p.all&&p.all.length?p.all:p.nt&&p.nt!=='none'?[{type:p.nt,date:p.nd,text:p.news}]:[]);
+  for(const n of all){const t=String(n.text||'');if(!/agency|campaign|\bad\b|advert|creative/i.test(t))continue;
+    const m=t.match(/\b(?:ad|advert|campaign|work|spot|film)s?\b[^.]{0,50}?\b(?:from|by|with)\s+((?:[A-Z][A-Za-z0-9&'’+.-]*)(?:\s(?:[A-Z][A-Za-z0-9&'’+.-]*|&)){0,3})/)||t.match(/\bappointed\s+((?:[A-Z][A-Za-z0-9&'’+.-]*)(?:\s[A-Z][A-Za-z0-9&'’+.-]*){0,3})\s+as\s+(?:its\s+)?(?:new\s+)?(?:creative|media|lead|brand)?\s*agency/);
+    if(m&&!/^(The|A|Its|Their|Former|Formerly)$/.test(m[1]))return{who:m[1].replace(/[.,]$/,''),yrs:null,since:String(n.date||'').slice(0,4),src:'From their news',recent:1}}
+  return null}
+function incRow18(p){const x=incumbent18(p);
+  if(!x)return '<div class="pb-inc none">'+ico('people')+'<span><small>Incumbent agency</small><b>Not known yet</b></span>'+(intelOn()?'':'<em>'+ico('lock')+'Premium</em>')+'</div>';
+  const long=x.yrs!=null&&x.yrs>=5;return '<div class="pb-inc'+(long?' long':'')+'" data-tip="'+esc(x.src+(x.grp?' · '+x.grp:''))+'">'+ico('people')+'<span><small>'+(x.recent?'Latest work by':'Incumbent agency')+'</small><b>'+esc(x.who)+'</b></span>'+
+    (x.recent?'<span class="pb-yrs news"><small>from</small><b>news</b></span>':x.yrs!=null?'<span class="pb-yrs"><b>'+x.yrs+'</b><small>yr'+(x.yrs===1?'':'s')+'</small></span>':x.since?'<span class="pb-yrs"><small>since</small><b>'+esc(x.since)+'</b></span>':'')+'</div>'}
+const _card18g=card18;card18=function(x,on){return _card18g(x,on).replace('</div><div class="pb-now','</div>'+incRow18(x.p)+'<div class="pb-now').replace(/(<\/div>)(<div class="pb-now)/,(m,a,b)=>m)};
+/* make sure brands with pitch intelligence are always in the list */
+const _pool18g=pool18;pool18=function(c){const r=_pool18g(c);if(intelOn()){r.all.filter(x=>x.p.intel&&!r.seen.includes(x)).forEach(x=>r.seen.push(x))}return r};
+
+/* ── 5. the journey: an invitation, not a room hunt; direct mail on the chart; no mail essay at the bottom ── */
+(function(){const ev=STEP_LIB.find(s=>s.t==='Find a room to meet them in');if(ev)Object.assign(ev,{t:'Invite them to an agency event',why:'Ask them to something you are hosting: a breakfast, a roundtable or a talk on the problem you solve. A room of their peers is the warmest way to meet.',
+  m:['{first}, we are hosting a small breakfast for {sector} marketers on [the problem you solve]. Eight people, one topic, no slides. Would you like a seat?','{first}, we are running a short roundtable on [topic] next month with a few {sector} leaders. I think you would add a lot. Shall I save you a place?','{first}, a quick invitation: [your event], [date]. It is built around [the problem], and the room is people like you. Let me know and I will send the details.']})})();
+function fixEvent18(){(S&&S.campaigns||[]).forEach(c=>{const R=c.reach||{};(R.steps||[]).forEach(s=>{if(s.t==='Find a room to meet them in')s.t='Invite them to an agency event'});
+  if(!c.mail18&&R.steps&&R.steps.length&&(R.ch||[]).includes('mail')&&!R.steps.some(s=>s.ch==='mail')){c.mail18=1;const i=STEP_LIB.findIndex(s=>s.ch==='mail');const L=STEP_LIB[i];R.steps.push({id:uid(),w:Math.max(2,Math.min(R.weeks||12,Math.round(5*(R.weeks||12)/12))),ch:'mail',t:L.t,task:L.task||0,warm:0,nonote:0,accept:0,lib:i})}})}
+const _plan18g=planSteps;planSteps=function(ch,W,pace){const out=_plan18g(ch,W,pace);if(ch.includes('mail')&&!out.some(s=>s.ch==='mail')){const i=STEP_LIB.findIndex(s=>s.ch==='mail');const L=STEP_LIB[i];
+    let w=Math.max(2,Math.min(W,Math.round(5*W/12)));const busy=k=>out.filter(p=>p.w===k&&!p.task).length;let k=w;while(k<=W&&busy(k)>=3)k++;if(k>W)k=w;
+    out.push({w:k,ch:'mail',t:L.t,task:L.task||0,warm:0,nonote:0,accept:0,lib:i});out.sort((a,b)=>a.w-b.w||STEP_ORDER(a)-STEP_ORDER(b))}return out};
+mailCard=function(){return ''};
+const _go18g=go;go=function(v,a,k){try{fixEvent18()}catch(e){}return _go18g(v,a,k)};
+
+/* ═══════════ v18h CREATE VALUE, AS A STUDIO ═══════════
+   A colourful menu of value-led assets in seven categories. Every idea is written for the campaign's sector and
+   its problem, never generic. Adding one drops it into the content bank with a little flourish. */
+
+const CV_CATS=[
+  {k:'audit',l:'Audits & teardowns',ic:'magnify',c:'#ff6b6b',d:'Hold up a mirror'},
+  {k:'bench',l:'Benchmarks & data',ic:'chart',c:'#4c6ef5',d:'Show where they rank'},
+  {k:'tool',l:'Tools & scorecards',ic:'grid',c:'#12b886',d:'Something they can use'},
+  {k:'pov',l:'Point of view',ic:'bulb',c:'#7950f2',d:'A sharp opinion, on a page'},
+  {k:'video',l:'Personal video',ic:'play',c:'#fd7e14',d:'Two minutes, for one person'},
+  {k:'event',l:'Events & workshops',ic:'people',c:'#e64980',d:'A room of their peers'},
+  {k:'post',l:'In the post',ic:'gift',c:'#f59f00',d:'Something physical on their desk'}];
+const CV_LEX={
+  retail:{n:'retail',w:'store, site and app',m:'peak trading',a:'shopping journey',r:'three high street rivals',p:'reviews and basket data',ob:'a shopping bag'},
+  fmcg:{n:'FMCG',w:'shelf, pack and social',m:'the next range review',a:'pack',r:'the category leaders',p:'shopper reviews',ob:'a mini shelf'},
+  finance:{n:'financial services',w:'sign-up journey, app and letters',m:'ISA season',a:'onboarding journey',r:'three challengers',p:'app store reviews and Trustpilot',ob:'a welcome pack'},
+  travel:{n:'travel',w:'booking journey and reviews',m:'the January booking peak',a:'booking flow',r:'two rivals',p:'guest reviews',ob:'a luggage tag'},
+  health:{n:'health',w:'pack, site and pharmacy shelf',m:'the January health season',a:'claims',r:'three rivals on shelf',p:'customer reviews',ob:'a prescription pad'},
+  tech:{n:'tech',w:'homepage and onboarding',m:'the next funding round',a:'homepage',r:'five category rivals',p:'G2 and app reviews',ob:'a boxed product'},
+  b2b:{n:'B2B',w:'site, case studies and LinkedIn',m:'next year’s budget planning',a:'case studies',r:'three competitors',p:'buyer reviews',ob:'a board pack'},
+  auto:{n:'automotive',w:'site, configurator and showroom',m:'the September plate change',a:'configurator',r:'three marques',p:'owner reviews',ob:'a key fob'},
+  charity:{n:'charity',w:'donation journey and welcome emails',m:'Christmas appeal season',a:'donor journey',r:'three similar charities',p:'supporter comments',ob:'a thank-you card'},
+  media:{n:'media',w:'channels, social and trailers',m:'the next launch window',a:'launch campaigns',r:'three rival platforms',p:'audience comments',ob:'a ticket'}};
+const CV_LENS={standout:['how alike they look and sound','a distinctive idea and identity','distinctiveness'],dated:['where the brand looks its age','a refresh that keeps what people love','freshness'],
+  relevant:['where they have drifted from culture','a reason to matter again','relevance'],customer:['what customers actually say about them','a sharper view of the customer','customer understanding'],
+  retain:['where customers quietly leave','reasons to stay','retention'],working:['where the budget works least hard','sharper use of the budget','efficiency'],roi:['what the board cannot see','measurement that convinces','proof of return'],
+  convert:['where people drop out before buying','fewer leaks','conversion'],search:['where they vanish in search and AI answers','visibility where people ask','visibility'],b2bpipe:['where buyers lose interest','a fuller pipeline','pipeline'],
+  slow:['where work gets stuck','speed','speed to market'],joined:['where their channels contradict each other','one joined-up experience','consistency'],story:['the stories they are not telling','a story people repeat','storytelling'],
+  reputation:['what people say when they are not in the room','a better reputation','reputation'],talent:['how they look to the people they want to hire','an employer brand people want','employer appeal']};
+function cvSec18(c){const n={};campTargets(c).forEach(a=>{if(a.sk)n[a.sk]=(n[a.sk]||0)+1});const top=Object.entries(n).sort((a,b)=>b[1]-a[1])[0];return (c.sec18&&CV_LEX[c.sec18]&&c.sec18)||(top&&top[0])||cvSecs(c)[0]||'retail'}
+function cvCtx(c){const sec=cvSec18(c);const L=CV_LEX[sec]||CV_LEX.retail;const P=PROB();const pk=Object.keys(L_PROBLEMS).find(k=>L_PROBLEMS[k]===P)||'standout';
+  const lens=CV_LENS[pk]||CV_LENS[probBase(pk)]||['where '+P.short+' shows up','a fix for '+P.short,'impact'];const A=audOf();const D=mainDisc();
+  return{sec,secL:secLabel(sec),L,P,pk,lens,role:A.role,roleP:A.roleP,cap:D.cap,short:P.short}}
+
+function cvGen(cat,x){const L=x.L,lk=x.lens[0],fix=x.lens[1],met=x.lens[2],R=x.role,S=L.n;
+  return({
+    audit:[[cap1(L.a)+' teardown','We put their '+L.w+' next to '+L.r+' and mark exactly '+lk+'.','A '+R+' feels this every day but rarely sees it on one page.','1 day'],
+      ['The '+met+' audit','Twelve moments across their '+L.w+', each scored for '+met+', with the three that cost them most.','Specific, visual and about them, not you.','1 day'],
+      ['A '+L.n+' mystery shop','We go through their '+L.w+' as a customer and show '+lk+'.','Hard to ignore when it is their own experience.','2 days']],
+    bench:[['The '+S+' '+met+' index','Twenty '+L.n+' brands ranked on '+met+', with theirs highlighted and the top three moves.','Everyone wants to know where they rank.','2 days'],
+      ['What '+L.p+' say about '+met,'Thousands of '+L.p+' sorted into themes, theirs against '+L.r+'.','Customers tell them '+lk+' in their own words.','1 to 2 days'],
+      [cap1(L.m)+' benchmark','How '+L.n+' brands showed up last '+L.m+', and what the winners did differently on '+met+'.','Lands right in their planning cycle.','1 day']],
+    tool:[['The '+met+' self-check','Ten yes or no questions a '+R+' can answer in ten minutes, with a score and what to do next.','Useful whether or not they ever hire you.','Half a day'],
+      [cap1(met)+' calculator','Put in three numbers and see what '+x.short+' is costing them, in pounds.','A number they can take to the board.','Half a day'],
+      ['A '+L.n+' '+met+' scorecard','A one-page scorecard to rate their own '+L.w+', with a worked example from their category.','Gets passed around the team.','1 day']],
+    pov:[['What '+L.m+' will reward','One page on how '+L.n+' brands should tackle '+x.short+' before '+L.m+'.','A sharp opinion earns more attention than credentials.','Half a day'],
+      ['Three myths about '+met+' in '+L.n,'The beliefs that keep '+L.n+' brands stuck with '+x.short+', and what to do instead.','Easy to share, easy to agree with.','Half a day'],
+      ['If we ran your '+L.a,'A short, concrete plan for the first 90 days of fixing '+x.short+' at their brand.','Shows how you think before they brief anyone.','1 day']],
+    video:[['A two-minute walk through their '+L.a,'Record over their own '+L.w+': '+lk+', and the first move you would make.','Personal, fast and impossible to ignore.','20 minutes a brand'],
+      ['Their brand against '+L.r,'Three screens side by side, narrated in two minutes, on '+met+'.','Lets them see the gap without a meeting.','30 minutes a brand'],
+      ['A new leader’s first look','For a new marketing lead: what you would look at first on '+met+', on screen.','Lands in their first hundred days.','20 minutes a brand']],
+    event:[['A '+S+' '+met+' breakfast','Eight '+L.n+' marketers, one topic: '+x.short+'. No slides, good coffee.','A room of peers is the warmest way to meet.','A morning'],
+      ['A '+L.n+' roundtable on '+met,'Five brands share what worked on '+x.short+'. You host and write it up.','They get value from each other, you get the room.','A morning'],
+      ['A '+met+' workshop for their team','Ninety minutes on their own '+L.a+', ending with three moves they can make.','The natural last step before a brief.','Half a day']],
+    post:[[cap1(L.ob)+' with a twist','A physical piece that shows '+lk+', with a short note and a link to the full read.','Post gets opened. Few agencies send it.','A few days'],
+      ['The printed '+met+' report','Your hero piece, beautifully printed, with their brand on the cover.','Sits on the desk for weeks.','A few days'],
+      ['A '+S+' '+met+' kit','A small box: the scorecard, three examples from their category and a card inviting them to the breakfast.','Memorable, useful and on brand.','1 week']]})[cat]||[]}
+function cvIdeas(cat,c){const x=cvCtx(c);const secs=cvSecs(c);const map={audit:['audit'],bench:['benchmark','report'],tool:['scorecard','calculator','map'],pov:['kit','concepts','plan'],video:['video'],event:['event'],post:[]};
+  const curated=TOOLS.filter(t=>(map[cat]||[]).includes(t.f)&&t.sec&&t.sec.includes(x.sec)&&(t.p||[]).some(p=>p===probBase(x.pk)||p===x.pk)).slice(0,2)
+    .map(t=>({id:t.id,n:t.n,t:t.t,why:t.why,e:t.effort,tool:1}));
+  const gen=cvGen(cat,x).map((g,i)=>({id:'g18_'+cat+'_'+i,n:g[0],t:g[1],why:g[2],e:g[3]}));
+  return curated.concat(gen).slice(0,4)}
+const CV_SLOT={audit:'hero',bench:'hero',tool:'hero',pov:'blog',video:'video',event:'blog',post:'blog'};
+function cvAdd18(e,cat,id){const c=curCamp();const it=cvIdeas(cat,c).find(i=>i.id===id);if(!it)return;const B=bankOf(c);const C=CV_CATS.find(x=>x.k===cat);
+  if(B.items.some(x=>x.idea18===id)){toast('Already in your content bank');return}
+  let slot=CV_SLOT[cat];if(slot==='hero'&&it.tool&&!c.assets[0]){c.assets.unshift(it.id);slot=null}else if(slot==='hero'&&(c.assets[0]||B.items.some(x=>x.slot==='hero')))slot='blog';
+  if(slot)B.items.push({id:uid(),slot,t:it.n,body:it.t+'\n\nWhy it lands: '+it.why+'\n\n[What you will make, and how]',status:'draft',src:'maker',at:today(),val:it.t,idea18:id,cat18:cat});
+  save();award&&award('bank');cvFly(e,C.c);setTimeout(()=>go('give',null,true),520);toast(it.n+' added to your content bank')}
+function cvFly(e,col){try{const r=(e.currentTarget||e.target).getBoundingClientRect();const t=($('.cv2-bank')||document.body).getBoundingClientRect();const d=document.createElement('i');d.className='cv2-fly';d.style.cssText='left:'+(r.left+r.width/2)+'px;top:'+(r.top+r.height/2)+'px;background:'+col;document.body.appendChild(d);
+  requestAnimationFrame(()=>{d.style.transform='translate('+(t.left+40-r.left-r.width/2)+'px,'+(t.top+40-r.top-r.height/2)+'px) scale(.4)';d.style.opacity='.2'});setTimeout(()=>d.remove(),600)}catch(x){}}
+let CV_CAT='audit';
+function cvStudio(c){const x=cvCtx(c);const C=CV_CATS.find(k=>k.k===CV_CAT)||CV_CATS[0];const ideas=cvIdeas(C.k,c);const B=bankOf(c);const inBank=new Set(B.items.map(i=>i.idea18).filter(Boolean).concat(c.assets||[]));
+  return '<section class="cv2-studio"><div class="cv2-sh"><h2>Pick the <span class="serif">value.</span></h2><span>Every idea is for <b style="--c:'+C.c+'">'+esc(x.secL)+'</b> brands facing <b style="--c:'+C.c+'">'+esc(x.short)+'</b>.</span></div>'+
+    '<div class="cv2-cats">'+CV_CATS.map((k,i)=>'<button class="cv2-cat'+(k.k===C.k?' on':'')+'" style="--c:'+k.c+';--i:'+i+'" onclick="CV_CAT=\''+k.k+'\';go(\'give\',null,true)"><span class="cv2-ci">'+ico(k.ic)+'</span><b>'+k.l+'</b><small>'+k.d+'</small></button>').join('')+'</div>'+
+    '<div class="cv2-ideas" style="--c:'+C.c+'">'+ideas.map((it,i)=>{const on=inBank.has(it.id);const q="'"+C.k+"','"+it.id+"'";
+      return '<article class="cv2-idea'+(on?' on':'')+'" style="--i:'+i+'"><div class="cv2-top"><span class="cv2-big">'+ico(C.ic)+'</span><em>'+(it.tool?'Proven idea':'Made for this campaign')+'</em></div><h3>'+esc(it.n)+'</h3><p>'+esc(it.t)+'</p><div class="cv2-why">'+ico('check')+esc(it.why)+'</div>'+
+        '<div class="cv2-f"><span class="cv2-e">'+ico('clock')+esc(it.e||'')+'</span>'+(on?'<span class="cv2-in">'+ico('check')+'In your bank</span>':'<button class="btn btn-sm cv2-add" onclick="cvAdd18(event,'+q+')">'+ico('plus')+'Add to bank</button>')+'</div></article>'}).join('')+'</div></section>'}
+const CV_SLOT_C={hero:'#ff6b6b',case:'#4c6ef5',lipost:'#0a66c2',blog:'#7950f2',video:'#fd7e14',screen:'#12b886'};
+function cvShelf(c){const sl=bankSlots(c);const p=bankPct(c);const ok=bankReady(c);
+  return '<aside class="cv2-bank"><div class="cv2-bh"><div class="cv2-ring" style="--p:'+p+'"><b>'+p+'%</b></div><div><small>Content bank</small><b>'+(ok?'Ready to launch':'Fill it up')+'</b></div></div>'+
+    '<div class="cv2-slots">'+sl.filter(s=>s.core||s.items.length).map((s,i)=>{const n=s.core?Math.min(s.ready,s.need)+'/'+s.need:(s.ready?s.ready+' ready':'Bonus');return '<div class="cv2-slot'+(s.ok?' ok':'')+(s.items.length?' has':'')+'" style="--c:'+(CV_SLOT_C[s.k]||'#868e96')+';--i:'+i+'"><span>'+ico(s.ic)+'</span><b>'+esc(s.l)+'</b><em>'+n+'</em><i style="width:'+Math.round(Math.min(1,(s.ready+s.drafts*.4)/Math.max(1,s.need))*100)+'%"></i></div>'}).join('')+'</div>'+
+    '<p>'+(ok?'Enough to share something new every couple of weeks.':'Launch needs a hero piece, a case study and a blog post or report, marked ready.')+'</p>'+
+    '<button class="btn btn-ghost btn-sm" onclick="bankAdd(\'case\')">'+ico('upload')+'Add something you have</button>'+(ok?'<button class="btn btn-primary btn-sm" onclick="go(\'reach\')">Next: plan the journey'+ico('arrow','a')+'</button>':'')+'</aside>'}
+function cvRow2(it,c){const s=BANK_SLOTS.find(x=>x.k===it.slot)||{l:'',ic:'doc'};const st=it.status==='ready'?'ready':(it.body&&/\[[^\]]+\]/.test(it.body))?'you':'draft';const col=it.cat18?(CV_CATS.find(k=>k.k===it.cat18)||{}).c:CV_SLOT_C[it.slot]||'#868e96';
+  return '<button class="cv2-row '+st+'" style="--c:'+col+'" onclick="bankOpen(\''+it.id+'\')"><span class="cv2-ri">'+ico(it.cat18?(CV_CATS.find(k=>k.k===it.cat18)||{}).ic:s.ic)+'</span><span class="grow"><small>'+esc(({hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Blog post or report',video:'Personalised video',screen:'Screen recording'})[it.slot]||s.l)+'</small><b>'+esc(it.t)+'</b><span>'+esc(it.val||'')+'</span></span><span class="cv2-st">'+(st==='ready'?ico('check')+'Ready':st==='you'?'Make it yours':it.id==='hero'?'Being made':'Draft')+'</span></button>'}
+VIEWS.give=function(){const c=campPrep();campTab='value';const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||mine[0]||'';const x=cvCtx(c);
+  const I=cvItems(c);const gen=!!(c.gen18||I.filter(i=>i.src==='maker').length>=3);
+  const brief='<div class="cv2-brief"><label class="cv2-chip s">'+ico('layers')+'<select aria-label="Sector" onchange="curCamp().sec18=this.value;save();go(\'give\',null,true)">'+[...new Set([x.sec].concat(cvSecs(c)))].filter(k=>L_SECTORS[k]).map(k=>'<option value="'+k+'"'+(k===x.sec?' selected':'')+'>'+esc(secLabel(k))+'</option>').join('')+'</select></label><span class="cv2-op">+</span><label class="cv2-chip p">'+ico('target')+'<select onchange="setCampProb(this.value)" aria-label="The problem this campaign solves">'+Object.entries(L_PROBLEMS).sort((a,b)=>(mine.includes(b[0])?1:0)-(mine.includes(a[0])?1:0)).map(([k,v])=>'<option value="'+k+'"'+(k===cur?' selected':'')+'>'+esc(v.label)+'</option>').join('')+'</select></label><span class="cv2-op">+</span><span class="cv2-chip r">'+ico('user')+esc(cap1(x.roleP))+'</span><span class="cv2-op">=</span><span class="cv2-chip v">'+ico('gift')+'Value they will open</span></div>';
+  const feed='<section class="cv2-gus">'+agentFace('give',gen?40:54,{badge:false})+'<div class="grow">'+(CV_BUSY?'<b>Gus is building your campaign</b><ul id="cvFeedList" class="cv-fl"></ul>':
+    '<label for="cvFeed"><b>'+(gen?'Tell Gus more and he will rebuild':'Or let Gus build the lot')+'</b><span>'+(gen?'':'Tell him what you have: a report, a result, a point of view. One click and every asset is drafted, each tied to '+esc(x.short)+'.')+'</span></label><div class="cv2-gi"><textarea id="cvFeed" class="inp" rows="2" placeholder="e.g. a 2026 report on why '+esc(x.L.n)+' brands look alike, and a case study where we lifted awareness 9 points">'+esc(c.feed18||'')+'</textarea><div class="cv2-ga"><button class="btn btn-ghost btn-sm" onclick="bankAdd(\'hero\')">'+ico('upload')+'Upload</button><button class="btn btn-primary" onclick="cvGenerate()">'+ico('sparkle')+(gen?'Rebuild':'Build it all')+'</button></div></div>')+'</div></section>';
+  let plan='';if(I.length){plan='<section class="cv2-plan"><div class="cv2-sh"><h2>Your campaign <span class="serif">assets.</span></h2><span>Tap any one to read, edit and mark it ready.</span></div><div class="cv2-rows">'+I.map(it=>cvRow2(it,c)).join('')+'</div></section>'}
+  return secHead('give','Create <span class="serif">value.</span>')+noTargets(c)+brief+'<div class="cv2"><div class="cv2-main">'+cvStudio(c)+feed+plan+'</div>'+cvShelf(c)+'</div>'};
+/* the tour and the guided build point at the new studio */
+(function(){const g=PT_DEMO.findIndex(s=>s.sel==='.cv-feed');if(g>-1){PT_DEMO[g]=Object.assign({},PT_DEMO[g],{sel:'.cv2-studio',t:'Pick the value',b:'Seven kinds of value, each idea written for this sector and its problem: audits, benchmarks, tools, a point of view, personal video, events and something in the post. Add the ones you like to the content bank.',act:null});
+  PT_DEMO.splice(g+1,0,{ch:1,view:'give',sel:'.cv2-gus',t:'Or let Gus build the lot',b:'Tell Gus what you already have. One click and every asset is drafted, each tied to the problem and how you fix it.',act:['Build it all',()=>cvGenerate(),4600]})}
+  const b=PT_DEMO.find(s=>s.sel==='.cv-bank');if(b)b.sel='.cv2-bank';
+  const k=COACH.find(s=>s.hint==='.cv-feed');if(k)k.hint='.cv2-studio'})();
+
+/* ═══════════ v18i INSIGHTS, REBUILT ═══════════
+   What is happening at your prospects right now, what it means and the move to make, in pictures first.
+   Then how it is moving across your sectors, ways to win, and what Scope & Lens has spotted. */
+
+const TRG18={leadership:['New leaders','user','#7950f2','Send a first-100-days read: what you would look at first, on one page.'],results:['Results and trading','chart','#4c6ef5','Lead with their number: one page on what it means for marketing this year.'],
+  agency:['Agency moves','people','#e64980','Be the warm alternative: a useful point of view before any brief goes out.'],pitch:['Pitches and reviews','target','#e64980','Get on the list early with something useful, then ask who runs the review.'],
+  launch:['Launches','rocket','#fd7e14','React inside a week: what worked, and one thing you would add.'],brand:['Campaigns and brand work','megaphone','#fd7e14','Send a short read on the new work: what lands and what it could become.'],
+  expansion:['Expansion','pin','#12b886','Offer a launch-market read for the new region, site or format.'],deal:['Deals and new owners','layers','#f59f00','New owners bring new plans. Send a 90-day brand health check.'],
+  restructure:['Restructures','loop','#868e96','Lead with efficiency: where their budget works hardest and least hard.'],digital:['Digital pushes','monitor','#15aabf','A two-minute teardown of the new experience, on video.'],
+  sustainability:['Sustainability','star','#40c057','Help them prove it: one page on making the claim believable.'],regulation:['Regulation','flag','#868e96','Explain what changes for their customers, in plain English.']};
+function insNews18(){const mine=myBrandSet();const secs=new Set(insSecs());const out=[];
+  PROSPECTS.forEach(p=>{const items=(p.all&&p.all.length?p.all:p.nt&&p.nt!=='none'&&p.news?[{type:p.nt,date:p.nd,text:p.news,src:p.src,pub:p.pub}]:[]);
+    const live=((S.live.news||{})[p.name]||{items:[]}).items.map(n=>({type:n.type||p.nt,date:String(n.date||'').slice(0,7),text:n.title||n.text,src:n.link||n.src,pub:n.source||n.pub,live:1}));
+    live.concat(items).forEach(n=>{if(!n.text||!n.date||!TRG18[n.type]||monthsAgo(n.date)>6)return;const on=mine.has(norm(p.name));if(!on&&!secs.has(p.sector))return;out.push({p,n,on})})});
+  S.campaigns.forEach(c=>campTargets(c).forEach(a=>{const n=a.news;if(!n||!n.text||!TRG18[n.type]||monthsAgo(String(n.date).slice(0,7))>6)return;const p=PROSPECTS.find(x=>norm(x.name)===norm(a.name))||{name:a.name,sector:a.sk,sub:a.sub||a.sector||''};out.push({p,n:{type:n.type,date:String(n.date).slice(0,7),text:n.text,src:n.src,pub:n.pub},on:true})}));
+  const seen=new Set();return out.filter(x=>{const k=x.p.name+x.n.text;if(seen.has(k))return false;seen.add(k);return true}).sort((a,b)=>(b.on-a.on)||String(b.n.date).localeCompare(String(a.n.date)))}
+let INS18_T='';
+function insCard18(x,i){const T=TRG18[x.n.type];const q="'"+esc(x.p.name).replace(/'/g,"\\'")+"'";
+  return '<article class="in18c'+(x.on?' on':'')+'" style="--c:'+T[2]+';--i:'+i+'"><div class="in18c-h">'+logo(x.p.name,36)+'<div class="grow"><b>'+esc(x.p.name)+'</b><small>'+esc(x.p.sub||secLabel(x.p.sector))+'</small></div><span class="in18c-t">'+ico(T[1])+esc(T[0])+'</span></div>'+
+    '<p>'+esc(x.n.text)+'</p><div class="in18c-m"><span>'+ico('bolt')+'<b>Your move</b>'+esc(T[3])+'</span></div>'+
+    '<div class="in18c-f"><small>'+esc(fmtYM(x.n.date))+(x.n.pub?' · '+(x.n.src?'<a href="'+esc(x.n.src)+'" target="_blank" rel="noopener">'+esc(x.n.pub)+'</a>':esc(x.n.pub)):'')+(x.on?' · <em>On your campaign</em>':'')+'</small>'+
+    '<div class="row" style="gap:6px">'+(x.on?'':'<button class="btn btn-line btn-xs" onclick="openBrand('+q+')">'+ico('plus')+'Look closer</button>')+plBtn('What should I send '+x.p.name+' after this news: '+x.n.text,'What do I send?')+'</div></div></article>'}
+function insBars18(L){const by={};L.forEach(x=>{by[x.n.type]=(by[x.n.type]||0)+1});const R=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,7);const mx=Math.max(1,...R.map(r=>r[1]));
+  return '<div class="in18b">'+R.map(([k,v],i)=>{const T=TRG18[k];return '<button class="in18b-r'+(INS18_T===k?' on':'')+'" style="--c:'+T[2]+';--i:'+i+'" onclick="INS18_T=INS18_T===\''+k+'\'?\'\':\''+k+'\';go(\'insights\',null,true)"><span>'+ico(T[1])+'</span><b>'+esc(T[0])+'</b><i><em style="width:'+Math.round(v/mx*100)+'%"></em></i><strong>'+v+'</strong></button>'}).join('')+'</div>'}
+function insSecHeat18(L){const by={};L.forEach(x=>{by[x.p.sector]=(by[x.p.sector]||0)+1});const R=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,4);const mx=Math.max(1,...R.map(r=>r[1]));
+  return '<div class="in18h">'+R.map(([k,v],i)=>'<div style="--s:'+(0.55+0.45*v/mx)+';--i:'+i+'"><span><b>'+v+'</b></span><small>'+esc(secLabel(k))+'</small></div>').join('')+'</div>'}
+const WIN18=[['user','#7950f2','New leader, new list','A new marketing lead reviews agencies in their first year. Be useful in their first hundred days, before the list is written.','Who has a new leader on my list, and what should I send them?'],
+  ['chart','#4c6ef5','Results day is a door','The week a brand publishes results, the board is asking what marketing will do about it. Arrive with one page on that.','Which brands on my list have results due, and what could I send?'],
+  ['clock','#12b886','Arrive before the brief','Most brands are not buying at any one time. The ones who win are remembered when they are. A steady rhythm beats a big moment.','How do I keep a steady rhythm with my prospects without being annoying?'],
+  ['people','#e64980','Host, do not attend','A breakfast for eight in their sector beats a stand at a conference. Peers make the room worth coming to.','Help me plan a small breakfast for my target sector.'],
+  ['gift','#f59f00','Give the thing you would charge for','The gift that lands is the one they would happily pay for: a teardown, a benchmark, a tool.','What is the most valuable thing I could give my best prospect this month?'],
+  ['target','#ff6b6b','One problem per campaign','Agencies that lead with a single, named problem get replies. Credentials get filed.','Which single problem should my next campaign lead with?']];
+VIEWS.insights=function(){const L=insNews18();const shown=INS18_T?L.filter(x=>x.n.type===INS18_T):L;const mine=L.filter(x=>x.on).length;
+  const lead=L.filter(x=>x.n.type==='leadership').length,res=L.filter(x=>x.n.type==='results').length,ag=L.filter(x=>['agency','pitch'].includes(x.n.type)).length,mv=L.filter(x=>['launch','brand','expansion','digital'].includes(x.n.type)).length;
+  const latest=L.map(x=>x.n.date).sort().pop();const A=getInsights().slice(0,6);
+  const tiles=[['user','#7950f2',lead,'New leaders','leadership'],['chart','#4c6ef5',res,'Results and trading','results'],['people','#e64980',ag,'Agency moves and pitches','agency'],['rocket','#fd7e14',mv,'Launches and new work','launch'],['target','#12b886',mine,'About brands on your campaigns','']];
+  return '<div class="sh plain"><div class="sh-l"><h1 class="sh-t">What is <span class="serif">moving.</span></h1></div><div class="sh-a"><span class="in18-up"><i></i>'+(latest?'Latest story '+esc(fmtYM(latest)):'Waiting for news')+'</span><button class="btn btn-ghost btn-sm" onclick="insTune()">'+ico('settings')+'Tune</button></div></div>'+
+    '<div class="in18t">'+tiles.map((t,i)=>'<button class="in18t-c'+(INS18_T&&INS18_T===t[4]?' on':'')+'" style="--c:'+t[1]+';--i:'+i+'" onclick="INS18_T=\''+t[4]+'\'===INS18_T?\'\':\''+t[4]+'\';go(\'insights\',null,true)"><span>'+ico(t[0])+'</span><b>'+t[2]+'</b><small>'+t[3]+'</small></button>').join('')+'</div>'+
+    '<div class="in18g"><section class="in18-feed"><div class="cv2-sh"><h2>At your <span class="serif">prospects.</span></h2><span>'+(INS18_T?esc(TRG18[INS18_T][0])+' · <button class="link" onclick="INS18_T=\'\';go(\'insights\',null,true)">Show everything</button>':'The last six months, brands on your campaigns first')+'</span></div>'+
+      (shown.length?'<div class="in18f">'+shown.slice(0,12).map(insCard18).join('')+'</div>':'<div class="card empty">'+ico('radar')+'<b>Nothing new here yet</b><p>Add brands to a campaign and their news lands here, with the move to make.</p></div>')+'</section>'+
+      '<aside class="in18-side"><div class="in18-box"><h3>What is driving the news</h3><p>Across your sectors and campaign brands. Tap one to filter.</p>'+insBars18(L)+'</div><div class="in18-box"><h3>Where it is busiest</h3>'+insSecHeat18(L)+'</div></aside></div>'+
+    '<section class="in18-win"><div class="cv2-sh"><h2>Ways to <span class="serif">win.</span></h2><span>Short plays that work for agencies like yours</span></div><div class="in18w">'+WIN18.map((w,i)=>'<div class="in18w-c" style="--c:'+w[1]+';--i:'+i+'"><span>'+ico(w[0])+'</span><b>'+w[2]+'</b><p>'+w[3]+'</p>'+plBtn(w[4],'Use this')+'</div>').join('')+'</div></section>'+
+    (A.length?'<section class="in18-sl"><div class="cv2-sh"><h2>From Scope &amp; <span class="serif">Lens.</span></h2><span>Briefings and playbooks</span></div><div class="in18s">'+A.map((x,i)=>'<button class="in18s-c" style="--i:'+i+'" onclick="openInsight(\''+x.id+'\')"><em>'+esc(INS_CATS[x.cat]||'')+'</em><b>'+esc(x.title)+'</b><small>'+fmtDate(x.date)+'</small></button>').join('')+'</div></section>':'')};
+VIEWS.insights_after=function(){try{if(API_INFO&&API_INFO.news&&typeof checkNews==='function'&&myBrandSet().size){const last=S.live.newsTs?Date.parse(S.live.newsTs):0;if(Date.now()-last>6*36e5){S.live.newsTs=new Date().toISOString();save();checkNews(true)}}}catch(e){}};
+(function(){const i=PT_DEMO.findIndex(s=>s.view==='insights');if(i>-1)Object.assign(PT_DEMO[i],{sel:'.in18t,.in18g',t:'What is moving at your prospects',b:'New leaders, results, agency moves and launches at the brands on your campaigns and in your sectors, each with the move to make. Then short plays that win.'})})();
+
+/* ═══════════ v18j MOTION, IN THE WEBSITE'S STYLE ═══════════
+   Soft colour drifting behind the page, sections that rise in as a page opens, springy lifts on hover and
+   numbers that count up. Calm, never in the way, and off for anyone who prefers reduced motion. */
+const RM18=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function bgfx18(){if(RM18||$('#bgfx18'))return;const d=document.createElement('div');d.id='bgfx18';d.setAttribute('aria-hidden','true');
+  d.innerHTML='<i class="b1"></i><i class="b2"></i><i class="b3"></i><b class="r1"></b><b class="r2"></b>';document.body.prepend(d)}
+let LASTV18='';
+function enter18(fresh){const v=$('#view');if(!v)return;if(!fresh||RM18)return;const kids=[...v.children].filter(e=>e.offsetHeight>0).slice(0,10);
+  kids.forEach((e,i)=>{e.classList.remove('rv18');void e.offsetWidth;e.style.setProperty('--rv',(i*0.06)+'s');e.classList.add('rv18')});
+  setTimeout(()=>kids.forEach(e=>e.classList.remove('rv18')),1400)}
+function count18(){if(RM18)return;$$('#view .kp18 b,#view .in18t-c b,#view .ln18-n b').forEach(b=>{if(b.dataset.c18)return;const t=b.textContent.trim();const m=t.match(/^([£$€]?)(\d[\d,.]*)([kmKM%]?)$/);if(!m)return;
+  const end=parseFloat(m[2].replace(/,/g,''));if(!isFinite(end)||end===0)return;b.dataset.c18=1;const dec=(m[2].split('.')[1]||'').length;const t0=performance.now();const D=800;
+  const step=now=>{const k=Math.min(1,(now-t0)/D);const e=1-Math.pow(1-k,3);b.textContent=m[1]+(end*e).toFixed(dec)+m[3];if(k<1)requestAnimationFrame(step);else b.textContent=t};requestAnimationFrame(step)})}
+(function(){const _go=go;go=function(v,a,k){const fresh=!k&&(v!==LASTV18||true);const r=_go.apply(this,arguments);LASTV18=VIEW;try{bgfx18();requestAnimationFrame(()=>{enter18(!k);count18()})}catch(e){}return r}})();
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;
