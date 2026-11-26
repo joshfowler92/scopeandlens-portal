@@ -1,0 +1,87 @@
+/* ═══════════ v18l CREATE VALUE: YOUR ASSETS FIRST, THEN GUS ═══════════
+   Step 1: Gus asks for what you already have, links and files. Step 2: his ideas, built around those assets, the
+   sector and the problem. Every idea opens to show why it helps, the angles to send it with, how to make it and a
+   ready-to-copy Claude prompt for an HTML demo in your branding. */
+
+CV_CATS.unshift({k:'mine',l:'From your assets',ic:'file',c:'#5c6b7a',d:'Rework what you have'});CV_SLOT.mine='blog';
+function cvOwn(c){return bankOf(c).items.filter(i=>i.src==='own')}
+function cvGuess(s,c){s=String(s||'').toLowerCase();if(/case|client|result|we helped|success/.test(s))return 'case';if(/youtu|vimeo|loom|video/.test(s))return 'video';if(/linkedin\.com\/(posts|feed)|post/.test(s))return 'lipost';
+  if(/report|research|benchmark|whitepaper|white-paper|index|survey|study|guide|\.pdf/.test(s))return 'blog';return bankItems(c).some(i=>i.slot==='hero')?'blog':'hero'}
+function cvTitle(u){try{const x=new URL(/^https?:/.test(u)?u:'https://'+u);const p=x.pathname.split('/').filter(Boolean).pop()||x.hostname;return decodeURIComponent(p).replace(/\.[a-z0-9]+$/i,'').replace(/[-_]+/g,' ').replace(/\b\w/g,m=>m.toUpperCase()).slice(0,80)}catch(e){return u.slice(0,80)}}
+function cvAddLink(){const i=$('#cvL');const v=(i&&i.value||'').trim();if(!v)return;const c=curCamp();const u=/^https?:/.test(v)?v:'https://'+v;
+  bankOf(c).items.push({id:uid(),slot:cvGuess(v,c),t:cvTitle(v),url:u,status:'ready',src:'own',at:today()});save();i.value='';go('give',null,true);setTimeout(()=>{const n=$('#cvL');n&&n.focus()},60)}
+async function cvAddFiles(fl){const c=curCamp();const L=[...(fl||[])].slice(0,10);for(const f of L){let text='';try{text=(await fileText(f)||'').slice(0,20000)}catch(e){}
+  bankOf(c).items.push({id:uid(),slot:cvGuess(f.name+' '+text.slice(0,400),c),t:f.name.replace(/\.[a-z0-9]+$/i,'').replace(/[_-]+/g,' '),status:'ready',src:'own',at:today(),text:text||undefined,file:f.name})}
+  save();toast('Added '+L.length+' file'+(L.length===1?'':'s')+'. Gus has read '+(L.length===1?'it':'them')+'.');go('give',null,true)}
+function cvSlot(id,v){const it=bankOf(curCamp()).items.find(x=>x.id===id);if(it){it.slot=v;save();go('give',null,true)}}
+function cvRm(id){const c=curCamp();act('Removed',()=>{bankOf(c).items=bankOf(c).items.filter(x=>x.id!==id)},{refresh:false,ic:'🗑'});go('give',null,true)}
+const SLOT_L={hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Report or blog',video:'Video',screen:'Screen recording'};
+function cvStep1(c){const own=cvOwn(c);const done=c.step18>=2;
+  return '<section class="cv3-s1'+(done?' done':'')+'"><div class="cv3-h">'+agentFace('give',done?34:52,{badge:false})+'<div class="grow"><small>Step 1 · Your content bank</small><b>'+(done?'Your assets ('+own.length+')':'First, what do you already have?')+'</b>'+(done?'':'<span>Share links or files: reports, case studies, decks, articles, videos. Gus reads them and builds his ideas around your real work, for '+esc(cvCtx(c).secL)+' brands facing '+esc(cvCtx(c).short)+'.</span>')+'</div>'+(done?'<button class="btn btn-ghost btn-sm" onclick="curCamp().step18=1;save();go(\'give\',null,true)">'+ico('plus')+'Add more</button>':'')+'</div>'+
+    (done?(own.length?'<div class="cv3-own">'+own.map(x=>'<span class="cv3-ch">'+ico(x.url?'link':'file')+esc(x.t)+'<em>'+esc(SLOT_L[x.slot]||'')+'</em></span>').join('')+'</div>':''):
+    '<div class="cv3-in"><div class="cv3-link"><input id="cvL" class="inp" placeholder="Paste a link: https://youragency.com/case-studies/…" onkeydown="if(event.key===\'Enter\')cvAddLink()"><button class="btn btn-line" onclick="cvAddLink()">'+ico('link')+'Add link</button></div>'+
+      '<label class="cv3-drop"><input type="file" hidden multiple accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="cvAddFiles(this.files)"><span>'+ico('upload')+'</span><b>Drop in PDFs, decks or documents</b><small>Up to ten at a time. Gus reads the words; the files are not kept.</small></label></div>'+
+      (own.length?'<ul class="cv3-list">'+own.map(x=>'<li><span class="cv3-li">'+ico(x.url?'link':'file')+'</span><b>'+esc(x.t)+'</b><select class="inp sm" onchange="cvSlot(\''+x.id+'\',this.value)" aria-label="What kind">'+Object.entries(SLOT_L).map(([k,l])=>'<option value="'+k+'"'+(k===x.slot?' selected':'')+'>'+l+'</option>').join('')+'</select><button class="icon-btn" onclick="cvRm(\''+x.id+'\')" aria-label="Remove">'+ico('x')+'</button></li>').join('')+'</ul>':'')+
+      '<div class="cv3-go"><button class="link" onclick="curCamp().step18=2;save();go(\'give\',null,true)">I do not have anything yet</button><button class="btn btn-primary" onclick="curCamp().step18=2;save();go(\'give\',null,true)">'+ico('sparkle')+(own.length?'Done. Show me Gus’s ideas':'Show me Gus’s ideas')+ico('arrow','a')+'</button></div>')+'</section>'}
+
+/* ideas built from the agency's own assets */
+const _cvGen18l=cvGen;cvGen=function(cat,x){if(cat!=='mine')return _cvGen18l(cat,x);const own=cvOwn(curCamp()).slice(0,3);const out=[];
+  own.forEach(a=>{const n='“'+a.t+'”';if(a.slot==='case')out.push(['Your case study, retold for '+x.L.n,'Retell '+n+' as a before and after for a '+x.L.n+' brand facing '+x.short+'.','Proof, framed around their problem rather than your credentials.','Half a day']);
+    else out.push(['A one-page read from '+a.t,'Pull the three findings in '+n+' that matter most to a '+x.role+' facing '+x.short+', with their brand as the example.','Turns work you already made into something about them.','Half a day']);
+    out.push(['A two-minute walk through '+a.t,'Record over '+n+' with one brand in mind: what it means for them, and the first move you would make.','Personal, quick to make, and it reuses your best work.','20 minutes a brand'])});
+  return out.slice(0,4)};
+function cvIdeaFind(cat,id){return cvIdeas(cat,curCamp()).find(i=>i.id===id)}
+
+/* ── the detail: why, angles, how, and a Claude prompt ── */
+const CV_HOW={audit:['Pick 8 to 12 moments in their '+'customer journey to compare','Screenshot theirs next to two rivals and score each one','Write the three biggest fixes in one line each'],bench:['Choose 15 to 20 brands and one clear measure','Score them the same way, and keep the working','Highlight theirs and write three takeaways'],
+  tool:['Agree the ten questions or three inputs','Build a simple scorecard or calculator','Add what to do next for each score band'],pov:['Pick one opinion you can defend','Back it with three points and one example from their category','Keep it to one page'],
+  video:['Open their site or app and hit record','Show the gap in the first 30 seconds','End with the first move, not a pitch'],event:['Choose one topic and a date six weeks out','Invite eight people at peer brands','Send a short write-up to everyone afterwards'],
+  post:['Design a single physical piece around the insight','Add a short handwritten note and a link to the full read','Send it to their office, not their home'],mine:['Open your existing asset and pick the parts that matter to them','Reframe the headline around their problem','Add their brand as the worked example']};
+const CV_STRUCT={audit:'a side-by-side comparison of 8 to 12 moments with a score and a short note on each, then the three biggest fixes',bench:'a ranked chart or table of brands with theirs highlighted, a short method note, then three takeaways',
+  tool:'an interactive scorecard or calculator with inputs, a live result and what to do next for each result band',pov:'a one-page editorial with a strong headline, three numbered points, one example from their category and a pull quote',
+  video:'a script and storyboard page for a two-minute personalised video, with timestamps and what is on screen',event:'an invitation page with the topic, who it is for, a short agenda and a reply button',
+  post:'a printable one-page insert plus a simple mock-up of the physical piece and its packaging',mine:'a reworked version of the agency’s existing asset, reframed around this prospect’s problem with their brand as the example'};
+function cvAngles(cat,x){const base=['If they have a new marketing lead, send it as a first-100-days read: what you would look at first.','After results or a trading update, tie it to the number they reported and what it means for marketing.','If the account is quiet, send one finding in two lines with the piece attached, and no ask.'];
+  const extra={audit:'Lead with the single most surprising gap, not the full list.',bench:'Tell them where they rank before they open it. Curiosity does the rest.',tool:'Offer to run it with their team in fifteen minutes.',pov:'Name the belief you are challenging in the subject line.',video:'Use their first name and their brand in the thumbnail.',event:'Invite them as a peer with something to add, not as a prospect.',post:'Follow up a week later with the digital version and one question.',mine:'Say why you thought of them in the first line.'}[cat];
+  return [extra].concat(base)}
+function cvWhy(cat,x,it){return [it.why,'It is about their '+x.L.a+' and '+x.short+', not about your agency.','It shows how you think before anyone writes a brief, which is when shortlists are made.']}
+function cvPrompt(cat,it,x){const O=S.setup.offer||{};const I=agInfo()||{};const B=S.brand||{};const ex=(campTargets(curCamp())[0]||{}).name||'a '+x.L.n+' brand';
+  return 'You are building a single-file HTML demo of a value-led asset that a UK agency will send to a prospect.\n\n'+
+    'Agency: '+(S.setup.agency||'Our agency')+(I.website||S.setup.website?' ('+(I.website||S.setup.website)+')':'')+'. What we do best: '+String(O.uvp||'[what you do best]').replace(/\.+$/,'')+'.\n'+
+    'Brand: primary colour '+(B.primary||'#2c56ed')+', accent '+(B.accent||'#5eead4')+'. Use these colours and a clean, modern type pairing that suits the agency.\n\n'+
+    'The asset: '+it.n+'. '+it.t+'\n'+
+    'Who it is for: a '+x.role+' at a '+x.L.n+' brand facing '+x.short+'. Example prospect: '+ex+'.\n'+
+    'Why it matters to them: '+it.why+'\n\n'+
+    'Build:\n- One self-contained HTML file, inline CSS and JavaScript, no external libraries. Responsive and accessible.\n'+
+    '- A clear headline, a two-line intro written to the prospect, then '+CV_STRUCT[cat]+'.\n'+
+    '- Use realistic sample data where none is given, clearly labelled "Illustrative". Do not invent facts about the prospect or claim results we have not shared.\n'+
+    '- End with a soft, useful next step, such as offering to walk them through it. No hard sell.\n'+
+    '- Tone: warm, direct, plain British English. No em dashes.'}
+function cvMore(cat,id){const c=curCamp();const it=cvIdeaFind(cat,id);const C=CV_CATS.find(k=>k.k===cat);if(!it||!C)return;const x=cvCtx(c);const B=bankOf(c);const inBank=B.items.some(i=>i.idea18===id)||(c.assets||[]).includes(id);const pr=cvPrompt(cat,it,x);
+  modal('<div class="cvm" style="--c:'+C.c+'"><div class="cvm-h"><span class="cv2-big">'+ico(C.ic)+'</span><div><small>'+esc(C.l)+'</small><h2>'+esc(it.n)+'</h2><p>'+esc(it.t)+'</p></div></div>'+
+    '<div class="cvm-g"><div><h4>'+ico('check')+'Why it helps them</h4><ul>'+cvWhy(cat,x,it).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div><div><h4>'+ico('send')+'Angles when you send it</h4><ul>'+cvAngles(cat,x).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>'+
+    '<div><h4>'+ico('list')+'How to make it</h4><ol>'+(CV_HOW[cat]||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol><small class="muted">Effort: '+esc(it.e||'')+'</small></div></div>'+
+    '<div class="cvm-p"><div class="row between"><h4>'+ico('sparkle')+'Build a demo with Claude</h4><button class="btn btn-sm btn-line" onclick="copyText($(\'#cvmP\').value,this)">'+ico('copy')+'Copy the prompt</button></div><p class="muted small">Paste this into Claude to get a working HTML version of it in your branding, ready to tailor for each brand.</p><textarea id="cvmP" class="inp" rows="7" readonly>'+esc(pr)+'</textarea></div>'+
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Close</button>'+(inBank?'<span class="cv2-in">'+ico('check')+'In your bank</span>':'<button class="btn btn-primary" onclick="closeOverlays();cvAdd18(event,\''+cat+'\',\''+id+'\')">'+ico('plus')+'Add to bank</button>')+'</div></div>')}
+/* idea cards open the detail; bank rows from ideas open it too */
+cvStudio=function(c){const x=cvCtx(c);if(CV_CAT==='mine'&&!cvOwn(c).length)CV_CAT='audit';const cats=CV_CATS.filter(k=>k.k!=='mine'||cvOwn(c).length);const C=cats.find(k=>k.k===CV_CAT)||cats[0];const ideas=cvIdeas(C.k,c);const B=bankOf(c);const inBank=new Set(B.items.map(i=>i.idea18).filter(Boolean).concat(c.assets||[]));
+  return '<section class="cv2-studio"><div class="cv2-sh"><h2>Gus’s <span class="serif">ideas.</span></h2><span>For <b>'+esc(x.secL)+'</b> brands facing <b>'+esc(x.short)+'</b>'+(cvOwn(c).length?', built around your '+cvOwn(c).length+' asset'+(cvOwn(c).length===1?'':'s'):'')+'. Tap one for the detail.</span></div>'+
+    '<div class="cv2-cats" style="grid-template-columns:repeat('+cats.length+',minmax(0,1fr))">'+cats.map((k,i)=>'<button class="cv2-cat'+(k.k===C.k?' on':'')+'" style="--c:'+k.c+';--i:'+i+'" onclick="CV_CAT=\''+k.k+'\';go(\'give\',null,true)"><span class="cv2-ci">'+ico(k.ic)+'</span><b>'+k.l+'</b><small>'+k.d+'</small></button>').join('')+'</div>'+
+    '<div class="cv2-ideas" style="--c:'+C.c+'">'+ideas.map((it,i)=>{const on=inBank.has(it.id);const q="'"+C.k+"','"+it.id+"'";
+      return '<article class="cv2-idea'+(on?' on':'')+'" style="--i:'+i+'" onclick="if(!event.target.closest(\'button\'))cvMore('+q+')"><div class="cv2-top"><span class="cv2-big">'+ico(C.ic)+'</span><em>'+(C.k==='mine'?'From your work':it.tool?'Proven idea':'Made for this campaign')+'</em></div><h3>'+esc(it.n)+'</h3><p>'+esc(it.t)+'</p><div class="cv2-why">'+ico('check')+esc(it.why)+'</div>'+
+        '<div class="cv2-f"><button class="btn btn-sm btn-ghost cv2-more" onclick="cvMore('+q+')">Details</button>'+(on?'<span class="cv2-in">'+ico('check')+'In your bank</span>':'<button class="btn btn-sm cv2-add" onclick="cvAdd18(event,'+q+')">'+ico('plus')+'Add</button>')+'</div></article>'}).join('')+'</div></section>'};
+VIEWS.give_after=function(){if(CV_BUSY)cvTick()};
+const _row18l=cvRow2;cvRow2=function(it,c){let h=_row18l(it,c);if(it.idea18&&it.cat18)h=h.replace(/onclick="bankOpen\('([^']+)'\)"/,'onclick="cvMore(\''+it.cat18+'\',\''+it.idea18+'\')"');return h};
+
+/* ── the page, in order: your assets, Gus's ideas, the full list ── */
+VIEWS.give=function(){const c=campPrep();campTab='value';const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||mine[0]||'';const x=cvCtx(c);
+  if(c.step18==null)c.step18=cvOwn(c).length||bankOf(c).items.length?2:1;if(c.step18>=2&&cvOwn(c).length&&!c.catSet18){CV_CAT='mine';c.catSet18=1}
+  const I=cvItems(c);const gen=!!(c.gen18||I.filter(i=>i.src==='maker').length>=3);
+  const brief='<div class="cv2-brief"><label class="cv2-chip s">'+ico('layers')+'<select aria-label="Sector" onchange="curCamp().sec18=this.value;save();go(\'give\',null,true)">'+[...new Set([x.sec].concat(cvSecs(c)))].filter(k=>L_SECTORS[k]).map(k=>'<option value="'+k+'"'+(k===x.sec?' selected':'')+'>'+esc(secLabel(k))+'</option>').join('')+'</select></label><span class="cv2-op">+</span><label class="cv2-chip p">'+ico('target')+'<select onchange="setCampProb(this.value)" aria-label="The problem this campaign solves">'+Object.entries(L_PROBLEMS).sort((a,b)=>(mine.includes(b[0])?1:0)-(mine.includes(a[0])?1:0)).map(([k,v])=>'<option value="'+k+'"'+(k===cur?' selected':'')+'>'+esc(v.label)+'</option>').join('')+'</select></label><span class="cv2-op">+</span><span class="cv2-chip r">'+ico('user')+esc(cap1(x.roleP))+'</span></div>';
+  const step2=c.step18>=2?'<section class="cv3-s2"><div class="cv3-h2"><small>Step 2 · Gus fills it out</small></div>'+cvStudio(c)+
+    '<div class="cv3-all">'+agentFace('give',30,{badge:false})+'<span class="grow">'+(CV_BUSY?'<b>Gus is drafting…</b><ul id="cvFeedList" class="cv-fl"></ul>':'<b>Want Gus to draft the lot?</b> He writes every asset the campaign needs, using your assets and this brief.')+'</span>'+(CV_BUSY?'':'<button class="btn btn-line btn-sm" onclick="cvGenerate()">'+ico('sparkle')+(gen?'Redraft':'Draft them all')+'</button>')+'</div></section>':'';
+  const plan=I.length?'<section class="cv2-plan"><div class="cv2-sh"><h2>Your content <span class="serif">bank.</span></h2><span>Tap any one to see more, edit it and mark it ready.</span></div><div class="cv2-rows">'+I.map(it=>cvRow2(it,c)).join('')+'</div></section>':'';
+  return secHead('give','Create <span class="serif">value.</span>')+noTargets(c)+brief+'<div class="cv2"><div class="cv2-main">'+cvStep1(c)+step2+plan+'</div>'+cvShelf(c)+'</div>'};
+(function(){const i=PT_DEMO.findIndex(s=>s.sel==='.cv2-studio');if(i>-1){PT_DEMO.splice(i,0,{ch:1,view:'give',sel:'.cv3-s1',t:'Your assets first',b:'Gus starts with what you already have: case studies, reports, decks and links. He reads them so every idea builds on your real work.'});
+  Object.assign(PT_DEMO[i+1],{t:'Then Gus’s ideas',b:'Ideas in eight kinds, built around your assets, the sector and the problem. Tap any one for why it helps, the angles to send it with, how to make it, and a prompt to build a demo with Claude.'})}
+  const g=PT_DEMO.findIndex(s=>s.sel==='.cv2-gus');if(g>-1)PT_DEMO[g]=Object.assign({},PT_DEMO[g],{sel:'.cv3-all',t:'Or let Gus draft the lot'})})();

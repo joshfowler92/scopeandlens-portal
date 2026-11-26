@@ -4223,6 +4223,163 @@ button.jfn[onclick]:hover{border-color:var(--fc);box-shadow:0 0 0 3px color-mix(
 @media (prefers-reduced-motion:reduce){#bgfx18{display:none}.rv18,.sh-t .serif,.sd18-s .ag,#plato,.tb-pl{animation:none!important}.btn:hover,.card:hover{transform:none}}
 .av.ph,.ip-av.ph{padding:0;overflow:hidden;background:var(--bg)}.av.ph img,.ip-av.ph img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
 .sg18-p span.ph{overflow:hidden;padding:0}.sg18-p span.ph img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.cs18{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-4px 0 12px;font-size:13px;color:var(--mute)}.cs18>svg{width:14px;height:14px}
+.cs18 b{padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--brand) 10%,var(--paper));color:var(--ink);font-size:12.5px}
+/* v18k section colour */
+:root{--sec:#4c6ef5}
+.sd-i[style*="--sc"]>svg{width:28px;height:28px;padding:6px;border-radius:9px;background:color-mix(in srgb,var(--sc) 11%,transparent);color:var(--sc);flex:none;transition:transform .3s cubic-bezier(.3,1.7,.45,1),background .2s}
+.sd-i[style*="--sc"]:hover>svg{transform:translateY(-2px) rotate(-4deg)}
+.sd-i.on[style*="--sc"]{background:color-mix(in srgb,var(--sc) 9%,transparent);color:var(--ink)}
+.sd-i.on[style*="--sc"]>svg{background:var(--sc);color:#fff}
+.sd-i.on[style*="--sc"]::before{background:var(--sc)!important}
+.sd18-s.on{background:color-mix(in srgb,var(--sc) 10%,transparent)!important}
+.sh-t .serif{color:var(--sec)}
+.sh .sh-l::after,.sh-t+*::after{background:var(--sec)}
+.kp18>div b{color:color-mix(in srgb,var(--sec) 70%,var(--ink))}
+.kp18{border-color:color-mix(in srgb,var(--sec) 22%,var(--rule));background:linear-gradient(180deg,color-mix(in srgb,var(--sec) 4%,var(--paper)),var(--paper))}
+.cb18{border-color:color-mix(in srgb,var(--sec) 25%,var(--rule))}
+/* the value studio, a smidge calmer */
+.cv2-cat{background:color-mix(in srgb,var(--c) 7%,var(--paper));border-color:color-mix(in srgb,var(--c) 22%,transparent)}
+.cv2-cat.on{background:color-mix(in srgb,var(--c) 88%,#212529)}
+.cv2-idea{border-color:color-mix(in srgb,var(--c) 25%,transparent)}.cv2-idea::before{background:color-mix(in srgb,var(--c) 9%,transparent)}
+.cv2-big{background:color-mix(in srgb,var(--c) 90%,#212529)}
+.cv2-chip.s{background:#e7f1ff}.cv2-chip.p{background:#ffeded}.cv2-chip.r{background:#efe9ff}.cv2-chip.v{background:#ffe8a3}
+.cv2-gus{background:linear-gradient(120deg,#fff8ef,#fffbea 55%,#f2fbf3)}
+.cv2-add{background:color-mix(in srgb,var(--c) 90%,#212529)}
+/* v18k home intent */
+.hi18 .card-h{display:flex;align-items:center;justify-content:space-between}
+.hi18-live{display:inline-flex;align-items:center;gap:6px;font:700 11.5px var(--sans);color:#e03131;text-transform:uppercase;letter-spacing:.06em}.hi18-live i{width:7px;height:7px;border-radius:50%;background:#e03131;animation:ping18r 1.8s infinite}
+@keyframes ping18r{0%{box-shadow:0 0 0 0 rgba(224,49,49,.5)}100%{box-shadow:0 0 0 8px transparent}}
+.hi18-orb .card.orbitc{border:0;box-shadow:none;padding:0;margin:0;background:transparent}
+.hi18-orb .orb-flex{display:block}.hi18-orb .orb-stage{height:240px;max-width:100%;margin:0 auto}
+.hi18-orb .orb-rl{display:none}.hi18-orb .orb-chip .lg{transform:scale(.8)}.hi18-orb .orb-more{display:none}
+.hi18-l{list-style:none;margin:8px 0 0;padding:0}
+.hi18-l li{display:flex;align-items:center;gap:9px;padding:7px 4px;border-top:1px solid var(--rule);cursor:pointer;animation:rise18 .4s var(--ease) both;animation-delay:calc(var(--i) * .07s);transition:background .15s}
+.hi18-l li:hover{background:var(--bg)}
+.hi18-l b{display:block;font-size:13.5px}.hi18-l small{display:block;font-size:11.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.hi18-h{display:inline-flex;gap:3px;align-items:center;font-style:normal;font:700 11px var(--sans);color:var(--c);padding:3px 8px;border-radius:99px;background:color-mix(in srgb,var(--c) 13%,transparent);white-space:nowrap}.hi18-h svg{width:10px;height:10px;transform:rotate(-45deg)}
+.hi18-t{font-size:11px!important;color:var(--mute);white-space:nowrap;min-width:44px;text-align:right}
+/* v18k insights audit */
+.ib18{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:12px 14px;border-radius:16px;background:var(--paper);border:1px solid var(--rule);margin-bottom:18px}
+.ib18 label{display:flex;flex-direction:column;gap:4px}.ib18 small{font:800 10px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.ib18 select{height:36px;padding:0 30px 0 12px;border-radius:10px;border:1.5px solid var(--rule-2);background:var(--bg);font:600 13.5px var(--sans);color:var(--ink);cursor:pointer}
+.ib18-n{font-size:13px;color:var(--mute)}.ib18-n b{color:var(--ink)}
+.ih18{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:14px}
+.ih18-s{display:flex;flex-direction:column;gap:14px}
+.ig18{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ip18{display:flex;flex-direction:column;border-radius:18px;background:var(--paper);border:1px solid var(--rule);overflow:hidden;animation:rise18 .45s var(--ease) both;animation-delay:calc(min(var(--i),8) * .05s);transition:transform .35s cubic-bezier(.3,1.7,.45,1),box-shadow .3s}
+.ip18:hover{transform:translateY(-4px);box-shadow:0 18px 34px -22px var(--c)}
+.ip18-cov .pb-cov{height:92px}.ip18.big .ip18-cov .pb-cov{height:200px}
+.ih18-s .ip18{flex-direction:row}.ih18-s .ip18-cov{width:38%;flex:none}.ih18-s .ip18-cov .pb-cov{height:100%;min-height:150px}.ih18-s .pb-lg{bottom:10px;left:10px}
+.ip18-b{padding:26px 16px 14px;display:flex;flex-direction:column;gap:7px;flex:1}.ih18-s .ip18-b{padding:14px}
+.ip18-k{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ip18-k span{display:inline-flex;gap:5px;align-items:center;font:700 11px var(--sans);padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 13%,transparent);color:var(--c)}.ip18-k span svg{width:11px;height:11px}
+.ip18-k small{font-size:12px;color:var(--mute)}.ip18-k em{font-style:normal;font:700 11px var(--sans);color:var(--good)}
+.ip18 h3{margin:0;font-size:17px;letter-spacing:-.01em}.ip18.big h3{font-size:24px}
+.ip18 p{margin:0;font-size:13.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ip18.big>.ip18-b>p{-webkit-line-clamp:3;font-size:15px}
+.ip18-m summary{list-style:none;cursor:pointer;display:inline-flex;gap:5px;align-items:center;font:700 12.5px var(--sans);color:var(--c)}.ip18-m summary::-webkit-details-marker{display:none}.ip18-m summary svg{width:12px;height:12px}
+.ip18-m[open] p{-webkit-line-clamp:unset;margin:6px 0 8px;padding:9px 11px;border-radius:11px;background:color-mix(in srgb,var(--c) 7%,var(--bg));font-size:13px}
+.ip18-src{display:inline-flex;gap:4px;align-items:center;font:600 12px var(--sans);color:var(--mute);margin-top:auto}.ip18-src svg{width:11px;height:11px}
+.iw18{display:flex;gap:12px;overflow-x:auto;padding:4px 4px 12px;scroll-snap-type:x mandatory}
+.iw18-c{flex:0 0 250px;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;align-items:flex-start;padding:16px;border-radius:18px;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 10%,var(--paper)),var(--paper) 60%);border:1px solid color-mix(in srgb,var(--c) 25%,transparent);animation:rise18 .45s var(--ease) both;animation-delay:calc(var(--i) * .06s)}
+.iw18-c>span{width:40px;height:40px;border-radius:13px;background:var(--c);color:#fff;display:grid;place-items:center;animation:float18 6s ease-in-out infinite;animation-delay:calc(var(--i) * -1s)}.iw18-c>span svg{width:19px;height:19px}
+.iw18-c b{font-size:15.5px}.iw18-c p{margin:0;font-size:13px;line-height:1.45;color:var(--ink-2,#444);flex:1}
+@media (max-width:1100px){.ih18{grid-template-columns:1fr}.ig18{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.ig18{grid-template-columns:1fr}.ih18-s .ip18{flex-direction:column}.ih18-s .ip18-cov{width:auto}.ih18-s .ip18-cov .pb-cov{min-height:0;height:92px}}
+/* v18k journey choice + editable flow */
+.jc18{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}
+.jc18-o{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;text-align:left;background:var(--paper);border:1.5px solid var(--rule);transition:transform .3s cubic-bezier(.3,1.7,.45,1),border-color .2s,box-shadow .2s}
+.jc18-o:hover{transform:translateY(-2px);border-color:var(--rule-2)}
+.jc18-o.on{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink);background:color-mix(in srgb,var(--sec) 6%,var(--paper))}
+.jc18-i{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--sec) 12%,transparent);color:var(--sec);flex:none}.jc18-i svg{width:24px;height:24px}
+.jc18-o b{display:block;font-size:15.5px}.jc18-o small{display:block;font-size:12.5px;color:var(--mute);line-height:1.4;margin-top:2px}
+.jc18-o>i{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rule-2);display:grid;place-items:center;flex:none}.jc18-o.on>i{background:var(--sec);border-color:var(--sec);color:#fff}.jc18-o>i svg{width:12px;height:12px}
+.jc18-sum{display:flex;gap:9px;align-items:center;padding:10px 14px;border-radius:12px;background:color-mix(in srgb,var(--good) 9%,var(--paper));margin:0 0 14px;font-size:13.5px}.jc18-sum>svg{width:15px;height:15px;color:var(--good);flex:none}
+.jc18-hide{display:none!important}
+.jf18-n{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--mute);margin:4px 0 10px;line-height:1.45}.jf18-n svg{width:14px;height:14px;flex:none;margin-top:2px}
+.jfn18{position:relative;display:flex;justify-content:center}
+.jfn18-c{position:absolute;right:-6px;top:50%;transform:translate(100%,-50%);display:flex;gap:3px;opacity:.35;transition:opacity .2s}
+.jfn18:hover .jfn18-c,.jfn18:focus-within .jfn18-c{opacity:1}
+.jfn18-c button{width:26px;height:26px;border-radius:8px;border:1px solid var(--rule-2);background:var(--paper);display:grid;place-items:center}.jfn18-c button:hover{border-color:var(--ink)}
+.jfn18-c svg{width:12px;height:12px}.jfn18-c button:nth-child(1) svg{transform:rotate(-90deg)}.jfn18-c button:nth-child(2) svg{transform:rotate(90deg)}
+.jfw{position:relative}.jfw18{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);width:22px;height:22px;border-radius:50%;background:var(--paper);border:1.5px solid var(--sec);color:var(--sec);display:grid;place-items:center;opacity:0;transition:opacity .2s,transform .3s cubic-bezier(.3,1.7,.45,1);z-index:2}
+.jfw:hover .jfw18,.jfw18:focus{opacity:1;transform:translate(-50%,-50%) scale(1)}.jfw18 svg{width:11px;height:11px}
+@media (max-width:800px){.jc18{grid-template-columns:1fr}.jfn18-c{position:static;transform:none;opacity:1;margin-left:6px}.jfn18{align-items:center}}
+.jc18-i svg{width:auto!important;height:30px!important}
+/* v18l create value steps */
+.cv3-s1{padding:18px;border-radius:20px;background:linear-gradient(120deg,#fff8ef,#fffbea 55%,#f2fbf3);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.cv3-s1.done{padding:12px 16px;box-shadow:none;border:1px solid var(--rule);background:var(--paper)}
+.cv3-h{display:flex;gap:14px;align-items:center}.cv3-h small,.cv3-h2 small{display:block;font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--sec)}
+.cv3-h b{display:block;font-size:19px;letter-spacing:-.01em}.cv3-h span{display:block;font-size:13.5px;color:var(--ink-2,#444);line-height:1.45;margin-top:3px}
+.cv3-h2{margin:0 0 6px}
+.cv3-in{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.cv3-link{display:flex;flex-direction:column;gap:8px}.cv3-link .inp{background:rgba(255,255,255,.85)}
+.cv3-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:14px;border-radius:16px;border:2px dashed color-mix(in srgb,var(--sec) 45%,transparent);background:rgba(255,255,255,.6);cursor:pointer;transition:transform .3s cubic-bezier(.3,1.7,.45,1),background .2s}
+.cv3-drop:hover{transform:translateY(-2px);background:#fff}.cv3-drop span{width:38px;height:38px;border-radius:12px;background:var(--sec);color:#fff;display:grid;place-items:center;animation:float18 5s ease-in-out infinite}.cv3-drop span svg{width:18px;height:18px}
+.cv3-drop b{font-size:14px}.cv3-drop small{font-size:12px;color:var(--mute)}
+.cv3-list{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.cv3-list li{display:flex;align-items:center;gap:10px;padding:7px 8px 7px 10px;border-radius:12px;background:#fff;border:1px solid var(--rule);animation:rise18 .35s var(--ease) both}
+.cv3-list b{flex:1;font-size:13.5px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cv3-li svg{width:15px;height:15px;color:var(--sec)}.cv3-list select{max-width:160px}
+.cv3-go{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:14px}
+.cv3-own{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.cv3-ch{display:inline-flex;gap:6px;align-items:center;padding:5px 10px;border-radius:99px;background:var(--bg);font-size:12.5px}.cv3-ch svg{width:12px;height:12px}.cv3-ch em{font-style:normal;color:var(--mute);font-size:11.5px}
+.cv3-all{display:flex;gap:12px;align-items:center;margin-top:14px;padding:12px 14px;border-radius:16px;background:var(--paper);border:1px dashed var(--rule-2);font-size:13.5px}
+.cv2-more{padding:5px 10px}
+.cv2-idea{cursor:pointer}
+.cvm h2{margin:2px 0 4px;font-size:22px;letter-spacing:-.02em}.cvm-h{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}.cvm-h small{font:800 10.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--c)}.cvm-h p{margin:0;font-size:14px;line-height:1.5}
+.cvm-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cvm-g>div{padding:12px 14px;border-radius:14px;background:color-mix(in srgb,var(--c) 6%,var(--bg))}
+.cvm h4{display:flex;gap:6px;align-items:center;margin:0 0 6px;font-size:13.5px}.cvm h4 svg{width:14px;height:14px;color:var(--c)}
+.cvm ul,.cvm ol{margin:0;padding-left:18px;font-size:13px;line-height:1.5}.cvm li{margin:3px 0}
+.cvm-p{margin-top:14px;padding:14px;border-radius:14px;border:1.5px solid var(--ink);background:var(--paper)}.cvm-p textarea{width:100%;font:12.5px/1.5 ui-monospace,Menlo,monospace;resize:vertical;background:var(--bg)}
+@media (max-width:800px){.cv3-in,.cvm-g{grid-template-columns:1fr}.cv2-cats{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.modal:has(.cvm){max-width:880px!important;width:calc(100vw - 32px)}
+/* ═══ v18m launch deck ═══ */
+.ln19-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin:4px 0 22px;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:var(--card,#fff)}
+.ln19-n{display:flex;gap:26px;margin-right:auto}.ln19-n div{display:flex;flex-direction:column;line-height:1.1}.ln19-n b{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}.ln19-n small{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ln19-n div.bump b{animation:ln19b .6s cubic-bezier(.2,.9,.3,1.4)}@keyframes ln19b{40%{transform:scale(1.35);color:#2f9e44}}
+.ln19-sw{display:flex;align-items:center;gap:8px}.ln19-sw>span{font-size:12px;color:var(--muted)}
+.dk18{max-width:620px;margin:0 auto;position:relative}
+.dk18-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px;color:var(--muted)}.dk18-top b{color:var(--ink,#111);font-size:15px}
+.dk18-keys kbd{display:inline-block;min-width:22px;padding:1px 6px;margin:0 2px 0 8px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;font:600 11px/1.6 inherit;text-align:center;background:var(--card,#fff)}
+.dk18-stack{position:relative;display:grid;min-height:420px;perspective:1400px}
+.dk18-c{grid-area:1/1;position:relative;background:var(--card,#fff);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 24px 60px -28px rgba(20,24,40,.35),0 2px 6px rgba(20,24,40,.05);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s,box-shadow .3s;touch-action:pan-y;user-select:none;will-change:transform}
+.dk18-c.back{pointer-events:none}.dk18-c.b1{transform:translateY(14px) scale(.96);opacity:.75}.dk18-c.b2{transform:translateY(28px) scale(.92);opacity:.4}
+.dk18-c.top{cursor:grab;z-index:3}.dk18-c.top:active{cursor:grabbing}
+.dk18-c header{display:flex;align-items:center;gap:12px;margin-bottom:16px}.dk18-c header b{display:block;font-size:17px}.dk18-c header small{color:var(--muted);font-size:12.5px}
+.dk18-ch{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:600;color:var(--cc);background:color-mix(in srgb,var(--cc) 10%,transparent)}.dk18-ch svg{width:14px;height:14px}
+.dk18-k{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;font-size:13px}.dk18-k span{padding:2px 8px;border-radius:6px;background:var(--soft,#f3f4f7);color:var(--muted);font-size:11.5px;font-weight:600}.dk18-k em{display:inline-flex;gap:5px;align-items:center;font-style:normal;color:#e67700;font-size:12px}.dk18-k em svg{width:13px;height:13px}
+.dk18-m{width:100%;min-height:170px;resize:vertical;font-size:14.5px;line-height:1.6;border-radius:14px}.dk18-sj{width:100%;margin-bottom:8px;font-weight:600}
+.dk18-nn{display:flex;gap:12px;align-items:flex-start;padding:18px;border-radius:14px;background:color-mix(in srgb,#0a66c2 6%,transparent)}.dk18-nn svg{width:22px;height:22px;color:#0a66c2;flex:none}.dk18-nn b{display:block;margin-bottom:2px}.dk18-nn span{color:var(--muted);font-size:13.5px}
+.dk18-st{position:absolute;top:22px;display:inline-flex;gap:6px;align-items:center;padding:6px 12px;border-radius:10px;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;opacity:0;transition:opacity .15s;z-index:2;pointer-events:none;backdrop-filter:blur(6px)}.dk18-st svg{width:15px;height:15px}
+.dk18-st.yes{right:22px;color:#2f9e44;border:2px solid #2f9e44;background:rgba(47,158,68,.08)}.dk18-st.no{left:22px;color:#7950f2;border:2px solid #7950f2;background:rgba(121,80,242,.08)}
+.dk18-c.lean-yes .dk18-st.yes,.dk18-c.lean-no .dk18-st.no{opacity:1}
+.dk18-c.lean-yes{box-shadow:0 30px 70px -26px rgba(47,158,68,.45)}.dk18-c.lean-no{box-shadow:0 30px 70px -26px rgba(121,80,242,.45)}
+.dk18-c.fly-yes{transform:translateX(130%) rotate(14deg)!important;opacity:0;transition:transform .5s cubic-bezier(.5,0,.75,0),opacity .45s .05s}
+.dk18-c.fly-yes::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.85) 50%,transparent 70%);background-size:250% 100%;animation:dk18s .45s linear}
+@keyframes dk18s{from{background-position:150% 0}to{background-position:-50% 0}}
+.dk18-c.fly-down{transform:translateY(40px) scale(.9)!important;opacity:0}
+.dk18-c.flip{transform:rotateY(90deg)!important;transition:transform .3s cubic-bezier(.5,0,.7,.4)}
+.dk18-c.redrafted{animation:dk18f .4s cubic-bezier(.2,.8,.3,1)}@keyframes dk18f{from{transform:rotateY(-90deg)}to{transform:none}}
+.dk18-m.typing{background:linear-gradient(90deg,transparent,color-mix(in srgb,#7950f2 9%,transparent),transparent) no-repeat;background-size:40% 100%;animation:dk18t 1s ease-out}
+@keyframes dk18t{from{background-position:-40% 0;color:transparent}60%{color:inherit}to{background-position:140% 0}}
+.dk18-act{display:flex;justify-content:center;align-items:flex-end;gap:22px;margin-top:22px}
+.dk18-b{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;cursor:pointer;color:var(--muted);font:inherit}
+.dk18-b svg{box-sizing:content-box;width:22px;height:22px;padding:18px;border-radius:50%;background:var(--card,#fff);border:1px solid var(--line);box-shadow:0 10px 26px -14px rgba(20,24,40,.4);transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.dk18-b small{font-size:12px;font-weight:600}
+.dk18-b.sk svg{width:16px;height:16px;padding:13px}
+.dk18-b.yes svg{color:#fff;background:linear-gradient(135deg,#37b24d,#2b8a3e);border-color:transparent;width:26px;height:26px;padding:22px;box-shadow:0 14px 34px -12px rgba(47,158,68,.6)}
+.dk18-b.no svg{color:#7950f2}
+.dk18-b:hover svg{transform:translateY(-3px)}.dk18-b.no:hover svg{background:#f3efff}.dk18-b.yes:hover svg{box-shadow:0 18px 40px -12px rgba(47,158,68,.75)}
+.dk18-b:active svg{transform:scale(.94)}
+.dk18-glow{position:fixed;width:12px;height:12px;margin:-6px;border-radius:50%;pointer-events:none;z-index:9999;background:radial-gradient(circle,rgba(55,178,77,.55),transparent 70%);animation:dk18g .8s ease-out forwards}
+@keyframes dk18g{to{transform:scale(28);opacity:0}}
+.dk18-p{position:fixed;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:#37b24d;pointer-events:none;z-index:9999;animation:dk18p .8s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes dk18p{to{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
+.dk18-empty{max-width:440px;margin:30px auto;text-align:center}.dk18-empty h3{margin:14px 0 6px;font-size:22px}.dk18-empty p{color:var(--muted);margin-bottom:16px}
+@media (max-width:640px){.ln19-n{gap:18px;width:100%}.ln19-sw{width:100%;justify-content:space-between}.dk18-keys{display:none}.dk18-c{padding:18px}.dk18-stack{min-height:400px}}
+@media (prefers-reduced-motion:reduce){.dk18-c,.dk18-c.fly-yes,.dk18-c.flip{transition:opacity .2s!important}.dk18-c.fly-yes::after,.dk18-m.typing,.dk18-c.redrafted{animation:none}}
+.dk18-stack{min-height:0}.dk18-c.back>*{visibility:hidden}.dk18-c.back{background:color-mix(in srgb,var(--card,#fff) 92%,#7950f2 3%)}
+.dk18-nn{margin-bottom:4px}
+@media (max-width:640px){.ln19-bar{padding:12px 14px;gap:10px;margin-bottom:16px}.ln19-n b{font-size:20px}.ln19-sw>span{display:none}.ln19-sw{width:auto;flex:1}.ln19-sw .seg{width:100%}.ln19-sw .seg button{flex:1;padding:6px 8px;font-size:13px}.dk18-act{gap:16px;margin-top:16px}}
 
 </style>
 </head>
@@ -11984,6 +12141,245 @@ noLinkedIn18=function(msg){const I=agInfo();const confirm=/^Confirm /.test(msg);
   modal('<h2>'+(confirm?'One quick confirmation':'Amplify cannot see your LinkedIn')+'</h2><p class="sub">'+(confirm?'You are signed in to Plato as '+esc((SESSION&&SESSION.email)||'')+', and your LinkedIn is connected in Amplify under '+esc(want)+'. To keep accounts safe, that inbox confirms once that Plato can use it.':esc(msg))+'</p>'+
   '<div class="field"><label for="nlE">The email LinkedIn is connected under in Amplify</label><input class="inp" id="nlE" value="'+esc(want&&confirm?want:(I.senderEmail||want||''))+'" placeholder="you@youragency.com"></div>'+
   '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Close</button><button class="btn btn-primary" onclick="const v=$(\'#nlE\').value.trim();if(!v)return;setAg(\'senderEmail\',v);save();closeOverlays();ampLink18(v)">Send the confirmation link</button></div>')};
+
+/* ═══════════ v18k ═══════════ */
+/* ── 1. every campaign chooses its own sectors. Who you want sets the default; the campaign narrows or changes it ── */
+function campSecs(c){c=c||curCamp();const d=(S.setup.profile.sectors||[]);return c&&c.sectors&&c.sectors.length?c.sectors.filter(k=>L_SECTORS[k]):d}
+function withCampSecs(fn,c){const P=S.setup.profile;const o=P.sectors;const s=campSecs(c);if(s===o)return fn();P.sectors=s;try{return fn()}finally{P.sectors=o}}
+(function(){const f=fitP;fitP=function(p){return withCampSecs(()=>f(p))}})();
+(function(){const f=findNow;findNow=async function(){const P=S.setup.profile;const o=P.sectors;P.sectors=campSecs();try{return await f.apply(this,arguments)}finally{P.sectors=o}}})();
+cvSecs=function(c){const t=campTargets(c).map(a=>a.sk).filter(Boolean);return [...new Set(campSecs(c).concat(t))]};
+let NC18={secs:[],prob:''};
+function ncSecChips(){return Object.entries(L_SECTORS).map(([k,v])=>'<button type="button" class="chip'+(NC18.secs.includes(k)?' on':'')+'" onclick="ncSec(\''+k+'\')">'+esc(v.label)+'</button>').join('')}
+function ncSec(k){NC18.secs=NC18.secs.includes(k)?NC18.secs.filter(x=>x!==k):NC18.secs.concat(k);const e=$('#ncS');if(e)e.innerHTML=ncSecChips();const n=$('#ncN');if(n)n.placeholder=ncName18()}
+function ncName18(){const p=L_PROBLEMS[NC18.prob];const s=NC18.secs[0];return p?cap1(p.short)+(s?' in '+secLabel(s).toLowerCase():''):'New campaign'}
+newCampaignFlow=function(){closeOverlays();if(!profReady()){toast('Finish your agency profile first. Then you can build campaigns.');go('agency');return}const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);
+  NC18={secs:(P.sectors||[]).slice(0,2),prob:mine[0]||''};const cur=curCamp();
+  modal('<div class="nc"><div class="nc-faces">'+OUT_K.map((k,i)=>agentFace(k,i?40:52,{badge:false,cls:i?'':'big'})).join('<i></i>')+'</div><h2>A new campaign</h2><p class="sub">Three quick choices, then Nora finds the brands. Nothing is sent until you launch.</p>'+
+    '<div class="field"><label>1. Which sectors is it going after?</label><div class="chips" id="ncS">'+ncSecChips()+'</div><small class="hint">Starts from Who you want. Pick one or two for a sharper campaign.</small></div>'+
+    '<div class="field"><label for="ncPr">2. Which problem does it solve?</label><select class="inp" id="ncPr" onchange="NC18.prob=this.value;$(\'#ncN\').placeholder=ncName18()">'+(mine.length?'<optgroup label="Your problems">'+mine.map(k=>'<option value="'+k+'"'+(k===NC18.prob?' selected':'')+'>'+esc(L_PROBLEMS[k].label)+'</option>').join('')+'</optgroup>':'<option value="">Choose the problem…</option>')+
+      Object.entries(L_PROB_GROUPS).map(([g,gl])=>'<optgroup label="'+esc(gl)+'">'+Object.keys(L_PROBLEMS).filter(k=>L_PROBLEMS[k].g===g&&!mine.includes(k)).map(k=>'<option value="'+k+'">'+esc(L_PROBLEMS[k].label)+'</option>').join('')+'</optgroup>').join('')+'</select></div>'+
+    '<div class="field"><label for="ncN">3. Give it a name</label><input class="inp" id="ncN" placeholder="'+esc(ncName18())+'" onkeydown="if(event.key===\'Enter\')ncGo()"></div>'+
+    (cur&&cur.targets.length&&!isBlankCamp(cur)?'<label class="row" style="gap:8px"><input type="checkbox" id="ncCopy"> Start with the brands from '+esc(cur.name)+'</label>':'')+
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="ncGo()">'+agentFace('prospects',22,{badge:false})+'Start with Nora'+ico('arrow','a')+'</button></div></div>')};
+newCampaign=newCampaignFlow;
+ncGo=function(){if(!NC18.secs.length){toast('Pick at least one sector');return}const pr=($('#ncPr')||{}).value||NC18.prob;const nm=($('#ncN').value||'').trim()||ncName18();const cp=$('#ncCopy')&&$('#ncCopy').checked;const old=curCamp();
+  act('Started '+nm,()=>{const c=newCamp(nm);c.touched=1;c.sectors=NC18.secs.slice();if(pr)c.problem=pr;if(cp&&old)c.targets=old.targets.slice();const blank=S.campaigns.find(x=>isBlankCamp(x)&&!x.touched);if(blank)S.campaigns=S.campaigns.filter(x=>x!==blank);S.campaigns.unshift(c);S.cur=c.id},{refresh:false,ic:'🚀'});
+  closeOverlays();renderShell();go('prospects');if(typeof coachTick==='function')coachTick()};
+function campSecEdit(){const c=curCamp();NC18={secs:campSecs(c).slice(),prob:c.problem||''};modal('<h2>Sectors for '+esc(c.name)+'</h2><p class="sub">Nora only looks for brands in these. Changing them does not remove brands already on the list.</p><div class="chips" id="ncS">'+ncSecChips()+'</div><div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Cancel</button><button class="btn btn-primary" onclick="if(!NC18.secs.length){toast(\'Pick at least one\');return}curCamp().sectors=NC18.secs.slice();save();closeOverlays();go(\'prospects\',\'brands\',true);toast(\'Sectors updated\')">Save</button></div>')}
+/* show the campaign's sectors on Pick your brands */
+(function(){const f=VIEWS.prospects;VIEWS.prospects=function(tab){const h=String(f.apply(this,arguments));const c=curCamp();if(!c||tab==='people')return h;const chip='<div class="cs18">'+ico('layers')+'<span>Looking in</span>'+campSecs(c).map(k=>'<b>'+esc(secLabel(k))+'</b>').join('')+'<button class="link" onclick="campSecEdit()">Change</button></div>';
+  const i=h.indexOf('<div class="pk-steps">');return i>-1?h.slice(0,i)+chip+h.slice(i):h}})();
+
+/* ── 2. a colour for every section, softer than the value studio, carried from the sidebar into the page ── */
+const SEC_C={home:'#4c6ef5',camps:'#7950f2',perf:'#7950f2',prospects:'#e8590c',give:'#e67700',reach:'#ae3ec9',launch:'#2f9e44',signals:'#e03131',pipeline:'#0c8599',insights:'#f08c00',reports:'#1971c2',agency:'#5c7cfa',team:'#495057',settings:'#495057'};
+(function(){const f=go;go=function(v){const r=f.apply(this,arguments);try{document.documentElement.style.setProperty('--sec',SEC_C[VIEW]||'#4c6ef5');document.body.dataset.v18=VIEW}catch(e){}return r}})();
+(function(){const f=navHTML;navHTML=function(){return String(f.apply(this,arguments)).replace(/<button class="(sd-i|sd18-s)([^"]*)" data-nav="([a-z]+)"/g,(m,c,r,k)=>'<button class="'+c+r+'" style="--sc:'+(SEC_C[k]||'#868e96')+'" data-nav="'+k+'"')}})();
+(function(){const f=sideFoot;sideFoot=function(){return String(f.apply(this,arguments)).replace(/<button class="(sd-i)([^"]*)" data-nav="([a-z]+)"/g,(m,c,r,k)=>'<button class="'+c+r+'" style="--sc:'+(SEC_C[k]||'#868e96')+'" data-nav="'+k+'"')}})();
+
+/* ── 3. Home: no team section; intent shows the closing-in orbit, small, with a live list of who is warming up ── */
+crewRelay=function(){return ''};
+function homeIntent18(){const R=intentRows();if(!R.length)return '<div class="card hi18"><div class="card-h"><h3>Who is warming up</h3></div><div class="empty">Nobody yet. As your messages land, the warmest organisations appear here.</div></div>';
+  let orb=orbitHTML();orb=orb.replace(/<aside class="orb-dial"[\s\S]*<\/aside>/,'').replace(/<div class="orb-head">[\s\S]*?<\/span><\/div>/,'').replace(/onclick="orbSel\('([^']+)'\)"/g,'onclick="openAccount(\'$1\')"');
+  const mem=orbMemory?orbMemory():{};const L=R.slice(0,6);
+  return '<div class="card hi18" data-tour="intent"><div class="card-h"><h3>Who is <span class="serif">warming up</span></h3><span class="hi18-live"><i></i>Live</span></div>'+
+    '<div class="hi18-orb">'+orb+'</div>'+
+    '<ul class="hi18-l">'+L.map((r,i)=>{const H=HEAT.find(x=>x.n===r.s.heat)||HEAT[0];const up=r.s.heat>=3;return '<li style="--c:'+r.s.colour+';--i:'+i+'" onclick="openAccount(\''+r.a.id+'\')">'+logo(r.a,28)+'<span class="grow"><b>'+esc(r.a.name)+'</b><small>'+esc(intentWhy(r))+'</small></span><em class="hi18-h">'+(up?ico('arrow'):'')+esc(H.l)+'</em><small class="hi18-t">'+(r.last?rel(String(r.last).slice(0,10)):'')+'</small></li>'}).join('')+'</ul>'+
+    '<div class="hp-f"><button class="link small" onclick="go(\'signals\')">All signals and intent</button>'+plBtn('Which organisations should I lean into this week, and why?','Where should I lean in?')+'</div></div>'}
+(function(){const f=VIEWS.home;VIEWS.home=function(){let h=String(f.apply(this,arguments));const a=h.indexOf('<div class="hi card" data-tour="intent">');const b=h.indexOf('<div class="card hins">');
+  if(a>-1&&b>a)h=h.slice(0,a)+homeIntent18()+h.slice(b);return h};const g=VIEWS.home_after;VIEWS.home_after=function(){g&&g.apply(this,arguments);if($('#orbStage'))setTimeout(()=>{try{orbInit()}catch(e){}},60)}})();
+
+/* ── 4. Insights, audited: one filter bar, a lead story, picture cards, then plays. Less text, more to look at ── */
+const INS18F={type:'',scope:'all',sec:''};
+function insPic18(x,big){const p=x.p;return '<div class="ip18-cov">'+(PROSPECTS.includes(p)?cover18(p):'<div class="pb-cov" style="--h:'+hue(p.name)+'"><span class="pb-lg">'+logo(p.name,46)+'</span></div>')+'</div>'}
+function insItem18(x,i,big){const T=TRG18[x.n.type];const q="'"+esc(x.p.name).replace(/'/g,"\\'")+"'";
+  return '<article class="ip18'+(big?' big':'')+'" style="--c:'+T[2]+';--i:'+i+'">'+insPic18(x,big)+'<div class="ip18-b"><div class="ip18-k"><span>'+ico(T[1])+esc(T[0])+'</span><small>'+esc(fmtYM(x.n.date))+'</small>'+(x.on?'<em>On your campaign</em>':'')+'</div>'+
+    '<h3>'+esc(x.p.name)+'</h3><p>'+esc(x.n.text)+'</p>'+
+    '<details class="ip18-m"><summary>'+ico('bolt')+'Your move</summary><p>'+esc(T[3])+'</p><div class="row" style="gap:6px">'+plBtn('What should I send '+x.p.name+' after this news: '+x.n.text,'Draft it with Plato')+(x.on?'':'<button class="btn btn-line btn-xs" onclick="openBrand('+q+')">'+ico('plus')+'Look closer</button>')+'</div></details>'+
+    (x.n.src?'<a class="ip18-src" href="'+esc(x.n.src)+'" target="_blank" rel="noopener">'+esc(x.n.pub||'Source')+ico('ext')+'</a>':'')+'</div></article>'}
+VIEWS.insights=function(){const all=insNews18();let L=all.filter(x=>(!INS18F.type||(INS18F.type==='agency'?['agency','pitch'].includes(x.n.type):INS18F.type==='launch'?['launch','brand','expansion','digital'].includes(x.n.type):x.n.type===INS18F.type))&&(INS18F.scope==='all'||x.on)&&(!INS18F.sec||x.p.sector===INS18F.sec));
+  const secs=[...new Set(all.map(x=>x.p.sector).filter(Boolean))];const opt=(v,l,cur)=>'<option value="'+v+'"'+(v===cur?' selected':'')+'>'+esc(l)+'</option>';
+  const set="INS18F[this.name]=this.value;go('insights',null,true)";
+  const bar='<div class="ib18"><label><small>Show</small><select name="type" onchange="'+set+'">'+opt('','Everything',INS18F.type)+opt('leadership','New leaders',INS18F.type)+opt('results','Results and trading',INS18F.type)+opt('agency','Agency moves and pitches',INS18F.type)+opt('launch','Launches and new work',INS18F.type)+opt('deal','Deals and new owners',INS18F.type)+'</select></label>'+
+    '<label><small>Brands</small><select name="scope" onchange="'+set+'">'+opt('all','In my sectors',INS18F.scope)+opt('mine','On my campaigns',INS18F.scope)+'</select></label>'+
+    (secs.length>1?'<label><small>Sector</small><select name="sec" onchange="'+set+'">'+opt('','All sectors',INS18F.sec)+secs.map(k=>opt(k,secLabel(k),INS18F.sec)).join('')+'</select></label>':'')+
+    '<span class="grow"></span><span class="ib18-n"><b>'+L.length+'</b> stor'+(L.length===1?'y':'ies')+' · '+all.filter(x=>x.on).length+' on your campaigns</span></div>';
+  const lead=L[0],side=L.slice(1,3),rest=L.slice(3,12);const A=getInsights().slice(0,4);
+  return '<div class="sh plain"><div class="sh-l"><h1 class="sh-t">What is <span class="serif">moving.</span></h1></div><div class="sh-a"><span class="in18-up"><i></i>'+(all.length?'Latest '+esc(fmtYM(all.map(x=>x.n.date).sort().pop())):'Waiting for news')+'</span><button class="btn btn-ghost btn-sm" onclick="insTune()">'+ico('settings')+'Tune</button></div></div>'+bar+
+    (lead?'<section class="ih18">'+insItem18(lead,0,true)+'<div class="ih18-s">'+side.map((x,i)=>insItem18(x,i+1)).join('')+'</div></section>'+(rest.length?'<section class="ig18">'+rest.map((x,i)=>insItem18(x,i+3)).join('')+'</section>':''):'<div class="card empty">'+ico('radar')+'<b>Nothing matches</b><p>Try another filter, or add brands to a campaign.</p></div>')+
+    '<section class="in18-win"><div class="cv2-sh"><h2>Ways to <span class="serif">win.</span></h2><span>Short plays that work for agencies like yours</span></div><div class="iw18">'+WIN18.map((w,i)=>'<div class="iw18-c" style="--c:'+w[1]+';--i:'+i+'"><span>'+ico(w[0])+'</span><b>'+w[2]+'</b><p>'+w[3]+'</p>'+plBtn(w[4],'Use this')+'</div>').join('')+'</div></section>'+
+    (A.length?'<section class="in18-sl"><div class="cv2-sh"><h2>From Scope &amp; <span class="serif">Lens.</span></h2></div><div class="in18s">'+A.map((x,i)=>'<button class="in18s-c" style="--i:'+i+'" onclick="openInsight(\''+x.id+'\')"><em>'+esc(INS_CATS[x.cat]||'')+'</em><b>'+esc(x.title)+'</b><small>'+fmtDate(x.date)+'</small></button>').join('')+'</div></section>':'')};
+
+/* ── 5. Plan the journey: pick Scope & Lens's route or build your own with Priya, and edit the flow directly ── */
+function jMode18(c){return (c.reach&&c.reach.mode18)||'own'}
+function setJMode18(m){const c=curCamp();c.reach.mode18=m;if(m==='rec'){const R=c.reach;R.ch=REC_CH.slice();R.weeks=Math.max(8,R.weeks||12);R.steps=genSteps(c);priyaMatch(c);toast('Using the Scope & Lens route. Switch back any time.')}else toast('Building your own with Priya');save();go('reach',null,true)}
+function jChoice18(c){const m=jMode18(c);const R=c.reach;
+  return '<section class="jc18"><button class="jc18-o'+(m==='rec'?' on':'')+'" onclick="setJMode18(\'rec\')"><span class="jc18-i">'+SL_MARK('currentColor',2.4)+'</span><span class="grow"><b>Scope &amp; Lens recommended</b><small>The route that works for most agencies: LinkedIn, email, events, a workshop, a call and something in the post over twelve weeks.</small></span><i>'+(m==='rec'?ico('check'):'')+'</i></button>'+
+    '<button class="jc18-o'+(m==='own'?' on':'')+'" onclick="setJMode18(\'own\')"><span class="jc18-i">'+agentFace('reach',34,{badge:false})+'</span><span class="grow"><b>Build your own with Priya</b><small>Choose your channels, length and pace. Priya plans it and you change anything.</small></span><i>'+(m==='own'?ico('check'):'')+'</i></button></section>'+
+    (m==='rec'?'<div class="jc18-sum">'+ico('check')+'<span><b>'+R.ch.map(k=>(REACH_CH.find(x=>x.k===k)||{l:k}).l).join(', ')+'</b> over '+R.weeks+' weeks. Want to change channels? <button class="link" onclick="setJMode18(\'own\')">Build your own instead</button></span></div>':'')}
+(function(){const f=VIEWS.reach;VIEWS.reach=function(){const c=campPrep();let h=String(f.apply(this,arguments));const i=h.indexOf('<section class="pl18">');if(i>-1)h=h.slice(0,i)+jChoice18(c)+h.slice(i);
+  if(jMode18(c)==='rec')h=h.replace('<div class="card" data-tour="rsettings">','<div class="card jc18-hide" data-tour="rsettings">');return h}})();
+/* the flow: every touch can be moved, removed, and new ones added between */
+function stepShift18(id,d){const c=curCamp();const s=c.reach.steps.find(x=>x.id===id);if(!s)return;s.w=Math.max(1,Math.min(c.reach.weeks,s.w+d));s.assetSet=s.assetSet||0;c.reach.mode18='own';save();go('reach',null,true)}
+function stepDel18(id){const c=curCamp();const s=c.reach.steps.find(x=>x.id===id);if(!s)return;act('Removed '+s.t,()=>{c.reach.steps=c.reach.steps.filter(x=>x.id!==id);c.reach.mode18='own'},{refresh:false,ic:'🗑'});go('reach',null,true)}
+function addTouchAt18(w){editTouch('');setTimeout(()=>{const s=$('#tpW');if(s){s.value=String(w);s.dispatchEvent(new Event('change'))}},80)}
+(function(){const fn=flowNode;flowNode=function(o){let h=fn(o);if(o.id)h='<div class="jfn18">'+h+'<span class="jfn18-c"><button type="button" onclick="stepShift18(\''+o.id+'\',-1)" aria-label="A week earlier" data-tip="A week earlier">'+ico('arrow')+'</button><button type="button" onclick="stepShift18(\''+o.id+'\',1)" aria-label="A week later" data-tip="A week later">'+ico('arrow')+'</button><button type="button" onclick="stepDel18(\''+o.id+'\')" aria-label="Remove" data-tip="Remove">'+ico('x')+'</button></span></div>';return h};
+  const fw=flowWire;let W18=1;flowWire=function(lbl){const m=String(lbl||'').match(/Week (\d+)/);return fw(lbl).replace('</i>','<button type="button" class="jfw18" onclick="addTouchAt18('+(W18)+')" aria-label="Add a touch here">'+ico('plus')+'</button></i>')};
+  const fh=flowHTML;flowHTML=function(c){const st=(c.reach.steps||[]).slice().sort((a,b)=>a.w-b.w);let k=0;const ws=[1].concat(st.map(s=>s.w));
+    W18=1;let h=fh(c);let n=0;h=h.replace(/addTouchAt18\(\d+\)/g,()=>'addTouchAt18('+(ws[Math.min(n++,ws.length-1)])+')');
+    return '<p class="jf18-n">'+ico('layers')+'The flow is the order of moves for one person; the timeline is when they happen. Change either and the other follows. Tap a step to edit it, use the arrows to move it a week, or the + to add one.</p>'+h}})();
+
+/* ═══════════ v18l CREATE VALUE: YOUR ASSETS FIRST, THEN GUS ═══════════
+   Step 1: Gus asks for what you already have, links and files. Step 2: his ideas, built around those assets, the
+   sector and the problem. Every idea opens to show why it helps, the angles to send it with, how to make it and a
+   ready-to-copy Claude prompt for an HTML demo in your branding. */
+
+CV_CATS.unshift({k:'mine',l:'From your assets',ic:'file',c:'#5c6b7a',d:'Rework what you have'});CV_SLOT.mine='blog';
+function cvOwn(c){return bankOf(c).items.filter(i=>i.src==='own')}
+function cvGuess(s,c){s=String(s||'').toLowerCase();if(/case|client|result|we helped|success/.test(s))return 'case';if(/youtu|vimeo|loom|video/.test(s))return 'video';if(/linkedin\.com\/(posts|feed)|post/.test(s))return 'lipost';
+  if(/report|research|benchmark|whitepaper|white-paper|index|survey|study|guide|\.pdf/.test(s))return 'blog';return bankItems(c).some(i=>i.slot==='hero')?'blog':'hero'}
+function cvTitle(u){try{const x=new URL(/^https?:/.test(u)?u:'https://'+u);const p=x.pathname.split('/').filter(Boolean).pop()||x.hostname;return decodeURIComponent(p).replace(/\.[a-z0-9]+$/i,'').replace(/[-_]+/g,' ').replace(/\b\w/g,m=>m.toUpperCase()).slice(0,80)}catch(e){return u.slice(0,80)}}
+function cvAddLink(){const i=$('#cvL');const v=(i&&i.value||'').trim();if(!v)return;const c=curCamp();const u=/^https?:/.test(v)?v:'https://'+v;
+  bankOf(c).items.push({id:uid(),slot:cvGuess(v,c),t:cvTitle(v),url:u,status:'ready',src:'own',at:today()});save();i.value='';go('give',null,true);setTimeout(()=>{const n=$('#cvL');n&&n.focus()},60)}
+async function cvAddFiles(fl){const c=curCamp();const L=[...(fl||[])].slice(0,10);for(const f of L){let text='';try{text=(await fileText(f)||'').slice(0,20000)}catch(e){}
+  bankOf(c).items.push({id:uid(),slot:cvGuess(f.name+' '+text.slice(0,400),c),t:f.name.replace(/\.[a-z0-9]+$/i,'').replace(/[_-]+/g,' '),status:'ready',src:'own',at:today(),text:text||undefined,file:f.name})}
+  save();toast('Added '+L.length+' file'+(L.length===1?'':'s')+'. Gus has read '+(L.length===1?'it':'them')+'.');go('give',null,true)}
+function cvSlot(id,v){const it=bankOf(curCamp()).items.find(x=>x.id===id);if(it){it.slot=v;save();go('give',null,true)}}
+function cvRm(id){const c=curCamp();act('Removed',()=>{bankOf(c).items=bankOf(c).items.filter(x=>x.id!==id)},{refresh:false,ic:'🗑'});go('give',null,true)}
+const SLOT_L={hero:'Hero piece',case:'Case study',lipost:'LinkedIn post',blog:'Report or blog',video:'Video',screen:'Screen recording'};
+function cvStep1(c){const own=cvOwn(c);const done=c.step18>=2;
+  return '<section class="cv3-s1'+(done?' done':'')+'"><div class="cv3-h">'+agentFace('give',done?34:52,{badge:false})+'<div class="grow"><small>Step 1 · Your content bank</small><b>'+(done?'Your assets ('+own.length+')':'First, what do you already have?')+'</b>'+(done?'':'<span>Share links or files: reports, case studies, decks, articles, videos. Gus reads them and builds his ideas around your real work, for '+esc(cvCtx(c).secL)+' brands facing '+esc(cvCtx(c).short)+'.</span>')+'</div>'+(done?'<button class="btn btn-ghost btn-sm" onclick="curCamp().step18=1;save();go(\'give\',null,true)">'+ico('plus')+'Add more</button>':'')+'</div>'+
+    (done?(own.length?'<div class="cv3-own">'+own.map(x=>'<span class="cv3-ch">'+ico(x.url?'link':'file')+esc(x.t)+'<em>'+esc(SLOT_L[x.slot]||'')+'</em></span>').join('')+'</div>':''):
+    '<div class="cv3-in"><div class="cv3-link"><input id="cvL" class="inp" placeholder="Paste a link: https://youragency.com/case-studies/…" onkeydown="if(event.key===\'Enter\')cvAddLink()"><button class="btn btn-line" onclick="cvAddLink()">'+ico('link')+'Add link</button></div>'+
+      '<label class="cv3-drop"><input type="file" hidden multiple accept=".pdf,.docx,.pptx,.txt,.md,.html,.htm,.rtf" onchange="cvAddFiles(this.files)"><span>'+ico('upload')+'</span><b>Drop in PDFs, decks or documents</b><small>Up to ten at a time. Gus reads the words; the files are not kept.</small></label></div>'+
+      (own.length?'<ul class="cv3-list">'+own.map(x=>'<li><span class="cv3-li">'+ico(x.url?'link':'file')+'</span><b>'+esc(x.t)+'</b><select class="inp sm" onchange="cvSlot(\''+x.id+'\',this.value)" aria-label="What kind">'+Object.entries(SLOT_L).map(([k,l])=>'<option value="'+k+'"'+(k===x.slot?' selected':'')+'>'+l+'</option>').join('')+'</select><button class="icon-btn" onclick="cvRm(\''+x.id+'\')" aria-label="Remove">'+ico('x')+'</button></li>').join('')+'</ul>':'')+
+      '<div class="cv3-go"><button class="link" onclick="curCamp().step18=2;save();go(\'give\',null,true)">I do not have anything yet</button><button class="btn btn-primary" onclick="curCamp().step18=2;save();go(\'give\',null,true)">'+ico('sparkle')+(own.length?'Done. Show me Gus’s ideas':'Show me Gus’s ideas')+ico('arrow','a')+'</button></div>')+'</section>'}
+
+/* ideas built from the agency's own assets */
+const _cvGen18l=cvGen;cvGen=function(cat,x){if(cat!=='mine')return _cvGen18l(cat,x);const own=cvOwn(curCamp()).slice(0,3);const out=[];
+  own.forEach(a=>{const n='“'+a.t+'”';if(a.slot==='case')out.push(['Your case study, retold for '+x.L.n,'Retell '+n+' as a before and after for a '+x.L.n+' brand facing '+x.short+'.','Proof, framed around their problem rather than your credentials.','Half a day']);
+    else out.push(['A one-page read from '+a.t,'Pull the three findings in '+n+' that matter most to a '+x.role+' facing '+x.short+', with their brand as the example.','Turns work you already made into something about them.','Half a day']);
+    out.push(['A two-minute walk through '+a.t,'Record over '+n+' with one brand in mind: what it means for them, and the first move you would make.','Personal, quick to make, and it reuses your best work.','20 minutes a brand'])});
+  return out.slice(0,4)};
+function cvIdeaFind(cat,id){return cvIdeas(cat,curCamp()).find(i=>i.id===id)}
+
+/* ── the detail: why, angles, how, and a Claude prompt ── */
+const CV_HOW={audit:['Pick 8 to 12 moments in their '+'customer journey to compare','Screenshot theirs next to two rivals and score each one','Write the three biggest fixes in one line each'],bench:['Choose 15 to 20 brands and one clear measure','Score them the same way, and keep the working','Highlight theirs and write three takeaways'],
+  tool:['Agree the ten questions or three inputs','Build a simple scorecard or calculator','Add what to do next for each score band'],pov:['Pick one opinion you can defend','Back it with three points and one example from their category','Keep it to one page'],
+  video:['Open their site or app and hit record','Show the gap in the first 30 seconds','End with the first move, not a pitch'],event:['Choose one topic and a date six weeks out','Invite eight people at peer brands','Send a short write-up to everyone afterwards'],
+  post:['Design a single physical piece around the insight','Add a short handwritten note and a link to the full read','Send it to their office, not their home'],mine:['Open your existing asset and pick the parts that matter to them','Reframe the headline around their problem','Add their brand as the worked example']};
+const CV_STRUCT={audit:'a side-by-side comparison of 8 to 12 moments with a score and a short note on each, then the three biggest fixes',bench:'a ranked chart or table of brands with theirs highlighted, a short method note, then three takeaways',
+  tool:'an interactive scorecard or calculator with inputs, a live result and what to do next for each result band',pov:'a one-page editorial with a strong headline, three numbered points, one example from their category and a pull quote',
+  video:'a script and storyboard page for a two-minute personalised video, with timestamps and what is on screen',event:'an invitation page with the topic, who it is for, a short agenda and a reply button',
+  post:'a printable one-page insert plus a simple mock-up of the physical piece and its packaging',mine:'a reworked version of the agency’s existing asset, reframed around this prospect’s problem with their brand as the example'};
+function cvAngles(cat,x){const base=['If they have a new marketing lead, send it as a first-100-days read: what you would look at first.','After results or a trading update, tie it to the number they reported and what it means for marketing.','If the account is quiet, send one finding in two lines with the piece attached, and no ask.'];
+  const extra={audit:'Lead with the single most surprising gap, not the full list.',bench:'Tell them where they rank before they open it. Curiosity does the rest.',tool:'Offer to run it with their team in fifteen minutes.',pov:'Name the belief you are challenging in the subject line.',video:'Use their first name and their brand in the thumbnail.',event:'Invite them as a peer with something to add, not as a prospect.',post:'Follow up a week later with the digital version and one question.',mine:'Say why you thought of them in the first line.'}[cat];
+  return [extra].concat(base)}
+function cvWhy(cat,x,it){return [it.why,'It is about their '+x.L.a+' and '+x.short+', not about your agency.','It shows how you think before anyone writes a brief, which is when shortlists are made.']}
+function cvPrompt(cat,it,x){const O=S.setup.offer||{};const I=agInfo()||{};const B=S.brand||{};const ex=(campTargets(curCamp())[0]||{}).name||'a '+x.L.n+' brand';
+  return 'You are building a single-file HTML demo of a value-led asset that a UK agency will send to a prospect.\n\n'+
+    'Agency: '+(S.setup.agency||'Our agency')+(I.website||S.setup.website?' ('+(I.website||S.setup.website)+')':'')+'. What we do best: '+String(O.uvp||'[what you do best]').replace(/\.+$/,'')+'.\n'+
+    'Brand: primary colour '+(B.primary||'#2c56ed')+', accent '+(B.accent||'#5eead4')+'. Use these colours and a clean, modern type pairing that suits the agency.\n\n'+
+    'The asset: '+it.n+'. '+it.t+'\n'+
+    'Who it is for: a '+x.role+' at a '+x.L.n+' brand facing '+x.short+'. Example prospect: '+ex+'.\n'+
+    'Why it matters to them: '+it.why+'\n\n'+
+    'Build:\n- One self-contained HTML file, inline CSS and JavaScript, no external libraries. Responsive and accessible.\n'+
+    '- A clear headline, a two-line intro written to the prospect, then '+CV_STRUCT[cat]+'.\n'+
+    '- Use realistic sample data where none is given, clearly labelled "Illustrative". Do not invent facts about the prospect or claim results we have not shared.\n'+
+    '- End with a soft, useful next step, such as offering to walk them through it. No hard sell.\n'+
+    '- Tone: warm, direct, plain British English. No em dashes.'}
+function cvMore(cat,id){const c=curCamp();const it=cvIdeaFind(cat,id);const C=CV_CATS.find(k=>k.k===cat);if(!it||!C)return;const x=cvCtx(c);const B=bankOf(c);const inBank=B.items.some(i=>i.idea18===id)||(c.assets||[]).includes(id);const pr=cvPrompt(cat,it,x);
+  modal('<div class="cvm" style="--c:'+C.c+'"><div class="cvm-h"><span class="cv2-big">'+ico(C.ic)+'</span><div><small>'+esc(C.l)+'</small><h2>'+esc(it.n)+'</h2><p>'+esc(it.t)+'</p></div></div>'+
+    '<div class="cvm-g"><div><h4>'+ico('check')+'Why it helps them</h4><ul>'+cvWhy(cat,x,it).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div><div><h4>'+ico('send')+'Angles when you send it</h4><ul>'+cvAngles(cat,x).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>'+
+    '<div><h4>'+ico('list')+'How to make it</h4><ol>'+(CV_HOW[cat]||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol><small class="muted">Effort: '+esc(it.e||'')+'</small></div></div>'+
+    '<div class="cvm-p"><div class="row between"><h4>'+ico('sparkle')+'Build a demo with Claude</h4><button class="btn btn-sm btn-line" onclick="copyText($(\'#cvmP\').value,this)">'+ico('copy')+'Copy the prompt</button></div><p class="muted small">Paste this into Claude to get a working HTML version of it in your branding, ready to tailor for each brand.</p><textarea id="cvmP" class="inp" rows="7" readonly>'+esc(pr)+'</textarea></div>'+
+    '<div class="modal-foot"><button class="btn btn-ghost" onclick="closeOverlays()">Close</button>'+(inBank?'<span class="cv2-in">'+ico('check')+'In your bank</span>':'<button class="btn btn-primary" onclick="closeOverlays();cvAdd18(event,\''+cat+'\',\''+id+'\')">'+ico('plus')+'Add to bank</button>')+'</div></div>')}
+/* idea cards open the detail; bank rows from ideas open it too */
+cvStudio=function(c){const x=cvCtx(c);if(CV_CAT==='mine'&&!cvOwn(c).length)CV_CAT='audit';const cats=CV_CATS.filter(k=>k.k!=='mine'||cvOwn(c).length);const C=cats.find(k=>k.k===CV_CAT)||cats[0];const ideas=cvIdeas(C.k,c);const B=bankOf(c);const inBank=new Set(B.items.map(i=>i.idea18).filter(Boolean).concat(c.assets||[]));
+  return '<section class="cv2-studio"><div class="cv2-sh"><h2>Gus’s <span class="serif">ideas.</span></h2><span>For <b>'+esc(x.secL)+'</b> brands facing <b>'+esc(x.short)+'</b>'+(cvOwn(c).length?', built around your '+cvOwn(c).length+' asset'+(cvOwn(c).length===1?'':'s'):'')+'. Tap one for the detail.</span></div>'+
+    '<div class="cv2-cats" style="grid-template-columns:repeat('+cats.length+',minmax(0,1fr))">'+cats.map((k,i)=>'<button class="cv2-cat'+(k.k===C.k?' on':'')+'" style="--c:'+k.c+';--i:'+i+'" onclick="CV_CAT=\''+k.k+'\';go(\'give\',null,true)"><span class="cv2-ci">'+ico(k.ic)+'</span><b>'+k.l+'</b><small>'+k.d+'</small></button>').join('')+'</div>'+
+    '<div class="cv2-ideas" style="--c:'+C.c+'">'+ideas.map((it,i)=>{const on=inBank.has(it.id);const q="'"+C.k+"','"+it.id+"'";
+      return '<article class="cv2-idea'+(on?' on':'')+'" style="--i:'+i+'" onclick="if(!event.target.closest(\'button\'))cvMore('+q+')"><div class="cv2-top"><span class="cv2-big">'+ico(C.ic)+'</span><em>'+(C.k==='mine'?'From your work':it.tool?'Proven idea':'Made for this campaign')+'</em></div><h3>'+esc(it.n)+'</h3><p>'+esc(it.t)+'</p><div class="cv2-why">'+ico('check')+esc(it.why)+'</div>'+
+        '<div class="cv2-f"><button class="btn btn-sm btn-ghost cv2-more" onclick="cvMore('+q+')">Details</button>'+(on?'<span class="cv2-in">'+ico('check')+'In your bank</span>':'<button class="btn btn-sm cv2-add" onclick="cvAdd18(event,'+q+')">'+ico('plus')+'Add</button>')+'</div></article>'}).join('')+'</div></section>'};
+VIEWS.give_after=function(){if(CV_BUSY)cvTick()};
+const _row18l=cvRow2;cvRow2=function(it,c){let h=_row18l(it,c);if(it.idea18&&it.cat18)h=h.replace(/onclick="bankOpen\('([^']+)'\)"/,'onclick="cvMore(\''+it.cat18+'\',\''+it.idea18+'\')"');return h};
+
+/* ── the page, in order: your assets, Gus's ideas, the full list ── */
+VIEWS.give=function(){const c=campPrep();campTab='value';const P=S.setup.profile;const mine=(P.problems||[]).filter(k=>L_PROBLEMS[k]);const cur=c.problem||mine[0]||'';const x=cvCtx(c);
+  if(c.step18==null)c.step18=cvOwn(c).length||bankOf(c).items.length?2:1;if(c.step18>=2&&cvOwn(c).length&&!c.catSet18){CV_CAT='mine';c.catSet18=1}
+  const I=cvItems(c);const gen=!!(c.gen18||I.filter(i=>i.src==='maker').length>=3);
+  const brief='<div class="cv2-brief"><label class="cv2-chip s">'+ico('layers')+'<select aria-label="Sector" onchange="curCamp().sec18=this.value;save();go(\'give\',null,true)">'+[...new Set([x.sec].concat(cvSecs(c)))].filter(k=>L_SECTORS[k]).map(k=>'<option value="'+k+'"'+(k===x.sec?' selected':'')+'>'+esc(secLabel(k))+'</option>').join('')+'</select></label><span class="cv2-op">+</span><label class="cv2-chip p">'+ico('target')+'<select onchange="setCampProb(this.value)" aria-label="The problem this campaign solves">'+Object.entries(L_PROBLEMS).sort((a,b)=>(mine.includes(b[0])?1:0)-(mine.includes(a[0])?1:0)).map(([k,v])=>'<option value="'+k+'"'+(k===cur?' selected':'')+'>'+esc(v.label)+'</option>').join('')+'</select></label><span class="cv2-op">+</span><span class="cv2-chip r">'+ico('user')+esc(cap1(x.roleP))+'</span></div>';
+  const step2=c.step18>=2?'<section class="cv3-s2"><div class="cv3-h2"><small>Step 2 · Gus fills it out</small></div>'+cvStudio(c)+
+    '<div class="cv3-all">'+agentFace('give',30,{badge:false})+'<span class="grow">'+(CV_BUSY?'<b>Gus is drafting…</b><ul id="cvFeedList" class="cv-fl"></ul>':'<b>Want Gus to draft the lot?</b> He writes every asset the campaign needs, using your assets and this brief.')+'</span>'+(CV_BUSY?'':'<button class="btn btn-line btn-sm" onclick="cvGenerate()">'+ico('sparkle')+(gen?'Redraft':'Draft them all')+'</button>')+'</div></section>':'';
+  const plan=I.length?'<section class="cv2-plan"><div class="cv2-sh"><h2>Your content <span class="serif">bank.</span></h2><span>Tap any one to see more, edit it and mark it ready.</span></div><div class="cv2-rows">'+I.map(it=>cvRow2(it,c)).join('')+'</div></section>':'';
+  return secHead('give','Create <span class="serif">value.</span>')+noTargets(c)+brief+'<div class="cv2"><div class="cv2-main">'+cvStep1(c)+step2+plan+'</div>'+cvShelf(c)+'</div>'};
+(function(){const i=PT_DEMO.findIndex(s=>s.sel==='.cv2-studio');if(i>-1){PT_DEMO.splice(i,0,{ch:1,view:'give',sel:'.cv3-s1',t:'Your assets first',b:'Gus starts with what you already have: case studies, reports, decks and links. He reads them so every idea builds on your real work.'});
+  Object.assign(PT_DEMO[i+1],{t:'Then Gus’s ideas',b:'Ideas in eight kinds, built around your assets, the sector and the problem. Tap any one for why it helps, the angles to send it with, how to make it, and a prompt to build a demo with Claude.'})}
+  const g=PT_DEMO.findIndex(s=>s.sel==='.cv2-gus');if(g>-1)PT_DEMO[g]=Object.assign({},PT_DEMO[g],{sel:'.cv3-all',t:'Or let Gus draft the lot'})})();
+
+/* ═══════════ v18m LAUNCH: TODAY, AS A DECK ═══════════
+   Every connection and message due today, one card at a time. Swipe right to approve and send, left to have Otis
+   redraft it. Arrow keys work too. Prefer a list? One tap. Sending has a quiet, high-end flourish. */
+
+let LN18={mode:'deck',seed:{},skip:{}};
+function lnDue18(c){const steps=c.reach.steps.filter(s=>!s.task).slice().sort((a,b)=>a.w-b.w);const ppl=[];campTargets(c).forEach(a=>a.people.forEach(p=>ppl.push({a,p})));
+  const wk=Math.max(1,campWk(c).n||1);const up=ppl.map(x=>({x,s:nextFor(c,x.p.id,steps)})).filter(q=>q.s&&!LN18.skip[q.x.p.id+':'+q.s.id]).filter(q=>!(q.s.warm&&!warmReady(q.x.a,q.x.p))).filter(q=>!Object.keys(c.sent||{}).some(k=>k.indexOf(q.x.p.id+':')===0&&c.sent[k]===today())).sort((a,b)=>a.s.w-b.s.w);
+  const due=up.filter(q=>q.s.w<=wk);return{due:due.length?due:up.slice(0,12),ahead:!due.length,ppl,steps}}
+function lnMsg18(c,q){const k=q.x.p.id+':'+q.s.id;const dr=c.drafts&&c.drafts[k];const g=composeMsg(q.s,q.x.a,q.x.p,c,{seed:(S.compose.seed||0)+(LN18.seed[k]||0)});return dr&&!g.nonote?{subject:dr.s||g.subject,body:dr.b,nonote:g.nonote}:g}
+function lnCard18(c,q,i){const a=q.x.a,p=q.x.p,s=q.s;const ch=REACH_CH.find(x=>x.k===s.ch)||REACH_CH[0];const m=lnMsg18(c,q);const asset=assetName(c,s.asset);
+  return '<article class="dk18-c'+(i?' back b'+i:' top')+'" '+(i?'aria-hidden="true"':'id="dkTop" data-pid="'+p.id+'" data-sid="'+s.id+'"')+'>'+
+    (i?'':'<span class="dk18-st yes">'+ico('send')+'Approve</span><span class="dk18-st no">'+ico('loop')+'Redraft</span>')+
+    '<header>'+logo(a,46)+'<div class="grow"><b>'+esc(p.name)+'</b><small>'+esc([p.role,a.name].filter(Boolean).join(' · '))+'</small></div><span class="dk18-ch" style="--cc:'+(ch.c||'var(--brand)')+'">'+ico(ch.ic)+esc(ch.l)+'</span></header>'+
+    '<div class="dk18-k"><span>Week '+s.w+'</span><b>'+esc(s.t)+'</b>'+(asset?'<em>'+ico('gift')+esc(asset)+'</em>':'')+'</div>'+
+    (m.nonote?'<div class="dk18-nn">'+ico('linkedin')+'<div><b>A connection request, no note.</b><span>Your profile does the talking. Approve and it goes out as a plain request.</span></div></div>':
+      (m.subject?'<input class="inp dk18-sj" id="dkSj" value="'+esc(m.subject)+'" aria-label="Subject">':'')+'<textarea class="inp dk18-m" id="dkMsg" rows="6" aria-label="Message">'+esc(m.body)+'</textarea>')+
+    '</article>'}
+function lnDeck18(c){const D=lnDue18(c);const L=D.due;const done=Object.keys(c.sent||{}).length;const tot=L.length;
+  if(!L.length)return '<div class="dk18-empty">'+agentFace('launch',64,{badge:false})+'<h3>All done for today.</h3><p>Otis lines up tomorrow’s messages overnight. Nothing is waiting on you.</p><button class="btn btn-line" onclick="go(\'signals\')">See who is warming up</button></div>';
+  return '<div class="dk18"><div class="dk18-top"><span><b id="dkN">'+tot+'</b> '+(D.ahead?'coming up':'to review today')+'</span><span class="dk18-keys"><kbd>←</kbd> redraft <kbd>→</kbd> approve</span></div>'+
+    '<div class="dk18-stack" id="dkStack">'+L.slice(0,3).map((q,i)=>lnCard18(c,q,i)).reverse().join('')+'</div>'+
+    '<div class="dk18-act"><button class="dk18-b no" onclick="lnAct18(0)" aria-label="Redraft">'+ico('loop')+'<small>Redraft</small></button><button class="dk18-b sk" onclick="lnSkip18()" aria-label="Skip for today">'+ico('clock')+'<small>Later</small></button><button class="dk18-b yes" onclick="lnAct18(1)" aria-label="Approve and send">'+ico('send')+'<small>Approve</small></button></div></div>'}
+function lnTop(){return $('#dkTop')}
+function lnKeep18(){const t=lnTop();if(!t)return;const c=curCamp();const k=t.dataset.pid+':'+t.dataset.sid;const m=$('#dkMsg');if(m){c.drafts=c.drafts||{};const sj=$('#dkSj');c.drafts[k]={s:sj?sj.value:'',b:m.value}}}
+function lnAct18(yes){const t=lnTop();if(!t||t.dataset.busy)return;t.dataset.busy=1;const c=curCamp();const pid=t.dataset.pid,sid=t.dataset.sid;const k=pid+':'+sid;
+  if(yes){const m=$('#dkMsg');const dirty=m&&c.drafts&&c.drafts[k]?1:0;if(m&&!dirty){}lnKeep18();t.classList.add('fly-yes');lnSpark18(t);
+    setTimeout(()=>{ptPerson=pid;ptStep=sid;const text=(($('#dkMsg')||{}).value||'');if(text&&S.launch.mode!=='amplify')copyText(text);lnSent18(c,pid,sid,text)},380)}
+  else{t.classList.add('flip');LN18.seed[k]=(LN18.seed[k]||0)+1;if(c.drafts)delete c.drafts[k];
+    setTimeout(()=>{const q=lnDue18(c).due.find(x=>x.x.p.id===pid&&x.s.id===sid);if(!q){go('launch',null,true);return}const tmp=document.createElement('div');tmp.innerHTML=lnCard18(c,q,0);const n=tmp.firstElementChild;n.classList.add('redrafted');t.replaceWith(n);lnSwipe18();
+      const ta=$('#dkMsg');if(ta)ta.classList.add('typing')},300)}}
+function lnSent18(c,pid,sid,text){const s=c.reach.steps.find(x=>x.id===sid);const x=campTargets(c).flatMap(a=>a.people.map(p=>({a,p}))).find(q=>q.p.id===pid);if(!s||!x){go('launch',null,true);return}
+  const type={workshop:'email',linkedin:s.nonote?'li_connect':'li_msg',email:'email',phone:'call',event:'event',mail:'value',social:'value'}[s.ch]||'value';
+  c.sent=c.sent||{};c.sent[pid+':'+sid]=today();S.activity.unshift({id:uid(),type,date:today(),accountId:x.a.id,person:x.p.name,note:s.t,qty:1,campaign:c.id});if(s.ch==='email'||s.ch==='mail')addSignal(x.a,'value_sent',{person:x.p.name,campaign:c.id});autoStage(x.a);
+  if(S.launch.mode==='amplify'&&ampOn()){ampSend({camp:c.id,sid,acc:x.a.id,pid,person:x.p.name,ch:s.ch,step:s.t,text}).catch(()=>{})}
+  save();award('touch',s.t);refreshNav();const n=$('#lnSent');if(n){n.textContent=String(+n.textContent+1);n.parentNode.classList.remove('bump');void n.offsetWidth;n.parentNode.classList.add('bump')}
+  toast(S.launch.mode==='amplify'?'Approved. Amplify sends it at a human pace.':!text?'Approved. Send the request from LinkedIn when you are ready.':'Approved and copied. Paste it into '+((REACH_CH.find(z=>z.k===s.ch)||{l:'the channel'}).l)+' when you are ready.');
+  const st=$('#dkStack');if(!st){go('launch',null,true);return}const D=lnDue18(c);const L=D.due;const top=lnTop();if(top)top.remove();
+  const kids=[...st.children];kids.forEach(k=>{if(k.classList.contains('b1')){k.outerHTML=L[0]?lnCard18(c,L[0],0):''}});
+  [...st.children].forEach(k=>{if(k.classList.contains('b2')){k.classList.remove('b2');k.classList.add('b1')}});if(L[2])st.insertAdjacentHTML('afterbegin',lnCard18(c,L[2],2));
+  const nn=$('#dkN');if(nn)nn.textContent=L.length;if(!L.length)go('launch',null,true);else lnSwipe18()}
+function lnSkip18(){const t=lnTop();if(!t)return;LN18.skip[t.dataset.pid+':'+t.dataset.sid]=1;t.classList.add('fly-down');setTimeout(()=>go('launch',null,true),300)}
+function lnSpark18(t){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=t.getBoundingClientRect();const g=document.createElement('div');g.className='dk18-glow';g.style.cssText='left:'+(r.right-40)+'px;top:'+(r.top+r.height/2)+'px';document.body.appendChild(g);
+  for(let i=0;i<8;i++){const d=document.createElement('i');d.className='dk18-p';const a=(i/8)*Math.PI*2;d.style.cssText='left:'+(r.right-40)+'px;top:'+(r.top+r.height/2)+'px;--x:'+(Math.cos(a)*70+60).toFixed(0)+'px;--y:'+(Math.sin(a)*60).toFixed(0)+'px;animation-delay:'+(i*12)+'ms';document.body.appendChild(d);setTimeout(()=>d.remove(),900)}
+  setTimeout(()=>g.remove(),900)}
+function lnSwipe18(){const c=lnTop();if(!c||c.dataset.sw)return;c.dataset.sw=1;let x0=null,dx=0;
+  c.addEventListener('pointerdown',e=>{if(e.target.closest('textarea,input,button'))return;x0=e.clientX;dx=0;c.setPointerCapture(e.pointerId);c.style.transition='none'});
+  c.addEventListener('pointermove',e=>{if(x0==null)return;dx=e.clientX-x0;c.style.transform='translateX('+dx+'px) rotate('+(dx/22)+'deg)';c.style.setProperty('--lean',Math.max(-1,Math.min(1,dx/140)));c.classList.toggle('lean-yes',dx>50);c.classList.toggle('lean-no',dx<-50)});
+  const up=()=>{if(x0==null)return;x0=null;c.style.transition='';if(Math.abs(dx)>120){c.style.transform='';lnAct18(dx>0?1:0);return}c.style.transform='';c.classList.remove('lean-yes','lean-no');c.style.removeProperty('--lean')};
+  c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up)}
+document.addEventListener('keydown',e=>{if(VIEW!=='launch'||!lnTop()||LN18.mode!=='deck')return;if(/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;if($('#modal')&&$('#modal').classList.contains('on'))return;
+  if(e.key==='ArrowRight'){e.preventDefault();e.stopImmediatePropagation();lnAct18(1)}if(e.key==='ArrowLeft'){e.preventDefault();e.stopImmediatePropagation();lnAct18(0)}},true);
+
+/* the live Launch page: four numbers, one way of working, today's deck */
+(function(){const f=VIEWS.launch;VIEWS.launch=function(){const c=curCamp();if(!c||!campLive(c))return f.apply(this,arguments);if(!c.reach.steps)c.reach.steps=genSteps(c);
+  const M=S.launch.mode||'manual';const tg=campTargets(c);const sent=Object.keys(c.sent||{}).length;const replies=sum(tg,a=>a.signals.filter(g=>['reply','li_reply','meeting'].includes(g.type)).length);const days=c.launched?Math.max(0,daysAgo(c.launched)):0;
+  const ppl=[];tg.forEach(a=>a.people.forEach(p=>ppl.push({a,p})));
+  return secHead('launch',esc(c.name)+' is <span class="serif">live.</span>')+
+    '<div class="ln19-bar"><div class="ln19-n"><div><b id="lnSent">'+sent+'</b><small>sent</small></div><div><b>'+replies+'</b><small>replies</small></div><div><b>'+days+'</b><small>day'+(days===1?'':'s')+' live</small></div></div>'+
+      '<div class="ln19-sw"><span>Review as</span>'+seg([['deck','Cards'],['list','A list']],LN18.mode,"LN18.mode=$;go('launch',null,true)")+'</div>'+
+      '<div class="ln19-sw"><span>Sending</span>'+seg([['manual','Myself'],['amplify','Amplify'+(isPremium()?'':' · Premium')]],M,"setMode($)")+'</div></div>'+
+    (LN18.mode==='deck'?lnDeck18(c):(M==='amplify'?amplifyView(c):missionControl(c,ppl)))};
+  const g=VIEWS.launch_after;VIEWS.launch_after=function(){g&&g.apply(this,arguments);lnSwipe18();const ta=$('#dkMsg');if(ta)ta.addEventListener('input',lnKeep18)}})();
+(function(){const i=PT_DEMO.findIndex(s=>s.view==='launch');if(i>-1)Object.assign(PT_DEMO[i],{sel:'.dk18,.ln18-pre,.ln18-main',t:'Launch: swipe through today',b:'Every connection and message due today, one card at a time, written in your voice. Swipe right to approve and send, left for Otis to redraft it. Prefer a list? One tap.'})})();
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;
