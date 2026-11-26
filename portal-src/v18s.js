@@ -40,3 +40,11 @@ async function liPdfLines18(f){const buf=await f.arrayBuffer();const lib=await l
 lrPdf18=async function(f){if(!f)return;if(!/pdf$/i.test(f.type||f.name)){toast('That needs to be a PDF. On LinkedIn: More, Save to PDF.');return}
   try{toast('Reading your profile…');const t=(await liPdfLines18(f)).slice(0,10000);const ta=$('#liTxt');if(ta)ta.value=t;S.liScan=Object.assign({},S.liScan||{},{text:t,src:'your PDF'});save();await liScan()}catch(e){toast('Could not read that PDF. Try saving it again from LinkedIn.')}};
 liPdf=lrPdf18;
+
+/* Launch checklist: LinkedIn readiness counts the scan too, and every gap has a proper button */
+(function(){const f=preflight;preflight=function(c){const L=f(c);const li=L.find(x=>x.k==='li');if(li){const sc=S.liScan||{};const ok=li.ok||S.liReady18||(sc.score>=75)||(sc.sugg&&sc.sugg.length&&sc.sugg.every(s=>s.done));
+  Object.assign(li,{ok,t:ok?'LinkedIn profile ready':'LinkedIn profile not checked',f:"go('reach');setTimeout(()=>{const n=document.querySelector('.lr18-w');if(n){n.scrollIntoView({behavior:'smooth',block:'center'});n.classList.add('pulse18')}},350)",li18:1})}return L}})();
+function liReady18(){S.liReady18=true;save();toast('Marked your LinkedIn as ready.');go('launch',null,true)}
+(function(){const f=VIEWS.launch;VIEWS.launch=function(){let h=String(f.apply(this,arguments));if(h.indexOf('ln18-ck')<0)return h;
+  h=h.replace(/(<div class="ln18-ck">[\s\S]*?<\/ul>)/,m=>m.replace(/<button class="btn btn-line btn-xs" onclick="([^"]*)">Sort it<\/button>/g,(x,fn)=>'<span class="ck18-a">'+(/lr18-w/.test(fn)?'<button class="btn btn-ghost btn-sm" onclick="liReady18()">It is ready</button>':'')+'<button class="btn btn-primary btn-sm" onclick="'+fn+'">Sort it'+ico('arrow')+'</button></span>'));
+  return h}})();

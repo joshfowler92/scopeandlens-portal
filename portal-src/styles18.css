@@ -899,3 +899,6 @@ a.dk18-nm{display:block;font-weight:700;font-size:17px;color:inherit;text-decora
 .ch18-k{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .ch18-col{position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;cursor:pointer;box-shadow:0 0 0 2px var(--card,#fff),0 0 0 3px var(--line)}.ch18-col input{position:absolute;inset:0;opacity:0;cursor:pointer}.ch18-col i{display:block;width:100%;height:100%;border-radius:50%}
 @media (max-width:760px){.lr18-g{grid-template-columns:1fr}}
+.ln18-ck li{padding:10px 12px;border-radius:12px;gap:10px}.ln18-ck li:not(.ok){background:color-mix(in srgb,#e8590c 6%,transparent);border:1px solid color-mix(in srgb,#e8590c 25%,transparent);margin-bottom:6px}
+.ck18-a{display:inline-flex;gap:6px;align-items:center}.ck18-a .btn-primary svg{width:14px;height:14px;margin-left:4px}
+.ck18-a{flex:none}
