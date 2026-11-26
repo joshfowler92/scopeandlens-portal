@@ -4460,6 +4460,31 @@ a.dk18-nm{display:block;font-weight:700;font-size:17px;color:inherit;text-decora
 .bt18-pend{margin-bottom:16px;padding:14px;border-radius:18px;background:color-mix(in srgb,#e67700 5%,transparent);border:1px solid color-mix(in srgb,#e67700 20%,var(--line))}
 .bt18-ph{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13.5px}.bt18-ph .bt18-pt{flex:1}
 @media (max-width:640px){.bt18-ph{flex-wrap:wrap}.bt18-g{grid-template-columns:1fr}}
+/* ═══ v18r person timeline ═══ */
+.tl18-h{display:flex;align-items:center;gap:14px;margin-bottom:14px}.tl18-h img,.tl18-h .dmp-av{width:56px;height:56px;border-radius:50%;object-fit:cover}.tl18-h h2{margin:0}.tl18-h span{color:var(--muted);font-size:13.5px}
+.tl18-note{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,#f08c00 8%,transparent);font-size:13.5px;margin-bottom:16px}.tl18-note svg{flex:none;width:14px;height:14px;margin-top:3px;color:#e67700}.tl18-note span{flex:1}.tl18-note em{color:var(--muted)}
+.tl18-l{list-style:none;margin:0 0 12px;padding:0 0 0 6px;max-height:52vh;overflow:auto}
+.tl18-l li{position:relative;display:flex;gap:12px;padding:0 0 16px 0}.tl18-l li::before{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--line)}.tl18-l li:last-child::before{display:none}
+.tl18-i{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,#4c6ef5 12%,transparent);color:#4c6ef5;z-index:1}.tl18-i svg{width:15px;height:15px}
+.tl18-l li.them .tl18-i{background:color-mix(in srgb,#2f9e44 14%,transparent);color:#2f9e44}.tl18-l li.cool .tl18-i{background:var(--soft,#f1f3f5);color:var(--muted)}
+.tl18-l li>div{flex:1;min-width:0}.tl18-t{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px}.tl18-t time{color:var(--muted);font-size:12px}
+.tl18-l p{margin:6px 0 0;padding:10px 12px;border-radius:12px;background:var(--soft,#f4f5f8);font-size:13px;line-height:1.5}.tl18-l li.them p{background:color-mix(in srgb,#2f9e44 7%,var(--card,#fff));border:1px solid color-mix(in srgb,#2f9e44 18%,transparent)}
+.dk18-hi{margin-left:auto;display:inline-flex;align-items:center;gap:5px;border:0;background:var(--soft,#f1f3f5);font:inherit;font-size:12px;font-weight:600;color:var(--muted);padding:3px 9px;border-radius:99px;cursor:pointer}.dk18-hi svg{width:12px;height:12px}.dk18-hi+.dk18-li{margin-left:0}
+.tl18-h .btn{margin-right:30px}
+/* ═══ v18s journey and character ═══ */
+.lr18-w{margin:18px 0}
+.lr18-h{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}.lr18-h h3{margin:2px 0 4px;font-size:20px}.lr18-h p{margin:0;color:var(--muted);font-size:13.5px;max-width:640px}
+.lr18-g{display:grid;grid-template-columns:1.1fr 1fr;gap:12px}
+.lr18-pdf{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:20px;border:2px dashed color-mix(in srgb,#0a66c2 40%,var(--line));border-radius:16px;background:color-mix(in srgb,#0a66c2 4%,transparent);cursor:pointer;text-align:center;transition:background .2s,border-color .2s}
+.lr18-pdf:hover,.lr18-pdf.over{background:color-mix(in srgb,#0a66c2 9%,transparent);border-color:#0a66c2}.lr18-pdf svg{width:22px;height:22px;color:#0a66c2}.lr18-pdf small,.lr18-url small{color:var(--muted);font-size:12.5px}
+.lr18-tag{position:absolute;top:10px;right:10px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:99px;background:#0a66c2;color:#fff}
+.lr18-url{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:16px}.lr18-url .lisc-f{margin-top:8px}
+.lr18 .lis small{display:none}.lr18-more summary{cursor:pointer;font-size:13px;color:var(--muted);margin:8px 0}
+.jfn18.new18{position:relative;border-radius:14px;box-shadow:0 0 0 2px #e64980}.new18-b{position:absolute;top:-10px;left:10px;z-index:2;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:#e64980;color:#fff}
+.ch18-o.on{background:color-mix(in srgb,var(--brand) 16%,var(--paper,#fff));border-color:var(--brand);color:var(--brand)}
+.ch18-k{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ch18-col{position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;cursor:pointer;box-shadow:0 0 0 2px var(--card,#fff),0 0 0 3px var(--line)}.ch18-col input{position:absolute;inset:0;opacity:0;cursor:pointer}.ch18-col i{display:block;width:100%;height:100%;border-radius:50%}
+@media (max-width:760px){.lr18-g{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -12756,6 +12781,83 @@ function bankTiles18(c){const I=cvItems(c);if(!I.length)return '';const pend=I.f
   const lines=m.body.split('\n');let k=-1;for(let i=lines.length-1;i>0;i--){if(/^(cheers|thanks|thank you|best|all the best|speak soon|kind regards|regards|warmly|many thanks|talk soon)\b/i.test(lines[i].trim())){k=i;break}}
   if(k<0){k=lines.length;while(k>1&&lines[k-1].trim().length<30&&lines[k-1].trim())k--}
   lines.splice(k,0,url,'');return Object.assign({},m,{body:lines.join('\n').replace(/\n{3,}/g,'\n\n')})}catch(e){return m}}})();
+
+/* ═══════════ v18r: replies read for meaning, and a timeline for every person ═══════════ */
+
+/* a reply only warms a brand when it is real interest. "Not now" cools it. Someone selling to you is ignored. */
+SIGNALS.reply_no={l:'Replied: not for now',w:0,fam:'outbound',ic:'✋'};
+const RK_NO18=/\b(not interested|no thanks|no thank you|not for us|not right now|not at the moment|not a priority|no budget|please remove|unsubscribe|stop (messaging|contacting)|take me off|not the right person|wrong person|we('re| are) (all )?set|happy with our (current )?agency|already have an agency|not looking|pass on this)\b/i;
+const RK_PITCH18=/\b(we help (brands|companies|agencies|businesses)|i help (brands|companies|agencies)|book a (quick )?(demo|call) with (me|us)|our (platform|software|solution|tool) (helps|can)|would you be open to a (quick )?(call|chat) (to|about) (see|learn)|i('d| would) love to show you|partnership opportunity|special offer|free trial|grow your (agency|business)|lead generation services|outsourc)/i;
+const RK_YES18=/\b(yes|sure|sounds (good|great|interesting)|interested|love to|happy to|let'?s (talk|chat|speak|meet)|keen|tell me more|send (it|it over|me)|when (are|is) (you|good)|free (on|next)|book|calendar|diary|coffee)\b/i;
+function replyKind18(t){t=String(t||'');if(!t.trim())return 'unknown';if(RK_PITCH18.test(t))return 'pitch';if(RK_NO18.test(t))return 'no';if(RK_YES18.test(t))return 'yes';return 'neutral'}
+ampEvents=async function(){if(!ampOn())return 0;try{const j=await ampCall('events',{since:S.ampSince||isoDaysAgo(30)});let n=0,skip=0,cool=0,pitch=0;
+  (j.events||[]).forEach(ev=>{const a=findAccountByName(ev.company||'');let t={accept:'li_accept',open:'email_open',click:'email_click',reply:'reply',li_reply:'li_reply',meeting:'meeting'}[ev.type];if(!t)return;
+    if(!a||!inCamp18(a)||(CONV18.includes(t)&&ev.person&&!personOk18(a,ev.person))){skip++;return}
+    const text=String(ev.text||ev.message||ev.snippet||ev.body||'').slice(0,600);
+    if(t==='reply'||t==='li_reply'){const k=replyKind18(text);if(k==='pitch'){pitch++;return}if(k==='no'){t='reply_no';cool++}}
+    if(t==='li_accept'||t==='li_reply'){const p=(a.people||[]).find(x=>sameName18(x.name,ev.person));if(p)p.connected=true}
+    const c=campsFor(a).sort((x,y)=>campLive(y)-campLive(x))[0];addSignal(a,t,{person:ev.person||'',date:(ev.at||today()).slice(0,10),src:'amplify',campaign:c?c.id:'',note:text});n++});
+  S.ampSince=today();S.ampSkipped18=(S.ampSkipped18||0)+skip;S.ampPitch18=(S.ampPitch18||0)+pitch;save();if(cool||pitch)toast((cool?cool+' repl'+(cool===1?'y says':'ies say')+' not for now, so '+(cool===1?'that brand stays':'those brands stay')+' cool. ':'')+(pitch?pitch+' sales pitch'+(pitch===1?'':'es')+' to you ignored.':''));return n}catch(e){return 0}};
+
+/* everything that has happened with one person, in order */
+function personTimeline18(aid,pid){const a=accountById(aid);const p=a&&a.people.find(x=>x.id===pid);if(!p)return;const c=curCamp();
+  const ev=[];const nm=p.name;
+  (S.activity||[]).filter(x=>x.accountId===aid&&sameName18(x.person,nm)).forEach(x=>ev.push({d:x.date,ic:x.type==='li_connect'?'linkedin':x.type==='email'?'mail':x.type==='li_msg'?'chat':'send',t:({li_connect:'Connection request sent',li_msg:'LinkedIn message sent',email:'Email sent',call:'Call',event:'Event invite',value:'Value sent'}[x.type]||'Touch')+(x.note?': '+x.note:''),who:'you'}));
+  S.campaigns.forEach(cc=>(cc.out18||[]).filter(o=>o.pid===pid).forEach(o=>{const e=ev.find(z=>z.who==='you'&&z.d===o.at.slice(0,10)&&!z.msg);if(e){e.msg=o.text;e.st=o.status}}));
+  (a.signals||[]).filter(g=>sameName18(g.person,nm)).forEach(g=>{const D=SIGNALS[g.type]||{l:g.type};ev.push({d:g.date,ic:/reply|meeting/.test(g.type)?'chat':g.type==='li_accept'?'check':'pulse',t:D.l,who:'them',msg:g.note,cool:g.type==='reply_no'})});
+  ev.sort((x,y)=>String(y.d).localeCompare(String(x.d)));
+  const li=liOf18(p,a);const ph=p.photo||photoByName18(p.name,a);
+  modal('<div class="tl18"><div class="tl18-h">'+(ph?'<img src="'+esc(ph)+'" alt="">':'<span class="dmp-av">'+esc(initials(p.name))+'</span>')+'<div class="grow"><h2>'+esc(p.name)+'</h2><span>'+esc([p.role,a.name].filter(Boolean).join(' · '))+'</span></div><a class="btn btn-line btn-sm" href="'+esc(li)+'" target="_blank" rel="noopener">'+ico('linkedin')+'LinkedIn</a></div>'+
+    '<div class="tl18-note">'+ico('edit')+'<span>'+(p.note18?esc(p.note18):'<em>No note yet. Add what Otis should know about them.</em>')+'</span><button class="link" onclick="closeOverlays();setTimeout(()=>noteFor18(\''+aid+'\',\''+pid+'\'),200)">'+(p.note18?'Edit':'Add a note')+'</button></div>'+
+    (ev.length?'<ol class="tl18-l">'+ev.map(e=>'<li class="'+e.who+(e.cool?' cool':'')+'"><span class="tl18-i">'+ico(e.ic)+'</span><div><div class="tl18-t"><b>'+esc(e.t)+'</b><time>'+esc(fmtDate(e.d))+'</time>'+(e.st?'<em class="ob18-s '+e.st+'">'+({queued:'With Amplify',sending:'Sending',failed:'Failed',copied:'Copied'}[e.st]||e.st)+'</em>':'')+'</div>'+(e.msg?'<p>'+esc(e.msg).replace(/\n/g,'<br>')+'</p>':'')+'</div></li>').join('')+'</ol>':'<div class="empty">Nothing yet. Their first touch will show here, and so will anything they send back.</div>')+
+    '<p class="tiny muted">Replies come in from Amplify. The full LinkedIn thread will show here once Amplify shares conversation history.</p></div>',true)}
+
+/* reach it from the people cards and from the Launch card */
+(function(){const f=pRow;pRow=function(a,p,mine){let h=f(a,p,mine);if(mine)h=h.replace('<button class="btn btn-ghost btn-xs" onclick="noteFor18','<button class="btn btn-ghost btn-xs" onclick="personTimeline18(\''+a.id+'\',\''+p.id+'\')">'+ico('clock')+'History</button><button class="btn btn-ghost btn-xs" onclick="noteFor18');return h}})();
+(function(){const f=lnCard18;lnCard18=function(c,q,i){let h=f(c,q,i);if(!i)h=h.replace('<a class="dk18-li"','<button class="dk18-hi" onclick="personTimeline18(\''+q.x.a.id+'\',\''+q.x.p.id+'\')">'+ico('clock')+'History</button><a class="dk18-li"');return h}})();
+
+/* ═══════════ v18s: Plan the journey and the agency character, tidied ═══════════ */
+
+/* the Scope & Lens route includes LinkedIn ads in the background */
+(function(){const f=setJMode18;setJMode18=function(m){const c=curCamp();if(m==='rec')c.reach.ads=true;return f(m)}})();
+
+/* events you add are flagged in the sequence, and you are taken to them */
+(function(){const f=evAdd;evAdd=function(k){const c=curCamp();const before=new Set((c.reach.steps||[]).map(s=>s.id));f(k);const fresh=(c.reach.steps||[]).filter(s=>!before.has(s.id));
+  fresh.forEach(s=>s.new18=Date.now());if(fresh.length){save();const s=fresh[0];setTimeout(()=>toast('Added to week '+s.w+' of your sequence.',{l:'Show me',f:()=>{const n=document.querySelector('.jfn18.new18')||document.querySelector('.pl18');if(n){n.scrollIntoView({behavior:'smooth',block:'center'});n.classList.add('pulse18')}}},6000),250)}}})();
+(function(){const f=flowNode;flowNode=function(o){let h=f(o);const c=curCamp();const s=o.id&&c&&(c.reach.steps||[]).find(x=>x.id===o.id);if(s&&s.new18&&Date.now()-s.new18<10*60*1000)h=h.replace('<div class="jfn18">','<div class="jfn18 new18"><span class="new18-b">Just added</span>');return h}})();
+
+/* Get your LinkedIn ready: higher up, shorter, and the PDF is the main way in */
+liScanCard=function(c){const L=S.liScan;const T=liTarget();const who=esc((T.roles[0]||'marketing lead').toLowerCase())+' at a '+esc(T.sec)+' brand';
+  if(!L||!L.score)return '<div class="card lisc lr18" data-tour="liscan"><div class="lr18-h">'+agentFace('reach',40,{badge:false})+'<div class="grow"><div class="lab" style="margin:0">Before you connect with anyone</div><h3>Get your LinkedIn <span class="serif">ready.</span></h3><p>Every '+who+' looks you up before they accept. Priya reads your profile the way they will, scores it, and tells you exactly what to change.</p></div></div>'+
+    '<div class="lr18-g"><label class="lr18-pdf" ondragover="event.preventDefault();this.classList.add(\'over\')" ondragleave="this.classList.remove(\'over\')" ondrop="event.preventDefault();this.classList.remove(\'over\');lrPdf18(event.dataTransfer.files[0])"><input type="file" accept="application/pdf" hidden onchange="lrPdf18(this.files[0])">'+ico('upload')+'<b>Drop your profile PDF</b><small>The most accurate read. On LinkedIn: your profile, More, Save to PDF.</small><span class="lr18-tag">Best</span></label>'+
+      '<div class="lr18-url"><b>Or paste your profile link</b><small>Quicker, but private profiles cannot be read this way.</small><div class="lisc-f"><input class="inp" id="liUrl" placeholder="linkedin.com/in/your-name" value="'+esc((L&&L.url)||'')+'" onkeydown="if(event.key===\'Enter\')liScan()"><button class="btn btn-line" onclick="liScan()">'+ico('eye')+'Scan</button></div></div></div>'+
+    '<textarea id="liTxt" hidden>'+esc((L&&L.text)||'')+'</textarea></div>';
+  const todo=L.sugg.filter(s=>!s.done);const done=L.sugg.length-todo.length;
+  const row=(s)=>{const i=L.sugg.indexOf(s);return '<label class="lis'+(s.done?' on':'')+'"><input type="checkbox"'+(s.done?' checked':'')+' onchange="liDone('+i+',this.checked)"><span><b>'+esc(s.t)+'</b>'+(s.copy?'<span class="lis-c">'+esc(s.copy)+'<button class="btn btn-xs btn-line" onclick="event.preventDefault();copyText(\''+esc(s.copy).replace(/'/g,"\\'")+'\',this)">Copy</button></span>':'')+'</span></label>'};
+  return '<div class="card lisc res lr18" data-tour="liscan"><div class="lisc-r">'+ringPct(L.score,64)+'<div class="grow"><div class="lab" style="margin:0">Your LinkedIn, through their eyes</div><h3>'+(L.score>=75?'Ready to connect':L.score>=55?'Nearly there':'Worth fixing first')+'</h3><p class="small">'+done+' of '+L.sugg.length+' fixes done.'+(todo.length?' Start with the top one.':' Connect without a note.')+'</p></div><button class="btn btn-ghost btn-sm" onclick="S.liScan.score=0;go(VIEW,VIEW_ARG,true)">'+ico('loop')+'Scan again</button></div>'+
+    '<div class="lisc-s">'+todo.slice(0,3).map(row).join('')+(L.sugg.length>3?'<details class="lr18-more"><summary>'+(L.sugg.length-Math.min(3,todo.length))+' more</summary>'+L.sugg.filter(s=>todo.indexOf(s)<0||todo.indexOf(s)>2).map(row).join('')+'</details>':'')+'</div></div>'};
+async function lrPdf18(f){if(!f)return;if(!/pdf$/i.test(f.type||f.name)){toast('That needs to be a PDF. On LinkedIn: More, Save to PDF.');return}
+  try{toast('Reading your profile…');const t=await readPdfText(f);const clean=t.replace(/Page \d+ of \d+/g,' ').replace(/\s{2,}/g,' ').trim();const ta=$('#liTxt');if(ta)ta.value=clean.slice(0,8000);S.liScan=Object.assign({},S.liScan||{},{text:clean.slice(0,8000),src:'your PDF'});save();await liScan()}catch(e){toast('Could not read that PDF. Try saving it again from LinkedIn.')}}
+/* and it sits right under the plan, not at the bottom */
+journeyView=(function(f){return function(c){let h=f(c);const li=liScanCard(c);const i=h.indexOf(li);if(i<0)return h;h=h.slice(0,i)+h.slice(i+li.length);h=h.replace('<div style="margin-top:16px"></div>','');
+  const anchor=h.indexOf('<section class="pl18"');if(anchor>-1){const end=h.indexOf('</section>',anchor);return h.slice(0,end+10)+'<!--lr18s--><div class="lr18-w">'+li+'</div><!--lr18e-->'+h.slice(end+10)}return '<!--lr18s--><div class="lr18-w">'+li+'</div><!--lr18e-->'+h}})(journeyView);
+(function(){const f=VIEWS.reach;VIEWS.reach=function(){let h=String(f.apply(this,arguments));const a=h.indexOf('<!--lr18s-->'),b=h.indexOf('<!--lr18e-->');if(a<0||b<0)return h;const blk=h.slice(a,b+12);h=h.slice(0,a)+h.slice(b+12);
+  for(const m of ['<div style="margin-top:16px"><div class="card evc','<div class="card evc','<div class="row wrap" style="margin-top:14px;gap:8px">']){const i=h.indexOf(m);if(i>-1)return h.slice(0,i)+blk+h.slice(i)}return h+blk}})();
+
+/* the agency character wears your colours, and you can change them in a click */
+function agColour18(v){if(!/^#[0-9a-f]{6}$/i.test(v))return;S.brand.primary=v;save();applyTheme();go('agency',VIEW_ARG,true)}
+(function(){const f=ag18Char;ag18Char=function(){const h=f.apply(this,arguments);const col=(S.brand&&S.brand.primary)||'#2c56ed';
+  return h.replace('<div class="ch18-k">Your agency, as Plato sees it</div>','<div class="ch18-k">Your agency, as Plato sees it<label class="ch18-col" data-tip="Your brand colour"><input type="color" value="'+esc(col)+'" onchange="agColour18(this.value)" aria-label="Your brand colour"><i style="background:'+esc(col)+'"></i></label></div>')}})();
+/* LinkedIn's PDF has a sidebar (Contact, Top Skills) and a main column. Read them separately, line by line,
+   so the server can find Summary and Experience instead of guessing from one long run of text. */
+async function liPdfLines18(f){const buf=await f.arrayBuffer();const lib=await loadPdfJs();const pdf=await lib.getDocument({data:buf}).promise;const side=[],main=[];
+  for(let i=1;i<=Math.min(pdf.numPages,5);i++){const pg=await pdf.getPage(i);const vw=pg.getViewport({scale:1}).width;const tc=await pg.getTextContent();const rows={};
+    tc.items.forEach(it=>{if(!it.str||!it.str.trim())return;const x=it.transform[4],y=Math.round(it.transform[5]);const col=x<vw*0.33?'s':'m';const k=col+':'+y;(rows[k]=rows[k]||{col,y,parts:[]}).parts.push({x,s:it.str})});
+    Object.values(rows).sort((a,b)=>b.y-a.y).forEach(r=>{const line=r.parts.sort((a,b)=>a.x-b.x).map(p=>p.s).join(' ').replace(/\s+/g,' ').trim();if(!line||/^Page \d+ of \d+$/i.test(line))return;(r.col==='s'?side:main).push(line)})}
+  return main.join('\n')+'\n'+side.join('\n')}
+lrPdf18=async function(f){if(!f)return;if(!/pdf$/i.test(f.type||f.name)){toast('That needs to be a PDF. On LinkedIn: More, Save to PDF.');return}
+  try{toast('Reading your profile…');const t=(await liPdfLines18(f)).slice(0,10000);const ta=$('#liTxt');if(ta)ta.value=t;S.liScan=Object.assign({},S.liScan||{},{text:t,src:'your PDF'});save();await liScan()}catch(e){toast('Could not read that PDF. Try saving it again from LinkedIn.')}};
+liPdf=lrPdf18;
 
 /* ═══════════ BOOT ═══════════ */
 let SEEN=null;

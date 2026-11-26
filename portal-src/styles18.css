@@ -874,3 +874,28 @@ a.dk18-nm{display:block;font-weight:700;font-size:17px;color:inherit;text-decora
 .bt18-pend{margin-bottom:16px;padding:14px;border-radius:18px;background:color-mix(in srgb,#e67700 5%,transparent);border:1px solid color-mix(in srgb,#e67700 20%,var(--line))}
 .bt18-ph{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13.5px}.bt18-ph .bt18-pt{flex:1}
 @media (max-width:640px){.bt18-ph{flex-wrap:wrap}.bt18-g{grid-template-columns:1fr}}
+/* ═══ v18r person timeline ═══ */
+.tl18-h{display:flex;align-items:center;gap:14px;margin-bottom:14px}.tl18-h img,.tl18-h .dmp-av{width:56px;height:56px;border-radius:50%;object-fit:cover}.tl18-h h2{margin:0}.tl18-h span{color:var(--muted);font-size:13.5px}
+.tl18-note{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,#f08c00 8%,transparent);font-size:13.5px;margin-bottom:16px}.tl18-note svg{flex:none;width:14px;height:14px;margin-top:3px;color:#e67700}.tl18-note span{flex:1}.tl18-note em{color:var(--muted)}
+.tl18-l{list-style:none;margin:0 0 12px;padding:0 0 0 6px;max-height:52vh;overflow:auto}
+.tl18-l li{position:relative;display:flex;gap:12px;padding:0 0 16px 0}.tl18-l li::before{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--line)}.tl18-l li:last-child::before{display:none}
+.tl18-i{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,#4c6ef5 12%,transparent);color:#4c6ef5;z-index:1}.tl18-i svg{width:15px;height:15px}
+.tl18-l li.them .tl18-i{background:color-mix(in srgb,#2f9e44 14%,transparent);color:#2f9e44}.tl18-l li.cool .tl18-i{background:var(--soft,#f1f3f5);color:var(--muted)}
+.tl18-l li>div{flex:1;min-width:0}.tl18-t{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px}.tl18-t time{color:var(--muted);font-size:12px}
+.tl18-l p{margin:6px 0 0;padding:10px 12px;border-radius:12px;background:var(--soft,#f4f5f8);font-size:13px;line-height:1.5}.tl18-l li.them p{background:color-mix(in srgb,#2f9e44 7%,var(--card,#fff));border:1px solid color-mix(in srgb,#2f9e44 18%,transparent)}
+.dk18-hi{margin-left:auto;display:inline-flex;align-items:center;gap:5px;border:0;background:var(--soft,#f1f3f5);font:inherit;font-size:12px;font-weight:600;color:var(--muted);padding:3px 9px;border-radius:99px;cursor:pointer}.dk18-hi svg{width:12px;height:12px}.dk18-hi+.dk18-li{margin-left:0}
+.tl18-h .btn{margin-right:30px}
+/* ═══ v18s journey and character ═══ */
+.lr18-w{margin:18px 0}
+.lr18-h{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}.lr18-h h3{margin:2px 0 4px;font-size:20px}.lr18-h p{margin:0;color:var(--muted);font-size:13.5px;max-width:640px}
+.lr18-g{display:grid;grid-template-columns:1.1fr 1fr;gap:12px}
+.lr18-pdf{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:20px;border:2px dashed color-mix(in srgb,#0a66c2 40%,var(--line));border-radius:16px;background:color-mix(in srgb,#0a66c2 4%,transparent);cursor:pointer;text-align:center;transition:background .2s,border-color .2s}
+.lr18-pdf:hover,.lr18-pdf.over{background:color-mix(in srgb,#0a66c2 9%,transparent);border-color:#0a66c2}.lr18-pdf svg{width:22px;height:22px;color:#0a66c2}.lr18-pdf small,.lr18-url small{color:var(--muted);font-size:12.5px}
+.lr18-tag{position:absolute;top:10px;right:10px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:99px;background:#0a66c2;color:#fff}
+.lr18-url{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:16px}.lr18-url .lisc-f{margin-top:8px}
+.lr18 .lis small{display:none}.lr18-more summary{cursor:pointer;font-size:13px;color:var(--muted);margin:8px 0}
+.jfn18.new18{position:relative;border-radius:14px;box-shadow:0 0 0 2px #e64980}.new18-b{position:absolute;top:-10px;left:10px;z-index:2;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:#e64980;color:#fff}
+.ch18-o.on{background:color-mix(in srgb,var(--brand) 16%,var(--paper,#fff));border-color:var(--brand);color:var(--brand)}
+.ch18-k{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ch18-col{position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;cursor:pointer;box-shadow:0 0 0 2px var(--card,#fff),0 0 0 3px var(--line)}.ch18-col input{position:absolute;inset:0;opacity:0;cursor:pointer}.ch18-col i{display:block;width:100%;height:100%;border-radius:50%}
+@media (max-width:760px){.lr18-g{grid-template-columns:1fr}}
