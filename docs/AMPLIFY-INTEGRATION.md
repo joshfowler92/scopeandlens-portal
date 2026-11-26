@@ -91,11 +91,15 @@ Response: the same list with `email`, `linkedin`, `title` and `verified` filled 
 Request:
 
 ```json
-{ "id": "k3j2h1", "channel": "linkedin", "to": { "name": "Zoe Harris", "company": "Greggs", "linkedin": "https://...", "email": "" }, "text": "Hi Zoe, ...", "subject": "" }
+{ "id": "k3j2h1", "type": "connect", "channel": "linkedin", "campaign": "c1", "step": "Connect, no note",
+  "to": { "name": "Zoe Harris", "company": "Greggs", "title": "Marketing Director", "linkedin": "https://...", "email": "" },
+  "text": "", "subject": "", "asset": { "name": "Category sameness test", "url": "https://..." } }
 ```
 
 - `channel` is `linkedin` or `email`
 - `id` is the portal's id for the message. Use it in `status` and `events`
+- `type` (from v18o): `connect` is a LinkedIn connection request (send the invite; `text`, if present, is the note), `message` is a message or email. Before v18o a connection request arrived as a LinkedIn message with empty text
+- `asset` is optional: the campaign asset this touch is built around. Its link is already in `text` where it belongs; attach it only if you support attachments
 - Send from the sending account linked to `account.user`, at a human pace, in working hours
 
 Response: `{ "ok": true, "ref": "your-message-id" }`
