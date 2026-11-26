@@ -42,7 +42,9 @@ export default async (req) => {
       body: JSON.stringify({ ...(b.payload || {}), account: { orgId: u.orgId, orgName: o.name || '', user: actAs, email: actAs, portalUser: me, premium: enabled } }) });
     const j = await r.json().catch(() => ({}));
     if (!r.ok) { const msg = String(j.error || j.message || '');
-      if (/linkedin/i.test(msg) && /(no|not)\b.*(connect|account)/i.test(msg)) return json({ error: 'Amplify has no LinkedIn account connected for ' + actAs + '. Connect LinkedIn in Amplify while signed in as ' + actAs + ', or set the email the outreach comes from in your agency profile to the address LinkedIn is connected under.', code: 'no_linkedin', actAs }, 409);
+      if (/linkedin/i.test(msg) && /(no|not)\b.*(connect|account)/i.test(msg)) { console.log('amplify no_linkedin', JSON.stringify({ action: b.action, actAs, orgId: u.orgId, status: r.status, partner: msg.slice(0, 300) }));
+        return json({ error: 'Amplify replied: "' + msg.slice(0, 200) + '" Plato asked it to act as ' + actAs + ' (workspace ' + (u.orgId || 'none') + ').', code: 'no_linkedin', actAs, orgId: u.orgId || '', partner: msg.slice(0, 300) }, 409); }
+      console.log('amplify error', JSON.stringify({ action: b.action, actAs, status: r.status, partner: msg.slice(0, 300) }));
       return bad(msg || 'Amplify could not do that just now', 502); }
     return json(j);
   } catch { return bad('Amplify could not be reached', 502); }
