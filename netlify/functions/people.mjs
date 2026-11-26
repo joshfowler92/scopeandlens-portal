@@ -5,7 +5,7 @@ export function shape(data) {
   return list.map((p) => {
     if (!p.last_name && p.last_name_obfuscated) return { name: '' };
     const name = (p.name || [p.first_name, p.last_name].filter(Boolean).join(' ')).trim();
-    return { name, title: p.title || '', linkedin: p.linkedin_url || '', seniority: p.seniority || '' };
+    return { name, title: p.title || '', linkedin: p.linkedin_url || '', seniority: p.seniority || '', photo: /^https:\/\//.test(p.photo_url || '') ? p.photo_url : '' };
   }).filter((p) => p.name && p.name.includes(' ') && !p.name.includes('*') && p.title);
 }
 export default async (req) => {

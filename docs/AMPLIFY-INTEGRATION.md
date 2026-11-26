@@ -186,3 +186,16 @@ Point `AMPLIFY_API_URL` at a staging endpoint, switch Amplify on for a test agen
 Pipeline shows "Deals from live conversations". Any organisation with a LinkedIn reply, email reply or meeting in the last 45 days that is not already in the pipeline is suggested as an engaged lead (replies) or meeting held (meetings), with the conversation as its source ("LinkedIn conversation via Amplify"). With "Add them automatically" on, Plato adds them as they arrive. The signals come from the same Amplify events feed (`ampEvents`) that powers Signals and intent, so no extra endpoint is needed.
 
 Sender fields for Amplify now live in the agency profile ("About you"): the sender's LinkedIn profile and the email the outreach comes from.
+
+## Which account Plato acts as, and photos (v18)
+
+`account.user` (and `account.email`) is the Amplify account Plato acts as, so the partner knows whose connected LinkedIn to search and send with. It is, in order:
+1. the "email the outreach comes from" in the agency profile, when it is on the same domain as the signed-in person (founders can use any address);
+2. the organisation's `ampAccount`, or `AMPLIFY_ACCOUNT_EMAIL` for founders;
+3. the signed-in person's email.
+
+`account.portalUser` is always the person signed in to Plato.
+
+If the partner answers that no LinkedIn account is connected, Plato returns `409 { code: "no_linkedin", actAs }`, falls back to licensed people data where it can, and asks the user which email LinkedIn is connected under.
+
+`find-people` is sent with `withPhotos: true`. Return a profile photo per person as `photo` (an https URL); `photoUrl`, `profilePicture`, `picture`, `avatar` and `image` are also accepted. Photos are stored with the person and shown wherever they appear.

@@ -5,7 +5,7 @@
 //   POST /api/amplify { action, payload }     companies | people | profile (open) · enrich | send | campaign | pause | resume | approve | status | events (Premium)
 //   POST /api/amplify-hook                    events from the partner, signed with AMPLIFY_WEBHOOK_SECRET
 import crypto from 'node:crypto';
-import { json, bad, needUser, getOrgs, store, getUsers , isFounder } from './_lib.mjs';
+import { json, bad, needUser, getOrgs, store, getUsers , isFounder, validEmail } from './_lib.mjs';
 const OPEN = ['companies', 'people', 'profile', 'find-people'];
 const PREMIUM = ['enrich', 'send', 'campaign', 'pause', 'resume', 'approve', 'status', 'events'];
 export default async (req) => {
@@ -23,12 +23,22 @@ export default async (req) => {
   /* events can also arrive by webhook: if the partner has pushed any, hand them over first */
   if (b.action === 'events') { const s = await store(); const k = 'ampev:' + (u.orgId || u.email); const L = (await s.get(k)) || [];
     if (L.length) { const mine = L.filter(e => !e.user || e.user === u.email); await s.set(k, L.filter(e => e.user && e.user !== u.email)); return json({ events: mine }); } }
+  /* which Amplify account (and so which connected LinkedIn) to act as. By default the signed-in person.
+     The agency profile's sending email can point at another mailbox on the same domain; founders can use any,
+     and AMPLIFY_ACCOUNT_EMAIL sets a default for them. */
+  const me = String(u.email || '').toLowerCase();
+  const want = String((b.payload && b.payload.as) || '').toLowerCase().trim();
+  const sameDomain = want.split('@')[1] && want.split('@')[1] === me.split('@')[1];
+  const actAs = (want && validEmail(want) && (sameDomain || isFounder(u))) ? want : String(o.ampAccount || (isFounder(u) && process.env.AMPLIFY_ACCOUNT_EMAIL) || me).toLowerCase();
+  if (b.payload) delete b.payload.as;
   try {
     const r = await fetch(process.env.AMPLIFY_API_URL.replace(/\/$/, '') + '/' + b.action, { method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + process.env.AMPLIFY_API_KEY },
-      body: JSON.stringify({ ...(b.payload || {}), account: { orgId: u.orgId, orgName: o.name || '', user: u.email, premium: enabled } }) });
+      body: JSON.stringify({ ...(b.payload || {}), account: { orgId: u.orgId, orgName: o.name || '', user: actAs, email: actAs, portalUser: me, premium: enabled } }) });
     const j = await r.json().catch(() => ({}));
-    if (!r.ok) return bad(j.error || 'Amplify could not do that just now', 502);
+    if (!r.ok) { const msg = String(j.error || j.message || '');
+      if (/linkedin/i.test(msg) && /(no|not)\b.*(connect|account)/i.test(msg)) return json({ error: 'Amplify has no LinkedIn account connected for ' + actAs + '. Connect LinkedIn in Amplify while signed in as ' + actAs + ', or set the email the outreach comes from in your agency profile to the address LinkedIn is connected under.', code: 'no_linkedin', actAs }, 409);
+      return bad(msg || 'Amplify could not do that just now', 502); }
     return json(j);
   } catch { return bad('Amplify could not be reached', 502); }
 };

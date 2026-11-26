@@ -635,3 +635,5 @@
 @keyframes line18{from{transform:scaleX(0)}}
 .cb18-s.on{animation:pop18 .5s cubic-bezier(.34,1.56,.64,1)}
 @media (prefers-reduced-motion:reduce){#bgfx18{display:none}.rv18,.sh-t .serif,.sd18-s .ag,#plato,.tb-pl{animation:none!important}.btn:hover,.card:hover{transform:none}}
+.av.ph,.ip-av.ph{padding:0;overflow:hidden;background:var(--bg)}.av.ph img,.ip-av.ph img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.sg18-p span.ph{overflow:hidden;padding:0}.sg18-p span.ph img{width:100%;height:100%;object-fit:cover;border-radius:50%}
